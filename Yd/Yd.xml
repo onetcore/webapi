@@ -1,0 +1,322 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Yd</name>
+    </assembly>
+    <members>
+        <member name="T:Yd.Program">
+            <summary>
+            启动类。
+            </summary>
+        </member>
+        <member name="M:Yd.Program.Main(System.String[])">
+            <summary>
+            启动方法。
+            </summary>
+            <param name="args">参数。</param>
+        </member>
+        <member name="M:Yd.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            启动网站服务。
+            </summary>
+            <param name="args">参数。</param>
+            <returns>返回服务器容器实例。</returns>
+        </member>
+        <member name="T:Yd.Properties.Resources">
+            <summary>
+              一个强类型的资源类，用于查找本地化的字符串等。
+            </summary>
+        </member>
+        <member name="P:Yd.Properties.Resources.ResourceManager">
+            <summary>
+              返回此类使用的缓存的 ResourceManager 实例。
+            </summary>
+        </member>
+        <member name="P:Yd.Properties.Resources.Culture">
+            <summary>
+              重写当前线程的 CurrentUICulture 属性
+              重写当前线程的 CurrentUICulture 属性。
+            </summary>
+        </member>
+        <member name="P:Yd.Properties.Resources.Anonymous">
+            <summary>
+              查找类似 游客 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Yd.Properties.Resources.ErrorCode_CaptchExpired">
+            <summary>
+              查找类似 验证码过期！ 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Yd.Properties.Resources.ErrorCode_InvalidCaptcha">
+            <summary>
+              查找类似 验证码错误！ 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Yd.Properties.Resources.ErrorCode_InvalidPhoneNumber">
+            <summary>
+              查找类似 电话号码不存在！ 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Yd.Properties.Resources.ErrorCode_InvalidUserNameOrPassword">
+            <summary>
+              查找类似 用户名或者密码错误！ 的本地化字符串。
+            </summary>
+        </member>
+        <member name="T:Yd.Security.Account.UserController">
+            <summary>
+            用户控制器。
+            </summary>
+        </member>
+        <member name="M:Yd.Security.Account.UserController.#ctor(Yd.Extensions.Security.IUserManager)">
+            <summary>
+            初始化类<see cref="T:Yd.Security.Account.UserController"/>。
+            </summary>
+            <param name="userManager">用户管理接口。</param>
+        </member>
+        <member name="M:Yd.Security.Account.UserController.GetCurrentUser">
+            <summary>
+            获取当前登录用户。
+            </summary>
+            <returns>返回当前登录用户实例。</returns>
+        </member>
+        <member name="T:Yd.Security.Admin.UserModel">
+            <summary>
+            用户模型。
+            </summary>
+        </member>
+        <member name="P:Yd.Security.Admin.UserModel.Id">
+            <summary>
+            用户Id。
+            </summary>
+        </member>
+        <member name="P:Yd.Security.Admin.UserModel.RealName">
+            <summary>
+            真实姓名。
+            </summary>
+        </member>
+        <member name="T:Yd.Security.Admin.UsersController">
+            <summary>
+            用户管理控制器。
+            </summary>
+        </member>
+        <member name="M:Yd.Security.Admin.UsersController.#ctor(Yd.Extensions.Security.IUserManager)">
+            <summary>
+            初始化类<see cref="T:Yd.Security.Admin.UsersController"/>。
+            </summary>
+            <param name="userManager">用户管理接口。</param>
+        </member>
+        <member name="M:Yd.Security.Admin.UsersController.LoadUsers(Yd.Extensions.Security.UserQuery)">
+            <summary>
+            分页获取用户实例。
+            </summary>
+            <param name="query">用户查询实例。</param>
+            <returns>返回用户分页实例。</returns>
+        </member>
+        <member name="T:Yd.Security.ErrorCode">
+            <summary>
+            错误编码。
+            </summary>
+        </member>
+        <member name="F:Yd.Security.ErrorCode.InvalidUserNameOrPassword">
+            <summary>
+            用户名或者密码错误！
+            </summary>
+        </member>
+        <member name="F:Yd.Security.ErrorCode.InvalidPhoneNumber">
+            <summary>
+            电话号码不存在！
+            </summary>
+        </member>
+        <member name="F:Yd.Security.ErrorCode.InvalidCaptcha">
+            <summary>
+            验证码错误！
+            </summary>
+        </member>
+        <member name="F:Yd.Security.ErrorCode.CaptchExpired">
+            <summary>
+            验证码过期。
+            </summary>
+        </member>
+        <member name="T:Yd.Security.Forget.ForgetController">
+            <summary>
+            忘记密码。
+            </summary>
+        </member>
+        <member name="M:Yd.Security.Forget.ForgetController.Post(Yd.Security.Forget.ForgetModel)">
+            <summary>
+            发送忘记密码API。
+            </summary>
+            <param name="model">忘记密码模型。</param>
+            <returns>返回忘记密码结果。</returns>
+        </member>
+        <member name="T:Yd.Security.Forget.ForgetModel">
+            <summary>
+            忘记密码模型。
+            </summary>
+        </member>
+        <member name="P:Yd.Security.Forget.ForgetModel.UserName">
+            <summary>
+            用户名。
+            </summary>
+        </member>
+        <member name="T:Yd.Security.Forget.ForgetResult">
+            <summary>
+            登录结果。
+            </summary>
+        </member>
+        <member name="P:Yd.Security.Forget.ForgetResult.Token">
+            <summary>
+            标签。
+            </summary>
+        </member>
+        <member name="T:Yd.Security.Login.LoginController">
+            <summary>
+            登录。
+            </summary>
+        </member>
+        <member name="M:Yd.Security.Login.LoginController.#ctor(Yd.Extensions.Security.IUserManager,Microsoft.Extensions.Configuration.IConfiguration,Gentings.Identity.Captchas.ICaptchaManager)">
+            <summary>
+            初始化类<see cref="T:Yd.Security.Login.LoginController"/>。
+            </summary>
+            <param name="userManager">用户管理接口。</param>
+            <param name="configuration">配置接口。</param>
+            <param name="captchaManager">验证码管理接口。</param>
+        </member>
+        <member name="M:Yd.Security.Login.LoginController.GetCaptcha(System.String)">
+            <summary>
+            获取手机验证码。
+            </summary>
+            <param name="mobile">电话号码。</param>
+            <returns>返回是否成功获取验证码。</returns>
+        </member>
+        <member name="M:Yd.Security.Login.LoginController.Post(Yd.Security.Login.LoginModel)">
+            <summary>
+            发送登录API。
+            </summary>
+            <param name="model">登录模型。</param>
+            <returns>返回登录结果。</returns>
+        </member>
+        <member name="T:Yd.Security.Login.LoginModel">
+            <summary>
+            登录模型。
+            </summary>
+        </member>
+        <member name="P:Yd.Security.Login.LoginModel.UserName">
+            <summary>
+            用户名。
+            </summary>
+        </member>
+        <member name="P:Yd.Security.Login.LoginModel.Password">
+            <summary>
+            密码。
+            </summary>
+        </member>
+        <member name="P:Yd.Security.Login.LoginModel.AutoLogin">
+            <summary>
+            记住登录状态。
+            </summary>
+        </member>
+        <member name="P:Yd.Security.Login.LoginModel.Mobile">
+            <summary>
+            电话号码。
+            </summary>
+        </member>
+        <member name="P:Yd.Security.Login.LoginModel.Captcha">
+            <summary>
+            短信验证码。
+            </summary>
+        </member>
+        <member name="P:Yd.Security.Login.LoginModel.Type">
+            <summary>
+            登录类型。
+            </summary>
+        </member>
+        <member name="T:Yd.Security.Login.LoginResult">
+            <summary>
+            登录结果。
+            </summary>
+        </member>
+        <member name="P:Yd.Security.Login.LoginResult.Token">
+            <summary>
+            标签。
+            </summary>
+        </member>
+        <member name="P:Yd.Security.Login.LoginResult.Type">
+            <summary>
+            登录类型。
+            </summary>
+        </member>
+        <member name="T:Yd.Security.Register.RegisterController">
+            <summary>
+            注册。
+            </summary>
+        </member>
+        <member name="M:Yd.Security.Register.RegisterController.Post(Yd.Security.Register.RegisterModel)">
+            <summary>
+            发送注册API。
+            </summary>
+            <param name="model">注册模型。</param>
+            <returns>返回注册结果。</returns>
+        </member>
+        <member name="T:Yd.Security.Register.RegisterModel">
+            <summary>
+            注册模型。
+            </summary>
+        </member>
+        <member name="P:Yd.Security.Register.RegisterModel.UserName">
+            <summary>
+            用户名。
+            </summary>
+        </member>
+        <member name="P:Yd.Security.Register.RegisterModel.Password">
+            <summary>
+            密码。
+            </summary>
+        </member>
+        <member name="P:Yd.Security.Register.RegisterModel.InviteKey">
+            <summary>
+            邀请码。
+            </summary>
+        </member>
+        <member name="P:Yd.Security.Register.RegisterModel.Intro">
+            <summary>
+            推广Id。
+            </summary>
+        </member>
+        <member name="T:Yd.Security.Register.RegisterResult">
+            <summary>
+            返回结果。
+            </summary>
+        </member>
+        <member name="T:Yd.Startup">
+            <summary>
+            启动类。
+            </summary>
+        </member>
+        <member name="M:Yd.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            初始化类<see cref="T:Yd.Startup"/>。
+            </summary>
+            <param name="configuration">配置实例。</param>
+        </member>
+        <member name="P:Yd.Startup.Configuration">
+            <summary>
+            配置接口实例。
+            </summary>
+        </member>
+        <member name="M:Yd.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            配置IOC服务。
+            </summary>
+            <param name="services">服务实例对象。</param>
+        </member>
+        <member name="M:Yd.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            配置管道环境。
+            </summary>
+            <param name="app">应用程序构建实例。</param>
+            <param name="env">环境变量。</param>
+        </member>
+    </members>
+</doc>
