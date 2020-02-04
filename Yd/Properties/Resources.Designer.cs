@@ -79,6 +79,15 @@ namespace Yd.Properties {
         }
         
         /// <summary>
+        ///   查找类似 短信验证码发送错误! 的本地化字符串。
+        /// </summary>
+        internal static string ErrorCode_GetCaptchaFailured {
+            get {
+                return ResourceManager.GetString("ErrorCode_GetCaptchaFailured", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 验证码错误！ 的本地化字符串。
         /// </summary>
         internal static string ErrorCode_InvalidCaptcha {
@@ -102,6 +111,15 @@ namespace Yd.Properties {
         internal static string ErrorCode_InvalidUserNameOrPassword {
             get {
                 return ResourceManager.GetString("ErrorCode_InvalidUserNameOrPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 电话号码已经存在! 的本地化字符串。
+        /// </summary>
+        internal static string ErrorCode_PhoneNumberAlreadyExisted {
+            get {
+                return ResourceManager.GetString("ErrorCode_PhoneNumberAlreadyExisted", resourceCulture);
             }
         }
     }

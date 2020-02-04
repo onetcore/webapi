@@ -48,6 +48,11 @@
               查找类似 验证码过期！ 的本地化字符串。
             </summary>
         </member>
+        <member name="P:Yd.Properties.Resources.ErrorCode_GetCaptchaFailured">
+            <summary>
+              查找类似 短信验证码发送错误! 的本地化字符串。
+            </summary>
+        </member>
         <member name="P:Yd.Properties.Resources.ErrorCode_InvalidCaptcha">
             <summary>
               查找类似 验证码错误！ 的本地化字符串。
@@ -61,6 +66,11 @@
         <member name="P:Yd.Properties.Resources.ErrorCode_InvalidUserNameOrPassword">
             <summary>
               查找类似 用户名或者密码错误！ 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Yd.Properties.Resources.ErrorCode_PhoneNumberAlreadyExisted">
+            <summary>
+              查找类似 电话号码已经存在! 的本地化字符串。
             </summary>
         </member>
         <member name="T:Yd.Security.Account.UserController">
@@ -120,22 +130,32 @@
         </member>
         <member name="F:Yd.Security.ErrorCode.InvalidUserNameOrPassword">
             <summary>
-            用户名或者密码错误！
+            用户名或者密码错误。
             </summary>
         </member>
         <member name="F:Yd.Security.ErrorCode.InvalidPhoneNumber">
             <summary>
-            电话号码不存在！
+            电话号码不存在。
             </summary>
         </member>
         <member name="F:Yd.Security.ErrorCode.InvalidCaptcha">
             <summary>
-            验证码错误！
+            验证码错误。
+            </summary>
+        </member>
+        <member name="F:Yd.Security.ErrorCode.GetCaptchaFailured">
+            <summary>
+            短信验证码发送错误。
             </summary>
         </member>
         <member name="F:Yd.Security.ErrorCode.CaptchExpired">
             <summary>
             验证码过期。
+            </summary>
+        </member>
+        <member name="F:Yd.Security.ErrorCode.PhoneNumberAlreadyExisted">
+            <summary>
+            电话号码已经存在。
             </summary>
         </member>
         <member name="T:Yd.Security.Forget.ForgetController">
@@ -251,6 +271,21 @@
             <summary>
             注册。
             </summary>
+        </member>
+        <member name="M:Yd.Security.Register.RegisterController.#ctor(Yd.Extensions.Security.IUserManager,Gentings.Identity.Captchas.ICaptchaManager)">
+            <summary>
+            初始化类<see cref="T:Yd.Security.Register.RegisterController"/>。
+            </summary>
+            <param name="userManager">用户管理接口。</param>
+            <param name="captchaManager">短信验证码管理接口。</param>
+        </member>
+        <member name="M:Yd.Security.Register.RegisterController.GetCaptcha(System.String,System.String)">
+            <summary>
+            获取手机验证码。
+            </summary>
+            <param name="mobile">电话号码。</param>
+            <param name="prefix">电话号码区码，如+86。</param>
+            <returns>返回是否成功获取验证码。</returns>
         </member>
         <member name="M:Yd.Security.Register.RegisterController.Post(Yd.Security.Register.RegisterModel)">
             <summary>

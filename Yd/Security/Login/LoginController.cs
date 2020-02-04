@@ -51,7 +51,9 @@ namespace Yd.Security.Login
             var random = new Random();
             var code = random.Next(100000, 999999).ToString();
             var success = await _captchaManager.SaveCaptchAsync(mobile, "login", code, 3);
-            return Ok(success);
+            if (success)
+                return OkResult();
+            return BadResult(ErrorCode.GetCaptchaFailured);
         }
 
         /// <summary>

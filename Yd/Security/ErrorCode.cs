@@ -6,20 +6,28 @@
     public enum ErrorCode
     {
         /// <summary>
-        /// 用户名或者密码错误！
+        /// 用户名或者密码错误。
         /// </summary>
         InvalidUserNameOrPassword = 10000,
         /// <summary>
-        /// 电话号码不存在！
+        /// 电话号码不存在。
         /// </summary>
-        InvalidPhoneNumber = 10001,
+        InvalidPhoneNumber,
         /// <summary>
-        /// 验证码错误！
+        /// 验证码错误。
         /// </summary>
-        InvalidCaptcha = 10002,
+        InvalidCaptcha,
+        /// <summary>
+        /// 短信验证码发送错误。
+        /// </summary>
+        GetCaptchaFailured,
         /// <summary>
         /// 验证码过期。
         /// </summary>
-        CaptchExpired = 10003,
+        CaptchExpired,
+        /// <summary>
+        /// 电话号码已经存在。
+        /// </summary>
+        PhoneNumberAlreadyExisted,
     }
 }
