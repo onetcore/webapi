@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Yd.Extensions.Security;
 using ControllerBase = Gentings.AspNetCore.ControllerBase;
 
-namespace Yd.Security.Admin
+namespace Yd.Security.Admin.Users
 {
     /// <summary>
     /// 用户管理控制器。

@@ -13,6 +13,11 @@ namespace Yd.Security.Login
         public string Token { get; set; }
 
         /// <summary>
+        /// 用户验证。
+        /// </summary>
+        public string Authority { get; set; }
+
+        /// <summary>
         /// 登录类型。
         /// </summary>
         public string Type { get; set; }

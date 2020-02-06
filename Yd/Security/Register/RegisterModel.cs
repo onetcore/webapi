@@ -18,13 +18,33 @@ namespace Yd.Security.Register
         public string Password { get; set; }
 
         /// <summary>
-        /// 邀请码。
+        /// 电子邮件。
         /// </summary>
-        public Guid? InviteKey { get; set; }
+        public string Mail { get; set; }
 
         /// <summary>
-        /// 推广Id。
+        /// 电话号码。
         /// </summary>
-        public int Intro { get; set; }
+        public string Mobile { get; set; }
+
+        /// <summary>
+        /// 短信验证码。
+        /// </summary>
+        public string Captcha { get; set; }
+
+        /// <summary>
+        /// 区码如：+86。
+        /// </summary>
+        public string Prefix { get; set; }
+
+        /// <summary>
+        /// 确认密码。
+        /// </summary>
+        public string Confirm { get; set; }
+
+        /// <summary>
+        /// 邀请码。
+        /// </summary>
+        public string InviteKey { get; set; }
     }
 }

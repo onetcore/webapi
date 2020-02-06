@@ -21,6 +21,7 @@ namespace Yd.Security.Login
     public class LoginController : ControllerBase
     {
         private readonly IUserManager _userManager;
+        private readonly IRoleManager _roleManager;
         private readonly IConfiguration _configuration;
         private readonly ICaptchaManager _captchaManager;
 
@@ -28,11 +29,13 @@ namespace Yd.Security.Login
         /// 初始化类<see cref="LoginController"/>。
         /// </summary>
         /// <param name="userManager">用户管理接口。</param>
+        /// <param name="roleManager">角色管理接口。</param>
         /// <param name="configuration">配置接口。</param>
         /// <param name="captchaManager">验证码管理接口。</param>
-        public LoginController(IUserManager userManager, IConfiguration configuration, ICaptchaManager captchaManager)
+        public LoginController(IUserManager userManager, IRoleManager roleManager, IConfiguration configuration, ICaptchaManager captchaManager)
         {
             _userManager = userManager;
+            _roleManager = roleManager;
             _configuration = configuration;
             _captchaManager = captchaManager;
         }
@@ -89,6 +92,25 @@ namespace Yd.Security.Login
                 await _userManager.SignInManager.SignInAsync(user, model.AutoLogin);
             }
 
+            var authority = Authority.Guess;
+            var role = await _roleManager.FindByIdAsync(user.RoleId);
+            if (role != null)
+            {
+                if (role.IsSystem) authority = Authority.Admin;
+                else authority = Authority.User;
+            }
+            return OkResult(new LoginResult { Type = model.Type, Token = GetToken(user), Authority = authority.ToString().ToLower() });
+        }
+
+        private enum Authority
+        {
+            Admin,
+            User,
+            Guess,
+        }
+
+        private string GetToken(User user)
+        {
             var claims = new List<Claim>
             {
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
@@ -105,8 +127,7 @@ namespace Yd.Security.Login
                 expires: expires,
                 signingCredentials: creds
             );
-
-            return OkResult(new LoginResult { Token = new JwtSecurityTokenHandler().WriteToken(token) });
+            return new JwtSecurityTokenHandler().WriteToken(token);
         }
     }
 }

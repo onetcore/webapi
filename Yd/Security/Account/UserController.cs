@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Gentings.Identity;
+using Gentings.Identity.Events;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Yd.Extensions.Security;
@@ -16,13 +17,17 @@ namespace Yd.Security.Account
     public class UserController : ControllerBase
     {
         private readonly IUserManager _userManager;
+        private readonly IEventLogger _logger;
+
         /// <summary>
         /// 初始化类<see cref="UserController"/>。
         /// </summary>
         /// <param name="userManager">用户管理接口。</param>
-        public UserController(IUserManager userManager)
+        /// <param name="logger">用户事件日志。</param>
+        public UserController(IUserManager userManager, IEventLogger logger)
         {
             _userManager = userManager;
+            _logger = logger;
         }
 
         /// <summary>
@@ -39,6 +44,17 @@ namespace Yd.Security.Account
             if (user == null)
                 return BadRequest();
             return Ok(user);
+        }
+
+        /// <summary>
+        /// 退出登录。
+        /// </summary>
+        [HttpPost("logout")]
+        public async Task<IActionResult> Logout(string returnUrl = null)
+        {
+            await _userManager.SignOutAsync();
+            _logger.LogUser("退出了登录。");
+            return OkResult();
         }
     }
 }

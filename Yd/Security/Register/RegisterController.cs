@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Gentings.Identity;
 using Gentings.Identity.Captchas;
+using Gentings.Identity.Events;
 using Microsoft.AspNetCore.Mvc;
 using Yd.Extensions.Security;
+using Yd.Properties;
 using ControllerBase = Gentings.AspNetCore.ControllerBase;
 
 namespace Yd.Security.Register
@@ -16,15 +19,19 @@ namespace Yd.Security.Register
     {
         private readonly IUserManager _userManager;
         private readonly ICaptchaManager _captchaManager;
+        private readonly IEventLogger _logger;
+
         /// <summary>
         /// 初始化类<see cref="RegisterController"/>。
         /// </summary>
         /// <param name="userManager">用户管理接口。</param>
         /// <param name="captchaManager">短信验证码管理接口。</param>
-        public RegisterController(IUserManager userManager, ICaptchaManager captchaManager)
+        /// <param name="logger">用户日志。</param>
+        public RegisterController(IUserManager userManager, ICaptchaManager captchaManager, IEventLogger logger)
         {
             _userManager = userManager;
             _captchaManager = captchaManager;
+            _logger = logger;
         }
 
         /// <summary>
@@ -53,9 +60,30 @@ namespace Yd.Security.Register
         /// <param name="model">注册模型。</param>
         /// <returns>返回注册结果。</returns>
         [HttpPost]
-        public IActionResult Post([FromBody] RegisterModel model)
+        public async Task<IActionResult> Post([FromBody] RegisterModel model)
         {
-            return Ok(new RegisterResult());
+            var captcha = await _captchaManager.GetCaptchaAsync(model.Mobile, "login");
+            if (captcha == null)
+                return BadResult(ErrorCode.InvalidCaptcha);
+            if (captcha.CaptchaExpiredDate <= DateTimeOffset.Now)
+                return BadResult(ErrorCode.CaptchExpired);
+            if (!captcha.Code.Equals(model.Captcha, StringComparison.OrdinalIgnoreCase))
+                return BadResult(ErrorCode.InvalidCaptcha);
+            var user = new User();
+            user.UserName = model.UserName;
+            user.Email = model.Mail;
+            user.PhoneNumber = model.Mobile;
+            if (model.Prefix != "86")
+                user.PhoneNumber = model.Prefix + " " + user.PhoneNumber;
+            user.PhoneNumberConfirmed = true;
+
+            var result = await _userManager.CreateAsync(user, model.Password);
+            if (result.Succeeded)
+            {
+                _logger.LogUser(user.Id, Resources.Register_Success);
+                return OkResult();
+            }
+            return BadResult(ErrorCode.RegisterFailured,result.ToErrorString());
         }
     }
 }

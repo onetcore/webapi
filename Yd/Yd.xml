@@ -73,16 +73,22 @@
               查找类似 电话号码已经存在! 的本地化字符串。
             </summary>
         </member>
+        <member name="P:Yd.Properties.Resources.Register_Success">
+            <summary>
+              查找类似 成功开通了账户。 的本地化字符串。
+            </summary>
+        </member>
         <member name="T:Yd.Security.Account.UserController">
             <summary>
             用户控制器。
             </summary>
         </member>
-        <member name="M:Yd.Security.Account.UserController.#ctor(Yd.Extensions.Security.IUserManager)">
+        <member name="M:Yd.Security.Account.UserController.#ctor(Yd.Extensions.Security.IUserManager,Gentings.Identity.Events.IEventLogger)">
             <summary>
             初始化类<see cref="T:Yd.Security.Account.UserController"/>。
             </summary>
             <param name="userManager">用户管理接口。</param>
+            <param name="logger">用户事件日志。</param>
         </member>
         <member name="M:Yd.Security.Account.UserController.GetCurrentUser">
             <summary>
@@ -90,33 +96,122 @@
             </summary>
             <returns>返回当前登录用户实例。</returns>
         </member>
-        <member name="T:Yd.Security.Admin.UserModel">
+        <member name="M:Yd.Security.Account.UserController.Logout(System.String)">
+            <summary>
+            退出登录。
+            </summary>
+        </member>
+        <member name="T:Yd.Security.Admin.Roles.RoleController">
+            <summary>
+            角色控制器。
+            </summary>
+        </member>
+        <member name="M:Yd.Security.Admin.Roles.RoleController.#ctor(Yd.Extensions.Security.IRoleManager)">
+            <summary>
+            初始化类<see cref="T:Yd.Security.Admin.Roles.RoleController"/>。
+            </summary>
+            <param name="roleManager">角色管理接口。</param>
+        </member>
+        <member name="M:Yd.Security.Admin.Roles.RoleController.Create(Yd.Extensions.Security.Role)">
+            <summary>
+            添加角色。
+            </summary>
+            <param name="model">角色模型。</param>
+            <returns>返回添加结果。</returns>
+        </member>
+        <member name="M:Yd.Security.Admin.Roles.RoleController.Update(Yd.Extensions.Security.Role)">
+            <summary>
+            添加角色。
+            </summary>
+            <param name="model">角色模型。</param>
+            <returns>返回添加结果。</returns>
+        </member>
+        <member name="T:Yd.Security.Admin.Roles.RolesController">
+            <summary>
+            角色控制器。
+            </summary>
+        </member>
+        <member name="M:Yd.Security.Admin.Roles.RolesController.#ctor(Yd.Extensions.Security.IRoleManager)">
+            <summary>
+            初始化类<see cref="T:Yd.Security.Admin.Roles.RolesController"/>。
+            </summary>
+            <param name="roleManager">角色管理接口。</param>
+        </member>
+        <member name="M:Yd.Security.Admin.Roles.RolesController.Query">
+            <summary>
+            获取所有角色列表。
+            </summary>
+            <returns>所有角色列表。</returns>
+        </member>
+        <member name="M:Yd.Security.Admin.Roles.RolesController.Remove(System.Int32[])">
+            <summary>
+            删除角色。
+            </summary>
+            <param name="ids">删除的Id集合。</param>
+            <returns>返回操作结果。</returns>
+        </member>
+        <member name="T:Yd.Security.Admin.Users.UserModel">
             <summary>
             用户模型。
             </summary>
         </member>
-        <member name="P:Yd.Security.Admin.UserModel.Id">
+        <member name="P:Yd.Security.Admin.Users.UserModel.Id">
             <summary>
             用户Id。
             </summary>
         </member>
-        <member name="P:Yd.Security.Admin.UserModel.RealName">
+        <member name="P:Yd.Security.Admin.Users.UserModel.UserName">
+            <summary>
+            用户名称。
+            </summary>
+        </member>
+        <member name="P:Yd.Security.Admin.Users.UserModel.RealName">
             <summary>
             真实姓名。
             </summary>
         </member>
-        <member name="T:Yd.Security.Admin.UsersController">
+        <member name="P:Yd.Security.Admin.Users.UserModel.PhoneNumber">
+            <summary>
+            电话号码。
+            </summary>
+        </member>
+        <member name="P:Yd.Security.Admin.Users.UserModel.Email">
+            <summary>
+            电子邮件。
+            </summary>
+        </member>
+        <member name="P:Yd.Security.Admin.Users.UserModel.CreatedIP">
+            <summary>
+            注册IP。
+            </summary>
+        </member>
+        <member name="P:Yd.Security.Admin.Users.UserModel.LoginIP">
+            <summary>
+            登录IP。
+            </summary>
+        </member>
+        <member name="P:Yd.Security.Admin.Users.UserModel.LastLoginDate">
+            <summary>
+            最后登录时间。
+            </summary>
+        </member>
+        <member name="T:Yd.Security.Admin.Users.UserQuery">
+            <summary>
+            用户查询。
+            </summary>
+        </member>
+        <member name="T:Yd.Security.Admin.Users.UsersController">
             <summary>
             用户管理控制器。
             </summary>
         </member>
-        <member name="M:Yd.Security.Admin.UsersController.#ctor(Yd.Extensions.Security.IUserManager)">
+        <member name="M:Yd.Security.Admin.Users.UsersController.#ctor(Yd.Extensions.Security.IUserManager)">
             <summary>
-            初始化类<see cref="T:Yd.Security.Admin.UsersController"/>。
+            初始化类<see cref="T:Yd.Security.Admin.Users.UsersController"/>。
             </summary>
             <param name="userManager">用户管理接口。</param>
         </member>
-        <member name="M:Yd.Security.Admin.UsersController.LoadUsers(Yd.Extensions.Security.UserQuery)">
+        <member name="M:Yd.Security.Admin.Users.UsersController.LoadUsers(Yd.Security.Admin.Users.UserQuery)">
             <summary>
             分页获取用户实例。
             </summary>
@@ -158,6 +253,16 @@
             电话号码已经存在。
             </summary>
         </member>
+        <member name="F:Yd.Security.ErrorCode.RegisterFailured">
+            <summary>
+            注册失败。
+            </summary>
+        </member>
+        <member name="F:Yd.Security.ErrorCode.RoleNotFound">
+            <summary>
+            角色未找到。
+            </summary>
+        </member>
         <member name="T:Yd.Security.Forget.ForgetController">
             <summary>
             忘记密码。
@@ -195,11 +300,12 @@
             登录。
             </summary>
         </member>
-        <member name="M:Yd.Security.Login.LoginController.#ctor(Yd.Extensions.Security.IUserManager,Microsoft.Extensions.Configuration.IConfiguration,Gentings.Identity.Captchas.ICaptchaManager)">
+        <member name="M:Yd.Security.Login.LoginController.#ctor(Yd.Extensions.Security.IUserManager,Yd.Extensions.Security.IRoleManager,Microsoft.Extensions.Configuration.IConfiguration,Gentings.Identity.Captchas.ICaptchaManager)">
             <summary>
             初始化类<see cref="T:Yd.Security.Login.LoginController"/>。
             </summary>
             <param name="userManager">用户管理接口。</param>
+            <param name="roleManager">角色管理接口。</param>
             <param name="configuration">配置接口。</param>
             <param name="captchaManager">验证码管理接口。</param>
         </member>
@@ -262,6 +368,11 @@
             标签。
             </summary>
         </member>
+        <member name="P:Yd.Security.Login.LoginResult.Authority">
+            <summary>
+            用户验证。
+            </summary>
+        </member>
         <member name="P:Yd.Security.Login.LoginResult.Type">
             <summary>
             登录类型。
@@ -272,12 +383,13 @@
             注册。
             </summary>
         </member>
-        <member name="M:Yd.Security.Register.RegisterController.#ctor(Yd.Extensions.Security.IUserManager,Gentings.Identity.Captchas.ICaptchaManager)">
+        <member name="M:Yd.Security.Register.RegisterController.#ctor(Yd.Extensions.Security.IUserManager,Gentings.Identity.Captchas.ICaptchaManager,Gentings.Identity.Events.IEventLogger)">
             <summary>
             初始化类<see cref="T:Yd.Security.Register.RegisterController"/>。
             </summary>
             <param name="userManager">用户管理接口。</param>
             <param name="captchaManager">短信验证码管理接口。</param>
+            <param name="logger">用户日志。</param>
         </member>
         <member name="M:Yd.Security.Register.RegisterController.GetCaptcha(System.String,System.String)">
             <summary>
@@ -309,14 +421,34 @@
             密码。
             </summary>
         </member>
+        <member name="P:Yd.Security.Register.RegisterModel.Mail">
+            <summary>
+            电子邮件。
+            </summary>
+        </member>
+        <member name="P:Yd.Security.Register.RegisterModel.Mobile">
+            <summary>
+            电话号码。
+            </summary>
+        </member>
+        <member name="P:Yd.Security.Register.RegisterModel.Captcha">
+            <summary>
+            短信验证码。
+            </summary>
+        </member>
+        <member name="P:Yd.Security.Register.RegisterModel.Prefix">
+            <summary>
+            区码如：+86。
+            </summary>
+        </member>
+        <member name="P:Yd.Security.Register.RegisterModel.Confirm">
+            <summary>
+            确认密码。
+            </summary>
+        </member>
         <member name="P:Yd.Security.Register.RegisterModel.InviteKey">
             <summary>
             邀请码。
-            </summary>
-        </member>
-        <member name="P:Yd.Security.Register.RegisterModel.Intro">
-            <summary>
-            推广Id。
             </summary>
         </member>
         <member name="T:Yd.Security.Register.RegisterResult">

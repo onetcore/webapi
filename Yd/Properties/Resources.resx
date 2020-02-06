@@ -138,4 +138,7 @@
   <data name="ErrorCode_PhoneNumberAlreadyExisted" xml:space="preserve">
     <value>电话号码已经存在!</value>
   </data>
+  <data name="Register_Success" xml:space="preserve">
+    <value>成功开通了账户。</value>
+  </data>
 </root>

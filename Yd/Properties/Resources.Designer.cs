@@ -122,5 +122,14 @@ namespace Yd.Properties {
                 return ResourceManager.GetString("ErrorCode_PhoneNumberAlreadyExisted", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   查找类似 成功开通了账户。 的本地化字符串。
+        /// </summary>
+        internal static string Register_Success {
+            get {
+                return ResourceManager.GetString("Register_Success", resourceCulture);
+            }
+        }
     }
 }
