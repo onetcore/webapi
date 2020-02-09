@@ -34,7 +34,8 @@ namespace Yd.Security.Admin.Roles
         public async Task<IActionResult> Query()
         {
             var roles = await _roleManager.LoadAsync();
-            return OkResult(roles);
+            roles = roles.Where(x => !x.IsSystem);
+            return OkResult(roles.Select(x => new RoleModel(x)));
         }
 
         /// <summary>
@@ -45,12 +46,8 @@ namespace Yd.Security.Admin.Roles
         [HttpPost("remove")]
         public async Task<IActionResult> Remove([FromBody]int[] ids)
         {
-            var roles = await _roleManager.LoadAsync();
-            var defaultIds = roles.Where(x =>
-                    x.NormalizedName == DefaultRole.MemberName || x.NormalizedName == DefaultRole.OwnerName)
-                .Select(x => x.Id)
-                .ToArray();
-            ids = ids.Where(id => !defaultIds.Contains(id)).ToArray();
+            if (ids == null || ids.Length == 0)
+                return BadParameter(nameof(ids));
             var result = await _roleManager.DeleteAsync(ids);
             if (result.Succeeded)
                 return OkResult();

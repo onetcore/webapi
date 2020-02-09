@@ -31,9 +31,15 @@ namespace Yd.Security.Admin.Roles
         /// <param name="model">角色模型。</param>
         /// <returns>返回添加结果。</returns>
         [HttpPost("create")]
-        public async Task<IActionResult> Create([FromBody]Role model)
+        public async Task<IActionResult> Create([FromBody]CreateRoleModel model)
         {
-            var result = await _roleManager.CreateAsync(model);
+            var role = new Role
+            {
+                Name = model.Name,
+                Color = model.Color,
+                IconUrl = model.IconUrl
+            };
+            var result = await _roleManager.CreateAsync(role);
             if (result.Succeeded)
                 return OkResult();
             return BadResult(result.ToErrorString());
@@ -45,7 +51,7 @@ namespace Yd.Security.Admin.Roles
         /// <param name="model">角色模型。</param>
         /// <returns>返回添加结果。</returns>
         [HttpPost("update")]
-        public async Task<IActionResult> Update([FromBody]Role model)
+        public async Task<IActionResult> Update([FromBody]UpdateRoleModel model)
         {
             var role = await _roleManager.FindByIdAsync(model.Id);
             if (role == null)

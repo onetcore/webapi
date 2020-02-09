@@ -112,19 +112,59 @@
             </summary>
             <param name="roleManager">角色管理接口。</param>
         </member>
-        <member name="M:Yd.Security.Admin.Roles.RoleController.Create(Yd.Extensions.Security.Role)">
+        <member name="M:Yd.Security.Admin.Roles.RoleController.Create(Yd.Security.Admin.Roles.CreateRoleModel)">
             <summary>
             添加角色。
             </summary>
             <param name="model">角色模型。</param>
             <returns>返回添加结果。</returns>
         </member>
-        <member name="M:Yd.Security.Admin.Roles.RoleController.Update(Yd.Extensions.Security.Role)">
+        <member name="M:Yd.Security.Admin.Roles.RoleController.Update(Yd.Security.Admin.Roles.UpdateRoleModel)">
             <summary>
             添加角色。
             </summary>
             <param name="model">角色模型。</param>
             <returns>返回添加结果。</returns>
+        </member>
+        <member name="T:Yd.Security.Admin.Roles.CreateRoleModel">
+            <summary>
+            添加角色模型。
+            </summary>
+        </member>
+        <member name="P:Yd.Security.Admin.Roles.CreateRoleModel.Name">
+            <summary>
+            角色名称。
+            </summary>
+        </member>
+        <member name="P:Yd.Security.Admin.Roles.CreateRoleModel.Color">
+            <summary>
+            颜色。
+            </summary>
+        </member>
+        <member name="P:Yd.Security.Admin.Roles.CreateRoleModel.IconUrl">
+            <summary>
+            图标。
+            </summary>
+        </member>
+        <member name="T:Yd.Security.Admin.Roles.UpdateRoleModel">
+            <summary>
+            更新角色模型。
+            </summary>
+        </member>
+        <member name="P:Yd.Security.Admin.Roles.UpdateRoleModel.Id">
+            <summary>
+            角色Id。
+            </summary>
+        </member>
+        <member name="T:Yd.Security.Admin.Roles.RoleModel">
+            <summary>
+            角色模型。
+            </summary>
+        </member>
+        <member name="P:Yd.Security.Admin.Roles.RoleModel.Level">
+            <summary>
+            角色等级。
+            </summary>
         </member>
         <member name="T:Yd.Security.Admin.Roles.RolesController">
             <summary>

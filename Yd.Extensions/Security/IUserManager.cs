@@ -8,5 +8,6 @@ namespace Yd.Extensions.Security
     /// </summary>
     public interface IUserManager : IUserManager<User, Role>, IScopedService
     {
+        
     }
 }
