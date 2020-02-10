@@ -1,18 +1,13 @@
 ﻿using System.Threading.Tasks;
 using Gentings.Identity;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Yd.Extensions.Security;
-using ControllerBase = Gentings.AspNetCore.ControllerBase;
 
 namespace Yd.Security.Admin.Roles
 {
     /// <summary>
     /// 角色控制器。
     /// </summary>
-    [Authorize]
-    [ApiController]
-    [Route("api/[controller]")]
     public class RoleController : ControllerBase
     {
         private readonly IRoleManager _roleManager;

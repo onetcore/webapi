@@ -37,5 +37,9 @@
         /// 角色未找到。
         /// </summary>
         RoleNotFound,
+        /// <summary>
+        /// 用户未找到。
+        /// </summary>
+        UserNotFound,
     }
 }

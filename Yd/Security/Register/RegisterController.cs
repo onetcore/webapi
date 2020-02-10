@@ -6,15 +6,12 @@ using Gentings.Identity.Events;
 using Microsoft.AspNetCore.Mvc;
 using Yd.Extensions.Security;
 using Yd.Properties;
-using ControllerBase = Gentings.AspNetCore.ControllerBase;
 
 namespace Yd.Security.Register
 {
     /// <summary>
     /// 注册。
     /// </summary>
-    [ApiController]
-    [Route("api/[controller]")]
     public class RegisterController : ControllerBase
     {
         private readonly IUserManager _userManager;

@@ -1,17 +1,14 @@
-﻿using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
+﻿using System.Linq;
+using System.Threading.Tasks;
+using Gentings.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Yd.Extensions.Security;
-using ControllerBase = Gentings.AspNetCore.ControllerBase;
 
 namespace Yd.Security.Admin.Users
 {
     /// <summary>
     /// 用户管理控制器。
     /// </summary>
-    [Authorize]
-    [ApiController]
-    [Route("api/[controller]")]
     public class UsersController : ControllerBase
     {
         private readonly IUserManager _userManager;
@@ -34,6 +31,24 @@ namespace Yd.Security.Admin.Users
         {
             var data = await _userManager.LoadAsync<UserQuery, UserModel>(query);
             return OkResult(data);
+        }
+
+        /// <summary>
+        /// 删除用户。
+        /// </summary>
+        /// <param name="ids">删除用户的Id集合。</param>
+        /// <returns>返回删除结果。</returns>
+        [HttpPost("remove")]
+        public async Task<IActionResult> Remove(int[] ids)
+        {
+            if (ids == null || ids.Length == 0)
+                return BadParameter(nameof(ids));
+            if (ids.Contains(UserId))
+                return BadResult("不能删除自己的账户！");
+            var result = await _userManager.DeleteAsync(ids);
+            if (result.Succeeded)
+                return OkResult();
+            return BadResult(result.ToErrorString());
         }
     }
 }

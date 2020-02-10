@@ -9,15 +9,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using Yd.Extensions.Security;
-using ControllerBase = Gentings.AspNetCore.ControllerBase;
 
 namespace Yd.Security.Login
 {
     /// <summary>
     /// 登录。
     /// </summary>
-    [ApiController]
-    [Route("api/[controller]")]
     public class LoginController : ControllerBase
     {
         private readonly IUserManager _userManager;

@@ -1,19 +1,14 @@
 ﻿using System.Threading.Tasks;
 using Gentings.Identity;
 using Gentings.Identity.Events;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Yd.Extensions.Security;
-using ControllerBase = Gentings.AspNetCore.ControllerBase;
 
 namespace Yd.Security.Account
 {
     /// <summary>
     /// 用户控制器。
     /// </summary>
-    [Authorize]
-    [ApiController]
-    [Route("api/[controller]")]
     public class UserController : ControllerBase
     {
         private readonly IUserManager _userManager;

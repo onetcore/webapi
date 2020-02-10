@@ -73,9 +73,29 @@
               查找类似 电话号码已经存在! 的本地化字符串。
             </summary>
         </member>
+        <member name="P:Yd.Properties.Resources.ErrorCode_RegisterFailured">
+            <summary>
+              查找类似 注册失败！ 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Yd.Properties.Resources.ErrorCode_RoleNotFound">
+            <summary>
+              查找类似 未找到角色！ 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Yd.Properties.Resources.ErrorCode_UserNotFound">
+            <summary>
+              查找类似 未找到用户！ 的本地化字符串。
+            </summary>
+        </member>
         <member name="P:Yd.Properties.Resources.Register_Success">
             <summary>
               查找类似 成功开通了账户。 的本地化字符串。
+            </summary>
+        </member>
+        <member name="T:Yd.Security.Account.ControllerBase">
+            <summary>
+            控制器基类。
             </summary>
         </member>
         <member name="T:Yd.Security.Account.UserController">
@@ -99,6 +119,11 @@
         <member name="M:Yd.Security.Account.UserController.Logout(System.String)">
             <summary>
             退出登录。
+            </summary>
+        </member>
+        <member name="T:Yd.Security.Admin.ControllerBase">
+            <summary>
+            控制器基类。
             </summary>
         </member>
         <member name="T:Yd.Security.Admin.Roles.RoleController">
@@ -190,6 +215,88 @@
             <param name="ids">删除的Id集合。</param>
             <returns>返回操作结果。</returns>
         </member>
+        <member name="T:Yd.Security.Admin.Users.CreateUserModel">
+            <summary>
+            新建用户模型。
+            </summary>
+        </member>
+        <member name="P:Yd.Security.Admin.Users.CreateUserModel.PhoneNumber">
+            <summary>
+            电话号码。
+            </summary>
+        </member>
+        <member name="P:Yd.Security.Admin.Users.CreateUserModel.Email">
+            <summary>
+            电子邮件。
+            </summary>
+        </member>
+        <member name="P:Yd.Security.Admin.Users.CreateUserModel.RealName">
+            <summary>
+            真实姓名。
+            </summary>
+        </member>
+        <member name="P:Yd.Security.Admin.Users.CreateUserModel.UserName">
+            <summary>
+            用户名。
+            </summary>
+        </member>
+        <member name="P:Yd.Security.Admin.Users.CreateUserModel.Password">
+            <summary>
+            密码。
+            </summary>
+        </member>
+        <member name="P:Yd.Security.Admin.Users.CreateUserModel.Confirm">
+            <summary>
+            确认密码。
+            </summary>
+        </member>
+        <member name="P:Yd.Security.Admin.Users.CreateUserModel.Summary">
+            <summary>
+            描述。
+            </summary>
+        </member>
+        <member name="T:Yd.Security.Admin.Users.UpdateUserModel">
+            <summary>
+            更新用户模型。
+            </summary>
+        </member>
+        <member name="P:Yd.Security.Admin.Users.UpdateUserModel.Id">
+            <summary>
+            用户Id。
+            </summary>
+        </member>
+        <member name="T:Yd.Security.Admin.Users.UserController">
+            <summary>
+            用户控制器。
+            </summary>
+        </member>
+        <member name="M:Yd.Security.Admin.Users.UserController.#ctor(Yd.Extensions.Security.IUserManager)">
+            <summary>
+            初始化类<see cref="T:Yd.Security.Admin.Users.UserController"/>。
+            </summary>
+            <param name="userManager">用户管理接口。</param>
+        </member>
+        <member name="M:Yd.Security.Admin.Users.UserController.GetUpdate(System.Int32)">
+            <summary>
+            获取更新用户所用到的实例。
+            </summary>
+            <param name="id">用户Id。</param>
+            <returns>返回用户实例。</returns>
+        </member>
+        <member name="M:Yd.Security.Admin.Users.UserController.Create(Yd.Security.Admin.Users.CreateUserModel)">
+            <summary>
+            添加用户。
+            </summary>
+            <param name="model">用户模型。</param>
+            <returns>返回添加结果。</returns>
+        </member>
+        <member name="M:Yd.Security.Admin.Users.UserController.Update(Yd.Security.Admin.Users.UpdateUserModel)">
+            <summary>
+            更新用户。
+            </summary>
+            <param name="model">用户模型。</param>
+            <returns>返回更新结果。</returns>
+        </member>
         <member name="T:Yd.Security.Admin.Users.UserModel">
             <summary>
             用户模型。
@@ -258,6 +365,18 @@
             <param name="query">用户查询实例。</param>
             <returns>返回用户分页实例。</returns>
         </member>
+        <member name="M:Yd.Security.Admin.Users.UsersController.Remove(System.Int32[])">
+            <summary>
+            删除用户。
+            </summary>
+            <param name="ids">删除用户的Id集合。</param>
+            <returns>返回删除结果。</returns>
+        </member>
+        <member name="T:Yd.Security.ControllerBase">
+            <summary>
+            控制器基类。
+            </summary>
+        </member>
         <member name="T:Yd.Security.ErrorCode">
             <summary>
             错误编码。
@@ -301,6 +420,11 @@
         <member name="F:Yd.Security.ErrorCode.RoleNotFound">
             <summary>
             角色未找到。
+            </summary>
+        </member>
+        <member name="F:Yd.Security.ErrorCode.UserNotFound">
+            <summary>
+            用户未找到。
             </summary>
         </member>
         <member name="T:Yd.Security.Forget.ForgetController">

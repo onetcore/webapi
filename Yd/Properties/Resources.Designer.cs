@@ -124,6 +124,33 @@ namespace Yd.Properties {
         }
         
         /// <summary>
+        ///   查找类似 注册失败！ 的本地化字符串。
+        /// </summary>
+        internal static string ErrorCode_RegisterFailured {
+            get {
+                return ResourceManager.GetString("ErrorCode_RegisterFailured", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 未找到角色！ 的本地化字符串。
+        /// </summary>
+        internal static string ErrorCode_RoleNotFound {
+            get {
+                return ResourceManager.GetString("ErrorCode_RoleNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 未找到用户！ 的本地化字符串。
+        /// </summary>
+        internal static string ErrorCode_UserNotFound {
+            get {
+                return ResourceManager.GetString("ErrorCode_UserNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 成功开通了账户。 的本地化字符串。
         /// </summary>
         internal static string Register_Success {
