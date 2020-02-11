@@ -21,6 +21,16 @@ namespace Yd.Security.Admin.Roles
         /// 图标。
         /// </summary>
         public string IconUrl { get; set; }
+
+        /// <summary>
+        /// 系统管理员。
+        /// </summary>
+        public bool IsSystem { get; set; }
+
+        /// <summary>
+        /// 默认角色。
+        /// </summary>
+        public bool IsDefault { get; set; }
     }
 
     /// <summary>
@@ -46,6 +56,8 @@ namespace Yd.Security.Admin.Roles
             IconUrl = role.IconUrl;
             Name = role.Name;
             Level = role.RoleLevel;
+            IsSystem = role.IsSystem;
+            IsDefault = role.IsDefault;
         }
 
         /// <summary>

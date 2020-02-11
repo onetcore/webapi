@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Gentings\Gentings.Identity\Gentings.Identity.csproj" />
+    <ProjectReference Include="..\..\gentings\Gentings.Installers\Gentings.Installers.csproj" />
     <ProjectReference Include="..\..\Gentings\Gentings\Gentings.csproj" />
   </ItemGroup>
 

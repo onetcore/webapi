@@ -29,7 +29,6 @@ namespace Yd.Security.Admin.Roles
         public async Task<IActionResult> Query()
         {
             var roles = await _roleManager.LoadAsync();
-            roles = roles.Where(x => !x.IsSystem);
             return OkResult(roles.Select(x => new RoleModel(x)));
         }
 

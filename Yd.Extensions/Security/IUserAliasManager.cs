@@ -8,7 +8,7 @@ namespace Yd.Extensions.Security
     /// <summary>
     /// 用户别名管理接口。
     /// </summary>
-    public interface IUserAliasManager : IObjectManager<UserAlias, Guid>, ISingletonService
+    public interface IUserAliasManager : IObjectManager<UserAlias, string>, ISingletonService
     {
 
     }
@@ -16,7 +16,7 @@ namespace Yd.Extensions.Security
     /// <summary>
     /// 用户别名管理类型。
     /// </summary>
-    public class UserAliasManager : ObjectManager<UserAlias, Guid>, IUserAliasManager
+    public class UserAliasManager : ObjectManager<UserAlias, string>, IUserAliasManager
     {
         /// <summary>
         /// 初始化类<see cref="UserAliasManager"/>。

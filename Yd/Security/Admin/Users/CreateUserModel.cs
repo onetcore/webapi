@@ -28,6 +28,7 @@ namespace Yd.Security.Admin.Users
         /// 用户名。
         /// </summary>
         [Required(ErrorMessage = "用户名不能为空！")]
+        [RegularExpression("^[a-zA-Z][a-z0-9A-Z]{4,11}$", ErrorMessage = "英文开头，由数字和英文字母组成的5-12个字符！")]
         public string UserName { get; set; }
 
         /// <summary>
@@ -57,5 +58,10 @@ namespace Yd.Security.Admin.Users
         /// 用户Id。
         /// </summary>
         public int Id { get; set; }
+
+        /// <summary>
+        /// 是否激活锁定功能。
+        /// </summary>
+        public bool LockoutEnabled { get; set; }
     }
 }

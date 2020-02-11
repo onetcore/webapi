@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Gentings.Data.Internal;
 using System.Threading;
 using System.Threading.Tasks;
@@ -20,12 +21,23 @@ namespace Yd.Extensions.Security
         /// <returns>返回操作结果，返回<c>true</c>表示操作成功，将自动提交事务，如果<c>false</c>或发生错误，则回滚事务。</returns>
         public bool OnCreated(IDbTransactionContext<User> context)
         {
-            //添加用户角色
-            var role = context.As<Role>()
-                .Find(x => x.NormalizedName == DefaultRole.Member.NormalizedName);
-            var userRole = new UserRole { RoleId = role.Id, UserId = Id };
-            if (context.As<UserRole>().Create(userRole))
+            try
             {
+                //添加用户角色
+                var roles = context.As<Role>().Fetch(x => x.IsDefault).ToList();
+                var urdb = context.As<UserRole>();
+                foreach (var role in roles)
+                {
+                    var userRole = new UserRole { RoleId = role.Id, UserId = Id };
+                    urdb.Create(userRole);
+                }
+                //更新用户最大角色，用于显示等使用
+                var maxRole = roles.OrderByDescending(x => x.RoleLevel).First();
+                if (maxRole != null)
+                {
+                    RoleId = maxRole.Id;
+                    context.Update(Id, new { RoleId });
+                }
                 //推广链接
                 var alias = context.As<UserAlias>();
                 for (int i = 0; i < SecuritySettings.AliasCount; i++)
@@ -35,15 +47,18 @@ namespace Yd.Extensions.Security
                 //子账号
                 if (ParentId > 0)
                 {
-                    var tableName = typeof(Subuser).GetTableName();
-                    context.ExecuteNonQuery($@"INSERT INTO {tableName}(UserId,SubId)
-SELECT UserId, {Id} FROM {tableName} WHERE SubId = {ParentId};");
+                    var sdb = context.As<Subuser>();
+                    context.ExecuteNonQuery($@"INSERT INTO {sdb.EntityType.Table}(UserId,SubId)
+SELECT UserId, {Id} FROM {sdb.EntityType.Table} WHERE SubId = {ParentId};");
+                    sdb.Create(new Subuser { SubId = Id, UserId = ParentId });
                 }
 
                 return true;
             }
-
-            return false;
+            catch
+            {
+                return false;
+            }
         }
 
         /// <summary>
@@ -54,12 +69,24 @@ SELECT UserId, {Id} FROM {tableName} WHERE SubId = {ParentId};");
         /// <returns>返回操作结果，返回<c>true</c>表示操作成功，将自动提交事务，如果<c>false</c>或发生错误，则回滚事务。</returns>
         public async Task<bool> OnCreatedAsync(IDbTransactionContext<User> context, CancellationToken cancellationToken = default(CancellationToken))
         {
-            //添加用户角色
-            var role = await context.As<Role>()
-                .FindAsync(x => x.NormalizedName == DefaultRole.Member.NormalizedName, cancellationToken);
-            var userRole = new UserRole { RoleId = role.Id, UserId = Id };
-            if (await context.As<UserRole>().CreateAsync(userRole, cancellationToken))
+            try
             {
+                //添加用户角色
+                var roles = await context.As<Role>().FetchAsync(x => x.IsDefault, cancellationToken);
+                var urdb = context.As<UserRole>();
+                foreach (var role in roles)
+                {
+                    var userRole = new UserRole { RoleId = role.Id, UserId = Id };
+                    await urdb.CreateAsync(userRole, cancellationToken);
+                }
+                //更新用户最大角色，用于显示等使用
+                var maxRole = roles.OrderByDescending(x => x.RoleLevel).First();
+                if (maxRole != null)
+                {
+                    RoleId = maxRole.Id;
+                    await context.UpdateAsync(Id, new { RoleId }, cancellationToken);
+                }
+                //推广链接
                 var alias = context.As<UserAlias>();
                 for (int i = 0; i < SecuritySettings.AliasCount; i++)
                 {
@@ -68,15 +95,18 @@ SELECT UserId, {Id} FROM {tableName} WHERE SubId = {ParentId};");
                 //子账号
                 if (ParentId > 0)
                 {
-                    var tableName = typeof(Subuser).GetTableName();
-                    await context.ExecuteNonQueryAsync($@"INSERT INTO {tableName}(UserId,SubId)
-SELECT UserId, {Id} FROM {tableName} WHERE SubId = {ParentId};", cancellationToken: cancellationToken);
+                    var sdb = context.As<Subuser>();
+                    await context.ExecuteNonQueryAsync($@"INSERT INTO {sdb.EntityType.Table}(UserId,SubId)
+SELECT UserId, {Id} FROM {sdb.EntityType.Table} WHERE SubId = {ParentId};", cancellationToken: cancellationToken);
+                    await sdb.CreateAsync(new Subuser {SubId = Id, UserId = ParentId}, cancellationToken);
                 }
 
                 return true;
             }
-
-            return false;
+            catch
+            {
+                return false;
+            }
         }
 
         /// <summary>
@@ -121,6 +151,18 @@ SELECT UserId, {Id} FROM {tableName} WHERE SubId = {ParentId};", cancellationTok
             return Task.FromResult(true);
         }
         #endregion
+
+        /// <summary>
+        /// 用户等级。
+        /// </summary>
+        [NotUpdated]
+        public virtual int Level { get; set; }
+
+        /// <summary>
+        /// 用户类型。
+        /// </summary>
+        [NotUpdated]
+        public virtual UserType Type { get; set; }
 
         /// <summary>
         /// 积分。

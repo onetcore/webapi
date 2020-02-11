@@ -103,12 +103,11 @@
             用户控制器。
             </summary>
         </member>
-        <member name="M:Yd.Security.Account.UserController.#ctor(Yd.Extensions.Security.IUserManager,Gentings.Identity.Events.IEventLogger)">
+        <member name="M:Yd.Security.Account.UserController.#ctor(Yd.Extensions.Security.IUserManager)">
             <summary>
             初始化类<see cref="T:Yd.Security.Account.UserController"/>。
             </summary>
             <param name="userManager">用户管理接口。</param>
-            <param name="logger">用户事件日志。</param>
         </member>
         <member name="M:Yd.Security.Account.UserController.GetCurrentUser">
             <summary>
@@ -116,7 +115,7 @@
             </summary>
             <returns>返回当前登录用户实例。</returns>
         </member>
-        <member name="M:Yd.Security.Account.UserController.Logout(System.String)">
+        <member name="M:Yd.Security.Account.UserController.Logout">
             <summary>
             退出登录。
             </summary>
@@ -169,6 +168,16 @@
         <member name="P:Yd.Security.Admin.Roles.CreateRoleModel.IconUrl">
             <summary>
             图标。
+            </summary>
+        </member>
+        <member name="P:Yd.Security.Admin.Roles.CreateRoleModel.IsSystem">
+            <summary>
+            系统管理员。
+            </summary>
+        </member>
+        <member name="P:Yd.Security.Admin.Roles.CreateRoleModel.IsDefault">
+            <summary>
+            默认角色。
             </summary>
         </member>
         <member name="T:Yd.Security.Admin.Roles.UpdateRoleModel">
@@ -265,16 +274,37 @@
             用户Id。
             </summary>
         </member>
+        <member name="P:Yd.Security.Admin.Users.UpdateUserModel.LockoutEnabled">
+            <summary>
+            是否激活锁定功能。
+            </summary>
+        </member>
+        <member name="T:Yd.Security.Admin.Users.LockoutUserModel">
+            <summary>
+            锁定用户模型。
+            </summary>
+        </member>
+        <member name="P:Yd.Security.Admin.Users.LockoutUserModel.Ids">
+            <summary>
+            用户Id。
+            </summary>
+        </member>
+        <member name="P:Yd.Security.Admin.Users.LockoutUserModel.LockoutEnd">
+            <summary>
+            锁定时间。
+            </summary>
+        </member>
         <member name="T:Yd.Security.Admin.Users.UserController">
             <summary>
             用户控制器。
             </summary>
         </member>
-        <member name="M:Yd.Security.Admin.Users.UserController.#ctor(Yd.Extensions.Security.IUserManager)">
+        <member name="M:Yd.Security.Admin.Users.UserController.#ctor(Yd.Extensions.Security.IUserManager,Gentings.Extensions.Settings.ISettingsManager)">
             <summary>
             初始化类<see cref="T:Yd.Security.Admin.Users.UserController"/>。
             </summary>
             <param name="userManager">用户管理接口。</param>
+            <param name="settingsManager">设置管理接口。</param>
         </member>
         <member name="M:Yd.Security.Admin.Users.UserController.GetUpdate(System.Int32)">
             <summary>
@@ -337,6 +367,16 @@
             登录IP。
             </summary>
         </member>
+        <member name="P:Yd.Security.Admin.Users.UserModel.LockoutEnabled">
+            <summary>
+            是否激活锁定功能。
+            </summary>
+        </member>
+        <member name="P:Yd.Security.Admin.Users.UserModel.LockoutEnd">
+            <summary>
+            锁定时间。
+            </summary>
+        </member>
         <member name="P:Yd.Security.Admin.Users.UserModel.LastLoginDate">
             <summary>
             最后登录时间。
@@ -352,7 +392,7 @@
             用户管理控制器。
             </summary>
         </member>
-        <member name="M:Yd.Security.Admin.Users.UsersController.#ctor(Yd.Extensions.Security.IUserManager)">
+        <member name="M:Yd.Security.Admin.Users.UsersController.#ctor(Yd.Extensions.Security.IUserManager,Gentings.Extensions.Settings.ISettingsManager)">
             <summary>
             初始化类<see cref="T:Yd.Security.Admin.Users.UsersController"/>。
             </summary>
@@ -371,6 +411,20 @@
             </summary>
             <param name="ids">删除用户的Id集合。</param>
             <returns>返回删除结果。</returns>
+        </member>
+        <member name="M:Yd.Security.Admin.Users.UsersController.Lockout(Yd.Security.Admin.Users.LockoutUserModel)">
+            <summary>
+            锁定/结果用户。
+            </summary>
+            <param name="model">锁定结果用户。</param>
+            <returns></returns>
+        </member>
+        <member name="M:Yd.Security.Admin.Users.UsersController.Unlock(System.Int32[])">
+            <summary>
+            解锁用户。
+            </summary>
+            <param name="ids">用户Id。</param>
+            <returns>返回结果结果。</returns>
         </member>
         <member name="T:Yd.Security.ControllerBase">
             <summary>
@@ -547,15 +601,14 @@
             注册。
             </summary>
         </member>
-        <member name="M:Yd.Security.Register.RegisterController.#ctor(Yd.Extensions.Security.IUserManager,Gentings.Identity.Captchas.ICaptchaManager,Gentings.Identity.Events.IEventLogger)">
+        <member name="M:Yd.Security.Register.RegisterController.#ctor(Yd.Extensions.Security.IUserManager,Gentings.Identity.Captchas.ICaptchaManager)">
             <summary>
             初始化类<see cref="T:Yd.Security.Register.RegisterController"/>。
             </summary>
             <param name="userManager">用户管理接口。</param>
             <param name="captchaManager">短信验证码管理接口。</param>
-            <param name="logger">用户日志。</param>
         </member>
-        <member name="M:Yd.Security.Register.RegisterController.GetCaptcha(System.String,System.String)">
+        <member name="M:Yd.Security.Register.RegisterController.GetCaptcha(System.String)">
             <summary>
             获取手机验证码。
             </summary>
@@ -590,7 +643,7 @@
             电子邮件。
             </summary>
         </member>
-        <member name="P:Yd.Security.Register.RegisterModel.Mobile">
+        <member name="P:Yd.Security.Register.RegisterModel.PhoneNumber">
             <summary>
             电话号码。
             </summary>

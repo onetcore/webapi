@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Gentings.Extensions.Settings;
 using Gentings.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Yd.Extensions.Security;
@@ -11,13 +12,17 @@ namespace Yd.Security.Admin.Users
     public class UserController : ControllerBase
     {
         private readonly IUserManager _userManager;
+        private readonly ISettingsManager _settingsManager;
+
         /// <summary>
         /// 初始化类<see cref="UserController"/>。
         /// </summary>
         /// <param name="userManager">用户管理接口。</param>
-        public UserController(IUserManager userManager)
+        /// <param name="settingsManager">设置管理接口。</param>
+        public UserController(IUserManager userManager, ISettingsManager settingsManager)
         {
             _userManager = userManager;
+            _settingsManager = settingsManager;
         }
 
         /// <summary>
@@ -39,6 +44,7 @@ namespace Yd.Security.Admin.Users
                 RealName = user.RealName,
                 UserName = user.UserName,
                 Summary = user.Summary,
+                LockoutEnabled = user.LockoutEnabled,
             });
         }
 
@@ -50,18 +56,32 @@ namespace Yd.Security.Admin.Users
         [HttpPost("create")]
         public async Task<IActionResult> Create(CreateUserModel model)
         {
-            if (model.Password != model.Confirm)
-                return BadResult("密码和确认密码不匹配！");
-            var user = new User();
-            user.UserName = model.UserName;
-            user.RealName = model.RealName ?? model.UserName;
-            user.Email = model.Email;
-            user.PhoneNumber = model.PhoneNumber;
-            user.Summary = model.Summary;
-            var result = await _userManager.CreateAsync(user, model.Password);
-            if (result.Succeeded)
-                return OkResult();
-            return BadResult(result.ToErrorString());
+            if (ModelState.IsValid)
+            {
+                var settings = await _settingsManager.GetSettingsAsync<SecuritySettings>();
+                var user = new User();
+                user.UserName = model.UserName;
+                user.RealName = model.RealName ?? model.UserName;
+                user.Email = model.Email;
+                user.PhoneNumber = model.PhoneNumber;
+                user.Summary = model.Summary;
+                user.LockoutEnabled = true;
+                user.EmailConfirmed = !settings.RequiredEmailConfirmed || !string.IsNullOrEmpty(model.Email);
+                user.PhoneNumberConfirmed = !settings.RequiredPhoneNumberConfirmed || !string.IsNullOrEmpty(model.PhoneNumber);
+                user.TwoFactorEnabled = settings.RequiredTwoFactorEnabled;
+                user.Type = UserType.Normal;
+                user.Level = User.Level + 1;
+                user.ParentId = UserId;
+                var result = await _userManager.CreateAsync(user, model.Password);
+                if (result.Succeeded)
+                {
+                    Log("添加用户：{0}({1})", user.RealName, user.UserName);
+                    return OkResult();
+                }
+                return BadResult(result.ToErrorString());
+            }
+
+            return BadResult();
         }
 
         /// <summary>
@@ -72,28 +92,47 @@ namespace Yd.Security.Admin.Users
         [HttpPost("update")]
         public async Task<IActionResult> Update(UpdateUserModel model)
         {
-            if (model.Password != null && model.Password != model.Confirm)
-                return BadResult("密码和确认密码不匹配！");
-            var user = await _userManager.FindByIdAsync(model.Id);
-            if (user == null || user.UserName != model.UserName)
-                return BadResult(ErrorCode.UserNotFound);
-            if (model.Password != null)
+            if (ModelState.IsValid)
             {
-                var resetResult = await _userManager.ResetPasswordAsync(user, model.Password);
-                if (!resetResult.Succeeded)
-                    return BadResult(resetResult.ToErrorString());
+                var user = await _userManager.FindByIdAsync(model.Id);
+                if (user == null)
+                    return BadResult(ErrorCode.UserNotFound);
+                if (model.Password == null && user.UserName != model.UserName)
+                    return BadResult("用户名称改变同时需要修改密码！");
+
+                if (user.UserName != model.UserName)
+                {
+                    user.UserName = model.UserName;
+                    user.NormalizedUserName = null;
+                }
+                if (model.Password != null)
+                {
+                    user.PasswordHash = model.Password;
+                    user.PasswordHash = _userManager.HashPassword(user);
+                }
+                user.RealName = model.RealName ?? user.RealName ?? user.UserName;
+                user.Summary = model.Summary;
+                if (user.Email != model.Email)
+                {
+                    user.Email = model.Email;
+                    user.NormalizedEmail = null;
+                }
+
+                var settings = await _settingsManager.GetSettingsAsync<SecuritySettings>();
+                user.LockoutEnabled = model.LockoutEnabled;
+                user.PhoneNumber = model.PhoneNumber;
+                user.EmailConfirmed = !settings.RequiredEmailConfirmed || !string.IsNullOrEmpty(model.Email);
+                user.PhoneNumberConfirmed = !settings.RequiredPhoneNumberConfirmed || !string.IsNullOrEmpty(model.PhoneNumber);
+                var result = await _userManager.UpdateAsync(user);
+                if (result.Succeeded)
+                {
+                    Log("更新用户：{0}({1})", user.RealName, user.UserName);
+                    return OkResult();
+                }
+                return BadResult(result.ToErrorString());
             }
 
-            user.RealName = model.RealName ?? user.RealName ?? user.UserName;
-            user.Summary = model.Summary;
-            user.Email = model.Email;
-            user.NormalizedEmail = null;
-            user.PhoneNumber = model.PhoneNumber;
-            user.PhoneNumberConfirmed = user.PhoneNumber != null;
-            var result = await _userManager.UpdateAsync(user);
-            if (result.Succeeded)
-                return OkResult();
-            return BadResult(result.ToErrorString());
+            return BadResult();
         }
     }
 }

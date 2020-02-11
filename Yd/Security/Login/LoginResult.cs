@@ -15,7 +15,7 @@ namespace Yd.Security.Login
         /// <summary>
         /// 用户验证。
         /// </summary>
-        public string Authority { get; set; }
+        public string[] Authority { get; set; }
 
         /// <summary>
         /// 登录类型。

@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Caching.Memory;
@@ -27,44 +26,29 @@ namespace Yd.Extensions.Security
         {
         }
 
+
+        private readonly string[] _system = {"admin", "user"};
+        private readonly string[] _user = {"user"};
         /// <summary>
-        /// 获取第一等级的角色。
+        /// 获取角色验证权限。
         /// </summary>
         /// <param name="roleId">角色Id。</param>
-        /// <returns>返回角色实例。</returns>
-        public virtual Role GetUnderRole(int roleId)
+        /// <returns>返回角色验证权限：admin|user|guess。</returns>
+        public virtual string[] GetAuthority(int roleId)
         {
-            var roles = Load().ToList();
-            var i = 0;
-            for (; i < roles.Count; i++)
-            {
-                if (roleId == roles[i].Id)
-                    break;
-            }
-
-            i++;
-            if (roles.Count > i++) return roles[i];
-            return null;
+            var role = FindById(roleId);
+            return role.IsSystem ? _system : _user;
         }
 
         /// <summary>
-        /// 获取第一等级的角色。
+        /// 获取角色验证权限。
         /// </summary>
         /// <param name="roleId">角色Id。</param>
-        /// <returns>返回角色实例。</returns>
-        public virtual async Task<Role> GetUnderRoleAsync(int roleId)
+        /// <returns>返回角色验证权限：admin|user|guess。</returns>
+        public virtual async Task<string[]> GetAuthorityAsync(int roleId)
         {
-            var roles = (await LoadAsync()).ToList();
-            var i = 0;
-            for (; i < roles.Count; i++)
-            {
-                if (roleId == roles[i].Id)
-                    break;
-            }
-
-            i++;
-            if (roles.Count > i++) return roles[i];
-            return null;
+            var role = await FindByIdAsync(roleId);
+            return role.IsSystem ? _system : _user;
         }
     }
 }

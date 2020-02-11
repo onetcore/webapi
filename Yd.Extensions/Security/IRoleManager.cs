@@ -10,17 +10,17 @@ namespace Yd.Extensions.Security
     public interface IRoleManager : IRoleManager<Role, UserRole, RoleClaim>, IScopedService
     {
         /// <summary>
-        /// 获取第一等级的角色。
+        /// 获取角色验证权限。
         /// </summary>
         /// <param name="roleId">角色Id。</param>
-        /// <returns>返回角色实例。</returns>
-        Role GetUnderRole(int roleId);
+        /// <returns>返回角色验证权限：admin|user|guess。</returns>
+        string[] GetAuthority(int roleId);
 
         /// <summary>
-        /// 获取第一等级的角色。
+        /// 获取角色验证权限。
         /// </summary>
         /// <param name="roleId">角色Id。</param>
-        /// <returns>返回角色实例。</returns>
-        Task<Role> GetUnderRoleAsync(int roleId);
+        /// <returns>返回角色验证权限：admin|user|guess。</returns>
+        Task<string[]> GetAuthorityAsync(int roleId);
     }
 }

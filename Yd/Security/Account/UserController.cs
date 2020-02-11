@@ -12,17 +12,14 @@ namespace Yd.Security.Account
     public class UserController : ControllerBase
     {
         private readonly IUserManager _userManager;
-        private readonly IEventLogger _logger;
 
         /// <summary>
         /// 初始化类<see cref="UserController"/>。
         /// </summary>
         /// <param name="userManager">用户管理接口。</param>
-        /// <param name="logger">用户事件日志。</param>
-        public UserController(IUserManager userManager, IEventLogger logger)
+        public UserController(IUserManager userManager)
         {
             _userManager = userManager;
-            _logger = logger;
         }
 
         /// <summary>
@@ -35,7 +32,7 @@ namespace Yd.Security.Account
             var userid = HttpContext.User.GetUserId();
             if (userid == 0)
                 return BadRequest();
-            var user = await _userManager.GetUserAsync(userid);
+            var user = await _userManager.GetCachedUserAsync(userid);
             if (user == null)
                 return BadRequest();
             return Ok(user);
@@ -45,10 +42,10 @@ namespace Yd.Security.Account
         /// 退出登录。
         /// </summary>
         [HttpPost("logout")]
-        public async Task<IActionResult> Logout(string returnUrl = null)
+        public async Task<IActionResult> Logout()
         {
             await _userManager.SignOutAsync();
-            _logger.LogUser("退出了登录。");
+            Log("退出了登录。");
             return OkResult();
         }
     }

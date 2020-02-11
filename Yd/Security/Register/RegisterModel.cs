@@ -25,7 +25,7 @@ namespace Yd.Security.Register
         /// <summary>
         /// 电话号码。
         /// </summary>
-        public string Mobile { get; set; }
+        public string PhoneNumber { get; set; }
 
         /// <summary>
         /// 短信验证码。

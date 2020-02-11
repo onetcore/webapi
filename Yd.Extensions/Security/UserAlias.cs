@@ -1,6 +1,6 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Gentings;
 using Gentings.Extensions;
 
 namespace Yd.Extensions.Security
@@ -9,7 +9,7 @@ namespace Yd.Extensions.Security
     /// 用户别名，用于推广。
     /// </summary>
     [Table("core_Users_Alias")]
-    public class UserAlias : IIdObject<Guid>
+    public class UserAlias : IIdObject<string>
     {
         /// <summary>
         /// 用户Id。
@@ -20,7 +20,8 @@ namespace Yd.Extensions.Security
         /// 唯一Id。
         /// </summary>
         [Key]
-        public Guid Id { get; set; } = Guid.NewGuid();
+        [Size(16)]
+        public string Id { get; set; } = Cores.NewId();
 
         /// <summary>
         /// 推广数量。

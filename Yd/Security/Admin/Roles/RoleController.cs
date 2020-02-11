@@ -32,11 +32,16 @@ namespace Yd.Security.Admin.Roles
             {
                 Name = model.Name,
                 Color = model.Color,
-                IconUrl = model.IconUrl
+                IconUrl = model.IconUrl,
+                IsSystem = model.IsSystem,
+                IsDefault = model.IsDefault,
             };
             var result = await _roleManager.CreateAsync(role);
             if (result.Succeeded)
+            {
+                Log("添加用户角色：{0}", role.Name);
                 return OkResult();
+            }
             return BadResult(result.ToErrorString());
         }
 
@@ -56,11 +61,17 @@ namespace Yd.Security.Admin.Roles
                 role.Name = model.Name;
                 role.NormalizedName = null;
             }
+
+            role.IsSystem = model.IsSystem;
+            role.IsDefault = model.IsDefault;
             role.Color = model.Color ?? role.Color;
             role.IconUrl = model.IconUrl ?? role.IconUrl;
             var result = await _roleManager.UpdateAsync(role);
             if (result.Succeeded)
+            {
+                Log("更新用户角色：{0}", role.Name);
                 return OkResult();
+            }
             return BadResult(result.ToErrorString());
         }
     }

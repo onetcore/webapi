@@ -43,6 +43,16 @@ namespace Yd.Security.Admin.Users
         public string LoginIP { get; set; }
 
         /// <summary>
+        /// 是否激活锁定功能。
+        /// </summary>
+        public bool LockoutEnabled { get; set; }
+
+        /// <summary>
+        /// 锁定时间。
+        /// </summary>
+        public DateTimeOffset? LockoutEnd { get; set; }
+
+        /// <summary>
         /// 最后登录时间。
         /// </summary>
         public DateTimeOffset? LastLoginDate { get; set; }

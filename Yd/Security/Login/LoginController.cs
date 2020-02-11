@@ -73,6 +73,7 @@ namespace Yd.Security.Login
                 var result = await _userManager.PasswordSignInAsync(user, model.Password, model.AutoLogin);
                 if (!result.Succeeded)
                     return BadResult(ErrorCode.InvalidUserNameOrPassword);
+                Log(user.Id, "通过账号登录了系统");
             }
             else
             {
@@ -87,23 +88,16 @@ namespace Yd.Security.Login
                 if (!captcha.Code.Equals(model.Captcha, StringComparison.OrdinalIgnoreCase))
                     return BadResult(ErrorCode.InvalidCaptcha);
                 await _userManager.SignInManager.SignInAsync(user, model.AutoLogin);
+                Log(user.Id, "通过手机号码登录了系统");
             }
 
-            var authority = Authority.Guess;
-            var role = await _roleManager.FindByIdAsync(user.RoleId);
-            if (role != null)
+            await _userManager.SetLoginStatusAsync(user);
+            return OkResult(new LoginResult
             {
-                if (role.IsSystem) authority = Authority.Admin;
-                else authority = Authority.User;
-            }
-            return OkResult(new LoginResult { Type = model.Type, Token = GetToken(user), Authority = authority.ToString().ToLower() });
-        }
-
-        private enum Authority
-        {
-            Admin,
-            User,
-            Guess,
+                Type = model.Type,
+                Token = GetToken(user),
+                Authority = await _roleManager.GetAuthorityAsync(user.RoleId)
+            });
         }
 
         private string GetToken(User user)

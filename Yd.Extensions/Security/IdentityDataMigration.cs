@@ -24,6 +24,8 @@ namespace Yd.Extensions.Security
             builder.Column(x => x.Score)
                 .Column(x => x.LockedScore)
                 .Column(x => x.ScoredDate)
+                .Column(x => x.Type)
+                .Column(x => x.Level)
                 .Column(x => x.Summary);
         }
 
@@ -47,18 +49,11 @@ namespace Yd.Extensions.Security
                 .Column(x => x.SecurityKey)
                 .Column(x => x.CreatedDate)
                 .ForeignKey<User>(x => x.UserId, x => x.Id, onDelete: ReferentialAction.Cascade));
-        }
-
-        /// <summary>
-        /// 用户别名，用于推广链接。
-        /// </summary>
-        public virtual void Up2(MigrationBuilder builder)
-        {
             builder.CreateTable<UserAlias>(table => table
-                .Column(x=>x.Id)
-                .Column(x=>x.UserId)
-                .Column(x=>x.Count)
-                .ForeignKey<User>(x=>x.UserId, x=>x.Id, onDelete:ReferentialAction.Cascade)
+                .Column(x => x.Id)
+                .Column(x => x.UserId)
+                .Column(x => x.Count)
+                .ForeignKey<User>(x => x.UserId, x => x.Id, onDelete: ReferentialAction.Cascade)
             );
         }
     }
