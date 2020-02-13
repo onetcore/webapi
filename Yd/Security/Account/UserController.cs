@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Gentings.Identity;
-using Gentings.Identity.Events;
 using Microsoft.AspNetCore.Mvc;
+using Yd.Extensions;
 using Yd.Extensions.Security;
 
 namespace Yd.Security.Account
@@ -9,7 +9,7 @@ namespace Yd.Security.Account
     /// <summary>
     /// 用户控制器。
     /// </summary>
-    public class UserController : ControllerBase
+    public class UserController : ApiAccountControllerBase
     {
         private readonly IUserManager _userManager;
 

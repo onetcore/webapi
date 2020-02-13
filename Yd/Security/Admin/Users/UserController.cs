@@ -2,6 +2,7 @@
 using Gentings.Extensions.Settings;
 using Gentings.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Yd.Extensions;
 using Yd.Extensions.Security;
 
 namespace Yd.Security.Admin.Users
@@ -9,7 +10,7 @@ namespace Yd.Security.Admin.Users
     /// <summary>
     /// 用户控制器。
     /// </summary>
-    public class UserController : ControllerBase
+    public class UserController : ApiAdminControllerBase
     {
         private readonly IUserManager _userManager;
         private readonly ISettingsManager _settingsManager;

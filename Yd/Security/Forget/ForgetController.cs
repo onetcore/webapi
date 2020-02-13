@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ControllerBase = Gentings.AspNetCore.ControllerBase;
+using Yd.Extensions;
 
 namespace Yd.Security.Forget
 {
@@ -8,7 +8,7 @@ namespace Yd.Security.Forget
     /// </summary>
     [ApiController]
     [Route("api/[controller]")]
-    public class ForgetController : ControllerBase
+    public class ForgetController : ApiControllerBase
     {
         /// <summary>
         /// 发送忘记密码API。

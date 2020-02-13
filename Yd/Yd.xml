@@ -4,6 +4,18 @@
         <name>Yd</name>
     </assembly>
     <members>
+        <member name="T:Yd.Admin.SettingController">
+            <summary>
+            配置控制器。
+            </summary>
+        </member>
+        <member name="M:Yd.Admin.SettingController.Save(Yd.Extensions.SiteSettings)">
+            <summary>
+            保存网站配置。
+            </summary>
+            <param name="settings">网站配置实例。</param>
+            <returns>返回保存结果。</returns>
+        </member>
         <member name="T:Yd.Program">
             <summary>
             启动类。
@@ -93,11 +105,6 @@
               查找类似 成功开通了账户。 的本地化字符串。
             </summary>
         </member>
-        <member name="T:Yd.Security.Account.ControllerBase">
-            <summary>
-            控制器基类。
-            </summary>
-        </member>
         <member name="T:Yd.Security.Account.UserController">
             <summary>
             用户控制器。
@@ -118,11 +125,6 @@
         <member name="M:Yd.Security.Account.UserController.Logout">
             <summary>
             退出登录。
-            </summary>
-        </member>
-        <member name="T:Yd.Security.Admin.ControllerBase">
-            <summary>
-            控制器基类。
             </summary>
         </member>
         <member name="T:Yd.Security.Admin.Roles.RoleController">
@@ -392,7 +394,7 @@
             用户管理控制器。
             </summary>
         </member>
-        <member name="M:Yd.Security.Admin.Users.UsersController.#ctor(Yd.Extensions.Security.IUserManager,Gentings.Extensions.Settings.ISettingsManager)">
+        <member name="M:Yd.Security.Admin.Users.UsersController.#ctor(Yd.Extensions.Security.IUserManager)">
             <summary>
             初始化类<see cref="T:Yd.Security.Admin.Users.UsersController"/>。
             </summary>
@@ -426,10 +428,38 @@
             <param name="ids">用户Id。</param>
             <returns>返回结果结果。</returns>
         </member>
-        <member name="T:Yd.Security.ControllerBase">
+        <member name="M:Yd.Security.Admin.Users.UsersController.GetSettings">
             <summary>
-            控制器基类。
+            获取配置信息。
             </summary>
+            <returns>返回配置信息。</returns>
+        </member>
+        <member name="M:Yd.Security.Admin.Users.UsersController.SaveSettings(Yd.Extensions.Security.SecuritySettings)">
+            <summary>
+            保存配置信息。
+            </summary>
+            <param name="model">配置实例模型。</param>
+            <returns>返回配置结果。</returns>
+        </member>
+        <member name="T:Yd.Security.CaptchaController">
+            <summary>
+            短信验证码。
+            </summary>
+        </member>
+        <member name="M:Yd.Security.CaptchaController.#ctor(Yd.Extensions.Security.IUserManager,Gentings.Identity.Captchas.ICaptchaManager)">
+            <summary>
+            初始化类<see cref="T:Yd.Security.CaptchaController"/>。
+            </summary>
+            <param name="userManager">用户管理接口。</param>
+            <param name="captchaManager">验证码管理接口。</param>
+        </member>
+        <member name="M:Yd.Security.CaptchaController.GetCaptcha(System.String,System.String)">
+            <summary>
+            获取手机验证码。
+            </summary>
+            <param name="mobile">电话号码。</param>
+            <param name="type">类型。</param>
+            <returns>返回是否成功获取验证码。</returns>
         </member>
         <member name="T:Yd.Security.ErrorCode">
             <summary>
@@ -527,13 +557,6 @@
             <param name="configuration">配置接口。</param>
             <param name="captchaManager">验证码管理接口。</param>
         </member>
-        <member name="M:Yd.Security.Login.LoginController.GetCaptcha(System.String)">
-            <summary>
-            获取手机验证码。
-            </summary>
-            <param name="mobile">电话号码。</param>
-            <returns>返回是否成功获取验证码。</returns>
-        </member>
         <member name="M:Yd.Security.Login.LoginController.Post(Yd.Security.Login.LoginModel)">
             <summary>
             发送登录API。
@@ -608,14 +631,6 @@
             <param name="userManager">用户管理接口。</param>
             <param name="captchaManager">短信验证码管理接口。</param>
         </member>
-        <member name="M:Yd.Security.Register.RegisterController.GetCaptcha(System.String)">
-            <summary>
-            获取手机验证码。
-            </summary>
-            <param name="mobile">电话号码。</param>
-            <param name="prefix">电话号码区码，如+86。</param>
-            <returns>返回是否成功获取验证码。</returns>
-        </member>
         <member name="M:Yd.Security.Register.RegisterController.Post(Yd.Security.Register.RegisterModel)">
             <summary>
             发送注册API。
@@ -672,6 +687,17 @@
             <summary>
             返回结果。
             </summary>
+        </member>
+        <member name="T:Yd.SettingController">
+            <summary>
+            配置控制器。
+            </summary>
+        </member>
+        <member name="M:Yd.SettingController.Index">
+            <summary>
+            获取网站配置。
+            </summary>
+            <returns>返回网站配置实例。</returns>
         </member>
         <member name="T:Yd.Startup">
             <summary>

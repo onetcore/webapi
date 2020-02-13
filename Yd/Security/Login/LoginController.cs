@@ -4,10 +4,12 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using Gentings.AspNetCore;
 using Gentings.Identity.Captchas;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using Yd.Extensions;
 using Yd.Extensions.Security;
 
 namespace Yd.Security.Login
@@ -15,7 +17,7 @@ namespace Yd.Security.Login
     /// <summary>
     /// 登录。
     /// </summary>
-    public class LoginController : ControllerBase
+    public class LoginController : ApiControllerBase
     {
         private readonly IUserManager _userManager;
         private readonly IRoleManager _roleManager;
@@ -38,30 +40,13 @@ namespace Yd.Security.Login
         }
 
         /// <summary>
-        /// 获取手机验证码。
-        /// </summary>
-        /// <param name="mobile">电话号码。</param>
-        /// <returns>返回是否成功获取验证码。</returns>
-        [HttpGet("captcha")]
-        public async Task<IActionResult> GetCaptcha(string mobile)
-        {
-            var user = await _userManager.FindByPhoneNumberAsync(mobile);
-            if (user == null)
-                return BadResult(ErrorCode.InvalidPhoneNumber);
-            var random = new Random();
-            var code = random.Next(100000, 999999).ToString();
-            var success = await _captchaManager.SaveCaptchAsync(mobile, "login", code, 3);
-            if (success)
-                return OkResult();
-            return BadResult(ErrorCode.GetCaptchaFailured);
-        }
-
-        /// <summary>
         /// 发送登录API。
         /// </summary>
         /// <param name="model">登录模型。</param>
         /// <returns>返回登录结果。</returns>
         [HttpPost]
+        [ApiResult]
+        [ApiResult(typeof(LoginResult))]
         public async Task<IActionResult> Post([FromBody] LoginModel model)
         {
             User user;

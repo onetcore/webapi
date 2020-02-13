@@ -1,5 +1,4 @@
 ﻿using Gentings;
-using Microsoft.AspNetCore.Html;
 using System;
 
 namespace Yd.Extensions
@@ -29,14 +28,15 @@ namespace Yd.Extensions
         /// </summary>
         public string Description { get; set; }
 
+        private string _copyright;
         /// <summary>
         /// 版权信息。
         /// </summary>
-        public string Copyright { get; set; } = "Copyright &copy;$year www.xmydcl.com ver $version";
+        public string Copyright
+        {
+            get => _copyright ??= "Copyright &copy;$year www.xmydcl.com ver $version".Replace("$version", Cores.Version.ToString(3)).Replace("$year", DateTime.Now.Year.ToString());
+            set => _copyright = value;
+        }
 
-        /// <summary>
-        /// 版权信息。
-        /// </summary>
-        public IHtmlContent CopyrightHTML => new HtmlString(Copyright.Replace("$version", Cores.Version.ToString(3)).Replace("$year", DateTime.Now.Year.ToString()));
     }
 }

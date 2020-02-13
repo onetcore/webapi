@@ -57,6 +57,6 @@ namespace Yd.Extensions.Security
         /// 登录页面背景图片。
         /// </summary>
         [DisplayName("登录页面背景图片")]
-        public string LoginBg { get; set; } = "/security/images/login.jpg";
+        public string LoginBg { get; set; } = "/images/login.jpg";
     }
 }

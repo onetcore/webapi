@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
-using Gentings.Extensions.Settings;
 using Gentings.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Yd.Extensions;
 using Yd.Extensions.Security;
 
 namespace Yd.Security.Admin.Users
@@ -11,19 +11,17 @@ namespace Yd.Security.Admin.Users
     /// <summary>
     /// 用户管理控制器。
     /// </summary>
-    public class UsersController : ControllerBase
+    public class UsersController : ApiAdminControllerBase
     {
         private readonly IUserManager _userManager;
-        private readonly ISettingsManager _settingsManager;
 
         /// <summary>
         /// 初始化类<see cref="UsersController"/>。
         /// </summary>
         /// <param name="userManager">用户管理接口。</param>
-        public UsersController(IUserManager userManager, ISettingsManager settingsManager)
+        public UsersController(IUserManager userManager)
         {
             _userManager = userManager;
-            _settingsManager = settingsManager;
         }
 
         /// <summary>
@@ -103,24 +101,19 @@ namespace Yd.Security.Admin.Users
             return BadResult("解锁失败");
         }
 
+        /// <summary>
+        /// 获取配置信息。
+        /// </summary>
+        /// <returns>返回配置信息。</returns>
         [HttpGet("get-settings")]
-        public async Task<IActionResult> GetSettings()
-        {
-            var settings = await _settingsManager.GetSettingsAsync<SecuritySettings>();
-            return OkResult(settings);
-        }
+        public Task<IActionResult> GetSettings() => GetSettingsAsync<SecuritySettings>();
 
+        /// <summary>
+        /// 保存配置信息。
+        /// </summary>
+        /// <param name="model">配置实例模型。</param>
+        /// <returns>返回配置结果。</returns>
         [HttpPost("settings")]
-        public async Task<IActionResult> SaveSettings([FromBody]SecuritySettings model)
-        {
-            var result = await _settingsManager.SaveSettingsAsync(model);
-            if (result)
-            {
-                Log("更新了用户配置");
-                return OkResult();
-            }
-
-            return BadResult("更新失败");
-        }
+        public Task<IActionResult> SaveSettings([FromBody] SecuritySettings model) => SaveSettingsAsync(model, "用户");
     }
 }

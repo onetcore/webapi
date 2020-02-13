@@ -2,8 +2,8 @@
 using System.Threading.Tasks;
 using Gentings.Identity;
 using Gentings.Identity.Captchas;
-using Gentings.Identity.Events;
 using Microsoft.AspNetCore.Mvc;
+using Yd.Extensions;
 using Yd.Extensions.Security;
 using Yd.Properties;
 
@@ -12,7 +12,7 @@ namespace Yd.Security.Register
     /// <summary>
     /// 注册。
     /// </summary>
-    public class RegisterController : ControllerBase
+    public class RegisterController : ApiControllerBase
     {
         private readonly IUserManager _userManager;
         private readonly ICaptchaManager _captchaManager;
@@ -26,26 +26,6 @@ namespace Yd.Security.Register
         {
             _userManager = userManager;
             _captchaManager = captchaManager;
-        }
-
-        /// <summary>
-        /// 获取手机验证码。
-        /// </summary>
-        /// <param name="mobile">电话号码。</param>
-        /// <param name="prefix">电话号码区码，如+86。</param>
-        /// <returns>返回是否成功获取验证码。</returns>
-        [HttpGet("captcha")]
-        public async Task<IActionResult> GetCaptcha(string mobile)
-        {
-            var user = await _userManager.FindByPhoneNumberAsync(mobile);
-            if (user != null)
-                return BadResult(ErrorCode.PhoneNumberAlreadyExisted);
-            var random = new Random();
-            var code = random.Next(100000, 999999).ToString();
-            var success = await _captchaManager.SaveCaptchAsync(mobile, "register", code, 3);
-            if (success)
-                return OkResult();
-            return BadResult(ErrorCode.GetCaptchaFailured);
         }
 
         /// <summary>

@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Gentings.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Yd.Extensions;
 using Yd.Extensions.Security;
 
 namespace Yd.Security.Admin.Roles
@@ -9,7 +10,7 @@ namespace Yd.Security.Admin.Roles
     /// <summary>
     /// 角色控制器。
     /// </summary>
-    public class RolesController : ControllerBase
+    public class RolesController : ApiAdminControllerBase
     {
         private readonly IRoleManager _roleManager;
         /// <summary>
