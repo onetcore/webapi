@@ -4,6 +4,14 @@
     <TargetFramework>netstandard2.1</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>D:\Source\Repos\webapi\Yd.Extensions\Yd.Extensions.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="5.6.0" />
+  </ItemGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\..\Gentings\Gentings.Identity\Gentings.Identity.csproj" />
     <ProjectReference Include="..\..\gentings\Gentings.Installers\Gentings.Installers.csproj" />
@@ -23,6 +31,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Yd.Extensions.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

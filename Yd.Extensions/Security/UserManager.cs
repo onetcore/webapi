@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using Gentings.Identity;
 using Microsoft.Extensions.Caching.Memory;
+using Yd.Extensions.Security.Roles;
 
 namespace Yd.Extensions.Security
 {

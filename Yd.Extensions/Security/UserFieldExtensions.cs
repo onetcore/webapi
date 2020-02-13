@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq.Expressions;
 using Gentings.Data;
+using Yd.Extensions.Security.Roles;
 
 namespace Yd.Extensions.Security
 {

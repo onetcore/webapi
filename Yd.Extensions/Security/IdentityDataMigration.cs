@@ -1,6 +1,7 @@
 ﻿using Gentings.Data.Migrations;
 using Gentings.Data.Migrations.Builders;
 using Gentings.Identity;
+using Yd.Extensions.Security.Roles;
 
 namespace Yd.Extensions.Security
 {

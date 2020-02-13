@@ -1,0 +1,1448 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Yd.Extensions</name>
+    </assembly>
+    <members>
+        <member name="T:Yd.Extensions.ApiControllerBase">
+            <summary>
+            控制器基类。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.ApiControllerBase.User">
+            <summary>
+            当前登录用户Id。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.ApiControllerBase.Role">
+            <summary>
+            当前用户的最大角色实例。
+            </summary>
+        </member>
+        <member name="T:Yd.Extensions.ApiAdminControllerBase">
+            <summary>
+            控制器基类。
+            </summary>
+        </member>
+        <member name="T:Yd.Extensions.ApiAccountControllerBase">
+            <summary>
+            控制器基类。
+            </summary>
+        </member>
+        <member name="T:Yd.Extensions.Controllers.Admin.SettingController">
+            <summary>
+            配置控制器。
+            </summary>
+        </member>
+        <member name="M:Yd.Extensions.Controllers.Admin.SettingController.Save(Yd.Extensions.SiteSettings)">
+            <summary>
+            保存网站配置。
+            </summary>
+            <param name="settings">网站配置实例。</param>
+            <returns>返回保存结果。</returns>
+        </member>
+        <member name="T:Yd.Extensions.Controllers.SettingController">
+            <summary>
+            配置控制器。
+            </summary>
+        </member>
+        <member name="M:Yd.Extensions.Controllers.SettingController.Index">
+            <summary>
+            获取网站配置。
+            </summary>
+            <returns>返回网站配置实例。</returns>
+        </member>
+        <member name="T:Yd.Extensions.Properties.Resources">
+            <summary>
+              一个强类型的资源类，用于查找本地化的字符串等。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Properties.Resources.ResourceManager">
+            <summary>
+              返回此类使用的缓存的 ResourceManager 实例。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Properties.Resources.Culture">
+            <summary>
+              重写当前线程的 CurrentUICulture 属性
+              重写当前线程的 CurrentUICulture 属性。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Properties.Resources.Anonymous">
+            <summary>
+              查找类似 游客 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Properties.Resources.ErrorCode_CaptchExpired">
+            <summary>
+              查找类似 验证码过期！ 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Properties.Resources.ErrorCode_GetCaptchaFailured">
+            <summary>
+              查找类似 短信验证码发送错误! 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Properties.Resources.ErrorCode_InvalidCaptcha">
+            <summary>
+              查找类似 验证码错误！ 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Properties.Resources.ErrorCode_InvalidPhoneNumber">
+            <summary>
+              查找类似 电话号码不存在！ 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Properties.Resources.ErrorCode_InvalidUserNameOrPassword">
+            <summary>
+              查找类似 用户名或者密码错误！ 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Properties.Resources.ErrorCode_PhoneNumberAlreadyExisted">
+            <summary>
+              查找类似 电话号码已经存在! 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Properties.Resources.ErrorCode_RegisterFailured">
+            <summary>
+              查找类似 注册失败！ 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Properties.Resources.ErrorCode_RoleNotFound">
+            <summary>
+              查找类似 未找到角色！ 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Properties.Resources.ErrorCode_UserNotFound">
+            <summary>
+              查找类似 未找到用户！ 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Properties.Resources.EventType_User">
+            <summary>
+              查找类似 用户 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Properties.Resources.LoginDirection_Account">
+            <summary>
+              查找类似 用户中心 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Properties.Resources.LoginDirection_Admin">
+            <summary>
+              查找类似 后台管理 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Properties.Resources.LoginDirection_Default">
+            <summary>
+              查找类似 首页 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Properties.Resources.Register_Success">
+            <summary>
+              查找类似 成功开通了账户。 的本地化字符串。
+            </summary>
+        </member>
+        <member name="T:Yd.Extensions.Security.CachedUser">
+            <summary>
+            缓存用户实例。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.CachedUser.Id">
+            <summary>
+            用户Id。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.CachedUser.UserName">
+            <summary>
+            用户名称。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.CachedUser.Avatar">
+            <summary>
+            头像。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.CachedUser.RealName">
+            <summary>
+            真实姓名。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.CachedUser.RoleId">
+            <summary>
+            角色名称。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.CachedUser.RoleName">
+            <summary>
+            角色名称。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.CachedUser.RoleColor">
+            <summary>
+            角色颜色。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.CachedUser.RoleIcon">
+            <summary>
+            用户角色URL地址。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.CachedUser.RoleLevel">
+            <summary>
+            角色等级。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.CachedUser.Email">
+            <summary>
+            电子邮件。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.CachedUser.PhoneNumber">
+            <summary>
+            电话号码。
+            </summary>
+        </member>
+        <member name="T:Yd.Extensions.Security.Controllers.Account.UserController">
+            <summary>
+            用户控制器。
+            </summary>
+        </member>
+        <member name="M:Yd.Extensions.Security.Controllers.Account.UserController.#ctor(Yd.Extensions.Security.IUserManager)">
+            <summary>
+            初始化类<see cref="T:Yd.Extensions.Security.Controllers.Account.UserController"/>。
+            </summary>
+            <param name="userManager">用户管理接口。</param>
+        </member>
+        <member name="M:Yd.Extensions.Security.Controllers.Account.UserController.GetCurrentUser">
+            <summary>
+            获取当前登录用户。
+            </summary>
+            <returns>返回当前登录用户实例。</returns>
+        </member>
+        <member name="M:Yd.Extensions.Security.Controllers.Account.UserController.Logout">
+            <summary>
+            退出登录。
+            </summary>
+        </member>
+        <member name="T:Yd.Extensions.Security.Controllers.Admin.Roles.RoleController">
+            <summary>
+            角色控制器。
+            </summary>
+        </member>
+        <member name="M:Yd.Extensions.Security.Controllers.Admin.Roles.RoleController.#ctor(Yd.Extensions.Security.Roles.IRoleManager)">
+            <summary>
+            初始化类<see cref="T:Yd.Extensions.Security.Controllers.Admin.Roles.RoleController"/>。
+            </summary>
+            <param name="roleManager">角色管理接口。</param>
+        </member>
+        <member name="M:Yd.Extensions.Security.Controllers.Admin.Roles.RoleController.Create(Yd.Extensions.Security.Controllers.Admin.Roles.CreateRoleModel)">
+            <summary>
+            添加角色。
+            </summary>
+            <param name="model">角色模型。</param>
+            <returns>返回添加结果。</returns>
+        </member>
+        <member name="M:Yd.Extensions.Security.Controllers.Admin.Roles.RoleController.Update(Yd.Extensions.Security.Controllers.Admin.Roles.UpdateRoleModel)">
+            <summary>
+            添加角色。
+            </summary>
+            <param name="model">角色模型。</param>
+            <returns>返回添加结果。</returns>
+        </member>
+        <member name="T:Yd.Extensions.Security.Controllers.Admin.Roles.CreateRoleModel">
+            <summary>
+            添加角色模型。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.Controllers.Admin.Roles.CreateRoleModel.Name">
+            <summary>
+            角色名称。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.Controllers.Admin.Roles.CreateRoleModel.Color">
+            <summary>
+            颜色。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.Controllers.Admin.Roles.CreateRoleModel.IconUrl">
+            <summary>
+            图标。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.Controllers.Admin.Roles.CreateRoleModel.IsSystem">
+            <summary>
+            系统管理员。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.Controllers.Admin.Roles.CreateRoleModel.IsDefault">
+            <summary>
+            默认角色。
+            </summary>
+        </member>
+        <member name="T:Yd.Extensions.Security.Controllers.Admin.Roles.UpdateRoleModel">
+            <summary>
+            更新角色模型。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.Controllers.Admin.Roles.UpdateRoleModel.Id">
+            <summary>
+            角色Id。
+            </summary>
+        </member>
+        <member name="T:Yd.Extensions.Security.Controllers.Admin.Roles.RoleModel">
+            <summary>
+            角色模型。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.Controllers.Admin.Roles.RoleModel.Level">
+            <summary>
+            角色等级。
+            </summary>
+        </member>
+        <member name="T:Yd.Extensions.Security.Controllers.Admin.Roles.RolesController">
+            <summary>
+            角色控制器。
+            </summary>
+        </member>
+        <member name="M:Yd.Extensions.Security.Controllers.Admin.Roles.RolesController.#ctor(Yd.Extensions.Security.Roles.IRoleManager)">
+            <summary>
+            初始化类<see cref="T:Yd.Extensions.Security.Controllers.Admin.Roles.RolesController"/>。
+            </summary>
+            <param name="roleManager">角色管理接口。</param>
+        </member>
+        <member name="M:Yd.Extensions.Security.Controllers.Admin.Roles.RolesController.Query">
+            <summary>
+            获取所有角色列表。
+            </summary>
+            <returns>所有角色列表。</returns>
+        </member>
+        <member name="M:Yd.Extensions.Security.Controllers.Admin.Roles.RolesController.Remove(System.Int32[])">
+            <summary>
+            删除角色。
+            </summary>
+            <param name="ids">删除的Id集合。</param>
+            <returns>返回操作结果。</returns>
+        </member>
+        <member name="T:Yd.Extensions.Security.Controllers.Admin.Users.CreateUserModel">
+            <summary>
+            新建用户模型。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.Controllers.Admin.Users.CreateUserModel.PhoneNumber">
+            <summary>
+            电话号码。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.Controllers.Admin.Users.CreateUserModel.Email">
+            <summary>
+            电子邮件。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.Controllers.Admin.Users.CreateUserModel.RealName">
+            <summary>
+            真实姓名。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.Controllers.Admin.Users.CreateUserModel.UserName">
+            <summary>
+            用户名。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.Controllers.Admin.Users.CreateUserModel.Password">
+            <summary>
+            密码。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.Controllers.Admin.Users.CreateUserModel.Confirm">
+            <summary>
+            确认密码。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.Controllers.Admin.Users.CreateUserModel.Summary">
+            <summary>
+            描述。
+            </summary>
+        </member>
+        <member name="T:Yd.Extensions.Security.Controllers.Admin.Users.UpdateUserModel">
+            <summary>
+            更新用户模型。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.Controllers.Admin.Users.UpdateUserModel.Id">
+            <summary>
+            用户Id。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.Controllers.Admin.Users.UpdateUserModel.LockoutEnabled">
+            <summary>
+            是否激活锁定功能。
+            </summary>
+        </member>
+        <member name="T:Yd.Extensions.Security.Controllers.Admin.Users.LockoutUserModel">
+            <summary>
+            锁定用户模型。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.Controllers.Admin.Users.LockoutUserModel.Ids">
+            <summary>
+            用户Id。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.Controllers.Admin.Users.LockoutUserModel.LockoutEnd">
+            <summary>
+            锁定时间。
+            </summary>
+        </member>
+        <member name="T:Yd.Extensions.Security.Controllers.Admin.Users.UserController">
+            <summary>
+            用户控制器。
+            </summary>
+        </member>
+        <member name="M:Yd.Extensions.Security.Controllers.Admin.Users.UserController.#ctor(Yd.Extensions.Security.IUserManager,Gentings.Extensions.Settings.ISettingsManager)">
+            <summary>
+            初始化类<see cref="T:Yd.Extensions.Security.Controllers.Admin.Users.UserController"/>。
+            </summary>
+            <param name="userManager">用户管理接口。</param>
+            <param name="settingsManager">设置管理接口。</param>
+        </member>
+        <member name="M:Yd.Extensions.Security.Controllers.Admin.Users.UserController.GetUpdate(System.Int32)">
+            <summary>
+            获取更新用户所用到的实例。
+            </summary>
+            <param name="id">用户Id。</param>
+            <returns>返回用户实例。</returns>
+        </member>
+        <member name="M:Yd.Extensions.Security.Controllers.Admin.Users.UserController.Create(Yd.Extensions.Security.Controllers.Admin.Users.CreateUserModel)">
+            <summary>
+            添加用户。
+            </summary>
+            <param name="model">用户模型。</param>
+            <returns>返回添加结果。</returns>
+        </member>
+        <member name="M:Yd.Extensions.Security.Controllers.Admin.Users.UserController.Update(Yd.Extensions.Security.Controllers.Admin.Users.UpdateUserModel)">
+            <summary>
+            更新用户。
+            </summary>
+            <param name="model">用户模型。</param>
+            <returns>返回更新结果。</returns>
+        </member>
+        <member name="T:Yd.Extensions.Security.Controllers.Admin.Users.UserModel">
+            <summary>
+            用户模型。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.Controllers.Admin.Users.UserModel.Id">
+            <summary>
+            用户Id。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.Controllers.Admin.Users.UserModel.UserName">
+            <summary>
+            用户名称。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.Controllers.Admin.Users.UserModel.RealName">
+            <summary>
+            真实姓名。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.Controllers.Admin.Users.UserModel.PhoneNumber">
+            <summary>
+            电话号码。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.Controllers.Admin.Users.UserModel.Email">
+            <summary>
+            电子邮件。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.Controllers.Admin.Users.UserModel.CreatedIP">
+            <summary>
+            注册IP。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.Controllers.Admin.Users.UserModel.LoginIP">
+            <summary>
+            登录IP。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.Controllers.Admin.Users.UserModel.LockoutEnabled">
+            <summary>
+            是否激活锁定功能。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.Controllers.Admin.Users.UserModel.LockoutEnd">
+            <summary>
+            锁定时间。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.Controllers.Admin.Users.UserModel.LastLoginDate">
+            <summary>
+            最后登录时间。
+            </summary>
+        </member>
+        <member name="T:Yd.Extensions.Security.Controllers.Admin.Users.UserQuery">
+            <summary>
+            用户查询。
+            </summary>
+        </member>
+        <member name="T:Yd.Extensions.Security.Controllers.Admin.Users.UsersController">
+            <summary>
+            用户管理控制器。
+            </summary>
+        </member>
+        <member name="M:Yd.Extensions.Security.Controllers.Admin.Users.UsersController.#ctor(Yd.Extensions.Security.IUserManager)">
+            <summary>
+            初始化类<see cref="T:Yd.Extensions.Security.Controllers.Admin.Users.UsersController"/>。
+            </summary>
+            <param name="userManager">用户管理接口。</param>
+        </member>
+        <member name="M:Yd.Extensions.Security.Controllers.Admin.Users.UsersController.LoadUsers(Yd.Extensions.Security.Controllers.Admin.Users.UserQuery)">
+            <summary>
+            分页获取用户实例。
+            </summary>
+            <param name="query">用户查询实例。</param>
+            <returns>返回用户分页实例。</returns>
+        </member>
+        <member name="M:Yd.Extensions.Security.Controllers.Admin.Users.UsersController.Remove(System.Int32[])">
+            <summary>
+            删除用户。
+            </summary>
+            <param name="ids">删除用户的Id集合。</param>
+            <returns>返回删除结果。</returns>
+        </member>
+        <member name="M:Yd.Extensions.Security.Controllers.Admin.Users.UsersController.Lockout(Yd.Extensions.Security.Controllers.Admin.Users.LockoutUserModel)">
+            <summary>
+            锁定/结果用户。
+            </summary>
+            <param name="model">锁定结果用户。</param>
+            <returns></returns>
+        </member>
+        <member name="M:Yd.Extensions.Security.Controllers.Admin.Users.UsersController.Unlock(System.Int32[])">
+            <summary>
+            解锁用户。
+            </summary>
+            <param name="ids">用户Id。</param>
+            <returns>返回结果结果。</returns>
+        </member>
+        <member name="M:Yd.Extensions.Security.Controllers.Admin.Users.UsersController.GetSettings">
+            <summary>
+            获取配置信息。
+            </summary>
+            <returns>返回配置信息。</returns>
+        </member>
+        <member name="M:Yd.Extensions.Security.Controllers.Admin.Users.UsersController.SaveSettings(Yd.Extensions.Security.SecuritySettings)">
+            <summary>
+            保存配置信息。
+            </summary>
+            <param name="model">配置实例模型。</param>
+            <returns>返回配置结果。</returns>
+        </member>
+        <member name="T:Yd.Extensions.Security.Controllers.CaptchaController">
+            <summary>
+            短信验证码。
+            </summary>
+        </member>
+        <member name="M:Yd.Extensions.Security.Controllers.CaptchaController.#ctor(Yd.Extensions.Security.IUserManager,Gentings.Identity.Captchas.ICaptchaManager)">
+            <summary>
+            初始化类<see cref="T:Yd.Extensions.Security.Controllers.CaptchaController"/>。
+            </summary>
+            <param name="userManager">用户管理接口。</param>
+            <param name="captchaManager">验证码管理接口。</param>
+        </member>
+        <member name="M:Yd.Extensions.Security.Controllers.CaptchaController.GetCaptcha(System.String,System.String)">
+            <summary>
+            获取手机验证码。
+            </summary>
+            <param name="mobile">电话号码。</param>
+            <param name="type">类型。</param>
+            <returns>返回是否成功获取验证码。</returns>
+        </member>
+        <member name="T:Yd.Extensions.Security.Controllers.ErrorCode">
+            <summary>
+            错误编码。
+            </summary>
+        </member>
+        <member name="F:Yd.Extensions.Security.Controllers.ErrorCode.InvalidUserNameOrPassword">
+            <summary>
+            用户名或者密码错误。
+            </summary>
+        </member>
+        <member name="F:Yd.Extensions.Security.Controllers.ErrorCode.InvalidPhoneNumber">
+            <summary>
+            电话号码不存在。
+            </summary>
+        </member>
+        <member name="F:Yd.Extensions.Security.Controllers.ErrorCode.InvalidCaptcha">
+            <summary>
+            验证码错误。
+            </summary>
+        </member>
+        <member name="F:Yd.Extensions.Security.Controllers.ErrorCode.GetCaptchaFailured">
+            <summary>
+            短信验证码发送错误。
+            </summary>
+        </member>
+        <member name="F:Yd.Extensions.Security.Controllers.ErrorCode.CaptchExpired">
+            <summary>
+            验证码过期。
+            </summary>
+        </member>
+        <member name="F:Yd.Extensions.Security.Controllers.ErrorCode.PhoneNumberAlreadyExisted">
+            <summary>
+            电话号码已经存在。
+            </summary>
+        </member>
+        <member name="F:Yd.Extensions.Security.Controllers.ErrorCode.RegisterFailured">
+            <summary>
+            注册失败。
+            </summary>
+        </member>
+        <member name="F:Yd.Extensions.Security.Controllers.ErrorCode.RoleNotFound">
+            <summary>
+            角色未找到。
+            </summary>
+        </member>
+        <member name="F:Yd.Extensions.Security.Controllers.ErrorCode.UserNotFound">
+            <summary>
+            用户未找到。
+            </summary>
+        </member>
+        <member name="T:Yd.Extensions.Security.Controllers.Forget.ForgetController">
+            <summary>
+            忘记密码。
+            </summary>
+        </member>
+        <member name="M:Yd.Extensions.Security.Controllers.Forget.ForgetController.Post(Yd.Extensions.Security.Controllers.Forget.ForgetModel)">
+            <summary>
+            发送忘记密码API。
+            </summary>
+            <param name="model">忘记密码模型。</param>
+            <returns>返回忘记密码结果。</returns>
+        </member>
+        <member name="T:Yd.Extensions.Security.Controllers.Forget.ForgetModel">
+            <summary>
+            忘记密码模型。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.Controllers.Forget.ForgetModel.UserName">
+            <summary>
+            用户名。
+            </summary>
+        </member>
+        <member name="T:Yd.Extensions.Security.Controllers.Forget.ForgetResult">
+            <summary>
+            登录结果。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.Controllers.Forget.ForgetResult.Token">
+            <summary>
+            标签。
+            </summary>
+        </member>
+        <member name="T:Yd.Extensions.Security.Controllers.Login.LoginController">
+            <summary>
+            登录。
+            </summary>
+        </member>
+        <member name="M:Yd.Extensions.Security.Controllers.Login.LoginController.#ctor(Yd.Extensions.Security.IUserManager,Yd.Extensions.Security.Roles.IRoleManager,Microsoft.Extensions.Configuration.IConfiguration,Gentings.Identity.Captchas.ICaptchaManager)">
+            <summary>
+            初始化类<see cref="T:Yd.Extensions.Security.Controllers.Login.LoginController"/>。
+            </summary>
+            <param name="userManager">用户管理接口。</param>
+            <param name="roleManager">角色管理接口。</param>
+            <param name="configuration">配置接口。</param>
+            <param name="captchaManager">验证码管理接口。</param>
+        </member>
+        <member name="M:Yd.Extensions.Security.Controllers.Login.LoginController.Post(Yd.Extensions.Security.Controllers.Login.LoginModel)">
+            <summary>
+            发送登录API。
+            </summary>
+            <param name="model">登录模型。</param>
+            <returns>返回登录结果。</returns>
+        </member>
+        <member name="T:Yd.Extensions.Security.Controllers.Login.LoginModel">
+            <summary>
+            登录模型。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.Controllers.Login.LoginModel.UserName">
+            <summary>
+            用户名。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.Controllers.Login.LoginModel.Password">
+            <summary>
+            密码。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.Controllers.Login.LoginModel.AutoLogin">
+            <summary>
+            记住登录状态。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.Controllers.Login.LoginModel.Mobile">
+            <summary>
+            电话号码。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.Controllers.Login.LoginModel.Captcha">
+            <summary>
+            短信验证码。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.Controllers.Login.LoginModel.Type">
+            <summary>
+            登录类型。
+            </summary>
+        </member>
+        <member name="T:Yd.Extensions.Security.Controllers.Login.LoginResult">
+            <summary>
+            登录结果。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.Controllers.Login.LoginResult.Token">
+            <summary>
+            标签。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.Controllers.Login.LoginResult.Authority">
+            <summary>
+            用户验证。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.Controllers.Login.LoginResult.Type">
+            <summary>
+            登录类型。
+            </summary>
+        </member>
+        <member name="T:Yd.Extensions.Security.Controllers.Register.RegisterController">
+            <summary>
+            注册。
+            </summary>
+        </member>
+        <member name="M:Yd.Extensions.Security.Controllers.Register.RegisterController.#ctor(Yd.Extensions.Security.IUserManager,Gentings.Identity.Captchas.ICaptchaManager)">
+            <summary>
+            初始化类<see cref="T:Yd.Extensions.Security.Controllers.Register.RegisterController"/>。
+            </summary>
+            <param name="userManager">用户管理接口。</param>
+            <param name="captchaManager">短信验证码管理接口。</param>
+        </member>
+        <member name="M:Yd.Extensions.Security.Controllers.Register.RegisterController.Post(Yd.Extensions.Security.Controllers.Register.RegisterModel)">
+            <summary>
+            发送注册API。
+            </summary>
+            <param name="model">注册模型。</param>
+            <returns>返回注册结果。</returns>
+        </member>
+        <member name="T:Yd.Extensions.Security.Controllers.Register.RegisterModel">
+            <summary>
+            注册模型。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.Controllers.Register.RegisterModel.UserName">
+            <summary>
+            用户名。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.Controllers.Register.RegisterModel.Password">
+            <summary>
+            密码。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.Controllers.Register.RegisterModel.Mail">
+            <summary>
+            电子邮件。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.Controllers.Register.RegisterModel.PhoneNumber">
+            <summary>
+            电话号码。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.Controllers.Register.RegisterModel.Captcha">
+            <summary>
+            短信验证码。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.Controllers.Register.RegisterModel.Prefix">
+            <summary>
+            区码如：+86。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.Controllers.Register.RegisterModel.Confirm">
+            <summary>
+            确认密码。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.Controllers.Register.RegisterModel.InviteKey">
+            <summary>
+            邀请码。
+            </summary>
+        </member>
+        <member name="T:Yd.Extensions.Security.Controllers.Register.RegisterResult">
+            <summary>
+            返回结果。
+            </summary>
+        </member>
+        <member name="T:Yd.Extensions.Security.DataInitializer">
+            <summary>
+            用户初始化。
+            </summary>
+        </member>
+        <member name="M:Yd.Extensions.Security.DataInitializer.#ctor(Gentings.Data.IDbContext{Yd.Extensions.Security.User},Yd.Extensions.Security.IUserManager)">
+            <summary>
+            初始化类<see cref="T:Yd.Extensions.Security.DataInitializer"/>。
+            </summary>
+            <param name="context">用户数据库操作接口实例。</param>
+            <param name="userManager">用户管理实例。</param>
+        </member>
+        <member name="P:Yd.Extensions.Security.DataInitializer.Priority">
+            <summary>
+            优先级，越大越靠前。
+            </summary>
+        </member>
+        <member name="M:Yd.Extensions.Security.DataInitializer.ExecuteAsync">
+            <summary>
+            安装时候预先执行的接口。
+            </summary>
+            <returns>返回执行结果。</returns>
+        </member>
+        <member name="T:Yd.Extensions.Security.IdentityDataMigration">
+            <summary>
+            数据迁移类。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.IdentityDataMigration.Priority">
+            <summary>
+            优先级，在两个迁移数据需要先后时候使用。
+            </summary>
+        </member>
+        <member name="M:Yd.Extensions.Security.IdentityDataMigration.Create(Gentings.Data.Migrations.Builders.CreateTableBuilder{Yd.Extensions.Security.User})">
+            <summary>
+            添加用户定义列。
+            </summary>
+            <param name="builder">用户表格定义实例。</param>
+        </member>
+        <member name="M:Yd.Extensions.Security.IdentityDataMigration.Up1(Gentings.Data.Migrations.MigrationBuilder)">
+            <summary>
+            建立索引。
+            </summary>
+            <param name="builder">数据迁移构建实例。</param>
+        </member>
+        <member name="T:Yd.Extensions.Security.IUserAliasManager">
+            <summary>
+            用户别名管理接口。
+            </summary>
+        </member>
+        <member name="T:Yd.Extensions.Security.UserAliasManager">
+            <summary>
+            用户别名管理类型。
+            </summary>
+        </member>
+        <member name="M:Yd.Extensions.Security.UserAliasManager.#ctor(Gentings.Data.IDbContext{Yd.Extensions.Security.UserAlias})">
+            <summary>
+            初始化类<see cref="T:Yd.Extensions.Security.UserAliasManager"/>。
+            </summary>
+            <param name="context">数据库操作实例。</param>
+        </member>
+        <member name="T:Yd.Extensions.Security.IUserManager">
+            <summary>
+            用户管理接口。
+            </summary>
+        </member>
+        <member name="M:Yd.Extensions.Security.IUserManager.GetCachedUser(System.Int32)">
+            <summary>
+            获取缓存用户实例。
+            </summary>
+            <param name="id">用户Id。</param>
+            <returns>返回缓存用户实例对象。</returns>
+        </member>
+        <member name="M:Yd.Extensions.Security.IUserManager.GetCachedUserAsync(System.Int32)">
+            <summary>
+            获取缓存用户实例。
+            </summary>
+            <param name="id">用户Id。</param>
+            <returns>返回缓存用户实例对象。</returns>
+        </member>
+        <member name="M:Yd.Extensions.Security.IUserManager.GetCachedUsers(System.Int32[])">
+            <summary>
+            获取缓存用户实例列表。
+            </summary>
+            <param name="ids">用户Id。</param>
+            <returns>返回缓存用户实例对象列表。</returns>
+        </member>
+        <member name="M:Yd.Extensions.Security.IUserManager.GetCachedUsersAsync(System.Int32[])">
+            <summary>
+            获取缓存用户实例列表。
+            </summary>
+            <param name="ids">用户Id。</param>
+            <returns>返回缓存用户实例对象列表。</returns>
+        </member>
+        <member name="T:Yd.Extensions.Security.LoginDirection">
+            <summary>
+            登录后的转向。
+            </summary>
+        </member>
+        <member name="F:Yd.Extensions.Security.LoginDirection.Default">
+            <summary>
+            首页。
+            </summary>
+        </member>
+        <member name="F:Yd.Extensions.Security.LoginDirection.Account">
+            <summary>
+            用户中心。
+            </summary>
+        </member>
+        <member name="F:Yd.Extensions.Security.LoginDirection.Admin">
+            <summary>
+            后台管理。
+            </summary>
+        </member>
+        <member name="T:Yd.Extensions.Security.Roles.IRoleManager">
+            <summary>
+            角色管理。
+            </summary>
+        </member>
+        <member name="M:Yd.Extensions.Security.Roles.IRoleManager.GetAuthority(System.Int32)">
+            <summary>
+            获取角色验证权限。
+            </summary>
+            <param name="roleId">角色Id。</param>
+            <returns>返回角色验证权限：admin|user|guess。</returns>
+        </member>
+        <member name="M:Yd.Extensions.Security.Roles.IRoleManager.GetAuthorityAsync(System.Int32)">
+            <summary>
+            获取角色验证权限。
+            </summary>
+            <param name="roleId">角色Id。</param>
+            <returns>返回角色验证权限：admin|user|guess。</returns>
+        </member>
+        <member name="T:Yd.Extensions.Security.Roles.Role">
+            <summary>
+            角色。
+            </summary>
+        </member>
+        <member name="M:Yd.Extensions.Security.Roles.Role.OnCreated(Gentings.Data.Internal.IDbTransactionContext{Yd.Extensions.Security.Roles.Role})">
+            <summary>
+            当角色添加后触发得方法。
+            </summary>
+            <param name="context">数据库事务操作实例。</param>
+            <returns>返回操作结果，返回<c>true</c>表示操作成功，将自动提交事务，如果<c>false</c>或发生错误，则回滚事务。</returns>
+        </member>
+        <member name="M:Yd.Extensions.Security.Roles.Role.OnCreatedAsync(Gentings.Data.Internal.IDbTransactionContext{Yd.Extensions.Security.Roles.Role},System.Threading.CancellationToken)">
+            <summary>
+            当角色更新后触发得方法。
+            </summary>
+            <param name="context">数据库事务操作实例。</param>
+            <param name="cancellationToken">取消标志。</param>
+            <returns>返回操作结果，返回<c>true</c>表示操作成功，将自动提交事务，如果<c>false</c>或发生错误，则回滚事务。</returns>
+        </member>
+        <member name="M:Yd.Extensions.Security.Roles.Role.OnUpdate(Gentings.Data.Internal.IDbTransactionContext{Yd.Extensions.Security.Roles.Role})">
+            <summary>
+            当角色更新前触发得方法。
+            </summary>
+            <param name="context">数据库事务操作实例。</param>
+            <returns>返回操作结果，返回<c>true</c>表示操作成功，将自动提交事务，如果<c>false</c>或发生错误，则回滚事务。</returns>
+        </member>
+        <member name="M:Yd.Extensions.Security.Roles.Role.OnUpdateAsync(Gentings.Data.Internal.IDbTransactionContext{Yd.Extensions.Security.Roles.Role},System.Threading.CancellationToken)">
+            <summary>
+            当角色更新前触发得方法。
+            </summary>
+            <param name="context">数据库事务操作实例。</param>
+            <param name="cancellationToken">取消标志。</param>
+            <returns>返回操作结果，返回<c>true</c>表示操作成功，将自动提交事务，如果<c>false</c>或发生错误，则回滚事务。</returns>
+        </member>
+        <member name="M:Yd.Extensions.Security.Roles.Role.OnDelete(Gentings.Data.Internal.IDbTransactionContext{Yd.Extensions.Security.Roles.Role})">
+            <summary>
+            当角色删除前触发得方法。
+            </summary>
+            <param name="context">数据库事务操作实例。</param>
+            <returns>返回操作结果，返回<c>true</c>表示操作成功，将自动提交事务，如果<c>false</c>或发生错误，则回滚事务。</returns>
+        </member>
+        <member name="M:Yd.Extensions.Security.Roles.Role.OnDeleteAsync(Gentings.Data.Internal.IDbTransactionContext{Yd.Extensions.Security.Roles.Role},System.Threading.CancellationToken)">
+            <summary>
+            当角色删除前触发得方法。
+            </summary>
+            <param name="context">数据库事务操作实例。</param>
+            <param name="cancellationToken">取消标志。</param>
+            <returns>返回操作结果，返回<c>true</c>表示操作成功，将自动提交事务，如果<c>false</c>或发生错误，则回滚事务。</returns>
+        </member>
+        <member name="T:Yd.Extensions.Security.Roles.RoleClaim">
+            <summary>
+            角色声明。
+            </summary>
+        </member>
+        <member name="T:Yd.Extensions.Security.Roles.RoleManager">
+            <summary>
+            角色管理。
+            </summary>
+        </member>
+        <member name="M:Yd.Extensions.Security.Roles.RoleManager.#ctor(Microsoft.AspNetCore.Identity.IRoleStore{Yd.Extensions.Security.Roles.Role},System.Collections.Generic.IEnumerable{Microsoft.AspNetCore.Identity.IRoleValidator{Yd.Extensions.Security.Roles.Role}},Microsoft.AspNetCore.Identity.ILookupNormalizer,Microsoft.AspNetCore.Identity.IdentityErrorDescriber,Microsoft.Extensions.Logging.ILogger{Microsoft.AspNetCore.Identity.RoleManager{Yd.Extensions.Security.Roles.Role}},Microsoft.Extensions.Caching.Memory.IMemoryCache)">
+            <summary>
+            初始化类<see cref="T:Yd.Extensions.Security.Roles.RoleManager"/>
+            </summary>
+            <param name="store">存储接口。</param>
+            <param name="roleValidators">角色验证集合。</param>
+            <param name="keyNormalizer">角色唯一键格式化接口。</param>
+            <param name="errors">错误实例。</param>
+            <param name="logger">日志接口。</param>
+            <param name="cache">缓存接口。</param>
+        </member>
+        <member name="M:Yd.Extensions.Security.Roles.RoleManager.GetAuthority(System.Int32)">
+            <summary>
+            获取角色验证权限。
+            </summary>
+            <param name="roleId">角色Id。</param>
+            <returns>返回角色验证权限：admin|user|guess。</returns>
+        </member>
+        <member name="M:Yd.Extensions.Security.Roles.RoleManager.GetAuthorityAsync(System.Int32)">
+            <summary>
+            获取角色验证权限。
+            </summary>
+            <param name="roleId">角色Id。</param>
+            <returns>返回角色验证权限：admin|user|guess。</returns>
+        </member>
+        <member name="T:Yd.Extensions.Security.Roles.RoleStore">
+            <summary>
+            角色存储。
+            </summary>
+        </member>
+        <member name="M:Yd.Extensions.Security.Roles.RoleStore.#ctor(Microsoft.AspNetCore.Identity.IdentityErrorDescriber,Gentings.Data.IDbContext{Yd.Extensions.Security.Roles.Role},Gentings.Data.IDbContext{Yd.Extensions.Security.UserRole},Gentings.Data.IDbContext{Yd.Extensions.Security.Roles.RoleClaim})">
+            <summary>
+            初始化类<see cref="T:Yd.Extensions.Security.Roles.RoleStore"/>。
+            </summary>
+            <param name="describer">错误描述<see cref="T:Microsoft.AspNetCore.Identity.IdentityErrorDescriber"/>实例。</param>
+            <param name="roleContext">角色数据库操作接口。</param>
+            <param name="userRoleContext">用户角色数据库操作接口。</param>
+            <param name="roleClaimContext">用户声明数据库操作接口。</param>
+        </member>
+        <member name="T:Yd.Extensions.Security.SecuritySettings">
+            <summary>
+            安全配置。
+            </summary>
+        </member>
+        <member name="F:Yd.Extensions.Security.SecuritySettings.AliasCount">
+            <summary>
+            推广链接个数。
+            </summary>
+        </member>
+        <member name="F:Yd.Extensions.Security.SecuritySettings.ExtensionName">
+            <summary>
+            扩展名称（区域名称）。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.SecuritySettings.RequiredEmailConfirmed">
+            <summary>
+            是否需要确认电子邮件。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.SecuritySettings.RequiredPhoneNumberConfirmed">
+            <summary>
+            是否需要确认电话号码。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.SecuritySettings.RequiredTwoFactorEnabled">
+            <summary>
+            是否需要二次验证。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.SecuritySettings.Registrable">
+            <summary>
+            开放注册。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.SecuritySettings.LoginDirection">
+            <summary>
+            登录后的默认转向。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.SecuritySettings.ValidCode">
+            <summary>
+            是否开启验证码。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.SecuritySettings.LoginBg">
+            <summary>
+            登录页面背景图片。
+            </summary>
+        </member>
+        <member name="T:Yd.Extensions.Security.ServiceConfigurer">
+            <summary>
+            注册当前登录用户。
+            </summary>
+        </member>
+        <member name="M:Yd.Extensions.Security.ServiceConfigurer.ConfigureIdentityServices(Gentings.IServiceBuilder)">
+            <summary>
+            配置服务。
+            </summary>
+            <param name="builder">容器构建实例。</param>
+        </member>
+        <member name="T:Yd.Extensions.Security.Subuser">
+            <summary>
+            子用户索引表格。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.Subuser.UserId">
+            <summary>
+            用户Id。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.Subuser.SubId">
+            <summary>
+            子用户Id。
+            </summary>
+        </member>
+        <member name="T:Yd.Extensions.Security.User">
+            <summary>
+            用户。
+            </summary>
+        </member>
+        <member name="M:Yd.Extensions.Security.User.OnCreated(Gentings.Data.Internal.IDbTransactionContext{Yd.Extensions.Security.User})">
+            <summary>
+            当用户添加后触发得方法。
+            </summary>
+            <param name="context">数据库事务操作实例。</param>
+            <returns>返回操作结果，返回<c>true</c>表示操作成功，将自动提交事务，如果<c>false</c>或发生错误，则回滚事务。</returns>
+        </member>
+        <member name="M:Yd.Extensions.Security.User.OnCreatedAsync(Gentings.Data.Internal.IDbTransactionContext{Yd.Extensions.Security.User},System.Threading.CancellationToken)">
+            <summary>
+            当用户添加后触发得方法。
+            </summary>
+            <param name="context">数据库事务操作实例。</param>
+            <param name="cancellationToken">取消标志。</param>
+            <returns>返回操作结果，返回<c>true</c>表示操作成功，将自动提交事务，如果<c>false</c>或发生错误，则回滚事务。</returns>
+        </member>
+        <member name="M:Yd.Extensions.Security.User.OnUpdate(Gentings.Data.Internal.IDbTransactionContext{Yd.Extensions.Security.User})">
+            <summary>
+            当用户更新前触发得方法。
+            </summary>
+            <param name="context">数据库事务操作实例。</param>
+            <returns>返回操作结果，返回<c>true</c>表示操作成功，将自动提交事务，如果<c>false</c>或发生错误，则回滚事务。</returns>
+        </member>
+        <member name="M:Yd.Extensions.Security.User.OnUpdateAsync(Gentings.Data.Internal.IDbTransactionContext{Yd.Extensions.Security.User},System.Threading.CancellationToken)">
+            <summary>
+            当用户更新前触发得方法。
+            </summary>
+            <param name="context">数据库事务操作实例。</param>
+            <param name="cancellationToken">取消标志。</param>
+            <returns>返回操作结果，返回<c>true</c>表示操作成功，将自动提交事务，如果<c>false</c>或发生错误，则回滚事务。</returns>
+        </member>
+        <member name="M:Yd.Extensions.Security.User.OnDelete(Gentings.Data.Internal.IDbTransactionContext{Yd.Extensions.Security.User})">
+            <summary>
+            当用户删除前触发得方法。
+            </summary>
+            <param name="context">数据库事务操作实例。</param>
+            <returns>返回操作结果，返回<c>true</c>表示操作成功，将自动提交事务，如果<c>false</c>或发生错误，则回滚事务。</returns>
+        </member>
+        <member name="M:Yd.Extensions.Security.User.OnDeleteAsync(Gentings.Data.Internal.IDbTransactionContext{Yd.Extensions.Security.User},System.Threading.CancellationToken)">
+            <summary>
+            当用户删除前触发得方法。
+            </summary>
+            <param name="context">数据库事务操作实例。</param>
+            <param name="cancellationToken">取消标志。</param>
+            <returns>返回操作结果，返回<c>true</c>表示操作成功，将自动提交事务，如果<c>false</c>或发生错误，则回滚事务。</returns>
+        </member>
+        <member name="P:Yd.Extensions.Security.User.Level">
+            <summary>
+            用户等级。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.User.Type">
+            <summary>
+            用户类型。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.User.Score">
+            <summary>
+            积分。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.User.LockedScore">
+            <summary>
+            锁定积分。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.User.ScoredDate">
+            <summary>
+            改变积分时间。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.User.Summary">
+            <summary>
+            备注。
+            </summary>
+        </member>
+        <member name="T:Yd.Extensions.Security.UserAlias">
+            <summary>
+            用户别名，用于推广。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.UserAlias.UserId">
+            <summary>
+            用户Id。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.UserAlias.Id">
+            <summary>
+            唯一Id。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.UserAlias.Count">
+            <summary>
+            推广数量。
+            </summary>
+        </member>
+        <member name="T:Yd.Extensions.Security.UserClaim">
+            <summary>
+            用户声明。
+            </summary>
+        </member>
+        <member name="T:Yd.Extensions.Security.UserFieldBase">
+            <summary>
+            包含用户字段基类。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.UserFieldBase.UserName">
+            <summary>
+            用户名称。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.UserFieldBase.Avatar">
+            <summary>
+            头像。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.UserFieldBase.RealName">
+            <summary>
+            用户姓名。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.UserFieldBase.RoleId">
+            <summary>
+            角色名称。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.UserFieldBase.RoleName">
+            <summary>
+            角色名称。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.UserFieldBase.RoleColor">
+            <summary>
+            角色颜色。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.UserFieldBase.RoleIcon">
+            <summary>
+            用户角色URL地址。
+            </summary>
+        </member>
+        <member name="T:Yd.Extensions.Security.UserFieldExtensions">
+            <summary>
+            用户列扩展类。
+            </summary>
+        </member>
+        <member name="M:Yd.Extensions.Security.UserFieldExtensions.JoinSelect``1(Gentings.Data.IQueryable{``0},System.Linq.Expressions.Expression{System.Func{``0,Yd.Extensions.Security.User,System.Boolean}})">
+            <summary>
+            选择用户相关联字段。
+            </summary>
+            <typeparam name="TModel">当前实例模型。</typeparam>
+            <param name="queryable">查询实例。</param>
+            <param name="expression">关联表达式。</param>
+            <returns>返回当前查询实例。</returns>
+        </member>
+        <member name="T:Yd.Extensions.Security.UserLogin">
+            <summary>
+            用户登录。
+            </summary>
+        </member>
+        <member name="T:Yd.Extensions.Security.UserManager">
+            <summary>
+            用户管理。
+            </summary>
+        </member>
+        <member name="M:Yd.Extensions.Security.UserManager.#ctor(Microsoft.AspNetCore.Identity.IUserStore{Yd.Extensions.Security.User},Microsoft.Extensions.Options.IOptions{Microsoft.AspNetCore.Identity.IdentityOptions},Microsoft.AspNetCore.Identity.IPasswordHasher{Yd.Extensions.Security.User},System.Collections.Generic.IEnumerable{Microsoft.AspNetCore.Identity.IUserValidator{Yd.Extensions.Security.User}},System.Collections.Generic.IEnumerable{Microsoft.AspNetCore.Identity.IPasswordValidator{Yd.Extensions.Security.User}},Microsoft.AspNetCore.Identity.ILookupNormalizer,Microsoft.AspNetCore.Identity.IdentityErrorDescriber,System.IServiceProvider)">
+            <summary>
+            初始化类<see cref="T:Yd.Extensions.Security.UserManager"/>。
+            </summary>
+            <param name="store">用户存储接口。</param>
+            <param name="optionsAccessor"><see cref="T:Microsoft.AspNetCore.Identity.IdentityOptions" />实例对象。</param>
+            <param name="passwordHasher">密码加密器接口。</param>
+            <param name="userValidators">用户验证接口。</param>
+            <param name="passwordValidators">密码验证接口。</param>
+            <param name="keyNormalizer">唯一键格式化字符串。</param>
+            <param name="errors">错误实例。</param>
+            <param name="serviceProvider">服务提供者接口。</param>
+        </member>
+        <member name="M:Yd.Extensions.Security.UserManager.GetCachedUser(System.Int32)">
+            <summary>
+            获取缓存用户实例。
+            </summary>
+            <param name="id">用户Id。</param>
+            <returns>返回缓存用户实例对象。</returns>
+        </member>
+        <member name="P:Yd.Extensions.Security.UserManager.CachedUsers">
+            <summary>
+            缓存用户实例。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.UserManager.CachedQueryable">
+            <summary>
+            缓存查询实例。
+            </summary>
+        </member>
+        <member name="M:Yd.Extensions.Security.UserManager.GetCachedUserAsync(System.Int32)">
+            <summary>
+            获取缓存用户实例。
+            </summary>
+            <param name="id">用户Id。</param>
+            <returns>返回缓存用户实例对象。</returns>
+        </member>
+        <member name="M:Yd.Extensions.Security.UserManager.Converter(System.Data.Common.DbDataReader)">
+            <summary>
+            转换实例。
+            </summary>
+            <param name="reader">数据库读取器。</param>
+            <returns>返回缓存用户实例。</returns>
+        </member>
+        <member name="M:Yd.Extensions.Security.UserManager.GetCachedUsers(System.Int32[])">
+            <summary>
+            获取缓存用户实例列表。
+            </summary>
+            <param name="ids">用户Id。</param>
+            <returns>返回缓存用户实例对象列表。</returns>
+        </member>
+        <member name="M:Yd.Extensions.Security.UserManager.GetCachedUsersAsync(System.Int32[])">
+            <summary>
+            获取缓存用户实例列表。
+            </summary>
+            <param name="ids">用户Id。</param>
+            <returns>返回缓存用户实例对象列表。</returns>
+        </member>
+        <member name="T:Yd.Extensions.Security.UserRole">
+            <summary>
+            用户和角色关联类。
+            </summary>
+        </member>
+        <member name="T:Yd.Extensions.Security.UserScore">
+            <summary>
+            用户积分日志。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.UserScore.Id">
+            <summary>
+            获取或设置唯一Id。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.UserScore.UserId">
+            <summary>
+            用户Id。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.UserScore.Score">
+            <summary>
+            发生改变的积分。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.UserScore.BeforeScore">
+            <summary>
+            原始积分。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.UserScore.AfterScore">
+            <summary>
+            改变后剩余的积分。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.UserScore.CreatedDate">
+            <summary>
+            添加时间。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.UserScore.SecurityKey">
+            <summary>
+            安全码。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.UserScore.HashedKey">
+            <summary>
+            哈希码。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.UserScore.IsValid">
+            <summary>
+            是否合法。
+            </summary>
+        </member>
+        <member name="T:Yd.Extensions.Security.UserStore">
+            <summary>
+            用户存储。
+            </summary>
+        </member>
+        <member name="M:Yd.Extensions.Security.UserStore.#ctor(Microsoft.AspNetCore.Identity.IdentityErrorDescriber,Gentings.Data.IDbContext{Yd.Extensions.Security.User},Gentings.Data.IDbContext{Yd.Extensions.Security.UserClaim},Gentings.Data.IDbContext{Yd.Extensions.Security.UserLogin},Gentings.Data.IDbContext{Yd.Extensions.Security.UserToken},Gentings.Data.IDbContext{Yd.Extensions.Security.Roles.Role},Gentings.Data.IDbContext{Yd.Extensions.Security.UserRole},Gentings.Data.IDbContext{Yd.Extensions.Security.Roles.RoleClaim})">
+            <summary>
+            初始化类<see cref="T:Yd.Extensions.Security.UserStore"/>。
+            </summary>
+            <param name="describer">错误描述<see cref="T:Microsoft.AspNetCore.Identity.IdentityErrorDescriber"/>实例。</param>
+            <param name="userContext">用户数据库接口。</param>
+            <param name="userClaimContext">用户声明数据库接口。</param>
+            <param name="userLoginContext">用户登录数据库接口。</param>
+            <param name="userTokenContext">用户标识数据库接口。</param>
+            <param name="roleContext">角色上下文。</param>
+            <param name="userRoleContext">用户角色数据库操作接口。</param>
+            <param name="roleClaimContext">角色声明数据库操作接口。</param>
+        </member>
+        <member name="T:Yd.Extensions.Security.UserToken">
+            <summary>
+            用户标识。
+            </summary>
+        </member>
+        <member name="T:Yd.Extensions.Security.UserType">
+            <summary>
+            用户类型。
+            </summary>
+        </member>
+        <member name="F:Yd.Extensions.Security.UserType.Normal">
+            <summary>
+            正常会员账户。
+            </summary>
+        </member>
+        <member name="F:Yd.Extensions.Security.UserType.SubAccount">
+            <summary>
+            子账号。
+            </summary>
+        </member>
+        <member name="T:Yd.Extensions.SiteSettings">
+            <summary>
+            网站配置。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.SiteSettings.SiteName">
+            <summary>
+            网站名称。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.SiteSettings.ShortName">
+            <summary>
+            简称。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.SiteSettings.LogoUrl">
+            <summary>
+            Logo地址。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.SiteSettings.Description">
+            <summary>
+            描述。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.SiteSettings.Copyright">
+            <summary>
+            版权信息。
+            </summary>
+        </member>
+    </members>
+</doc>

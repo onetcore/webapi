@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Gentings;
 using Gentings.Identity;
+using Yd.Extensions.Security.Roles;
 
 namespace Yd.Extensions.Security
 {

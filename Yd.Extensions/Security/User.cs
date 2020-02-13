@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Gentings.Extensions;
 using Gentings.Identity;
+using Yd.Extensions.Security.Roles;
 
 namespace Yd.Extensions.Security
 {

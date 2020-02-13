@@ -9,3 +9,4 @@ SET RARLINE="%ProgramFiles%\WinRAR\Winrar.exe"
 %RARLINE% a -m1 -r -o+ -s -x%0 ./update.rar ./website/wwwroot/lib/font-awesome/fonts
 %RARLINE% a -m1 -r -o+ -s -x%0 ./update.rar ./website/*.dll
 %RARLINE% a -m1 -r -o+ -s -x%0 ./update.rar ./website/Yd.*.json
+%RARLINE% a -m1 -r -o+ -s -x%0 ./update.rar ./website/Yd.*.xml

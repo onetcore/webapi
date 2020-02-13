@@ -1,6 +1,7 @@
 ﻿using Gentings.Data;
 using Gentings.Identity;
 using Microsoft.AspNetCore.Identity;
+using Yd.Extensions.Security.Roles;
 
 namespace Yd.Extensions.Security
 {

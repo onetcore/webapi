@@ -3,6 +3,7 @@ using Gentings;
 using Gentings.Identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
+using Yd.Extensions.Security.Roles;
 
 namespace Yd.Extensions.Security
 {

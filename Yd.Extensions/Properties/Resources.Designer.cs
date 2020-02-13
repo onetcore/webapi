@@ -61,6 +61,96 @@ namespace Yd.Extensions.Properties {
         }
         
         /// <summary>
+        ///   查找类似 游客 的本地化字符串。
+        /// </summary>
+        internal static string Anonymous {
+            get {
+                return ResourceManager.GetString("Anonymous", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 验证码过期！ 的本地化字符串。
+        /// </summary>
+        internal static string ErrorCode_CaptchExpired {
+            get {
+                return ResourceManager.GetString("ErrorCode_CaptchExpired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 短信验证码发送错误! 的本地化字符串。
+        /// </summary>
+        internal static string ErrorCode_GetCaptchaFailured {
+            get {
+                return ResourceManager.GetString("ErrorCode_GetCaptchaFailured", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 验证码错误！ 的本地化字符串。
+        /// </summary>
+        internal static string ErrorCode_InvalidCaptcha {
+            get {
+                return ResourceManager.GetString("ErrorCode_InvalidCaptcha", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 电话号码不存在！ 的本地化字符串。
+        /// </summary>
+        internal static string ErrorCode_InvalidPhoneNumber {
+            get {
+                return ResourceManager.GetString("ErrorCode_InvalidPhoneNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 用户名或者密码错误！ 的本地化字符串。
+        /// </summary>
+        internal static string ErrorCode_InvalidUserNameOrPassword {
+            get {
+                return ResourceManager.GetString("ErrorCode_InvalidUserNameOrPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 电话号码已经存在! 的本地化字符串。
+        /// </summary>
+        internal static string ErrorCode_PhoneNumberAlreadyExisted {
+            get {
+                return ResourceManager.GetString("ErrorCode_PhoneNumberAlreadyExisted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 注册失败！ 的本地化字符串。
+        /// </summary>
+        internal static string ErrorCode_RegisterFailured {
+            get {
+                return ResourceManager.GetString("ErrorCode_RegisterFailured", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 未找到角色！ 的本地化字符串。
+        /// </summary>
+        internal static string ErrorCode_RoleNotFound {
+            get {
+                return ResourceManager.GetString("ErrorCode_RoleNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 未找到用户！ 的本地化字符串。
+        /// </summary>
+        internal static string ErrorCode_UserNotFound {
+            get {
+                return ResourceManager.GetString("ErrorCode_UserNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 用户 的本地化字符串。
         /// </summary>
         internal static string EventType_User {
@@ -93,6 +183,15 @@ namespace Yd.Extensions.Properties {
         internal static string LoginDirection_Default {
             get {
                 return ResourceManager.GetString("LoginDirection_Default", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 成功开通了账户。 的本地化字符串。
+        /// </summary>
+        internal static string Register_Success {
+            get {
+                return ResourceManager.GetString("Register_Success", resourceCulture);
             }
         }
     }

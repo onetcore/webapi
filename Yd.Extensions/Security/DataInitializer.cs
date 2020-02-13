@@ -3,6 +3,7 @@ using System.Linq;
 using Gentings.Installers;
 using System.Threading.Tasks;
 using Gentings.Data;
+using Yd.Extensions.Security.Roles;
 
 namespace Yd.Extensions.Security
 {

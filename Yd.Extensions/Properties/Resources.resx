@@ -117,6 +117,36 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Anonymous" xml:space="preserve">
+    <value>游客</value>
+  </data>
+  <data name="ErrorCode_CaptchExpired" xml:space="preserve">
+    <value>验证码过期！</value>
+  </data>
+  <data name="ErrorCode_GetCaptchaFailured" xml:space="preserve">
+    <value>短信验证码发送错误!</value>
+  </data>
+  <data name="ErrorCode_InvalidCaptcha" xml:space="preserve">
+    <value>验证码错误！</value>
+  </data>
+  <data name="ErrorCode_InvalidPhoneNumber" xml:space="preserve">
+    <value>电话号码不存在！</value>
+  </data>
+  <data name="ErrorCode_InvalidUserNameOrPassword" xml:space="preserve">
+    <value>用户名或者密码错误！</value>
+  </data>
+  <data name="ErrorCode_PhoneNumberAlreadyExisted" xml:space="preserve">
+    <value>电话号码已经存在!</value>
+  </data>
+  <data name="ErrorCode_RegisterFailured" xml:space="preserve">
+    <value>注册失败！</value>
+  </data>
+  <data name="ErrorCode_RoleNotFound" xml:space="preserve">
+    <value>未找到角色！</value>
+  </data>
+  <data name="ErrorCode_UserNotFound" xml:space="preserve">
+    <value>未找到用户！</value>
+  </data>
   <data name="EventType_User" xml:space="preserve">
     <value>用户</value>
   </data>
@@ -128,5 +158,8 @@
   </data>
   <data name="LoginDirection_Default" xml:space="preserve">
     <value>首页</value>
+  </data>
+  <data name="Register_Success" xml:space="preserve">
+    <value>成功开通了账户。</value>
   </data>
 </root>
