@@ -69,7 +69,7 @@ namespace Yd.Extensions.Security
         protected virtual Gentings.Data.IQueryable<User> CachedQueryable => DbContext.UserContext.AsQueryable()
             .WithNolock()
             .InnerJoin<Role>((u, r) => u.RoleId == r.Id)
-            .Select(x => new { x.Id, x.Avatar, x.Email, x.UserName, x.RealName, x.PhoneNumber, x.RoleId })
+            .Select(x => new { x.Id, x.Avatar, x.Email, x.UserName, x.NickName, x.PhoneNumber, x.RoleId })
             .Select<Role>(x => x.Color, "RoleColor")
             .Select<Role>(x => x.Name, "RoleName")
             .Select<Role>(x => x.IconUrl, "RoleIcon")

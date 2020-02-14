@@ -24,6 +24,12 @@ namespace Yd.Extensions.Security
         public string Id { get; set; } = Cores.NewId();
 
         /// <summary>
+        /// 用户等级。
+        /// </summary>
+        [NotMapped]
+        public int Level { get; set; }
+
+        /// <summary>
         /// 推广数量。
         /// </summary>
         public int Count { get; set; }

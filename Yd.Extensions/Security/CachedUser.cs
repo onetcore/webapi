@@ -24,9 +24,9 @@ namespace Yd.Extensions.Security
         public string Avatar { get; set; }
 
         /// <summary>
-        /// 真实姓名。
+        /// 昵称。
         /// </summary>
-        public string RealName { get; set; }
+        public string NickName { get; set; }
 
         /// <summary>
         /// 角色名称。

@@ -40,7 +40,7 @@ namespace Yd.Extensions.Security.Controllers.Admin.Users
                 Id = user.Id,
                 Email = user.Email,
                 PhoneNumber = user.PhoneNumber,
-                RealName = user.RealName,
+                NickName = user.NickName,
                 UserName = user.UserName,
                 Summary = user.Summary,
                 LockoutEnabled = user.LockoutEnabled,
@@ -60,7 +60,7 @@ namespace Yd.Extensions.Security.Controllers.Admin.Users
                 var settings = await _settingsManager.GetSettingsAsync<SecuritySettings>();
                 var user = new User();
                 user.UserName = model.UserName;
-                user.RealName = model.RealName ?? model.UserName;
+                user.NickName = model.NickName ?? model.UserName;
                 user.Email = model.Email;
                 user.PhoneNumber = model.PhoneNumber;
                 user.Summary = model.Summary;
@@ -74,7 +74,7 @@ namespace Yd.Extensions.Security.Controllers.Admin.Users
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    Log("添加用户：{0}({1})", user.RealName, user.UserName);
+                    Log("添加用户：{0}({1})", user.NickName, user.UserName);
                     return OkResult();
                 }
                 return BadResult(result.ToErrorString());
@@ -109,7 +109,7 @@ namespace Yd.Extensions.Security.Controllers.Admin.Users
                     user.PasswordHash = model.Password;
                     user.PasswordHash = _userManager.HashPassword(user);
                 }
-                user.RealName = model.RealName ?? user.RealName ?? user.UserName;
+                user.NickName = model.NickName ?? user.NickName ?? user.UserName;
                 user.Summary = model.Summary;
                 if (user.Email != model.Email)
                 {
@@ -125,7 +125,7 @@ namespace Yd.Extensions.Security.Controllers.Admin.Users
                 var result = await _userManager.UpdateAsync(user);
                 if (result.Succeeded)
                 {
-                    Log("更新用户：{0}({1})", user.RealName, user.UserName);
+                    Log("更新用户：{0}({1})", user.NickName, user.UserName);
                     return OkResult();
                 }
                 return BadResult(result.ToErrorString());

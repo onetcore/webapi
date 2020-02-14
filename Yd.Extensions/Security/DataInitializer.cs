@@ -58,7 +58,7 @@ namespace Yd.Extensions.Security
                 var user = new User();
                 user.UserName = "admin";
                 user.PasswordHash = "admin";
-                user.RealName = user.UserName;
+                user.NickName = user.UserName;
                 user.NormalizedUserName = _userManager.NormalizeName(user.UserName);
                 user.PasswordHash = _userManager.HashPassword(user);
                 user.RoleId = roles.OrderByDescending(x => x.RoleLevel).First().Id;

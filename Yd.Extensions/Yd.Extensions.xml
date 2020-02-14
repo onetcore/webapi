@@ -163,9 +163,9 @@
             头像。
             </summary>
         </member>
-        <member name="P:Yd.Extensions.Security.CachedUser.RealName">
+        <member name="P:Yd.Extensions.Security.CachedUser.NickName">
             <summary>
-            真实姓名。
+            昵称。
             </summary>
         </member>
         <member name="P:Yd.Extensions.Security.CachedUser.RoleId">
@@ -339,9 +339,9 @@
             电子邮件。
             </summary>
         </member>
-        <member name="P:Yd.Extensions.Security.Controllers.Admin.Users.CreateUserModel.RealName">
+        <member name="P:Yd.Extensions.Security.Controllers.Admin.Users.CreateUserModel.NickName">
             <summary>
-            真实姓名。
+            昵称。
             </summary>
         </member>
         <member name="P:Yd.Extensions.Security.Controllers.Admin.Users.CreateUserModel.UserName">
@@ -442,9 +442,9 @@
             用户名称。
             </summary>
         </member>
-        <member name="P:Yd.Extensions.Security.Controllers.Admin.Users.UserModel.RealName">
+        <member name="P:Yd.Extensions.Security.Controllers.Admin.Users.UserModel.NickName">
             <summary>
-            真实姓名。
+            昵称。
             </summary>
         </member>
         <member name="P:Yd.Extensions.Security.Controllers.Admin.Users.UserModel.PhoneNumber">
@@ -722,11 +722,12 @@
             注册。
             </summary>
         </member>
-        <member name="M:Yd.Extensions.Security.Controllers.Register.RegisterController.#ctor(Yd.Extensions.Security.IUserManager,Gentings.Identity.Captchas.ICaptchaManager)">
+        <member name="M:Yd.Extensions.Security.Controllers.Register.RegisterController.#ctor(Yd.Extensions.Security.IUserManager,Yd.Extensions.Security.IUserAliasManager,Gentings.Identity.Captchas.ICaptchaManager)">
             <summary>
             初始化类<see cref="T:Yd.Extensions.Security.Controllers.Register.RegisterController"/>。
             </summary>
             <param name="userManager">用户管理接口。</param>
+            <param name="userAliasManager">用户别名。</param>
             <param name="captchaManager">短信验证码管理接口。</param>
         </member>
         <member name="M:Yd.Extensions.Security.Controllers.Register.RegisterController.Post(Yd.Extensions.Security.Controllers.Register.RegisterModel)">
@@ -751,7 +752,7 @@
             密码。
             </summary>
         </member>
-        <member name="P:Yd.Extensions.Security.Controllers.Register.RegisterModel.Mail">
+        <member name="P:Yd.Extensions.Security.Controllers.Register.RegisterModel.Email">
             <summary>
             电子邮件。
             </summary>
@@ -764,11 +765,6 @@
         <member name="P:Yd.Extensions.Security.Controllers.Register.RegisterModel.Captcha">
             <summary>
             短信验证码。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.Security.Controllers.Register.RegisterModel.Prefix">
-            <summary>
-            区码如：+86。
             </summary>
         </member>
         <member name="P:Yd.Extensions.Security.Controllers.Register.RegisterModel.Confirm">
@@ -846,6 +842,21 @@
             初始化类<see cref="T:Yd.Extensions.Security.UserAliasManager"/>。
             </summary>
             <param name="context">数据库操作实例。</param>
+        </member>
+        <member name="M:Yd.Extensions.Security.UserAliasManager.Find(System.String)">
+            <summary>
+            通过唯一键获取当前值。
+            </summary>
+            <param name="id">唯一Id。</param>
+            <returns>返回当前模型实例。</returns>
+        </member>
+        <member name="M:Yd.Extensions.Security.UserAliasManager.FindAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            通过唯一键获取当前值。
+            </summary>
+            <param name="id">唯一Id。</param>
+            <param name="cancellationToken">取消标识。</param>
+            <returns>返回当前模型实例。</returns>
         </member>
         <member name="T:Yd.Extensions.Security.IUserManager">
             <summary>
@@ -1189,6 +1200,11 @@
             唯一Id。
             </summary>
         </member>
+        <member name="P:Yd.Extensions.Security.UserAlias.Level">
+            <summary>
+            用户等级。
+            </summary>
+        </member>
         <member name="P:Yd.Extensions.Security.UserAlias.Count">
             <summary>
             推广数量。
@@ -1214,7 +1230,7 @@
             头像。
             </summary>
         </member>
-        <member name="P:Yd.Extensions.Security.UserFieldBase.RealName">
+        <member name="P:Yd.Extensions.Security.UserFieldBase.NickName">
             <summary>
             用户姓名。
             </summary>

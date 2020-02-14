@@ -13,16 +13,19 @@ namespace Yd.Extensions.Security.Controllers.Register
     public class RegisterController : ApiControllerBase
     {
         private readonly IUserManager _userManager;
+        private readonly IUserAliasManager _userAliasManager;
         private readonly ICaptchaManager _captchaManager;
 
         /// <summary>
         /// 初始化类<see cref="RegisterController"/>。
         /// </summary>
         /// <param name="userManager">用户管理接口。</param>
+        /// <param name="userAliasManager">用户别名。</param>
         /// <param name="captchaManager">短信验证码管理接口。</param>
-        public RegisterController(IUserManager userManager, ICaptchaManager captchaManager)
+        public RegisterController(IUserManager userManager, IUserAliasManager userAliasManager, ICaptchaManager captchaManager)
         {
             _userManager = userManager;
+            _userAliasManager = userAliasManager;
             _captchaManager = captchaManager;
         }
 
@@ -41,11 +44,23 @@ namespace Yd.Extensions.Security.Controllers.Register
                 return BadResult(ErrorCode.CaptchExpired);
             if (!captcha.Code.Equals(model.Captcha, StringComparison.OrdinalIgnoreCase))
                 return BadResult(ErrorCode.InvalidCaptcha);
+
             var user = new User();
             user.UserName = model.UserName;
-            user.Email = model.Mail;
+            user.NickName = model.UserName;
+            user.Email = model.Email;
             user.PhoneNumber = model.PhoneNumber;
             user.PhoneNumberConfirmed = true;
+            //邀请码
+            if (!string.IsNullOrEmpty(model.InviteKey))
+            {
+                var alias = await _userAliasManager.FindAsync(model.InviteKey);
+                if (alias != null)
+                {
+                    user.ParentId = alias.UserId;
+                    user.Level = alias.Level;
+                }
+            }
 
             var result = await _userManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
@@ -53,7 +68,7 @@ namespace Yd.Extensions.Security.Controllers.Register
                 Log(user.Id, Resources.Register_Success);
                 return OkResult();
             }
-            return BadResult(ErrorCode.RegisterFailured,result.ToErrorString());
+            return BadResult(ErrorCode.RegisterFailured, result.ToErrorString());
         }
     }
 }

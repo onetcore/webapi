@@ -35,9 +35,12 @@ namespace Yd.Extensions.Security.Controllers
         [HttpGet("{type:alpha?}")]
         public async Task<IActionResult> GetCaptcha(string mobile, string type = null)
         {
-            var user = await _userManager.FindByPhoneNumberAsync(mobile);
-            if (user == null)
-                return BadResult(ErrorCode.InvalidPhoneNumber);
+            if(type?.ToLower() != "register")
+            {
+                var user = await _userManager.FindByPhoneNumberAsync(mobile);
+                if (user == null)
+                    return BadResult(ErrorCode.InvalidPhoneNumber);
+            }
             var random = new Random();
             var code = random.Next(100000, 999999).ToString();
             var success = await _captchaManager.SaveCaptchAsync(mobile, type ?? "login", code, 3);

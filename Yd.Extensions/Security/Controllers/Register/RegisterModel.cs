@@ -18,7 +18,7 @@
         /// <summary>
         /// 电子邮件。
         /// </summary>
-        public string Mail { get; set; }
+        public string Email { get; set; }
 
         /// <summary>
         /// 电话号码。
@@ -29,11 +29,6 @@
         /// 短信验证码。
         /// </summary>
         public string Captcha { get; set; }
-
-        /// <summary>
-        /// 区码如：+86。
-        /// </summary>
-        public string Prefix { get; set; }
 
         /// <summary>
         /// 确认密码。

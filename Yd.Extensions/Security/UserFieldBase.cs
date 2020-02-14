@@ -23,7 +23,7 @@ namespace Yd.Extensions.Security
         /// 用户姓名。
         /// </summary>
         [NotMapped]
-        public string RealName { get; set; }
+        public string NickName { get; set; }
 
         /// <summary>
         /// 角色名称。

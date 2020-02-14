@@ -24,7 +24,7 @@ namespace Yd.Extensions.Security
                 .WithNolock()
                 .InnerJoin<User>(expression)
                 .InnerJoin<User, Role>((u, r) => u.RoleId == r.Id)
-                .Select<User>(x => new { x.RealName, x.UserName, x.RoleId, x.Avatar })
+                .Select<User>(x => new { x.NickName, x.UserName, x.RoleId, x.Avatar })
                 .Select<Role>(x => x.Color, "RoleColor")
                 .Select<Role>(x => x.Name, "RoleName")
                 .Select<Role>(x => x.IconUrl, "RoleIcon");

@@ -18,9 +18,9 @@ namespace Yd.Extensions.Security.Controllers.Admin.Users
         public string UserName { get; set; }
 
         /// <summary>
-        /// 真实姓名。
+        /// 昵称。
         /// </summary>
-        public string RealName { get; set; }
+        public string NickName { get; set; }
 
         /// <summary>
         /// 电话号码。

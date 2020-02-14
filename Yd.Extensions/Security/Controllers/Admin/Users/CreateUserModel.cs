@@ -20,15 +20,15 @@ namespace Yd.Extensions.Security.Controllers.Admin.Users
         public string Email { get; set; }
 
         /// <summary>
-        /// 真实姓名。
+        /// 昵称。
         /// </summary>
-        public string RealName { get; set; }
+        public string NickName { get; set; }
 
         /// <summary>
         /// 用户名。
         /// </summary>
         [Required(ErrorMessage = "用户名不能为空！")]
-        [RegularExpression("^[a-zA-Z][a-z0-9A-Z]{4,11}$", ErrorMessage = "英文开头，由数字和英文字母组成的5-12个字符！")]
+        [RegularExpression("^[a-zA-Z][a-z0-9A-Z]{3,11}$", ErrorMessage = "英文开头，由数字和英文字母组成的4-12个字符！")]
         public string UserName { get; set; }
 
         /// <summary>
