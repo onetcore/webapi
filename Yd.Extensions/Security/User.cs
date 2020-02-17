@@ -41,7 +41,7 @@ namespace Yd.Extensions.Security
                 }
                 //推广链接
                 var alias = context.As<UserAlias>();
-                for (int i = 0; i < SecuritySettings.AliasCount; i++)
+                for (int i = 0; i < SiteSettings.AliasCount; i++)
                 {
                     alias.Create(new UserAlias { UserId = Id });
                 }
@@ -89,7 +89,7 @@ SELECT UserId, {Id} FROM {sdb.EntityType.Table} WHERE SubId = {ParentId};");
                 }
                 //推广链接
                 var alias = context.As<UserAlias>();
-                for (int i = 0; i < SecuritySettings.AliasCount; i++)
+                for (int i = 0; i < SiteSettings.AliasCount; i++)
                 {
                     await alias.CreateAsync(new UserAlias { UserId = Id }, cancellationToken);
                 }

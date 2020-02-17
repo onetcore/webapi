@@ -98,20 +98,5 @@ namespace Yd.Extensions.Security.Controllers.Admin.Users
 
             return BadResult("解锁失败");
         }
-
-        /// <summary>
-        /// 获取配置信息。
-        /// </summary>
-        /// <returns>返回配置信息。</returns>
-        [HttpGet("get-settings")]
-        public Task<IActionResult> GetSettings() => GetSettingsAsync<SecuritySettings>();
-
-        /// <summary>
-        /// 保存配置信息。
-        /// </summary>
-        /// <param name="model">配置实例模型。</param>
-        /// <returns>返回配置结果。</returns>
-        [HttpPost("settings")]
-        public Task<IActionResult> SaveSettings([FromBody] SecuritySettings model) => SaveSettingsAsync(model, "用户");
     }
 }

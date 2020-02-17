@@ -57,7 +57,6 @@ namespace Yd.Extensions.Security.Controllers.Admin.Users
         {
             if (ModelState.IsValid)
             {
-                var settings = await _settingsManager.GetSettingsAsync<SecuritySettings>();
                 var user = new User();
                 user.UserName = model.UserName;
                 user.NickName = model.NickName ?? model.UserName;
@@ -65,9 +64,9 @@ namespace Yd.Extensions.Security.Controllers.Admin.Users
                 user.PhoneNumber = model.PhoneNumber;
                 user.Summary = model.Summary;
                 user.LockoutEnabled = true;
-                user.EmailConfirmed = !settings.RequiredEmailConfirmed || !string.IsNullOrEmpty(model.Email);
-                user.PhoneNumberConfirmed = !settings.RequiredPhoneNumberConfirmed || !string.IsNullOrEmpty(model.PhoneNumber);
-                user.TwoFactorEnabled = settings.RequiredTwoFactorEnabled;
+                user.EmailConfirmed = !SiteSettings.RequiredEmailConfirmed || !string.IsNullOrEmpty(model.Email);
+                user.PhoneNumberConfirmed = !string.IsNullOrEmpty(model.PhoneNumber);
+                user.TwoFactorEnabled = SiteSettings.RequiredTwoFactorEnabled;
                 user.Type = UserType.Normal;
                 user.Level = User.Level + 1;
                 user.ParentId = UserId;
@@ -117,11 +116,10 @@ namespace Yd.Extensions.Security.Controllers.Admin.Users
                     user.NormalizedEmail = null;
                 }
 
-                var settings = await _settingsManager.GetSettingsAsync<SecuritySettings>();
                 user.LockoutEnabled = model.LockoutEnabled;
                 user.PhoneNumber = model.PhoneNumber;
-                user.EmailConfirmed = !settings.RequiredEmailConfirmed || !string.IsNullOrEmpty(model.Email);
-                user.PhoneNumberConfirmed = !settings.RequiredPhoneNumberConfirmed || !string.IsNullOrEmpty(model.PhoneNumber);
+                user.EmailConfirmed = !SiteSettings.RequiredEmailConfirmed || !string.IsNullOrEmpty(model.Email);
+                user.PhoneNumberConfirmed = !string.IsNullOrEmpty(model.PhoneNumber);
                 var result = await _userManager.UpdateAsync(user);
                 if (result.Succeeded)
                 {

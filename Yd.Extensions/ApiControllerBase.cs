@@ -1,4 +1,5 @@
-﻿using Gentings.Identity;
+﻿using Gentings.Extensions.Settings;
+using Gentings.Identity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Yd.Extensions.Security;
@@ -24,6 +25,13 @@ namespace Yd.Extensions
         /// 当前用户的最大角色实例。
         /// </summary>
         protected Role Role => _role ??= GetRequiredService<IRoleManager>().FindById(User.RoleId);
+
+        private SiteSettings _settings;
+        /// <summary>
+        /// 获取网站配置实例。
+        /// </summary>
+        protected SiteSettings SiteSettings =>
+            _settings??=GetRequiredService<ISettingsManager>().GetSettings<SiteSettings>();
     }
 
     /// <summary>

@@ -19,6 +19,11 @@
             当前用户的最大角色实例。
             </summary>
         </member>
+        <member name="P:Yd.Extensions.ApiControllerBase.SiteSettings">
+            <summary>
+            获取网站配置实例。
+            </summary>
+        </member>
         <member name="T:Yd.Extensions.ApiAdminControllerBase">
             <summary>
             控制器基类。
@@ -526,19 +531,6 @@
             <param name="ids">用户Id。</param>
             <returns>返回结果结果。</returns>
         </member>
-        <member name="M:Yd.Extensions.Security.Controllers.Admin.Users.UsersController.GetSettings">
-            <summary>
-            获取配置信息。
-            </summary>
-            <returns>返回配置信息。</returns>
-        </member>
-        <member name="M:Yd.Extensions.Security.Controllers.Admin.Users.UsersController.SaveSettings(Yd.Extensions.Security.SecuritySettings)">
-            <summary>
-            保存配置信息。
-            </summary>
-            <param name="model">配置实例模型。</param>
-            <returns>返回配置结果。</returns>
-        </member>
         <member name="T:Yd.Extensions.Security.Controllers.CaptchaController">
             <summary>
             短信验证码。
@@ -1029,56 +1021,6 @@
             <param name="userRoleContext">用户角色数据库操作接口。</param>
             <param name="roleClaimContext">用户声明数据库操作接口。</param>
         </member>
-        <member name="T:Yd.Extensions.Security.SecuritySettings">
-            <summary>
-            安全配置。
-            </summary>
-        </member>
-        <member name="F:Yd.Extensions.Security.SecuritySettings.AliasCount">
-            <summary>
-            推广链接个数。
-            </summary>
-        </member>
-        <member name="F:Yd.Extensions.Security.SecuritySettings.ExtensionName">
-            <summary>
-            扩展名称（区域名称）。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.Security.SecuritySettings.RequiredEmailConfirmed">
-            <summary>
-            是否需要确认电子邮件。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.Security.SecuritySettings.RequiredPhoneNumberConfirmed">
-            <summary>
-            是否需要确认电话号码。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.Security.SecuritySettings.RequiredTwoFactorEnabled">
-            <summary>
-            是否需要二次验证。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.Security.SecuritySettings.Registrable">
-            <summary>
-            开放注册。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.Security.SecuritySettings.LoginDirection">
-            <summary>
-            登录后的默认转向。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.Security.SecuritySettings.ValidCode">
-            <summary>
-            是否开启验证码。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.Security.SecuritySettings.LoginBg">
-            <summary>
-            登录页面背景图片。
-            </summary>
-        </member>
         <member name="T:Yd.Extensions.Security.ServiceConfigurer">
             <summary>
             注册当前登录用户。
@@ -1435,6 +1377,11 @@
             网站配置。
             </summary>
         </member>
+        <member name="F:Yd.Extensions.SiteSettings.AliasCount">
+            <summary>
+            推广链接个数。
+            </summary>
+        </member>
         <member name="P:Yd.Extensions.SiteSettings.SiteName">
             <summary>
             网站名称。
@@ -1458,6 +1405,96 @@
         <member name="P:Yd.Extensions.SiteSettings.Copyright">
             <summary>
             版权信息。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.SiteSettings.NavTheme">
+            <summary>
+            导航模板：light|dark。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.SiteSettings.PrimaryColor">
+            <summary>
+            主题颜色。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.SiteSettings.Layout">
+            <summary>
+            布局：sidemenu | topmenu。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.SiteSettings.ContentWidth">
+            <summary>
+            内容布局：Fluid | Fixed。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.SiteSettings.FixedHeader">
+            <summary>
+            固定标题头。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.SiteSettings.AutoHideHeader">
+            <summary>
+            自动隐藏标题头。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.SiteSettings.FixSiderbar">
+            <summary>
+            固定侧边栏。
+            </summary>
+        </member>
+        <member name="T:Yd.Extensions.SiteSettings.MenuSetting">
+            <summary>
+            菜单配置。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.SiteSettings.MenuSetting.Locale">
+            <summary>
+            是否本地化。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.SiteSettings.MenuSetting.DefaultOpenAll">
+            <summary>
+            默认全部打开。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.SiteSettings.Menu">
+            <summary>
+            菜单配置。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.SiteSettings.Pwa">
+            <summary>
+            是否启用浏览器离线缓存。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.SiteSettings.IconfontUrl">
+            <summary>
+            自定义图标CDN地址。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.SiteSettings.ColorWeak">
+            <summary>
+            弱色显示。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.SiteSettings.RequiredEmailConfirmed">
+            <summary>
+            是否需要确认电子邮件。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.SiteSettings.Registrable">
+            <summary>
+            开放注册。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.SiteSettings.LoginDirection">
+            <summary>
+            登录后的默认转向。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.SiteSettings.RequiredTwoFactorEnabled">
+            <summary>
+            是否开启二次验证。
             </summary>
         </member>
     </members>

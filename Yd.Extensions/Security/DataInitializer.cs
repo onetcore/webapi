@@ -33,6 +33,16 @@ namespace Yd.Extensions.Security
 
         private readonly int[] _numbers = { int.MaxValue, 0 };
         private readonly string[] _characters = { "系统管理员", "普通会员" };
+
+        /// <summary>
+        /// 判断是否可以执行。
+        /// </summary>
+        /// <returns>返回判断结果。</returns>
+        public Task<bool> IsExecutableAsync()
+        {
+            return _context.AnyAsync();
+        }
+
         /// <summary>
         /// 安装时候预先执行的接口。
         /// </summary>
