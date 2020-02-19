@@ -1,3 +1,5 @@
+可以将项目Fork到你的本地github项目中，也可以clone到你的项目中，然后进行修改。
+
 1. 克隆项目到你的本地文件夹中(`cores`)
 ```ssh
   git clone https://github.com/yourname/project.git cores
