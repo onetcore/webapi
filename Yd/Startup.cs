@@ -44,7 +44,7 @@ namespace Yd
         {
             services.AddMemoryCache();
             services.AddGentings(Configuration)
-                    .AddSqlServer().AddDataMigration();
+                    .AddSqlServer();
             services.AddMvcCore()
                 .AddJsonOptions(options =>
                 {

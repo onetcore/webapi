@@ -46,6 +46,23 @@
             <param name="settings">网站配置实例。</param>
             <returns>返回保存结果。</returns>
         </member>
+        <member name="T:Yd.Extensions.Controllers.Admin.TaskController">
+            <summary>
+            后台服务控制器。
+            </summary>
+        </member>
+        <member name="M:Yd.Extensions.Controllers.Admin.TaskController.#ctor(Gentings.Tasks.ITaskManager)">
+            <summary>
+            初始化类<see cref="T:Yd.Extensions.Controllers.Admin.TaskController"/>。
+            </summary>
+            <param name="taskManager">后台服务管理实例。</param>
+        </member>
+        <member name="M:Yd.Extensions.Controllers.Admin.TaskController.Index">
+            <summary>
+            获取后台服务列表。
+            </summary>
+            <returns>返回服务列表。</returns>
+        </member>
         <member name="T:Yd.Extensions.Controllers.SettingController">
             <summary>
             配置控制器。
@@ -229,6 +246,43 @@
             <summary>
             退出登录。
             </summary>
+        </member>
+        <member name="T:Yd.Extensions.Security.Controllers.Admin.Logs.EventQuery">
+            <summary>
+            事件查询实例。
+            </summary>
+        </member>
+        <member name="T:Yd.Extensions.Security.Controllers.Admin.Logs.LogController">
+            <summary>
+            用户日志。
+            </summary>
+        </member>
+        <member name="M:Yd.Extensions.Security.Controllers.Admin.Logs.LogController.#ctor(Gentings.Identity.Events.IEventManager,Gentings.Identity.Events.IEventTypeManager)">
+            <summary>
+            初始化类<see cref="T:Yd.Extensions.Security.Controllers.Admin.Logs.LogController"/>。
+            </summary>
+            <param name="eventManager">用户日志管理实例。</param>
+            <param name="eventTypeManager">事件类型管理实例。</param>
+        </member>
+        <member name="M:Yd.Extensions.Security.Controllers.Admin.Logs.LogController.Index(Yd.Extensions.Security.Controllers.Admin.Logs.EventQuery)">
+            <summary>
+            获取日志列表。
+            </summary>
+            <param name="query">日志查询实例。</param>
+            <returns>返回日志列表结果。</returns>
+        </member>
+        <member name="M:Yd.Extensions.Security.Controllers.Admin.Logs.LogController.LoadEventTypes">
+            <summary>
+            获取日志类型列表。
+            </summary>
+            <returns>返回日志类型列表结果。</returns>
+        </member>
+        <member name="M:Yd.Extensions.Security.Controllers.Admin.Logs.LogController.SaveEventType(Gentings.Identity.Events.EventType)">
+            <summary>
+            保存日志类型。
+            </summary>
+            <param name="eventType">日志类型实例。</param>
+            <returns>返回保存结果。</returns>
         </member>
         <member name="T:Yd.Extensions.Security.Controllers.Admin.Roles.RoleController">
             <summary>
@@ -709,6 +763,36 @@
             登录类型。
             </summary>
         </member>
+        <member name="T:Yd.Extensions.Security.Controllers.Logs.EventQuery">
+            <summary>
+            事件查询实例。
+            </summary>
+        </member>
+        <member name="T:Yd.Extensions.Security.Controllers.Logs.LogController">
+            <summary>
+            用户日志。
+            </summary>
+        </member>
+        <member name="M:Yd.Extensions.Security.Controllers.Logs.LogController.#ctor(Gentings.Identity.Events.IEventManager,Gentings.Identity.Events.IEventTypeManager)">
+            <summary>
+            初始化类<see cref="T:Yd.Extensions.Security.Controllers.Logs.LogController"/>。
+            </summary>
+            <param name="eventManager">用户日志管理实例。</param>
+            <param name="eventTypeManager">事件类型管理实例。</param>
+        </member>
+        <member name="M:Yd.Extensions.Security.Controllers.Logs.LogController.Index(Yd.Extensions.Security.Controllers.Logs.EventQuery)">
+            <summary>
+            获取日志列表。
+            </summary>
+            <param name="query">日志查询实例。</param>
+            <returns>返回日志列表结果。</returns>
+        </member>
+        <member name="M:Yd.Extensions.Security.Controllers.Logs.LogController.LoadEventTypes">
+            <summary>
+            获取日志类型列表。
+            </summary>
+            <returns>返回日志类型列表结果。</returns>
+        </member>
         <member name="T:Yd.Extensions.Security.Controllers.Register.RegisterController">
             <summary>
             注册。
@@ -790,6 +874,12 @@
             <summary>
             优先级，越大越靠前。
             </summary>
+        </member>
+        <member name="M:Yd.Extensions.Security.DataInitializer.IsDisabledAsync">
+            <summary>
+            判断是否禁用。
+            </summary>
+            <returns>返回判断结果。</returns>
         </member>
         <member name="M:Yd.Extensions.Security.DataInitializer.ExecuteAsync">
             <summary>
@@ -1371,6 +1461,17 @@
             <summary>
             子账号。
             </summary>
+        </member>
+        <member name="T:Yd.Extensions.ServiceConfigurer">
+            <summary>
+            添加服务注册。
+            </summary>
+        </member>
+        <member name="M:Yd.Extensions.ServiceConfigurer.ConfigureServices(Gentings.IServiceBuilder)">
+            <summary>
+            配置服务方法。
+            </summary>
+            <param name="builder">容器构建实例。</param>
         </member>
         <member name="T:Yd.Extensions.SiteSettings">
             <summary>

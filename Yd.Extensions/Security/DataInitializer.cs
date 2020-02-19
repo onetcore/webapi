@@ -35,10 +35,10 @@ namespace Yd.Extensions.Security
         private readonly string[] _characters = { "系统管理员", "普通会员" };
 
         /// <summary>
-        /// 判断是否可以执行。
+        /// 判断是否禁用。
         /// </summary>
         /// <returns>返回判断结果。</returns>
-        public Task<bool> IsExecutableAsync()
+        public Task<bool> IsDisabledAsync()
         {
             return _context.AnyAsync();
         }
