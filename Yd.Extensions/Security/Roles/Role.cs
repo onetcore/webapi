@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using Gentings.Data.Internal;
 using Gentings.Extensions;
-using Gentings.Identity;
+using Gentings.Identity.Roles;
 
 namespace Yd.Extensions.Security.Roles
 {
