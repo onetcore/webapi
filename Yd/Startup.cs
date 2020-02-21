@@ -2,7 +2,6 @@
 using System.IO;
 using System.Text;
 using Gentings;
-using Gentings.Data.Migrations;
 using Gentings.Data.SqlServer;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;

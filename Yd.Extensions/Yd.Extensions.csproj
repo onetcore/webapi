@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>D:\Source\Repos\webapi\Yd.Extensions\Yd.Extensions.xml</DocumentationFile>
+    <DocumentationFile>.\Yd.Extensions.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

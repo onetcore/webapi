@@ -2,8 +2,7 @@
 using Gentings.Identity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Yd.Extensions.Security;
-using Yd.Extensions.Security.Roles;
+using Yd.Extensions.Roles;
 
 namespace Yd.Extensions
 {
