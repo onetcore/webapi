@@ -1,5 +1,4 @@
 ﻿using System.Threading.Tasks;
-using Gentings.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Yd.Extensions.Controllers.Account
@@ -27,10 +26,7 @@ namespace Yd.Extensions.Controllers.Account
         [HttpGet("current")]
         public async Task<IActionResult> GetCurrentUser()
         {
-            var userid = HttpContext.User.GetUserId();
-            if (userid == 0)
-                return BadRequest();
-            var user = await _userManager.GetCachedUserAsync(userid);
+            var user = await _userManager.GetCachedUserAsync(UserId);
             if (user == null)
                 return BadRequest();
             return Ok(user);
