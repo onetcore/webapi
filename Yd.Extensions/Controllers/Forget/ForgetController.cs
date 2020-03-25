@@ -7,7 +7,7 @@ namespace Yd.Extensions.Controllers.Forget
     /// </summary>
     [ApiController]
     [Route("api/[controller]")]
-    public class ForgetController : ApiControllerBase
+    public class ForgetController : ControllerBase
     {
         /// <summary>
         /// 发送忘记密码API。

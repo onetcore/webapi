@@ -16,7 +16,7 @@ namespace Yd.Extensions.Controllers.Login
     /// <summary>
     /// 登录。
     /// </summary>
-    public class LoginController : ApiControllerBase
+    public class LoginController : ControllerBase
     {
         private readonly IUserManager _userManager;
         private readonly IRoleManager _roleManager;

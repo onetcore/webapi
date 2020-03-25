@@ -8,7 +8,7 @@ namespace Yd.Extensions.Controllers.Admin.Users
     /// <summary>
     /// 用户控制器。
     /// </summary>
-    public class UserController : ApiAdminControllerBase
+    public class UserController : AdminControllerBase
     {
         private readonly IUserManager _userManager;
         private readonly ISettingsManager _settingsManager;
@@ -47,6 +47,9 @@ namespace Yd.Extensions.Controllers.Admin.Users
             });
         }
 
+        private SecuritySettings _settings;
+        protected SecuritySettings Settings => _settings ??= _settingsManager.GetSettings<SecuritySettings>();
+
         /// <summary>
         /// 添加用户。
         /// </summary>
@@ -64,9 +67,9 @@ namespace Yd.Extensions.Controllers.Admin.Users
                 user.PhoneNumber = model.PhoneNumber;
                 user.Summary = model.Summary;
                 user.LockoutEnabled = true;
-                user.EmailConfirmed = !SiteSettings.RequiredEmailConfirmed || !string.IsNullOrEmpty(model.Email);
+                user.EmailConfirmed = !Settings.RequiredEmailConfirmed || !string.IsNullOrEmpty(model.Email);
                 user.PhoneNumberConfirmed = !string.IsNullOrEmpty(model.PhoneNumber);
-                user.TwoFactorEnabled = SiteSettings.RequiredTwoFactorEnabled;
+                user.TwoFactorEnabled = Settings.RequiredTwoFactorEnabled;
                 user.Type = UserType.Normal;
                 user.Level = User.Level + 1;
                 user.ParentId = UserId;
@@ -118,7 +121,7 @@ namespace Yd.Extensions.Controllers.Admin.Users
 
                 user.LockoutEnabled = model.LockoutEnabled;
                 user.PhoneNumber = model.PhoneNumber;
-                user.EmailConfirmed = !SiteSettings.RequiredEmailConfirmed || !string.IsNullOrEmpty(model.Email);
+                user.EmailConfirmed = !Settings.RequiredEmailConfirmed || !string.IsNullOrEmpty(model.Email);
                 user.PhoneNumberConfirmed = !string.IsNullOrEmpty(model.PhoneNumber);
                 var result = await _userManager.UpdateAsync(user);
                 if (result.Succeeded)

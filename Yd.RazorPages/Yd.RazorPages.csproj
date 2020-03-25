@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\lib\gtcore\js\gtcore.min.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Web.LibraryManager.Build" Version="2.0.96" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\gentings\Gentings.AspNetCore.RazorPages\Gentings.AspNetCore.RazorPages.csproj" />
+    <ProjectReference Include="..\..\gentings\Gentings.AspNetCore\Gentings.AspNetCore.csproj" />
+    <ProjectReference Include="..\..\Gentings\Gentings.Identity\Gentings.Identity.csproj" />
+    <ProjectReference Include="..\..\gentings\Gentings.Messages\Gentings.Messages.csproj" />
+    <ProjectReference Include="..\..\gentings\Gentings.Storages\Gentings.Storages.csproj" />
+    <ProjectReference Include="..\..\Gentings\Gentings\Gentings.csproj" />
+    <ProjectReference Include="..\Yd.Extensions.Security\Yd.Extensions.Security.csproj" />
+    <ProjectReference Include="..\Yd.Extensions\Yd.Extensions.csproj" />
+  </ItemGroup>
+</Project>

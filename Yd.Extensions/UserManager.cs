@@ -9,8 +9,10 @@ using Gentings.Extensions;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using Gentings.Identity;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Caching.Memory;
 using Yd.Extensions.Roles;
+using Gentings.Storages.Avatars;
 
 namespace Yd.Extensions
 {
@@ -88,6 +90,20 @@ namespace Yd.Extensions
             user = await CachedQueryable.Where(x => x.Id == id).FirstOrDefaultAsync(Converter);
             CachedUsers.TryAdd(id, user);
             return user;
+        }
+
+        /// <summary>
+        /// 上传头像。
+        /// </summary>
+        /// <param name="id">用户Id。</param>
+        /// <param name="avatarFile">头像文件实例。</param>
+        /// <returns>返回上传结果。</returns>
+        public virtual async Task<string> UploadAvatarAsync(int id, IFormFile avatarFile)
+        {
+            var url = await GetRequiredService<IAvatarManager>().UploadAsync(id, avatarFile);
+            if (!string.IsNullOrEmpty(url))
+                await UpdateAsync(id, new { Avatar = url });
+            return url;
         }
 
         /// <summary>

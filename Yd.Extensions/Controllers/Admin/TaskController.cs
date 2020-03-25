@@ -7,7 +7,7 @@ namespace Yd.Extensions.Controllers.Admin
     /// <summary>
     /// 后台服务控制器。
     /// </summary>
-    public class TaskController : ApiAdminControllerBase
+    public class TaskController : AdminControllerBase
     {
         private readonly ITaskManager _taskManager;
         /// <summary>

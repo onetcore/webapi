@@ -10,7 +10,7 @@ namespace Yd.Extensions.Controllers.Register
     /// <summary>
     /// 注册。
     /// </summary>
-    public class RegisterController : ApiControllerBase
+    public class RegisterController : ControllerBase
     {
         private readonly IUserManager _userManager;
         private readonly IUserAliasManager _userAliasManager;

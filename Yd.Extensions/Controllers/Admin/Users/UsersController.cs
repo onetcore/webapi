@@ -9,7 +9,7 @@ namespace Yd.Extensions.Controllers.Admin.Users
     /// <summary>
     /// 用户管理控制器。
     /// </summary>
-    public class UsersController : ApiAdminControllerBase
+    public class UsersController : AdminControllerBase
     {
         private readonly IUserManager _userManager;
 

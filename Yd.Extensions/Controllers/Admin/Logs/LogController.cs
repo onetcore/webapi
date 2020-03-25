@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using Gentings.Identity.Events;
+using Gentings.AspNetCore.EventLogging;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Yd.Extensions.Controllers.Admin.Logs
@@ -7,7 +7,7 @@ namespace Yd.Extensions.Controllers.Admin.Logs
     /// <summary>
     /// 用户日志。
     /// </summary>
-    public class LogController : ApiAdminControllerBase
+    public class LogController : AdminControllerBase
     {
         private readonly IEventManager _eventManager;
         private readonly IEventTypeManager _eventTypeManager;

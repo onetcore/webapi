@@ -6,7 +6,7 @@ namespace Yd.Extensions.Controllers
     /// <summary>
     /// 配置控制器。
     /// </summary>
-    public class SettingController : ApiControllerBase
+    public class SettingController : ControllerBase
     {
         /// <summary>
         /// 获取网站配置。

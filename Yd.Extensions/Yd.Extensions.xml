@@ -4,36 +4,6 @@
         <name>Yd.Extensions</name>
     </assembly>
     <members>
-        <member name="T:Yd.Extensions.ApiControllerBase">
-            <summary>
-            控制器基类。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiControllerBase.User">
-            <summary>
-            当前登录用户Id。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiControllerBase.Role">
-            <summary>
-            当前用户的最大角色实例。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiControllerBase.SiteSettings">
-            <summary>
-            获取网站配置实例。
-            </summary>
-        </member>
-        <member name="T:Yd.Extensions.ApiAdminControllerBase">
-            <summary>
-            控制器基类。
-            </summary>
-        </member>
-        <member name="T:Yd.Extensions.ApiAccountControllerBase">
-            <summary>
-            控制器基类。
-            </summary>
-        </member>
         <member name="T:Yd.Extensions.CachedUser">
             <summary>
             缓存用户实例。
@@ -94,6 +64,31 @@
             电话号码。
             </summary>
         </member>
+        <member name="T:Yd.Extensions.ControllerBase">
+            <summary>
+            控制器基类。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.ControllerBase.User">
+            <summary>
+            当前登录用户Id。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.ControllerBase.Role">
+            <summary>
+            当前用户的最大角色实例。
+            </summary>
+        </member>
+        <member name="T:Yd.Extensions.AdminControllerBase">
+            <summary>
+            控制器基类。
+            </summary>
+        </member>
+        <member name="T:Yd.Extensions.AccountControllerBase">
+            <summary>
+            控制器基类。
+            </summary>
+        </member>
         <member name="T:Yd.Extensions.Controllers.Account.UserController">
             <summary>
             用户控制器。
@@ -116,24 +111,19 @@
             退出登录。
             </summary>
         </member>
-        <member name="T:Yd.Extensions.Controllers.Admin.Logs.EventQuery">
-            <summary>
-            事件查询实例。
-            </summary>
-        </member>
         <member name="T:Yd.Extensions.Controllers.Admin.Logs.LogController">
             <summary>
             用户日志。
             </summary>
         </member>
-        <member name="M:Yd.Extensions.Controllers.Admin.Logs.LogController.#ctor(Gentings.Identity.Events.IEventManager,Gentings.Identity.Events.IEventTypeManager)">
+        <member name="M:Yd.Extensions.Controllers.Admin.Logs.LogController.#ctor(Gentings.AspNetCore.EventLogging.IEventManager,Gentings.AspNetCore.EventLogging.IEventTypeManager)">
             <summary>
             初始化类<see cref="T:Yd.Extensions.Controllers.Admin.Logs.LogController"/>。
             </summary>
             <param name="eventManager">用户日志管理实例。</param>
             <param name="eventTypeManager">事件类型管理实例。</param>
         </member>
-        <member name="M:Yd.Extensions.Controllers.Admin.Logs.LogController.Index(Yd.Extensions.Controllers.Admin.Logs.EventQuery)">
+        <member name="M:Yd.Extensions.Controllers.Admin.Logs.LogController.Index(Yd.Extensions.EventQuery)">
             <summary>
             获取日志列表。
             </summary>
@@ -146,7 +136,7 @@
             </summary>
             <returns>返回日志类型列表结果。</returns>
         </member>
-        <member name="M:Yd.Extensions.Controllers.Admin.Logs.LogController.SaveEventType(Gentings.Identity.Events.EventType)">
+        <member name="M:Yd.Extensions.Controllers.Admin.Logs.LogController.SaveEventType(Gentings.AspNetCore.EventLogging.EventType)">
             <summary>
             保存日志类型。
             </summary>
@@ -661,24 +651,19 @@
             登录类型。
             </summary>
         </member>
-        <member name="T:Yd.Extensions.Controllers.Logs.EventQuery">
-            <summary>
-            事件查询实例。
-            </summary>
-        </member>
         <member name="T:Yd.Extensions.Controllers.Logs.LogController">
             <summary>
             用户日志。
             </summary>
         </member>
-        <member name="M:Yd.Extensions.Controllers.Logs.LogController.#ctor(Gentings.Identity.Events.IEventManager,Gentings.Identity.Events.IEventTypeManager)">
+        <member name="M:Yd.Extensions.Controllers.Logs.LogController.#ctor(Gentings.AspNetCore.EventLogging.IEventManager,Gentings.AspNetCore.EventLogging.IEventTypeManager)">
             <summary>
             初始化类<see cref="T:Yd.Extensions.Controllers.Logs.LogController"/>。
             </summary>
             <param name="eventManager">用户日志管理实例。</param>
             <param name="eventTypeManager">事件类型管理实例。</param>
         </member>
-        <member name="M:Yd.Extensions.Controllers.Logs.LogController.Index(Yd.Extensions.Controllers.Logs.EventQuery)">
+        <member name="M:Yd.Extensions.Controllers.Logs.LogController.Index(Yd.Extensions.EventQuery)">
             <summary>
             获取日志列表。
             </summary>
@@ -796,6 +781,22 @@
             </summary>
             <returns>返回执行结果。</returns>
         </member>
+        <member name="T:Yd.Extensions.EventQuery">
+            <summary>
+            事件查询实例。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.EventQuery.RoleLevel">
+            <summary>
+            当前用户角色等级。
+            </summary>
+        </member>
+        <member name="M:Yd.Extensions.EventQuery.Init(Gentings.Data.IQueryContext{Gentings.AspNetCore.EventLogging.EventMessage})">
+            <summary>
+            初始化查询上下文。
+            </summary>
+            <param name="context">查询上下文。</param>
+        </member>
         <member name="T:Yd.Extensions.IdentityDataMigration">
             <summary>
             数据迁移类。
@@ -868,6 +869,14 @@
             <param name="id">用户Id。</param>
             <returns>返回缓存用户实例对象。</returns>
         </member>
+        <member name="M:Yd.Extensions.IUserManager.UploadAvatarAsync(System.Int32,Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            上传头像。
+            </summary>
+            <param name="id">用户Id。</param>
+            <param name="avatarFile">头像文件实例。</param>
+            <returns>返回上传结果。</returns>
+        </member>
         <member name="M:Yd.Extensions.IUserManager.GetCachedUsers(System.Int32[])">
             <summary>
             获取缓存用户实例列表。
@@ -900,6 +909,46 @@
         <member name="F:Yd.Extensions.LoginDirection.Admin">
             <summary>
             后台管理。
+            </summary>
+        </member>
+        <member name="T:Yd.Extensions.Permissions">
+            <summary>
+            通用权限提供者。
+            </summary>
+        </member>
+        <member name="M:Yd.Extensions.Permissions.Init">
+            <summary>
+            初始化权限实例。
+            </summary>
+        </member>
+        <member name="F:Yd.Extensions.Permissions.Administrator">
+            <summary>
+            登录后台。
+            </summary>
+        </member>
+        <member name="F:Yd.Extensions.Permissions.Task">
+            <summary>
+            后台服务。
+            </summary>
+        </member>
+        <member name="F:Yd.Extensions.Permissions.TaskInterval">
+            <summary>
+            配置后台服务定时模式。
+            </summary>
+        </member>
+        <member name="F:Yd.Extensions.Permissions.Email">
+            <summary>
+            邮件管理。
+            </summary>
+        </member>
+        <member name="F:Yd.Extensions.Permissions.EmailSettings">
+            <summary>
+            邮件配置管理。
+            </summary>
+        </member>
+        <member name="F:Yd.Extensions.Permissions.Storages">
+            <summary>
+            文件管理。
             </summary>
         </member>
         <member name="T:Yd.Extensions.Properties.Resources">
@@ -1111,6 +1160,51 @@
             <param name="userRoleContext">用户角色数据库操作接口。</param>
             <param name="roleClaimContext">用户声明数据库操作接口。</param>
         </member>
+        <member name="T:Yd.Extensions.SecuritySettings">
+            <summary>
+            安全配置。
+            </summary>
+        </member>
+        <member name="F:Yd.Extensions.SecuritySettings.ExtensionName">
+            <summary>
+            扩展名称（区域名称）。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.SecuritySettings.RequiredEmailConfirmed">
+            <summary>
+            是否需要确认电子邮件。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.SecuritySettings.RequiredPhoneNumberConfirmed">
+            <summary>
+            是否需要确认电话号码。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.SecuritySettings.RequiredTwoFactorEnabled">
+            <summary>
+            是否需要二次验证。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.SecuritySettings.Registrable">
+            <summary>
+            开放注册。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.SecuritySettings.LoginDirection">
+            <summary>
+            登录后的默认转向。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.SecuritySettings.ValidCode">
+            <summary>
+            是否开启验证码。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.SecuritySettings.LoginBg">
+            <summary>
+            登录页面背景图片。
+            </summary>
+        </member>
         <member name="T:Yd.Extensions.ServiceConfigurer">
             <summary>
             注册当前登录用户。
@@ -1155,96 +1249,6 @@
         <member name="P:Yd.Extensions.SiteSettings.Copyright">
             <summary>
             版权信息。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.SiteSettings.NavTheme">
-            <summary>
-            导航模板：light|dark。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.SiteSettings.PrimaryColor">
-            <summary>
-            主题颜色。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.SiteSettings.Layout">
-            <summary>
-            布局：sidemenu | topmenu。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.SiteSettings.ContentWidth">
-            <summary>
-            内容布局：Fluid | Fixed。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.SiteSettings.FixedHeader">
-            <summary>
-            固定标题头。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.SiteSettings.AutoHideHeader">
-            <summary>
-            自动隐藏标题头。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.SiteSettings.FixSiderbar">
-            <summary>
-            固定侧边栏。
-            </summary>
-        </member>
-        <member name="T:Yd.Extensions.SiteSettings.MenuSetting">
-            <summary>
-            菜单配置。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.SiteSettings.MenuSetting.Locale">
-            <summary>
-            是否本地化。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.SiteSettings.MenuSetting.DefaultOpenAll">
-            <summary>
-            默认全部打开。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.SiteSettings.Menu">
-            <summary>
-            菜单配置。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.SiteSettings.Pwa">
-            <summary>
-            是否启用浏览器离线缓存。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.SiteSettings.IconfontUrl">
-            <summary>
-            自定义图标CDN地址。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.SiteSettings.ColorWeak">
-            <summary>
-            弱色显示。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.SiteSettings.RequiredEmailConfirmed">
-            <summary>
-            是否需要确认电子邮件。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.SiteSettings.Registrable">
-            <summary>
-            开放注册。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.SiteSettings.LoginDirection">
-            <summary>
-            登录后的默认转向。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.SiteSettings.RequiredTwoFactorEnabled">
-            <summary>
-            是否开启二次验证。
             </summary>
         </member>
         <member name="T:Yd.Extensions.Subuser">
@@ -1472,6 +1476,14 @@
             </summary>
             <param name="id">用户Id。</param>
             <returns>返回缓存用户实例对象。</returns>
+        </member>
+        <member name="M:Yd.Extensions.UserManager.UploadAvatarAsync(System.Int32,Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            上传头像。
+            </summary>
+            <param name="id">用户Id。</param>
+            <param name="avatarFile">头像文件实例。</param>
+            <returns>返回上传结果。</returns>
         </member>
         <member name="M:Yd.Extensions.UserManager.Converter(System.Data.Common.DbDataReader)">
             <summary>

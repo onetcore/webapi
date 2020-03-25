@@ -7,7 +7,7 @@ namespace Yd.Extensions.Controllers.Admin
     /// <summary>
     /// 配置控制器。
     /// </summary>
-    public class SettingController : ApiAdminControllerBase
+    public class SettingController : AdminControllerBase
     {
         /// <summary>
         /// 保存网站配置。

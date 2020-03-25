@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Gentings;
 using Gentings.Identity;
+using Microsoft.AspNetCore.Http;
 using Yd.Extensions.Roles;
 
 namespace Yd.Extensions
@@ -24,6 +25,14 @@ namespace Yd.Extensions
         /// <param name="id">用户Id。</param>
         /// <returns>返回缓存用户实例对象。</returns>
         Task<CachedUser> GetCachedUserAsync(int id);
+
+        /// <summary>
+        /// 上传头像。
+        /// </summary>
+        /// <param name="id">用户Id。</param>
+        /// <param name="avatarFile">头像文件实例。</param>
+        /// <returns>返回上传结果。</returns>
+        Task<string> UploadAvatarAsync(int id, IFormFile avatarFile);
 
         /// <summary>
         /// 获取缓存用户实例列表。

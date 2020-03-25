@@ -9,7 +9,7 @@ namespace Yd.Extensions.Controllers
     /// <summary>
     /// 短信验证码。
     /// </summary>
-    public class CaptchaController : ApiControllerBase
+    public class CaptchaController : ControllerBase
     {
         private readonly IUserManager _userManager;
         private readonly ICaptchaManager _captchaManager;

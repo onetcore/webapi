@@ -9,7 +9,7 @@ namespace Yd.Extensions.Controllers.Admin.Roles
     /// <summary>
     /// 角色控制器。
     /// </summary>
-    public class RolesController : ApiAdminControllerBase
+    public class RolesController : AdminControllerBase
     {
         private readonly IRoleManager _roleManager;
         /// <summary>
