@@ -13,8 +13,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gentings.Storages", "..\gen
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gentings.AspNetCore", "..\gentings\Gentings.AspNetCore\Gentings.AspNetCore.csproj", "{9BFC57AC-A7CD-4243-926C-D47508F68A66}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yd.Extensions.Security", "Yd.Extensions.Security\Yd.Extensions.Security.csproj", "{E098F837-A383-43A6-B71B-5D1EC1453F0B}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yd.Apis", "Yd.Apis\Yd.Apis.csproj", "{E43C2AA1-6F9A-4653-BEB1-A857D46646CD}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gentings.AspNetCore.RazorPages", "..\gentings\Gentings.AspNetCore.RazorPages\Gentings.AspNetCore.RazorPages.csproj", "{3EC7C6F7-6A4C-4FAB-ADBF-AE2F23884A15}"
@@ -22,6 +20,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gentings.Messages", "..\gentings\Gentings.Messages\Gentings.Messages.csproj", "{7A85182E-CEC8-4249-A8ED-04D8AC2F3C6C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yd.RazorPages", "Yd.RazorPages\Yd.RazorPages.csproj", "{1DE19E50-133D-4B18-80B5-F9637FF4AC8F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yd.Extensions.RazorPages", "Yd.Extensions.RazorPages\Yd.Extensions.RazorPages.csproj", "{B1558EB1-0963-4EDF-BBCC-F4B2056256A7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -71,14 +71,6 @@ Global
 		{9BFC57AC-A7CD-4243-926C-D47508F68A66}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9BFC57AC-A7CD-4243-926C-D47508F68A66}.Release|x64.ActiveCfg = Release|Any CPU
 		{9BFC57AC-A7CD-4243-926C-D47508F68A66}.Release|x64.Build.0 = Release|Any CPU
-		{E098F837-A383-43A6-B71B-5D1EC1453F0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E098F837-A383-43A6-B71B-5D1EC1453F0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E098F837-A383-43A6-B71B-5D1EC1453F0B}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{E098F837-A383-43A6-B71B-5D1EC1453F0B}.Debug|x64.Build.0 = Debug|Any CPU
-		{E098F837-A383-43A6-B71B-5D1EC1453F0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E098F837-A383-43A6-B71B-5D1EC1453F0B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E098F837-A383-43A6-B71B-5D1EC1453F0B}.Release|x64.ActiveCfg = Release|Any CPU
-		{E098F837-A383-43A6-B71B-5D1EC1453F0B}.Release|x64.Build.0 = Release|Any CPU
 		{E43C2AA1-6F9A-4653-BEB1-A857D46646CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E43C2AA1-6F9A-4653-BEB1-A857D46646CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E43C2AA1-6F9A-4653-BEB1-A857D46646CD}.Debug|x64.ActiveCfg = Debug|Any CPU
@@ -111,6 +103,14 @@ Global
 		{1DE19E50-133D-4B18-80B5-F9637FF4AC8F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1DE19E50-133D-4B18-80B5-F9637FF4AC8F}.Release|x64.ActiveCfg = Release|Any CPU
 		{1DE19E50-133D-4B18-80B5-F9637FF4AC8F}.Release|x64.Build.0 = Release|Any CPU
+		{B1558EB1-0963-4EDF-BBCC-F4B2056256A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1558EB1-0963-4EDF-BBCC-F4B2056256A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1558EB1-0963-4EDF-BBCC-F4B2056256A7}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B1558EB1-0963-4EDF-BBCC-F4B2056256A7}.Debug|x64.Build.0 = Debug|Any CPU
+		{B1558EB1-0963-4EDF-BBCC-F4B2056256A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1558EB1-0963-4EDF-BBCC-F4B2056256A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1558EB1-0963-4EDF-BBCC-F4B2056256A7}.Release|x64.ActiveCfg = Release|Any CPU
+		{B1558EB1-0963-4EDF-BBCC-F4B2056256A7}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

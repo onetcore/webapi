@@ -72,16 +72,16 @@
                         </div>
                     </div>
                 </li>
-                <li class="nav-item text-nowarp dropdown droplast">
-                    <a class="nav-link dropdown-toggle no-after" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img class="avatar" onerror="this.src = '/images/avatar.png';" src="@Current.Avatar" title="@Current.UserName"> @Current.UserName
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle no-after" data-toggle="dropdown">
+                        <img class="avatar" onerror="this.src = '/images/avatar.png';" src="@Current.Avatar" title="@Current.NickName"> @Current.NickName
                     </a>
-                    <div class="dropdown-menu">
+                    <div class="dropdown-menu dropdown-menu-right">
                         <a class="dropdown-item" asp-page="/account/index" asp-area="@SecuritySettings.ExtensionName"><i class="fa fa-user-o"></i>编辑资料</a>
                         <a class="dropdown-item" asp-page="/account/changepassword" asp-area="@SecuritySettings.ExtensionName"><i class="fa fa-key"></i>修改密码</a>
                         <a class="dropdown-item" asp-page="/account/log" asp-area="@SecuritySettings.ExtensionName"><i class="fa fa-envelope"></i>活动日志</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" asp-controller="Account" asp-action="Logout"><i class="fa fa-sign-out"></i>退出</a>
+                        <a class="dropdown-item" asp-controller="Account" asp-action="Logout" asp-area=""><i class="fa fa-sign-out"></i>退出</a>
                     </div>
                 </li>
             </ul>

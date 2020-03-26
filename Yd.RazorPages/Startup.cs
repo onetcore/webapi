@@ -24,6 +24,13 @@ namespace Yd.RazorPages
         {
             services.AddGentings(Configuration)
                 .AddSqlServer();
+            services.AddMvcCore()
+                .AddJsonOptions(options =>
+                {
+                    options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
+                    options.JsonSerializerOptions.IgnoreNullValues = true;
+                })
+                .AddApiExplorer();
             services.AddRazorPages();
         }
 
@@ -45,7 +52,8 @@ namespace Yd.RazorPages
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            //下面两个位置一定要放对
+            app.UseAuthentication();
             app.UseAuthorization();
             app.UseGentings(Configuration);
 
