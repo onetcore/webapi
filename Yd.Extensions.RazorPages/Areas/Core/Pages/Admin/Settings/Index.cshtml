@@ -5,8 +5,8 @@
     ViewBag.Current = "sys.dicsettings";
 }
 
-<div class="filter">
-    <div class="right">
+<div class="gt-toolbar mb-3">
+    <div class="gt-toolbar-right">
         <div class="btn-group">
             <a js-checked="post" js-data-pid="@Model.Current.Id" js-confirm="你确定要删除所选择的字典实例吗？" asp-page-handler="Delete" class="btn btn-sm btn-outline-secondary"><i class="fa fa-trash-o"></i> 删除</a>
             <a js-modal="click" asp-page="./Edit" asp-route-pid="@Model.Current.Id" class="btn btn-sm btn-secondary"><i class="fa fa-plus"></i> 添加</a>

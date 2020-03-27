@@ -5,7 +5,7 @@
     ViewBag.Current = "sys.email";
 }
 
-<div class="filter">
+<div class="gt-toolbar mb-3">
     <form method="get" class="left form-inline">
         <label>状态：</label>
         <gt:enum-dropdownlist class="form-control form-control-sm border-secondary" for="Query.Status"></gt:enum-dropdownlist>
@@ -21,7 +21,7 @@
             </div>
         </div>
     </form>
-    <div class="right">
+    <div class="gt-toolbar-right">
         <a js-modal="click" class="btn btn-sm btn-outline-secondary" asp-page="./send"><i class="fa fa-send-o"></i> 发送邮件</a>
     </div>
 </div>

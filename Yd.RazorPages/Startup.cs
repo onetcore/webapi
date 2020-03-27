@@ -1,3 +1,4 @@
+using System.Text.Json;
 using Gentings;
 using Gentings.AspNetCore;
 using Gentings.Data.SqlServer;
@@ -27,7 +28,8 @@ namespace Yd.RazorPages
             services.AddMvcCore()
                 .AddJsonOptions(options =>
                 {
-                    options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
+                    options.JsonSerializerOptions.PropertyNameCaseInsensitive = false;
+                    options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
                     options.JsonSerializerOptions.IgnoreNullValues = true;
                 })
                 .AddApiExplorer();
@@ -60,6 +62,7 @@ namespace Yd.RazorPages
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
+                endpoints.MapDefaultControllerRoute();
             });
         }
     }

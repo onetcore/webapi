@@ -23,6 +23,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yd.RazorPages", "Yd.RazorPa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yd.Extensions.RazorPages", "Yd.Extensions.RazorPages\Yd.Extensions.RazorPages.csproj", "{B1558EB1-0963-4EDF-BBCC-F4B2056256A7}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gentings.Projects", "..\gentings\Gentings.Projects\Gentings.Projects.csproj", "{A597ED54-E0FE-4671-8B8D-592E6436155D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -111,6 +113,14 @@ Global
 		{B1558EB1-0963-4EDF-BBCC-F4B2056256A7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B1558EB1-0963-4EDF-BBCC-F4B2056256A7}.Release|x64.ActiveCfg = Release|Any CPU
 		{B1558EB1-0963-4EDF-BBCC-F4B2056256A7}.Release|x64.Build.0 = Release|Any CPU
+		{A597ED54-E0FE-4671-8B8D-592E6436155D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A597ED54-E0FE-4671-8B8D-592E6436155D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A597ED54-E0FE-4671-8B8D-592E6436155D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{A597ED54-E0FE-4671-8B8D-592E6436155D}.Debug|x64.Build.0 = Debug|Any CPU
+		{A597ED54-E0FE-4671-8B8D-592E6436155D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A597ED54-E0FE-4671-8B8D-592E6436155D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A597ED54-E0FE-4671-8B8D-592E6436155D}.Release|x64.ActiveCfg = Release|Any CPU
+		{A597ED54-E0FE-4671-8B8D-592E6436155D}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

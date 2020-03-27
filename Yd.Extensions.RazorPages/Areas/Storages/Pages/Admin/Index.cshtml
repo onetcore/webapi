@@ -5,7 +5,7 @@
     ViewBag.Current = "storages.home";
 }
 
-<div class="filter">
+<div class="gt-toolbar mb-3">
     <form class="left form-inline">
         <div class="form-group">
             <label>类型</label>
@@ -23,7 +23,7 @@
             </div>
         </div>
     </form>
-    <div class="right">
+    <div class="gt-toolbar-right">
         <div class="btn-group">
             <a js-checked="post" js-confirm="你确定要删除所选择的文件吗？" asp-page-handler="Delete" class="btn btn-sm btn-outline-secondary"><i class="fa fa-trash-o"></i> 删除</a>
             <a data-toggle="uploader" href="#" class="btn btn-sm btn-outline-secondary"><i class="fa fa-upload"></i> 上传文件</a>
