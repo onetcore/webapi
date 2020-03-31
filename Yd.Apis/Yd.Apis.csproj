@@ -5,6 +5,14 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DocumentationFile>.\Yd.Apis.xml</DocumentationFile>
   </PropertyGroup>
+  <ItemGroup>
+    <None Remove="appsettings.Development.json.`" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="appsettings.Development.json.`">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.1" />
@@ -26,12 +34,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-  </ItemGroup>
-  
-  <ItemGroup>
-    <Content Update="appsettings.Development.json.config">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   
   <ItemGroup>

@@ -43,7 +43,7 @@ namespace Yd.Extensions.RazorPages.Areas.Storages.Pages.Admin
             if (file?.Length <= 0)
                 return Error("请选择非空文件后，再上传！");
             var result = await _mediaDirectory.UploadAsync(file, "core");
-            return Json(result);
+            return Success("你已经成功上传了文件！", result);
         }
     }
 }

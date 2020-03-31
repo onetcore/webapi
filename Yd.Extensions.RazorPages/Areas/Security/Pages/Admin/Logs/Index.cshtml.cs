@@ -1,4 +1,5 @@
-﻿using Gentings.AspNetCore.EventLogging;
+﻿using System;
+using Gentings.AspNetCore.EventLogging;
 using Gentings.Extensions;
 using Gentings.Identity.Permissions;
 using Microsoft.AspNetCore.Mvc;
@@ -37,6 +38,8 @@ namespace Yd.Extensions.RazorPages.Areas.Security.Pages.Admin.Logs
 
         public void OnGet()
         {
+            if (Query.End != null)
+                Query.End = Query.End.Value.Add(new TimeSpan(23, 59, 59));
             Query.RoleLevel = Role.RoleLevel;
             Model = _eventManager.Load(Query);
         }

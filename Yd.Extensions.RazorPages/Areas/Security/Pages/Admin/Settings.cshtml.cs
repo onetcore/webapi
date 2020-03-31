@@ -40,7 +40,7 @@ namespace Yd.Extensions.RazorPages.Areas.Security.Pages.Admin
         {
             var mediaDirectory = GetRequiredService<IMediaDirectory>();
             var result = await mediaDirectory.UploadAsync(file, SecuritySettings.ExtensionName);
-            return Json(result);
+            return Success("你已经成功上传了文件！", result);
         }
     }
 }

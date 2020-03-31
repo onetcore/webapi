@@ -48,7 +48,7 @@
 @section footer{
     <script type="text/javascript">
         $(function render() {
-            Mozlite.ajax('@Url.Page("./Index")', {},
+            GtCore.ajax('@Url.Page("./Index")', {},
                 c => {
                     c.data.forEach(d => {
                         $('.last-' + d.id).html(d.lastExecuted);
