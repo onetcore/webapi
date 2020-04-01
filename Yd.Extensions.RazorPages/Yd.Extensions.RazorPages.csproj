@@ -15,62 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Remove="wwwroot\storages\images\avi.png" />
-    <Content Remove="wwwroot\storages\images\bmp.png" />
-    <Content Remove="wwwroot\storages\images\cs.png" />
-    <Content Remove="wwwroot\storages\images\css.png" />
-    <Content Remove="wwwroot\storages\images\default.png" />
-    <Content Remove="wwwroot\storages\images\dmg.png" />
-    <Content Remove="wwwroot\storages\images\docx.png" />
-    <Content Remove="wwwroot\storages\images\exe.png" />
-    <Content Remove="wwwroot\storages\images\gif.png" />
-    <Content Remove="wwwroot\storages\images\html.png" />
-    <Content Remove="wwwroot\storages\images\java.png" />
-    <Content Remove="wwwroot\storages\images\jpg.png" />
-    <Content Remove="wwwroot\storages\images\js.png" />
-    <Content Remove="wwwroot\storages\images\json.png" />
-    <Content Remove="wwwroot\storages\images\lcss.png" />
-    <Content Remove="wwwroot\storages\images\md.png" />
-    <Content Remove="wwwroot\storages\images\mov.png" />
-    <Content Remove="wwwroot\storages\images\mp3.png" />
-    <Content Remove="wwwroot\storages\images\mp4.png" />
-    <Content Remove="wwwroot\storages\images\pdf.png" />
-    <Content Remove="wwwroot\storages\images\php.png" />
-    <Content Remove="wwwroot\storages\images\png.png" />
-    <Content Remove="wwwroot\storages\images\pptx.png" />
-    <Content Remove="wwwroot\storages\images\rar.png" />
-    <Content Remove="wwwroot\storages\images\scss.png" />
-    <Content Remove="wwwroot\storages\images\sql.png" />
-    <Content Remove="wwwroot\storages\images\svg.png" />
-    <Content Remove="wwwroot\storages\images\txt.png" />
-    <Content Remove="wwwroot\storages\images\wma.png" />
-    <Content Remove="wwwroot\storages\images\wmv.png" />
-    <Content Remove="wwwroot\storages\images\xlsx.png" />
-    <Content Remove="wwwroot\storages\images\zip.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="Areas\Core\Pages\Admin\Email\Index.cshtml" />
-    <None Include="Areas\Core\Pages\Admin\Email\Send.cshtml" />
-    <None Include="Areas\Core\Pages\Admin\Email\Settings.cshtml" />
-    <None Include="Areas\Core\Pages\Admin\Notifications\Edit.cshtml" />
-    <None Include="Areas\Core\Pages\Admin\Notifications\Index.cshtml" />
-    <None Include="Areas\Core\Pages\Admin\Settings\Edit.cshtml" />
-    <None Include="Areas\Core\Pages\Admin\Settings\Index.cshtml" />
-    <None Include="Areas\Core\Pages\Admin\Tasks\Detail.cshtml" />
-    <None Include="Areas\Core\Pages\Admin\Tasks\Index.cshtml" />
-    <None Include="Areas\Core\Pages\Admin\Tasks\Interval.cshtml" />
-    <None Include="Areas\Core\Pages\Admin\_ViewStart.cshtml" />
-    <None Include="Areas\Core\Pages\_ViewImports.cshtml" />
-    <None Include="Areas\Core\Pages\_ViewStart.cshtml" />
-    <None Include="Areas\Storages\Pages\Admin\Edit.cshtml" />
-    <None Include="Areas\Storages\Pages\Admin\Index.cshtml" />
-    <None Include="Areas\Storages\Pages\Admin\_ViewStart.cshtml" />
-    <None Include="Areas\Storages\Pages\_ViewImports.cshtml" />
-    <None Include="Areas\Storages\Pages\_ViewStart.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\..\gentings\Gentings.AspNetCore.RazorPages\Gentings.AspNetCore.RazorPages.csproj" />
     <ProjectReference Include="..\..\gentings\Gentings.AspNetCore\Gentings.AspNetCore.csproj" />
     <ProjectReference Include="..\..\Gentings\Gentings.Identity\Gentings.Identity.csproj" />

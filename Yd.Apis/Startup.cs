@@ -160,7 +160,6 @@ namespace Yd.Apis
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-                endpoints.MapDefaultControllerRoute();
             });
 
             app.UseSwagger();
