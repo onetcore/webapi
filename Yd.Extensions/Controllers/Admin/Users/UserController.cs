@@ -48,6 +48,9 @@ namespace Yd.Extensions.Controllers.Admin.Users
         }
 
         private SecuritySettings _settings;
+        /// <summary>
+        /// 配置实例。
+        /// </summary>
         protected SecuritySettings Settings => _settings ??= _settingsManager.GetSettings<SecuritySettings>();
 
         /// <summary>

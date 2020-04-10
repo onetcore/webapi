@@ -1,5 +1,6 @@
 ﻿using Gentings.Extensions.Settings;
 using Gentings.Identity;
+using Gentings.Messages.Notifications;
 using Yd.Extensions.RazorPages.Properties;
 using Yd.Extensions.Roles;
 
@@ -33,5 +34,11 @@ namespace Yd.Extensions.RazorPages.Areas.Security
         /// 事件类型。
         /// </summary>
         protected override string EventType => Resources.EventType_Users;
+
+        private INotifier _notifier;
+        /// <summary>
+        /// 通知信息。
+        /// </summary>
+        protected INotifier Notifier => _notifier ??= GetRequiredService<INotifier>();
     }
 }

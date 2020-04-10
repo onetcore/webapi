@@ -360,6 +360,11 @@
             <param name="id">用户Id。</param>
             <returns>返回用户实例。</returns>
         </member>
+        <member name="P:Yd.Extensions.Controllers.Admin.Users.UserController.Settings">
+            <summary>
+            配置实例。
+            </summary>
+        </member>
         <member name="M:Yd.Extensions.Controllers.Admin.Users.UserController.Create(Yd.Extensions.Controllers.Admin.Users.CreateUserModel)">
             <summary>
             添加用户。
