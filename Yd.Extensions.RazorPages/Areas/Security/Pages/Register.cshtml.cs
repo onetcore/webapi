@@ -78,7 +78,7 @@ namespace Yd.Extensions.RazorPages.Areas.Security.Pages
                 {
                     Log(user.Id, "注册了新用户。");
 
-                    if (Settings.RequiredEmailConfirmed)
+                    if (Settings.RequireConfirmedEmail)
                     {
                         var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                         var callbackUrl = Url.Page(

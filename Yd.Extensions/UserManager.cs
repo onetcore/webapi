@@ -19,7 +19,7 @@ namespace Yd.Extensions
     /// <summary>
     /// 用户管理。
     /// </summary>
-    public class UserManager : UserManager<User, Role, UserClaim, UserRole, UserLogin, UserToken, RoleClaim>, IUserManager
+    public class UserManager : UserManager<User, Role, UserClaim, UserRole, UserLogin, UserToken, RoleClaim, SecuritySettings>, IUserManager
     {
         /// <summary>
         /// 初始化类<see cref="UserManager"/>。

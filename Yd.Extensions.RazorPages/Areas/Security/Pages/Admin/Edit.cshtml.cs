@@ -70,13 +70,13 @@ namespace Yd.Extensions.RazorPages.Areas.Security.Pages.Admin
                 {
                     user.Email = Input.Email;
                     user.NormalizedEmail = _userManager.NormalizeEmail(Input.Email);
-                    user.EmailConfirmed = !string.IsNullOrEmpty(Input.Email) && !Settings.RequiredEmailConfirmed;
+                    user.EmailConfirmed = !string.IsNullOrEmpty(Input.Email) && !Settings.RequireConfirmedEmail;
                 }
 
                 if (user.PhoneNumber != Input.PhoneNumber)
                 {
                     user.PhoneNumber = Input.PhoneNumber;
-                    user.PhoneNumberConfirmed = !string.IsNullOrEmpty(Input.PhoneNumber) && !Settings.RequiredPhoneNumberConfirmed;
+                    user.PhoneNumberConfirmed = !string.IsNullOrEmpty(Input.PhoneNumber) && !Settings.RequireConfirmedPhoneNumber;
                 }
 
                 if (differ.IsDifference(user))

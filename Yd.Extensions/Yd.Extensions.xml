@@ -1170,16 +1170,6 @@
             扩展名称（区域名称）。
             </summary>
         </member>
-        <member name="P:Yd.Extensions.SecuritySettings.RequiredEmailConfirmed">
-            <summary>
-            是否需要确认电子邮件。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.SecuritySettings.RequiredPhoneNumberConfirmed">
-            <summary>
-            是否需要确认电话号码。
-            </summary>
-        </member>
         <member name="P:Yd.Extensions.SecuritySettings.RequiredTwoFactorEnabled">
             <summary>
             是否需要二次验证。

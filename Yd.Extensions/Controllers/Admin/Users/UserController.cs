@@ -67,7 +67,7 @@ namespace Yd.Extensions.Controllers.Admin.Users
                 user.PhoneNumber = model.PhoneNumber;
                 user.Summary = model.Summary;
                 user.LockoutEnabled = true;
-                user.EmailConfirmed = !Settings.RequiredEmailConfirmed || !string.IsNullOrEmpty(model.Email);
+                user.EmailConfirmed = !Settings.RequireConfirmedEmail || !string.IsNullOrEmpty(model.Email);
                 user.PhoneNumberConfirmed = !string.IsNullOrEmpty(model.PhoneNumber);
                 user.TwoFactorEnabled = Settings.RequiredTwoFactorEnabled;
                 user.Type = UserType.Normal;
@@ -121,7 +121,7 @@ namespace Yd.Extensions.Controllers.Admin.Users
 
                 user.LockoutEnabled = model.LockoutEnabled;
                 user.PhoneNumber = model.PhoneNumber;
-                user.EmailConfirmed = !Settings.RequiredEmailConfirmed || !string.IsNullOrEmpty(model.Email);
+                user.EmailConfirmed = !Settings.RequireConfirmedEmail || !string.IsNullOrEmpty(model.Email);
                 user.PhoneNumberConfirmed = !string.IsNullOrEmpty(model.PhoneNumber);
                 var result = await _userManager.UpdateAsync(user);
                 if (result.Succeeded)

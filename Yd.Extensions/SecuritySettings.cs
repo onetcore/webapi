@@ -1,24 +1,16 @@
-﻿namespace Yd.Extensions
+﻿using Gentings.Identity;
+
+namespace Yd.Extensions
 {
     /// <summary>
     /// 安全配置。
     /// </summary>
-    public class SecuritySettings
+    public class SecuritySettings : IdentitySettings
     {
         /// <summary>
         /// 扩展名称（区域名称）。
         /// </summary>
         public const string ExtensionName = "security";
-        
-        /// <summary>
-        /// 是否需要确认电子邮件。
-        /// </summary>
-        public bool RequiredEmailConfirmed { get; set; }
-
-        /// <summary>
-        /// 是否需要确认电话号码。
-        /// </summary>
-        public bool RequiredPhoneNumberConfirmed { get; set; }
 
         /// <summary>
         /// 是否需要二次验证。

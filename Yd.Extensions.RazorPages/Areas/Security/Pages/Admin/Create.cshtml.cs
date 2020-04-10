@@ -69,8 +69,8 @@ namespace Yd.Extensions.RazorPages.Areas.Security.Pages.Admin
                     Email = Input.Email,
                     NormalizedEmail = _userManager.NormalizeEmail(Input.Email),
                     PhoneNumber = Input.PhoneNumber,
-                    EmailConfirmed = !string.IsNullOrEmpty(Input.Email) && !Settings.RequiredEmailConfirmed,
-                    PhoneNumberConfirmed = !string.IsNullOrEmpty(Input.PhoneNumber) && !Settings.RequiredPhoneNumberConfirmed,
+                    EmailConfirmed = !string.IsNullOrEmpty(Input.Email) && !Settings.RequireConfirmedEmail,
+                    PhoneNumberConfirmed = !string.IsNullOrEmpty(Input.PhoneNumber) && !Settings.RequireConfirmedPhoneNumber,
                     LockoutEnabled = true
                 };
                 user.TwoFactorEnabled = (!string.IsNullOrEmpty(Input.Email) || !string.IsNullOrEmpty(Input.PhoneNumber)) && Settings.RequiredTwoFactorEnabled;
