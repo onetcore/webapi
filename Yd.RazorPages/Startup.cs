@@ -29,7 +29,6 @@ namespace Yd.RazorPages
                 {
                     options.JsonSerializerOptions.PropertyNameCaseInsensitive = false;
                     options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
-                    options.JsonSerializerOptions.IgnoreNullValues = true;
                 })
                 .AddApiExplorer();
             services.AddRazorPages();
