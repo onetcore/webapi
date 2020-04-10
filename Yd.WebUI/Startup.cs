@@ -1,6 +1,4 @@
 using Gentings;
-using Gentings.AspNetCore;
-using Gentings.Data.SqlServer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -21,8 +19,7 @@ namespace Yd.WebUI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddGentings(Configuration)
-                .AddSqlServer();
+            services.AddGentings(Configuration);
             services.AddRazorPages();
         }
 
@@ -46,7 +43,6 @@ namespace Yd.WebUI
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
-            app.UseGentings(Configuration);
 
             app.UseEndpoints(endpoints =>
             {

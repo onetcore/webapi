@@ -5,9 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\gentings\Gentings.AspNetCore.RazorPages\Gentings.AspNetCore.RazorPages.csproj" />
-    <ProjectReference Include="..\..\gentings\Gentings.AspNetCore\Gentings.AspNetCore.csproj" />
-    <ProjectReference Include="..\..\Gentings\Gentings\Gentings.csproj" />
+    <PackageReference Include="BuildBundlerMinifier" Version="3.2.447" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\gentings\Gentings.Core\Gentings.Core.csproj" />
   </ItemGroup>
 
 
