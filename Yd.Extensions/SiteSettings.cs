@@ -33,7 +33,12 @@ namespace Yd.Extensions
         /// <summary>
         /// 描述。
         /// </summary>
-        public string Description { get; set; }= "至力于APP，小程序一体化专业代工厂";
+        public string Description { get; set; } = "至力于APP，小程序一体化专业代工厂";
+
+        /// <summary>
+        /// 后台管理导航栏是否在上面。
+        /// </summary>
+        public bool IsTopMenu { get; set; }
 
         private string _copyright;
         /// <summary>
@@ -41,8 +46,14 @@ namespace Yd.Extensions
         /// </summary>
         public string Copyright
         {
-            get => _copyright ??= "$year www.xmydcl.com ver $version".Replace("$version", Cores.Version.ToString(3)).Replace("$year", DateTime.Now.Year.ToString());
+            get => _copyright ??= "$year www.xmydcl.com ver $version";
             set => _copyright = value;
         }
+
+        /// <summary>
+        /// 替换后的版本信息。
+        /// </summary>
+        public string ReplacedCopyright => Copyright?.Replace("$version", Cores.Version.ToString(3))
+            .Replace("$year", DateTime.Now.Year.ToString());
     }
 }

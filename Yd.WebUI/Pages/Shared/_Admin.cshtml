@@ -11,7 +11,7 @@
 @inject IEventManager EventManager
 
 <div class="gt-layout">
-    <div class="sidebar d-print-none">
+    <div class="navbar d-print-none">
         <div class="logo">
             <a asp-page="/admin/index" asp-area="">
                 <img src="@(settings.LogoUrl??"/images/logo.svg")" alt="@settings.SiteName" />
@@ -23,7 +23,7 @@
     <div class="mini-bg"></div>
     <main>
         <header class="d-print-none">
-            <i js-toggle="sidebar" class="sidebar-trigger fa fa-indent"></i>
+            <i js-toggle="navbar" class="navbar-trigger fa fa-indent"></i>
             <ul class="right navbar-nav">
                 <li class="nav-item text-nowarp dropdown dropdown-panel">
                     <a class="nav-link dropdown-toggle dropleft" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -103,7 +103,7 @@
             </div>
         </div>
         <footer>
-            @Html.Raw(settings.Copyright)
+            @Html.Raw(settings.ReplacedCopyright)
         </footer>
     </main>
 </div>

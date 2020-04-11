@@ -60,7 +60,7 @@ namespace Yd.Extensions.RazorPages.Areas.Security.Pages.Admin
         {
             if (ModelState.IsValid)
             {
-                var user = new User
+                var user = new Extensions.User
                 {
                     UserName = Input.UserName,
                     NormalizedUserName = _userManager.NormalizeName(Input.UserName),

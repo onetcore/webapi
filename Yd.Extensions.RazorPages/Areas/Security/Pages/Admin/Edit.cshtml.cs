@@ -20,7 +20,7 @@ namespace Yd.Extensions.RazorPages.Areas.Security.Pages.Admin
         {
             public InputModel() { }
 
-            public InputModel(User currentUser)
+            public InputModel(Extensions.User currentUser)
             {
                 UserId = currentUser.Id;
                 NickName = currentUser.NickName;

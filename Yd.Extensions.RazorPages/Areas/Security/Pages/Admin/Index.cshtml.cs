@@ -20,7 +20,7 @@ namespace Yd.Extensions.RazorPages.Areas.Security.Pages.Admin
         [BindProperty(SupportsGet = true)]
         public UserQuery Query { get; set; }
 
-        public IPageEnumerable<User> Model { get; private set; }
+        public IPageEnumerable<Extensions.User> Model { get; private set; }
 
         public void OnGet()
         {

@@ -20,6 +20,12 @@ namespace Yd.Extensions.RazorPages.Areas.Security
                 .AddMenu("logs", it => it.Texted("日志管理").Page("/Admin/Logs/Index", area: SecuritySettings.ExtensionName).Allow(Permissions.Logs))
                 .AddMenu("settings", it => it.Texted("用户配置").Page("/Admin/Settings", area: SecuritySettings.ExtensionName).Allow(Permissions.Settings))
             );
+            root.AddMenu("account", item => item.Texted("账号管理", "fa-user").Page("/Admin/User/Index", area: SecuritySettings.ExtensionName)
+                .AddMenu("index", it => it.Texted("编辑资料").Page("/Admin/User/Index", area: SecuritySettings.ExtensionName))
+                .AddMenu("changepassword", it => it.Texted("修改密码").Page("/Admin/User/ChangePassword", area: SecuritySettings.ExtensionName))
+                .AddMenu("avatar", it => it.Texted("更新头像").Page("/Admin/User/Avatar", area: SecuritySettings.ExtensionName))
+                .AddMenu("log", it => it.Texted("活动日志").Page("/Admin/User/Log", area: SecuritySettings.ExtensionName))
+            );
         }
     }
 }

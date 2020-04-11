@@ -1241,9 +1241,19 @@
             描述。
             </summary>
         </member>
+        <member name="P:Yd.Extensions.SiteSettings.IsTopMenu">
+            <summary>
+            后台管理导航栏是否在上面。
+            </summary>
+        </member>
         <member name="P:Yd.Extensions.SiteSettings.Copyright">
             <summary>
             版权信息。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.SiteSettings.ReplacedCopyright">
+            <summary>
+            替换后的版本信息。
             </summary>
         </member>
         <member name="T:Yd.Extensions.Subuser">

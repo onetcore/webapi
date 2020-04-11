@@ -1,4 +1,5 @@
 ﻿using Gentings;
+using Gentings.AspNetCore;
 using Gentings.AspNetCore.RazorPages;
 using Gentings.Extensions.Settings;
 using Gentings.Identity.Permissions;
@@ -41,6 +42,7 @@ namespace Yd.Extensions.RazorPages
             builder.AddPermissions<Role, UserRole>()
                 .AddNotification()
                 .AddEmail()
+                .AddEventLoggers()
                 .AddTaskServices()
                 .AddMediaStorages()
                 .AddSettingDictionary();

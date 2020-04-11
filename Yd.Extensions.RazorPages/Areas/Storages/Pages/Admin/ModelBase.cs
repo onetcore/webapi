@@ -7,7 +7,7 @@ namespace Yd.Extensions.RazorPages.Areas.Storages.Pages.Admin
     /// 模型基类。
     /// </summary>
     [PermissionAuthorize(Permissions.Administrator)]
-    public abstract class ModelBase : Security.ModelBase
+    public abstract class ModelBase : RazorPages.ModelBase
     {
         /// <summary>
         /// 事件类型。
