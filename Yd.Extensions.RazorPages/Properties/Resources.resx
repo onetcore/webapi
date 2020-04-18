@@ -126,4 +126,7 @@
   <data name="EventType_Users" xml:space="preserve">
     <value>用户</value>
   </data>
+  <data name="VerifierTagHelper_ClickRefresh" xml:space="preserve">
+    <value>点击刷新验证码</value>
+  </data>
 </root>

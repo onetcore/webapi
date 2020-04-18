@@ -15,17 +15,17 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.1" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.0.0-rc5" />
-    <PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="5.0.0-rc9" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.3.2" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="5.1.1" />
   </ItemGroup>
   
   <ItemGroup>
     <ProjectReference Include="..\..\Gentings\Gentings.Identity\Gentings.Identity.csproj" />
     <ProjectReference Include="..\..\gentings\Gentings.Messages\Gentings.Messages.csproj" />
-    <ProjectReference Include="..\..\gentings\Gentings.Projects\Gentings.Projects.csproj" />
     <ProjectReference Include="..\..\gentings\Gentings.Storages\Gentings.Storages.csproj" />
     <ProjectReference Include="..\..\Gentings\Gentings\Gentings.csproj" />
+    <ProjectReference Include="..\..\projects\Gentings.Projects\Gentings.Projects.csproj" />
     <ProjectReference Include="..\Yd.Extensions\Yd.Extensions.csproj" />
   </ItemGroup>
   

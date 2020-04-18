@@ -6,7 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="BuildBundlerMinifier" Version="3.2.447" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.2" />
   </ItemGroup>
 
   <ItemGroup>
@@ -14,9 +14,9 @@
     <ProjectReference Include="..\..\gentings\Gentings.AspNetCore\Gentings.AspNetCore.csproj" />
     <ProjectReference Include="..\..\Gentings\Gentings.Identity\Gentings.Identity.csproj" />
     <ProjectReference Include="..\..\gentings\Gentings.Messages\Gentings.Messages.csproj" />
-    <ProjectReference Include="..\..\gentings\Gentings.Projects\Gentings.Projects.csproj" />
     <ProjectReference Include="..\..\gentings\Gentings.Storages\Gentings.Storages.csproj" />
     <ProjectReference Include="..\..\Gentings\Gentings\Gentings.csproj" />
+    <ProjectReference Include="..\..\projects\Gentings.Projects\Gentings.Projects.csproj" />
     <ProjectReference Include="..\Yd.Extensions.RazorPages\Yd.Extensions.RazorPages.csproj" />
     <ProjectReference Include="..\Yd.Extensions\Yd.Extensions.csproj" />
   </ItemGroup>

@@ -1,5 +1,8 @@
-﻿using Gentings.Identity;
+﻿using System.Linq;
+using Gentings.Identity;
 using Gentings.Messages.Notifications;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Yd.Extensions.Roles;
 
 namespace Yd.Extensions.RazorPages
@@ -26,5 +29,16 @@ namespace Yd.Extensions.RazorPages
         /// 通知信息。
         /// </summary>
         protected INotifier Notifier => _notifier ??= GetRequiredService<INotifier>();
+
+        /// <summary>
+        /// 返回JSON试图结果。
+        /// </summary>
+        /// <param name="result">数据结果。</param>
+        /// <returns>返回JSON试图结果。</returns>
+        protected IActionResult Error(IdentityResult result)
+        {
+            var errors = result.Errors.Select(x => x.Description).ToList();
+            return Error(string.Join(", ", errors));
+        }
     }
 }
