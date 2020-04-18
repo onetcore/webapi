@@ -45,7 +45,7 @@ namespace Yd.Extensions.RazorPages
                 .AddEventLoggers()
                 .AddTaskServices()
                 .AddMediaStorages()
-                .AddSettingDictionary();
+                .AddSettings(true);
         }
 
         /// <summary>

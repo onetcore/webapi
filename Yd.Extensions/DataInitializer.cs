@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Gentings.Installers;
 using System.Threading.Tasks;
 using Gentings.Data;
+using Gentings.Data.Initializers;
 using Yd.Extensions.Roles;
 
 namespace Yd.Extensions

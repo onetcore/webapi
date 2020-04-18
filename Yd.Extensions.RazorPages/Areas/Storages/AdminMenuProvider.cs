@@ -1,4 +1,7 @@
-﻿using Gentings.AspNetCore.RazorPages.AdminMenus;
+﻿using System;
+using Gentings.AspNetCore.RazorPages.AdminMenus;
+using Gentings.Storages;
+using Yd.Extensions.RazorPages.Areas.Core;
 
 namespace Yd.Extensions.RazorPages.Areas.Storages
 {
@@ -7,6 +10,16 @@ namespace Yd.Extensions.RazorPages.Areas.Storages
     /// </summary>
     public class AdminMenuProvider : MenuProvider
     {
+        private readonly IServiceProvider _serviceProvider;
+        /// <summary>
+        /// 初始化类<see cref="Core.AdminMenuProvider"/>。
+        /// </summary>
+        /// <param name="serviceProvider">服务提供者接口。</param>
+        public AdminMenuProvider(IServiceProvider serviceProvider)
+        {
+            _serviceProvider = serviceProvider;
+        }
+
         /// <summary>
         /// 区域名称。
         /// </summary>
