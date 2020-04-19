@@ -1,28 +1,26 @@
 ﻿@{
     Layout = "_Global";
-    var settings = SettingsManager.GetSettings<SiteSettings>();
+    var settings = await SettingsManager.GetSettingsAsync();
 }
-@inject ISettingsManager SettingsManager
+@inject ISiteSettingsService SettingsManager
 
-<div class="gt-layout">
-    <main>
-        <div class="main">
-            <div class="header" .visible="@(ViewBag.HideHeader != true)">
-                <div class="header-container">
-                    <h1 class="title">
-                        @settings.SiteName
-                    </h1>
-                </div>
-            </div>
-            <div class="main-container">
-                @RenderBody()
+<main>
+    <div class="main">
+        <div class="header" .visible="@(ViewBag.HideHeader != true)">
+            <div class="header-container">
+                <h1 class="title">
+                    @settings.SiteName
+                </h1>
             </div>
         </div>
-        <footer>
-            @Html.Raw(settings.ReplacedCopyright)
-        </footer>
-    </main>
-</div>
+        <div class="main-container">
+            @RenderBody()
+        </div>
+    </div>
+    <footer>
+        @Html.Raw(settings.ReplacedCopyright)
+    </footer>
+</main>
 
 @section header{
     <link rel="stylesheet" href="~/css/site.min.css" />

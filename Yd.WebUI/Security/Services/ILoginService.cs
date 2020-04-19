@@ -1,6 +1,6 @@
 ﻿using Gentings;
 
-namespace Yd.WebUI.Services
+namespace Yd.WebUI.Security.Services
 {
     /// <summary>
     /// 登录服务接口。

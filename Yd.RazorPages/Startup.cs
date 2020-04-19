@@ -27,7 +27,7 @@ namespace Yd.RazorPages
             services.AddMvcCore()
                 .AddJsonOptions(options =>
                 {
-                    options.JsonSerializerOptions.PropertyNameCaseInsensitive = false;
+                    options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
                     options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
                 })
                 .AddApiExplorer();

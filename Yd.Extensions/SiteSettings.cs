@@ -17,7 +17,6 @@ namespace Yd.Extensions
         /// <summary>
         /// 网站名称。
         /// </summary>
-        [JsonPropertyName("title")]
         public string SiteName { get; set; } = "云顶创联";
 
         /// <summary>

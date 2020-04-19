@@ -1,0 +1,8 @@
+﻿pre.prettyprint .linenums li {
+    list-style-type: decimal;
+    background-color: transparent;
+}
+
+pre.prettyprint .com {
+    color: #28a745;
+}

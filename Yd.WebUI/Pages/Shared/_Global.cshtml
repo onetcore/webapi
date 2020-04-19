@@ -1,7 +1,7 @@
 ﻿@{
-    var settings = SettingsManager.GetSettings<SiteSettings>();
+    var settings = await SettingsManager.GetSettingsAsync();
 }
-@inject ISettingsManager SettingsManager
+@inject ISiteSettingsService SettingsManager
 <!DOCTYPE html>
 <html>
 <head>
