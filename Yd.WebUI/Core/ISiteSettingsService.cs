@@ -6,7 +6,7 @@ namespace Yd.WebUI.Core
     /// <summary>
     /// 配置服务接口。
     /// </summary>
-    public interface ISiteSettingsService : IServiceBase, IScopedService
+    public interface ISiteSettingsService : IScopedService
     {
         /// <summary>
         /// 获取当前配置实例。

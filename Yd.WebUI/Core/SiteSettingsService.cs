@@ -14,8 +14,7 @@ namespace Yd.WebUI.Core
         /// <returns>返回网站配置实例。</returns>
         public async Task<SiteSettings> GetSettingsAsync()
         {
-            var settings = await GetDataAsync<SiteSettings>("/api/setting");
-            return settings.Data;
+            return await GetDataAsync<SiteSettings>("/api/setting") ?? new SiteSettings();
         }
 
         /// <summary>

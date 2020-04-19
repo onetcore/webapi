@@ -11,7 +11,7 @@ namespace Yd.WebUI.Core
     /// <summary>
     /// 服务基类。
     /// </summary>
-    public abstract class ServiceBase : IServiceBase
+    public abstract class ServiceBase
     {
         /// <summary>
         /// 客户端注册名称。
@@ -47,7 +47,7 @@ namespace Yd.WebUI.Core
         /// <summary>
         /// 客户端请求实例。
         /// </summary>
-        public HttpClient Client { get; }
+        protected HttpClient Client { get; }
 
         /// <summary>
         /// 初始化类<see cref="ServiceBase"/>。
@@ -63,44 +63,37 @@ namespace Yd.WebUI.Core
         /// <summary>
         /// 发送数据。
         /// </summary>
-        /// <param name="api">API地址。</param>
-        /// <returns>返回发送结果。</returns>
-        public virtual Task<string> GetAsync(string api)
-        {
-            return Client.GetStringAsync(api);
-        }
-
-        /// <summary>
-        /// 发送数据。
-        /// </summary>
         /// <typeparam name="TResult">返回的结果类型。</typeparam>
         /// <param name="api">API地址。</param>
         /// <returns>返回发送结果。</returns>
-        public virtual async Task<TResult> GetAsync<TResult>(string api)
+        protected virtual Task<ApiDataResult<TResult>> GetAsync<TResult>(string api)
         {
-            var result = await GetAsync(api);
-            if (string.IsNullOrEmpty(result))
-                return default;
-            return Cores.FromJsonString<TResult>(result);
-        }
-
-        /// <summary>
-        /// 发送数据。
-        /// </summary>
-        /// <typeparam name="TResult">返回的结果类型。</typeparam>
-        /// <param name="api">API地址。</param>
-        /// <returns>返回发送结果。</returns>
-        public virtual async Task<ApiDataResult<TResult>> GetDataAsync<TResult>(string api)
-        {
-            var response = await Client.GetAsync(api);
-            response.EnsureSuccessStatusCode();
-            if (response.IsSuccessStatusCode)
+            return CatchExecuteAsync(async () =>
             {
-                var result = await response.Content.ReadAsStringAsync();
-                return Cores.FromJsonString<ApiDataResult<TResult>>(result);
-            }
-            //如果不成功，则返回状态码
-            return OnFailured<ApiDataResult<TResult>>(response.StatusCode);
+                var response = await Client.GetAsync(api);
+                response.EnsureSuccessStatusCode();
+                if (response.IsSuccessStatusCode)
+                {
+                    var result = await response.Content.ReadAsStringAsync();
+                    return Cores.FromJsonString<ApiDataResult<TResult>>(result);
+                }
+                //如果不成功，则返回状态码
+                return OnFailuredAsync<ApiDataResult<TResult>>(response.StatusCode);
+            });
+        }
+
+        /// <summary>
+        /// 发送数据。
+        /// </summary>
+        /// <typeparam name="TResult">返回的结果类型。</typeparam>
+        /// <param name="api">API地址。</param>
+        /// <param name="defaultValue">默认值。</param>
+        /// <returns>返回发送结果。</returns>
+        protected virtual async Task<TResult> GetDataAsync<TResult>(string api, TResult defaultValue = default)
+        {
+            var result = await GetAsync<TResult>(api);
+            if (result.Status) return result.Data;
+            return defaultValue;
         }
 
         /// <summary>
@@ -109,17 +102,20 @@ namespace Yd.WebUI.Core
         /// <typeparam name="TResult">返回的结果类型。</typeparam>
         /// <param name="api">API地址。</param>
         /// <returns>返回发送结果。</returns>
-        public virtual async Task<ApiPageResult<TResult>> GetPageAsync<TResult>(string api)
+        protected virtual Task<ApiPageResult<TResult>> GetPageAsync<TResult>(string api)
         {
-            var response = await Client.GetAsync(api);
-            response.EnsureSuccessStatusCode();
-            if (response.IsSuccessStatusCode)
+            return CatchExecuteAsync(async () =>
             {
-                var result = await response.Content.ReadAsStringAsync();
-                return Cores.FromJsonString<ApiPageResult<TResult>>(result);
-            }
-            //如果不成功，则返回状态码
-            return OnFailured<ApiPageResult<TResult>>(response.StatusCode);
+                var response = await Client.GetAsync(api);
+                response.EnsureSuccessStatusCode();
+                if (response.IsSuccessStatusCode)
+                {
+                    var result = await response.Content.ReadAsStringAsync();
+                    return Cores.FromJsonString<ApiPageResult<TResult>>(result);
+                }
+                //如果不成功，则返回状态码
+                return OnFailuredAsync<ApiPageResult<TResult>>(response.StatusCode);
+            });
         }
 
         /// <summary>
@@ -128,17 +124,20 @@ namespace Yd.WebUI.Core
         /// <param name="api">API地址。</param>
         /// <param name="data">数据实例。</param>
         /// <returns>返回发送结果。</returns>
-        public virtual async Task<ApiResult> PostAsync(string api, object data = null)
+        protected virtual Task<ApiResult> PostAsync(string api, object data = null)
         {
-            var response = await Client.PostAsync(api, new StringContent(data.ToJsonString() ?? "{}"));
-            response.EnsureSuccessStatusCode();
-            if (response.IsSuccessStatusCode)
+            return CatchExecuteAsync(async () =>
             {
-                var result = await response.Content.ReadAsStringAsync();
-                return Cores.FromJsonString<ApiResult>(result);
-            }
-            //如果不成功，则返回状态码
-            return OnFailured<ApiResult>(response.StatusCode);
+                var response = await Client.PostAsync(api, new StringContent(data.ToJsonString() ?? "{}"));
+                response.EnsureSuccessStatusCode();
+                if (response.IsSuccessStatusCode)
+                {
+                    var result = await response.Content.ReadAsStringAsync();
+                    return Cores.FromJsonString<ApiResult>(result);
+                }
+                //如果不成功，则返回状态码
+                return OnFailuredAsync<ApiResult>(response.StatusCode);
+            });
         }
 
         /// <summary>
@@ -148,17 +147,34 @@ namespace Yd.WebUI.Core
         /// <param name="api">API地址。</param>
         /// <param name="data">数据实例。</param>
         /// <returns>返回发送结果。</returns>
-        public virtual async Task<ApiDataResult<TResult>> PostAsync<TResult>(string api, object data = null)
+        protected virtual Task<ApiDataResult<TResult>> PostAsync<TResult>(string api, object data = null)
         {
-            var response = await Client.PostAsync(api, new StringContent(data.ToJsonString() ?? "{}"));
-            response.EnsureSuccessStatusCode();
-            if (response.IsSuccessStatusCode)
+            return CatchExecuteAsync(async () =>
             {
-                var result = await response.Content.ReadAsStringAsync();
-                return Cores.FromJsonString<ApiDataResult<TResult>>(result);
+                var response = await Client.PostAsync(api, new StringContent(data.ToJsonString() ?? "{}"));
+                response.EnsureSuccessStatusCode();
+                if (response.IsSuccessStatusCode)
+                {
+                    var result = await response.Content.ReadAsStringAsync();
+                    return Cores.FromJsonString<ApiDataResult<TResult>>(result);
+                }
+
+                //如果不成功，则返回状态码
+                return OnFailuredAsync<ApiDataResult<TResult>>(response.StatusCode);
+            });
+        }
+
+        private async Task<TResult> CatchExecuteAsync<TResult>(Func<Task<TResult>> func)
+            where TResult : ApiResult, new()
+        {
+            try
+            {
+                return await func();
             }
-            //如果不成功，则返回状态码
-            return OnFailured<ApiDataResult<TResult>>(response.StatusCode);
+            catch (Exception exception)
+            {
+                return new TResult { Code = (int)HttpStatusCode.BadRequest, Message = exception.Message };
+            }
         }
 
         /// <summary>
@@ -167,10 +183,10 @@ namespace Yd.WebUI.Core
         /// <typeparam name="TResult">返回当前结果。</typeparam>
         /// <param name="code">请求码。</param>
         /// <returns>返回请求失败结果。</returns>
-        protected virtual TResult OnFailured<TResult>(HttpStatusCode code)
-            where TResult : ApiResult,new()
+        protected virtual TResult OnFailuredAsync<TResult>(HttpStatusCode code)
+            where TResult : ApiResult, new()
         {
-            if(code == HttpStatusCode.Unauthorized)
+            if (code == HttpStatusCode.Unauthorized)
                 HttpContext.Response.Redirect("/login");
             return new TResult
             {
