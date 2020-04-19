@@ -1,6 +1,7 @@
 using System.Text.Json;
 using Gentings;
 using Gentings.AspNetCore;
+using Gentings.AspNetCore.WebSockets;
 using Gentings.Data.SqlServer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -47,6 +48,7 @@ namespace Yd.RazorPages
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+            app.UseWebSockets().UseWebSocketHandler();
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();

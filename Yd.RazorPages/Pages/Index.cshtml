@@ -51,7 +51,7 @@
     </div>
 </div>
 
-<table class="table-bordered table table-sm table-hover mt-2 data-view">
+@*<table class="table-bordered table table-sm table-hover mt-2 data-view">
     <thead>
         <tr>
             <th class="checkbox-only"><gt:checkall></gt:checkall></th>
@@ -112,11 +112,56 @@
             <td>内容五</td>
         </tr>
     </tbody>
-</table>
+</table>*@
+
+
+<ul id="data">
+</ul>
+
+<input class="form-control border-secondary" id="value" />
+<button class="btn btn-secondary" onclick="send();">发送</button>
 
 @section footer
 {
     <div class="gt-bind-right bg-danger" style="width: 31px; height: 100px;">
 
     </div>
+    <script type="text/javascript">
+        var scheme = document.location.protocol === "https:" ? "wss" : "ws";
+        var port = document.location.port ? (":" + document.location.port) : "";
+
+        var url = scheme + "://" + document.location.hostname + port + "/?sid=11";
+        var socket = new WebSocket(url);
+        socket.onopen = function (e) {
+            socket.send("hello:Gentings!");
+        };
+        socket.onmessage = function (e) {
+            var data = e.data;
+            var name;
+            var index = data.indexOf(':');
+            if (index === -1) {
+                name = data;
+                data = null;
+            }
+            else {
+                name = data.substring(0, index);
+                data = data.substr(index + 1);
+            }
+            $('#data').append($('<li/>').html(`[${name}]: ${data}`));
+        };
+        socket.onclose = function (e) {
+        };
+        socket.onerror = function (e) {
+            alert(JSON.stringify(e));
+        }
+
+        function send() {
+            var value = $('#value').val();
+            if (value && socket.readyState === WebSocket.OPEN) {
+                socket.send('hello:' + value);
+            } else {
+                console.log('发送：' + value + ' 失败： ' + socket.readyState);
+            }
+        }
+    </script>
 }
