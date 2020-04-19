@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using Gentings;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
-using Yd.WebUI.Security.Models;
 
 namespace Yd.WebUI.Core
 {
@@ -54,7 +53,8 @@ namespace Yd.WebUI.Core
         /// 初始化类<see cref="ServiceBase"/>。
         /// </summary>
         /// <param name="serviceProvider">服务提供者接口。</param>
-        protected ServiceBase(IServiceProvider serviceProvider)
+        /// <param name="serviceName">服务名称，在注册<see cref="HttpClient"/>时候使用的名称。</param>
+        protected ServiceBase(IServiceProvider serviceProvider, string serviceName = ServiceName)
         {
             _serviceProvider = serviceProvider;
             Client = serviceProvider.GetRequiredService<IHttpClientFactory>().CreateClient(ServiceName);
