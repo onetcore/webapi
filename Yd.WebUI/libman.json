@@ -43,6 +43,15 @@
         "css/font-awesome.css.map",
         "css/font-awesome.min.css"
       ]
+    },
+    {
+      "provider": "unpkg",
+      "library": "gtcore@0.0.38",
+      "destination": "wwwroot/lib/gtcore/",
+      "files": [
+        "dist/css/gtcore.min.css",
+        "dist/js/gtcore.min.js"
+      ]
     }
   ]
 }

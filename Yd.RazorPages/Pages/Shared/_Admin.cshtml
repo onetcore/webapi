@@ -5,6 +5,7 @@
     var notifications = NotificationManager.Load();
     var notificationSize = notifications.Count(x => x.Status == NotificationStatus.New);
     var events = EventManager.LoadMessages(Current.Id);
+    ViewBag.ClassName = settings.IsTopMenu ? "gt-skin gt-topmenu" : "gt-skin";
 }
 @inject User Current
 @inject ISettingsManager SettingsManager
@@ -23,6 +24,15 @@
 <div class="mini-bg"></div>
 <main>
     <header class="d-print-none">
+        <div .visible="@settings.IsTopMenu" class="navbar d-print-none">
+            <div class="logo">
+                <a asp-page="/admin/index" asp-area="">
+                    <img src="@(settings.LogoUrl??"/images/logo.svg")" alt="@settings.SiteName" />
+                    <h1>@(settings.ShortName ?? settings.SiteName)</h1>
+                </a>
+            </div>
+            <gt:permission-menu class="nav js-menu" provider="admin"></gt:permission-menu>
+        </div>
         <i js-toggle="navbar" class="navbar-trigger fa fa-indent"></i>
         <ul class="right navbar-nav">
             <li class="nav-item text-nowarp dropdown dropdown-panel">

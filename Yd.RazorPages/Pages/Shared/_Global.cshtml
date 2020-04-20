@@ -10,15 +10,15 @@
     <title>@ViewData["Title"] - @settings.SiteName</title>
     <link href="~/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/lib/gtcore/css/gtcore.min.css" />
+    <link rel="stylesheet" href="~/lib/gtcore/dist/css/gtcore.min.css" />
     @RenderSection("header", false)
 </head>
-<body class="gt-skin customScrollBar @ViewBag.ClassName">
+<body class="@ViewBag.ClassName">
     @RenderBody()
     <script src="~/lib/jquery/jquery.min.js"></script>
     <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="~/lib/feather-icons/feather.min.js"></script>
-    <script src="~/lib/gtcore/js/gtcore.min.js"></script>
+    <script src="~/lib/gtcore/dist/js/gtcore.min.js"></script>
     @RenderSection("footer", false)
     <gt:status-message-panel modal="true"></gt:status-message-panel>
     <form asp-antiforgery="true" id="ajax-protected-form"></form>
