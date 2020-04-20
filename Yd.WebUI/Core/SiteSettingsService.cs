@@ -22,7 +22,7 @@ namespace Yd.WebUI.Core
         /// </summary>
         /// <param name="settings">配置实例。</param>
         /// <returns>返回配置结果。</returns>
-        public Task<ApiResult> SaveSettingsAsync(SiteSettings settings)
+        public Task<ServiceResult> SaveSettingsAsync(SiteSettings settings)
         {
             return PostAsync("/api/admin/setting/save", settings);
         }

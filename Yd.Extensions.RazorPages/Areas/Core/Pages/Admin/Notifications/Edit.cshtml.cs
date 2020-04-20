@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using Gentings.Messages.Notifications;
+using Gentings.Extensions.Notifications;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Yd.Extensions.RazorPages.Areas.Core.Pages.Admin.Notifications

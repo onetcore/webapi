@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using Gentings.AspNetCore.EventLogging;
+using Gentings.Extensions.AspNetCore.EventLogging;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Yd.Extensions.Controllers.Admin.Logs

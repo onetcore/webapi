@@ -1,5 +1,4 @@
-﻿using Gentings.Extensions.Settings;
-using Gentings.Identity;
+﻿using Gentings.Identity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Yd.Extensions.Roles;
@@ -11,7 +10,7 @@ namespace Yd.Extensions
     /// </summary>
     [ApiController]
     [Route("api/[controller]")]
-    public abstract class ControllerBase : Gentings.AspNetCore.ControllerBase
+    public abstract class ControllerBase : Gentings.Extensions.AspNetCore.ControllerBase
     {
         private User _user;
         /// <summary>

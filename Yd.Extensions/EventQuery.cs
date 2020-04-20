@@ -1,5 +1,5 @@
-﻿using Gentings.AspNetCore.EventLogging;
-using Gentings.Data;
+﻿using Gentings.Data;
+using Gentings.Extensions.AspNetCore.EventLogging;
 using Yd.Extensions.Roles;
 
 namespace Yd.Extensions

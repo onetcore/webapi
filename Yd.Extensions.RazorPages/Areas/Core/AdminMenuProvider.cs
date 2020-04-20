@@ -2,7 +2,6 @@
 using Microsoft.Extensions.DependencyInjection;
 using Gentings.AspNetCore.RazorPages.AdminMenus;
 using Gentings.Extensions.Settings;
-using Gentings.Messages.Emails;
 
 namespace Yd.Extensions.RazorPages.Areas.Core
 {
@@ -38,14 +37,6 @@ namespace Yd.Extensions.RazorPages.Areas.Core
                     .AddMenu("tasks",
                         it => it.Texted("后台服务").Page("/Admin/Tasks/Index", area: AreaName)
                             .Allow(Permissions.Administrator));
-                if (_serviceProvider.GetService<IEmailManager>() != null)
-                {
-                    menu.AddMenu("email",
-                            it => it.Texted("邮件管理").Page("/Admin/Email/Index", area: AreaName).Allow(Permissions.Email))
-                        .AddMenu("emailsettings",
-                            it => it.Texted("邮件配置").Page("/Admin/Email/Settings", area: AreaName)
-                                .Allow(Permissions.EmailSettings));
-                }
                 menu.AddMenu("notifier",
                     it => it.Texted("通知管理").Page("/Admin/Notifications/Index", area: AreaName)
                         .Allow(Permissions.Administrator));

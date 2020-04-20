@@ -1,6 +1,6 @@
 ﻿using System;
-using Gentings.AspNetCore.EventLogging;
 using Gentings.Extensions;
+using Gentings.Extensions.AspNetCore.EventLogging;
 using Gentings.Identity.Permissions;
 using Microsoft.AspNetCore.Mvc;
 

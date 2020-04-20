@@ -4,7 +4,7 @@
     /// 分页数据结果。
     /// </summary>
     /// <typeparam name="TData">查询实例。</typeparam>
-    public class ApiPageResult<TData> : ApiResult
+    public class ServicePageResult<TData> : ServiceResult
     {
         /// <summary>
         /// 页码。
@@ -29,6 +29,6 @@
         /// <summary>
         /// 数据实例。
         /// </summary>
-        public IPageEnumerable<TData> Data { get; set; }
+        public Gentings.Extensions.IPageEnumerable<TData> Data { get; set; }
     }
 }

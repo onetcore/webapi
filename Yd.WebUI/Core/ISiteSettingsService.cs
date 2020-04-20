@@ -19,6 +19,6 @@ namespace Yd.WebUI.Core
         /// </summary>
         /// <param name="settings">配置实例。</param>
         /// <returns>返回配置结果。</returns>
-        Task<ApiResult> SaveSettingsAsync(SiteSettings settings);
+        Task<ServiceResult> SaveSettingsAsync(SiteSettings settings);
     }
 }

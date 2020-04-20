@@ -4,7 +4,7 @@
     /// 包含数据的结果。
     /// </summary>
     /// <typeparam name="TData">数据类型。</typeparam>
-    public class ApiDataResult<TData> : ApiResult
+    public class ServiceDataResult<TData> : ServiceResult
     {
         /// <summary>
         /// 数据实例。

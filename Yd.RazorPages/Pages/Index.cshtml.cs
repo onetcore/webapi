@@ -1,4 +1,4 @@
-﻿using Gentings.AspNetCore.RazorPages;
+﻿using Gentings.AspNetCore;
 
 namespace Yd.RazorPages.Pages
 {

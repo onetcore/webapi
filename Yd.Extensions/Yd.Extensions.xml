@@ -116,7 +116,7 @@
             用户日志。
             </summary>
         </member>
-        <member name="M:Yd.Extensions.Controllers.Admin.Logs.LogController.#ctor(Gentings.AspNetCore.EventLogging.IEventManager,Gentings.AspNetCore.EventLogging.IEventTypeManager)">
+        <member name="M:Yd.Extensions.Controllers.Admin.Logs.LogController.#ctor(Gentings.Extensions.AspNetCore.EventLogging.IEventManager,Gentings.Extensions.AspNetCore.EventLogging.IEventTypeManager)">
             <summary>
             初始化类<see cref="T:Yd.Extensions.Controllers.Admin.Logs.LogController"/>。
             </summary>
@@ -136,7 +136,7 @@
             </summary>
             <returns>返回日志类型列表结果。</returns>
         </member>
-        <member name="M:Yd.Extensions.Controllers.Admin.Logs.LogController.SaveEventType(Gentings.AspNetCore.EventLogging.EventType)">
+        <member name="M:Yd.Extensions.Controllers.Admin.Logs.LogController.SaveEventType(Gentings.Extensions.AspNetCore.EventLogging.EventType)">
             <summary>
             保存日志类型。
             </summary>
@@ -483,7 +483,7 @@
             短信验证码。
             </summary>
         </member>
-        <member name="M:Yd.Extensions.Controllers.CaptchaController.#ctor(Yd.Extensions.IUserManager,Gentings.Identity.Captchas.ICaptchaManager)">
+        <member name="M:Yd.Extensions.Controllers.CaptchaController.#ctor(Yd.Extensions.IUserManager,Gentings.Extensions.SMS.Captchas.ICaptchaManager)">
             <summary>
             初始化类<see cref="T:Yd.Extensions.Controllers.CaptchaController"/>。
             </summary>
@@ -585,7 +585,7 @@
             登录。
             </summary>
         </member>
-        <member name="M:Yd.Extensions.Controllers.Login.LoginController.#ctor(Yd.Extensions.IUserManager,Yd.Extensions.Roles.IRoleManager,Microsoft.Extensions.Configuration.IConfiguration,Gentings.Identity.Captchas.ICaptchaManager)">
+        <member name="M:Yd.Extensions.Controllers.Login.LoginController.#ctor(Yd.Extensions.IUserManager,Yd.Extensions.Roles.IRoleManager,Microsoft.Extensions.Configuration.IConfiguration,Gentings.Extensions.SMS.Captchas.ICaptchaManager)">
             <summary>
             初始化类<see cref="T:Yd.Extensions.Controllers.Login.LoginController"/>。
             </summary>
@@ -661,7 +661,7 @@
             用户日志。
             </summary>
         </member>
-        <member name="M:Yd.Extensions.Controllers.Logs.LogController.#ctor(Gentings.AspNetCore.EventLogging.IEventManager,Gentings.AspNetCore.EventLogging.IEventTypeManager)">
+        <member name="M:Yd.Extensions.Controllers.Logs.LogController.#ctor(Gentings.Extensions.AspNetCore.EventLogging.IEventManager,Gentings.Extensions.AspNetCore.EventLogging.IEventTypeManager)">
             <summary>
             初始化类<see cref="T:Yd.Extensions.Controllers.Logs.LogController"/>。
             </summary>
@@ -686,7 +686,7 @@
             注册。
             </summary>
         </member>
-        <member name="M:Yd.Extensions.Controllers.Register.RegisterController.#ctor(Yd.Extensions.IUserManager,Yd.Extensions.IUserAliasManager,Gentings.Identity.Captchas.ICaptchaManager)">
+        <member name="M:Yd.Extensions.Controllers.Register.RegisterController.#ctor(Yd.Extensions.IUserManager,Yd.Extensions.IUserAliasManager,Gentings.Extensions.SMS.Captchas.ICaptchaManager)">
             <summary>
             初始化类<see cref="T:Yd.Extensions.Controllers.Register.RegisterController"/>。
             </summary>
@@ -796,7 +796,7 @@
             当前用户角色等级。
             </summary>
         </member>
-        <member name="M:Yd.Extensions.EventQuery.Init(Gentings.Data.IQueryContext{Gentings.AspNetCore.EventLogging.EventMessage})">
+        <member name="M:Yd.Extensions.EventQuery.Init(Gentings.Data.IQueryContext{Gentings.Extensions.AspNetCore.EventLogging.EventMessage})">
             <summary>
             初始化查询上下文。
             </summary>
@@ -939,16 +939,6 @@
         <member name="F:Yd.Extensions.Permissions.TaskInterval">
             <summary>
             配置后台服务定时模式。
-            </summary>
-        </member>
-        <member name="F:Yd.Extensions.Permissions.Email">
-            <summary>
-            邮件管理。
-            </summary>
-        </member>
-        <member name="F:Yd.Extensions.Permissions.EmailSettings">
-            <summary>
-            邮件配置管理。
             </summary>
         </member>
         <member name="F:Yd.Extensions.Permissions.Storages">

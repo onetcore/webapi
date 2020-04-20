@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using Gentings.Messages.Notifications;
+using Gentings.Extensions.Notifications;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 

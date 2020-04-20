@@ -1,5 +1,5 @@
 using System.Diagnostics;
-using Gentings.AspNetCore.RazorPages;
+using Gentings.AspNetCore;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Yd.RazorPages.Pages

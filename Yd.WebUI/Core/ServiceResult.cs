@@ -3,12 +3,12 @@
     /// <summary>
     /// API结果。
     /// </summary>
-    public class ApiResult
+    public class ServiceResult
     {
         /// <summary>
         /// 成功实例。
         /// </summary>
-        public static readonly ApiResult Success = new ApiResult();
+        public static readonly ServiceResult Success = new ServiceResult();
 
         /// <summary>
         /// 状态：成功true/失败false。

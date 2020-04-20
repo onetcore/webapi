@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Gentings.Extensions.Notifications;
 using Gentings.Extensions.Settings;
-using Gentings.Messages.Notifications;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Yd.Extensions.RazorPages.Areas.Core.Pages.Admin.Notifications

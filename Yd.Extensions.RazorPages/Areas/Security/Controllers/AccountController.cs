@@ -8,7 +8,7 @@ namespace Yd.Extensions.RazorPages.Areas.Security.Controllers
     /// 用户控制器。
     /// </summary>
     [Authorize]
-    public class AccountController : Gentings.AspNetCore.ControllerBase
+    public class AccountController : Gentings.Extensions.AspNetCore.ControllerBase
     {
         private readonly IUserManager _userManager;
 

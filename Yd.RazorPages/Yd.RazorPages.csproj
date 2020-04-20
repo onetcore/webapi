@@ -11,9 +11,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\gentings\Gentings.AspNetCore.RazorPages\Gentings.AspNetCore.RazorPages.csproj" />
-    <ProjectReference Include="..\..\gentings\Gentings.AspNetCore\Gentings.AspNetCore.csproj" />
     <ProjectReference Include="..\..\Gentings\Gentings.Identity\Gentings.Identity.csproj" />
-    <ProjectReference Include="..\..\gentings\Gentings.Messages\Gentings.Messages.csproj" />
     <ProjectReference Include="..\..\gentings\Gentings.Storages\Gentings.Storages.csproj" />
     <ProjectReference Include="..\..\Gentings\Gentings\Gentings.csproj" />
     <ProjectReference Include="..\..\projects\Gentings.Projects\Gentings.Projects.csproj" />
