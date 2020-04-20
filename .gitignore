@@ -267,3 +267,5 @@ __pycache__/
 /**/appsettings.Development.json
 *.lock
 /publisher/website
+**/wwwroot/**/lib/
+**/wwwroot/lib
