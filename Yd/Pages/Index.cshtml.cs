@@ -1,6 +1,6 @@
 ﻿using Gentings.AspNetCore;
 
-namespace Yd.RazorPages.Pages
+namespace Yd.Pages
 {
     public class IndexModel : ModelBase
     {

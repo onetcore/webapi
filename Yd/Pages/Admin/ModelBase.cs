@@ -1,7 +1,7 @@
 ﻿using Gentings.Identity.Permissions;
 using Yd.Extensions;
 
-namespace Yd.RazorPages.Pages.Admin
+namespace Yd.Pages.Admin
 {
     /// <summary>
     /// 模型基类。

@@ -1,6 +1,6 @@
 ﻿using Gentings.AspNetCore.RazorPages.AdminMenus;
 
-namespace Yd.RazorPages
+namespace Yd
 {
     public class AdminMenuProvider : MenuProvider
     {

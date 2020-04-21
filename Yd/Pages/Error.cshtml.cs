@@ -2,7 +2,7 @@ using System.Diagnostics;
 using Gentings.AspNetCore;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Yd.RazorPages.Pages
+namespace Yd.Pages
 {
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public class ErrorModel : ModelBase

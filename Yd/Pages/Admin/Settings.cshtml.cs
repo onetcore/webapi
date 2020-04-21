@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Yd.Extensions;
 
-namespace Yd.RazorPages.Pages.Admin
+namespace Yd.Pages.Admin
 {
     public class SettingsModel : ModelBase
     {

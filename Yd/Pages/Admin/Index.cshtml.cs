@@ -1,4 +1,4 @@
-﻿namespace Yd.RazorPages.Pages.Admin
+﻿namespace Yd.Pages.Admin
 {
     public class IndexModel : ModelBase
     {
