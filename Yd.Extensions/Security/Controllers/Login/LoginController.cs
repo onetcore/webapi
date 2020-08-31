@@ -5,7 +5,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using Gentings.AspNetCore;
-using Gentings.Extensions.SMS.Captchas;
+using Gentings.Extensions.Captchas;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;

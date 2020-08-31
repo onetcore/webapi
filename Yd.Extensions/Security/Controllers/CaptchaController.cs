@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Gentings.AspNetCore;
-using Gentings.Extensions.SMS.Captchas;
+using Gentings.Extensions.Captchas;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Yd.Extensions.Security.Controllers

@@ -574,7 +574,7 @@
             短信验证码。
             </summary>
         </member>
-        <member name="M:Yd.Extensions.Security.Controllers.CaptchaController.#ctor(Yd.Extensions.Security.IUserManager,Gentings.Extensions.SMS.Captchas.ICaptchaManager)">
+        <member name="M:Yd.Extensions.Security.Controllers.CaptchaController.#ctor(Yd.Extensions.Security.IUserManager,Gentings.Extensions.Captchas.ICaptchaManager)">
             <summary>
             初始化类<see cref="T:Yd.Extensions.Security.Controllers.CaptchaController"/>。
             </summary>
@@ -676,7 +676,7 @@
             登录。
             </summary>
         </member>
-        <member name="M:Yd.Extensions.Security.Controllers.Login.LoginController.#ctor(Yd.Extensions.Security.IUserManager,Yd.Extensions.Security.Roles.IRoleManager,Microsoft.Extensions.Configuration.IConfiguration,Gentings.Extensions.SMS.Captchas.ICaptchaManager)">
+        <member name="M:Yd.Extensions.Security.Controllers.Login.LoginController.#ctor(Yd.Extensions.Security.IUserManager,Yd.Extensions.Security.Roles.IRoleManager,Microsoft.Extensions.Configuration.IConfiguration,Gentings.Extensions.Captchas.ICaptchaManager)">
             <summary>
             初始化类<see cref="T:Yd.Extensions.Security.Controllers.Login.LoginController"/>。
             </summary>
@@ -777,7 +777,7 @@
             注册。
             </summary>
         </member>
-        <member name="M:Yd.Extensions.Security.Controllers.Register.RegisterController.#ctor(Yd.Extensions.Security.IUserManager,Yd.Extensions.Security.IUserAliasManager,Gentings.Extensions.SMS.Captchas.ICaptchaManager)">
+        <member name="M:Yd.Extensions.Security.Controllers.Register.RegisterController.#ctor(Yd.Extensions.Security.IUserManager,Yd.Extensions.Security.IUserAliasManager,Gentings.Extensions.Captchas.ICaptchaManager)">
             <summary>
             初始化类<see cref="T:Yd.Extensions.Security.Controllers.Register.RegisterController"/>。
             </summary>

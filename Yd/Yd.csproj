@@ -15,7 +15,6 @@
     <ProjectReference Include="..\..\gentings\Gentings.AspNetCore.RazorPages\Gentings.AspNetCore.RazorPages.csproj" />
     <ProjectReference Include="..\..\gentings\Gentings.Core\Gentings.Core.csproj" />
     <ProjectReference Include="..\..\gentings\Gentings.Extensions.Emails\Gentings.Extensions.Emails.csproj" />
-    <ProjectReference Include="..\..\gentings\Gentings.Extensions.SMS\Gentings.Extensions.SMS.csproj" />
     <ProjectReference Include="..\..\Gentings\Gentings.Identity\Gentings.Identity.csproj" />
     <ProjectReference Include="..\..\gentings\Gentings.Storages\Gentings.Storages.csproj" />
     <ProjectReference Include="..\..\Gentings\Gentings\Gentings.csproj" />
@@ -23,4 +22,6 @@
     <ProjectReference Include="..\Yd.Extensions\Yd.Extensions.csproj" />
     <ProjectReference Include="..\Yd.Projects\Yd.Projects.csproj" />
   </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
 </Project>
