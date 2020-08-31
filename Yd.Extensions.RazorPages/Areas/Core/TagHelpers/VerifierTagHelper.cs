@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using Yd.Extensions.RazorPages.Properties;
 
-namespace Yd.Extensions.RazorPages.TagHelpers
+namespace Yd.Extensions.RazorPages.Areas.Core.TagHelpers
 {
     /// <summary>
     /// 验证码图片。

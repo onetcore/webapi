@@ -3,7 +3,7 @@ using Gentings.AspNetCore.RazorPages.TagHelpers;
 using Gentings.Identity.Permissions;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 
-namespace Yd.Extensions.RazorPages.TagHelpers.Permissions
+namespace Yd.Extensions.RazorPages.Areas.Security.TagHelpers.Permissions
 {
     /// <summary>
     /// 权限标签。

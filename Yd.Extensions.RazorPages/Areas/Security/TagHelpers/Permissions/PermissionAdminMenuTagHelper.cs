@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Yd.Extensions.RazorPages.TagHelpers.Permissions
+namespace Yd.Extensions.RazorPages.Areas.Security.TagHelpers.Permissions
 {
     /// <summary>
     /// 管理员菜单标签。
