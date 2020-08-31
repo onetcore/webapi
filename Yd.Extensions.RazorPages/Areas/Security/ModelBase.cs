@@ -1,6 +1,7 @@
 ﻿using Gentings.Extensions.Settings;
 using Yd.Extensions.RazorPages.Properties;
 using Yd.Extensions;
+using Yd.Extensions.Security;
 
 namespace Yd.Extensions.RazorPages.Areas.Security
 {

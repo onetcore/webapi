@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Gentings.Identity;
 using Gentings.Identity.Permissions;
 using Microsoft.AspNetCore.Mvc;
-using Yd.Extensions.Roles;
+using Yd.Extensions.Security.Roles;
 
 namespace Yd.Extensions.RazorPages.Areas.Security.Pages.Admin.Roles
 {

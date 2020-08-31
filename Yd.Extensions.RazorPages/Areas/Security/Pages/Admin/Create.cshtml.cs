@@ -4,6 +4,7 @@ using Gentings.Identity;
 using Gentings.Identity.Permissions;
 using Microsoft.AspNetCore.Mvc;
 using Yd.Extensions;
+using Yd.Extensions.Security;
 
 namespace Yd.Extensions.RazorPages.Areas.Security.Pages.Admin
 {
@@ -61,7 +62,7 @@ namespace Yd.Extensions.RazorPages.Areas.Security.Pages.Admin
         {
             if (ModelState.IsValid)
             {
-                var user = new Extensions.User
+                var user = new Extensions.Security.User
                 {
                     UserName = Input.UserName,
                     NormalizedUserName = _userManager.NormalizeName(Input.UserName),

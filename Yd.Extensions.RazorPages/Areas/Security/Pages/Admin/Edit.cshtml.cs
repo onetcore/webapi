@@ -4,6 +4,7 @@ using Gentings.Identity;
 using Gentings.Identity.Permissions;
 using Microsoft.AspNetCore.Mvc;
 using Yd.Extensions;
+using Yd.Extensions.Security;
 
 namespace Yd.Extensions.RazorPages.Areas.Security.Pages.Admin
 {
@@ -21,7 +22,7 @@ namespace Yd.Extensions.RazorPages.Areas.Security.Pages.Admin
         {
             public InputModel() { }
 
-            public InputModel(Extensions.User currentUser)
+            public InputModel(Extensions.Security.User currentUser)
             {
                 UserId = currentUser.Id;
                 NickName = currentUser.NickName;

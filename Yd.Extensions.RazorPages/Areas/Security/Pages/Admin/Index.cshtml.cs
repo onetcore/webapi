@@ -4,7 +4,8 @@ using Gentings.Identity;
 using Gentings.Identity.Permissions;
 using Microsoft.AspNetCore.Mvc;
 using Yd.Extensions;
-using Yd.Extensions.Controllers.Admin.Users;
+using Yd.Extensions.Security;
+using Yd.Extensions.Security.Controllers.Admin.Users;
 
 namespace Yd.Extensions.RazorPages.Areas.Security.Pages.Admin
 {
@@ -21,7 +22,7 @@ namespace Yd.Extensions.RazorPages.Areas.Security.Pages.Admin
         [BindProperty(SupportsGet = true)]
         public UserQuery Query { get; set; }
 
-        public IPageEnumerable<Extensions.User> Model { get; private set; }
+        public IPageEnumerable<Extensions.Security.User> Model { get; private set; }
 
         public void OnGet()
         {

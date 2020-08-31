@@ -1,6 +1,7 @@
 ﻿using Gentings.Identity.Permissions;
 using Yd.Extensions.RazorPages.Properties;
 using Yd.Extensions;
+using Yd.Extensions.Security;
 
 namespace Yd.Extensions.RazorPages.Areas.Storages.Pages.Admin
 {

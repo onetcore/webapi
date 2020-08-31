@@ -4,6 +4,7 @@ using Gentings.Extensions.AspNetCore.EventLogging;
 using Gentings.Identity.Permissions;
 using Microsoft.AspNetCore.Mvc;
 using Yd.Extensions;
+using Yd.Extensions.Security;
 
 namespace Yd.Extensions.RazorPages.Areas.Security.Pages.Admin.Logs
 {

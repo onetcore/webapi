@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Gentings.AspNetCore.RazorPages.TagHelpers.Bootstraps;
 using Microsoft.AspNetCore.Razor.TagHelpers;
-using Yd.Extensions.Roles;
+using Yd.Extensions.Security.Roles;
 
 namespace Yd.Extensions.RazorPages.Areas.Security.TagHelpers
 {

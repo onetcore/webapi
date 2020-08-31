@@ -11,16 +11,16 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Yd.Extensions;
-using Yd.Extensions.Roles;
+using Yd.Extensions.Security;
+using Yd.Extensions.Security.Roles;
 
 namespace Yd.Extensions.RazorPages
 {
     /// <summary>
     /// 服务配置。
     /// </summary>
-    [Suppress(typeof(Extensions.ServiceConfigurer))]
-    public class ServiceConfigurer : Extensions.ServiceConfigurer
+    [Suppress(typeof(Security.ServiceConfigurer))]
+    public class ServiceConfigurer : Security.ServiceConfigurer
     {
         /// <summary>
         /// 配置服务。

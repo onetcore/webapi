@@ -3,6 +3,7 @@ using Gentings.AspNetCore.RazorPages.AdminMenus;
 using Gentings.Extensions.Settings;
 using Microsoft.Extensions.DependencyInjection;
 using Yd.Extensions;
+using Yd.Extensions.Security;
 
 namespace Yd.Extensions.RazorPages.Areas.Core
 {

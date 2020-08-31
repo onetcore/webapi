@@ -2,7 +2,8 @@
 using Gentings.Identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Yd.Extensions.Roles;
+using Yd.Extensions.Security;
+using Yd.Extensions.Security.Roles;
 
 namespace Yd.Extensions.RazorPages
 {

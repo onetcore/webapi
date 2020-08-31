@@ -2,7 +2,7 @@
 using Gentings.AspNetCore.RazorPages.TagHelpers;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Razor.TagHelpers;
-using Yd.Extensions.Roles;
+using Yd.Extensions.Security.Roles;
 
 namespace Yd.Extensions.RazorPages.Areas.Security.TagHelpers
 {
