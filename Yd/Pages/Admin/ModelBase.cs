@@ -1,5 +1,4 @@
 ﻿using Gentings.Identity.Permissions;
-using Yd.Extensions;
 using Yd.Extensions.Security;
 
 namespace Yd.Pages.Admin
@@ -8,7 +7,7 @@ namespace Yd.Pages.Admin
     /// 模型基类。
     /// </summary>
     [PermissionAuthorize(Permissions.Administrator)]
-    public abstract class ModelBase : Yd.Extensions.RazorPages.ModelBase
+    public abstract class ModelBase : Extensions.RazorPages.ModelBase
     {
     }
 }
