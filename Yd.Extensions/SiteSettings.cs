@@ -44,7 +44,7 @@ namespace Yd.Extensions
         /// </summary>
         public string Copyright
         {
-            get => _copyright ??= "$year www.xmydcl.com ver $version";
+            get => _copyright ??= "$year &copy; www.xmydcl.com ver $version";
             set => _copyright = value;
         }
 

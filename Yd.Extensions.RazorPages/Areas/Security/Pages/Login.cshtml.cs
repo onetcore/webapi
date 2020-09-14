@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Yd.Extensions.RazorPages.Areas.Security.Models;
-using Yd.Extensions;
 using Yd.Extensions.Security;
 
 namespace Yd.Extensions.RazorPages.Areas.Security.Pages
@@ -46,10 +45,10 @@ namespace Yd.Extensions.RazorPages.Areas.Security.Pages
             }
 
             var settings = await _settingsManager.GetSettingsAsync<SecuritySettings>();
-            returnUrl ??= UrlExtensions.GetDirection(Url, settings.LoginDirection);
+            returnUrl ??= Url.GetDirection(settings.LoginDirection);
 
             // Clear the existing external cookie to ensure a clean login process
-            await AuthenticationHttpContextExtensions.SignOutAsync(HttpContext, IdentityConstants.ExternalScheme);
+            await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
 
             ExternalLogins = (await _userManager.SignInManager.GetExternalAuthenticationSchemesAsync()).ToList();
 
@@ -62,21 +61,23 @@ namespace Yd.Extensions.RazorPages.Areas.Security.Pages
             {
                 var settings = await _settingsManager.GetSettingsAsync<SecuritySettings>();
 #if !DEBUG
-                if (settings.ValidCode && !IsValidateCode("login", Input.Code))
+                if (settings.ValidCode && !HttpContext.IsCodeValid("login", Input.Code))
                 {
                     ModelState.AddModelError("Input.Code", "验证码不正确！");
                     return Page();
                 }
 #endif
-                returnUrl ??= UrlExtensions.GetDirection(Url, settings.LoginDirection);
+                returnUrl ??= Url.GetDirection(settings.LoginDirection);
                 Input.UserName = Input.UserName.Trim();
                 Input.Password = Input.Password.Trim();
 
                 var user = await _userManager.FindByNameAsync(Input.UserName);
+                if (user == null)
+                    return ErrorPage("用户或者密码错误！");
                 var result = await _userManager.PasswordSignInAsync(user, Input.Password, Input.RememberMe);
                 if (result.Succeeded)
                 {
-                    Log(user.Id,"通过账号登录了系统");
+                    Log(user.Id, "通过账号登录了系统");
                     Response.Cookies.Delete("login");
                     return LocalRedirect(returnUrl);
                 }

@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 using Gentings.Identity;
 using Gentings.Identity.Permissions;
 using Microsoft.AspNetCore.Mvc;
-using Yd.Extensions;
 using Yd.Extensions.Security;
 
 namespace Yd.Extensions.RazorPages.Areas.Security.Pages.Admin
@@ -73,7 +72,8 @@ namespace Yd.Extensions.RazorPages.Areas.Security.Pages.Admin
                     PhoneNumber = Input.PhoneNumber,
                     EmailConfirmed = !string.IsNullOrEmpty(Input.Email) && !Settings.RequireConfirmedEmail,
                     PhoneNumberConfirmed = !string.IsNullOrEmpty(Input.PhoneNumber) && !Settings.RequireConfirmedPhoneNumber,
-                    LockoutEnabled = true
+                    LockoutEnabled = true,
+                    ParentId = UserId
                 };
                 user.TwoFactorEnabled = (!string.IsNullOrEmpty(Input.Email) || !string.IsNullOrEmpty(Input.PhoneNumber)) && Settings.RequiredTwoFactorEnabled;
                 var result = await _userManager.IsDuplicatedAsync(user);

@@ -120,6 +120,18 @@
   <data name="Anonymous" xml:space="preserve">
     <value>游客</value>
   </data>
+  <data name="DefaultRoles_Administrators" xml:space="preserve">
+    <value>系统管理员</value>
+  </data>
+  <data name="DefaultRoles_Developers" xml:space="preserve">
+    <value>开发人员</value>
+  </data>
+  <data name="DefaultRoles_Members" xml:space="preserve">
+    <value>普通会员</value>
+  </data>
+  <data name="DefaultRoles_Moderators" xml:space="preserve">
+    <value>管理员</value>
+  </data>
   <data name="ErrorCode_CaptchExpired" xml:space="preserve">
     <value>验证码过期！</value>
   </data>

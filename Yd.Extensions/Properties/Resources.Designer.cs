@@ -70,6 +70,42 @@ namespace Yd.Extensions.Properties {
         }
         
         /// <summary>
+        ///   查找类似 系统管理员 的本地化字符串。
+        /// </summary>
+        internal static string DefaultRoles_Administrators {
+            get {
+                return ResourceManager.GetString("DefaultRoles_Administrators", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 开发人员 的本地化字符串。
+        /// </summary>
+        internal static string DefaultRoles_Developers {
+            get {
+                return ResourceManager.GetString("DefaultRoles_Developers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 普通会员 的本地化字符串。
+        /// </summary>
+        internal static string DefaultRoles_Members {
+            get {
+                return ResourceManager.GetString("DefaultRoles_Members", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 管理员 的本地化字符串。
+        /// </summary>
+        internal static string DefaultRoles_Moderators {
+            get {
+                return ResourceManager.GetString("DefaultRoles_Moderators", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 验证码过期！ 的本地化字符串。
         /// </summary>
         internal static string ErrorCode_CaptchExpired {

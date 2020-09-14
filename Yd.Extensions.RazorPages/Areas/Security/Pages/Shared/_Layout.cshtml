@@ -1,0 +1,33 @@
+﻿@inject ISettingsManager SettingsManager
+@{
+    Layout = "_Global";
+    var settings = SettingsManager.GetSettings<SiteSettings>();
+    var securitySettings = SettingsManager.GetSettings<SecuritySettings>();
+}
+
+<div class="signin">
+    <div class="login-title">
+        <img class="mb-1" src="@(settings.LogoUrl??"/images/logo.png")" alt="@settings.SiteName" width="72" height="72">
+        <h1 class="h3 mb-3 text-primary">@settings.SiteName</h1>
+    </div>
+    <div class="signin-panel">
+        @RenderBody()
+    </div>
+</div>
+<div class="copyright">@Html.Raw(settings.ReplacedCopyright)</div>
+
+@section header{
+    <link href="~/security/css/signin.css" rel="stylesheet" />
+    @if (!string.IsNullOrEmpty(securitySettings.LoginBg))
+    {
+        <style>
+            body{ background-image: url('@securitySettings.LoginBg');}
+        </style>
+    }
+    @RenderSection("header", false)
+}
+
+@section footer
+{
+    @RenderSection("footer", false)
+}

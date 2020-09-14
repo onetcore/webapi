@@ -23,7 +23,6 @@ namespace Yd.Extensions.Security
         {
             base.Create(builder);
             builder.Column(x => x.Score)
-                .Column(x => x.LockedScore)
                 .Column(x => x.ScoredDate)
                 .Column(x => x.Type)
                 .Column(x => x.Level)
@@ -45,10 +44,12 @@ namespace Yd.Extensions.Security
                 .Column(x => x.Id)
                 .Column(x => x.UserId)
                 .Column(x => x.Score)
+                .Column(x => x.ScoreType)
                 .Column(x => x.BeforeScore)
                 .Column(x => x.AfterScore)
                 .Column(x => x.SecurityKey)
                 .Column(x => x.CreatedDate)
+                .Column(x => x.Remark)
                 .ForeignKey<User>(x => x.UserId, x => x.Id, onDelete: ReferentialAction.Cascade));
             builder.CreateTable<UserAlias>(table => table
                 .Column(x => x.Id)

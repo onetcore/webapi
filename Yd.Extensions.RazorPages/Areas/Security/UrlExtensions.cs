@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Yd.Extensions;
 using Yd.Extensions.Security;
 
 namespace Yd.Extensions.RazorPages.Areas.Security

@@ -1,7 +1,7 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations.Schema;
 using Gentings;
 using Gentings.Extensions;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Yd.Extensions.Security
 {
@@ -9,7 +9,7 @@ namespace Yd.Extensions.Security
     /// 用户积分日志。
     /// </summary>
     [Table("core_Users_Scores")]
-    public class UserScore : IIdObject<int>
+    public class UserScore : IIdObject
     {
         /// <summary>
         /// 获取或设置唯一Id。
@@ -23,19 +23,24 @@ namespace Yd.Extensions.Security
         public int UserId { get; set; }
 
         /// <summary>
+        /// 积分使用类型。
+        /// </summary>
+        public ScoreType ScoreType { get; set; }
+
+        /// <summary>
         /// 发生改变的积分。
         /// </summary>
-        public decimal Score { get; set; }
+        public int Score { get; set; }
 
         /// <summary>
         /// 原始积分。
         /// </summary>
-        public decimal BeforeScore { get; set; }
+        public int BeforeScore { get; set; }
 
         /// <summary>
         /// 改变后剩余的积分。
         /// </summary>
-        public decimal AfterScore { get; set; }
+        public int AfterScore { get; set; }
 
         /// <summary>
         /// 添加时间。
@@ -54,10 +59,16 @@ namespace Yd.Extensions.Security
         }
 
         /// <summary>
+        /// 备注。
+        /// </summary>
+        [Size(256)]
+        public string Remark { get; set; }
+
+        /// <summary>
         /// 哈希码。
         /// </summary>
-        protected virtual string HashedKey => Cores.Md5(Cores.Sha1(
-                                                        $"{UserId}:{Score:C}:{BeforeScore:C}:{AfterScore:C}:{CreatedDate:yyyy-MM-DD HH:mm:ss}") + $"{UserId}:{CreatedDate:yyyy-MM-DD HH:mm:ss}");
+        protected virtual string HashedKey =>
+            Cores.Md5(Cores.Sha1($"{UserId}:{Score}:{BeforeScore}:{AfterScore}:{CreatedDate:yyyy-MM-DD HH:mm:ss}") + $"{UserId}:{CreatedDate:yyyy-MM-DD HH:mm:ss}");
 
         /// <summary>
         /// 是否合法。

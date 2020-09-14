@@ -1,10 +1,9 @@
-using System;
+ï»¿using System;
 using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Yd.Extensions;
 using Yd.Extensions.Security;
 
 namespace Yd.Extensions.RazorPages.Areas.Security.Pages
@@ -20,7 +19,7 @@ namespace Yd.Extensions.RazorPages.Areas.Security.Pages
         public class InputModel
         {
             [BindProperty]
-            [Required(ErrorMessage = "{0}²»ÄÜÎª¿Õ£¡")]
+            [Required(ErrorMessage = "{0}ï¿½ï¿½ï¿½ï¿½Îªï¿½Õ£ï¿½")]
             [DataType(DataType.Text)]
             [Display(Name = "Recovery Code")]
             public string RecoveryCode { get; set; }

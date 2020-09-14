@@ -169,24 +169,18 @@ SELECT UserId, {Id} FROM {sdb.EntityType.Table} WHERE SubId = {ParentId};", canc
         /// 积分。
         /// </summary>
         [NotUpdated]
-        public virtual decimal Score { get; set; }
-
-        /// <summary>
-        /// 锁定积分。
-        /// </summary>
-        [NotUpdated]
-        public virtual decimal LockedScore { get; set; }
+        public virtual int Score { get; set; }
 
         /// <summary>
         /// 改变积分时间。
         /// </summary>
         [NotUpdated]
-        public virtual DateTimeOffset ScoredDate { get; set; }
+        public virtual DateTimeOffset? ScoredDate { get; set; }
 
         /// <summary>
         /// 备注。
         /// </summary>
-        [Size(64)]
+        [Size(256)]
         public virtual string Summary { get; set; }
     }
 }

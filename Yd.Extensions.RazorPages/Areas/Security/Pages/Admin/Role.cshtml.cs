@@ -2,7 +2,6 @@
 using System.Threading.Tasks;
 using Gentings.Identity.Permissions;
 using Microsoft.AspNetCore.Mvc;
-using Yd.Extensions;
 using Yd.Extensions.Security;
 using Yd.Extensions.Security.Roles;
 
@@ -67,7 +66,7 @@ namespace Yd.Extensions.RazorPages.Areas.Security.Pages.Admin
             if (Input.RoleId == null)
                 Input.RoleId = roles;
             else
-                Input.RoleId = Input.RoleId.Concat(roles).ToArray();
+                Input.RoleId = Input.RoleId.Concat(roles).Distinct().ToArray();
             var user = await _userManager.FindByIdAsync(Input.UserId);
             var role = await _roleManager.FindByIdAsync(user.RoleId);
             if (role > Role) //没有权限

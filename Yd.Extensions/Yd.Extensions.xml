@@ -50,6 +50,26 @@
               查找类似 游客 的本地化字符串。
             </summary>
         </member>
+        <member name="P:Yd.Extensions.Properties.Resources.DefaultRoles_Administrators">
+            <summary>
+              查找类似 系统管理员 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Properties.Resources.DefaultRoles_Developers">
+            <summary>
+              查找类似 开发人员 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Properties.Resources.DefaultRoles_Members">
+            <summary>
+              查找类似 普通会员 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Properties.Resources.DefaultRoles_Moderators">
+            <summary>
+              查找类似 管理员 的本地化字符串。
+            </summary>
+        </member>
         <member name="P:Yd.Extensions.Properties.Resources.ErrorCode_CaptchExpired">
             <summary>
               查找类似 验证码过期！ 的本地化字符串。
@@ -853,12 +873,13 @@
             用户初始化。
             </summary>
         </member>
-        <member name="M:Yd.Extensions.Security.DataInitializer.#ctor(Gentings.Data.IDbContext{Yd.Extensions.Security.User},Yd.Extensions.Security.IUserManager)">
+        <member name="M:Yd.Extensions.Security.DataInitializer.#ctor(Gentings.Data.IDbContext{Yd.Extensions.Security.User},Yd.Extensions.Security.IUserManager,Gentings.ILocalizer)">
             <summary>
             初始化类<see cref="T:Yd.Extensions.Security.DataInitializer"/>。
             </summary>
             <param name="context">用户数据库操作接口实例。</param>
             <param name="userManager">用户管理实例。</param>
+            <param name="localizer">资源接口。</param>
         </member>
         <member name="P:Yd.Extensions.Security.DataInitializer.Priority">
             <summary>
@@ -876,6 +897,31 @@
             安装时候预先执行的接口。
             </summary>
             <returns>返回执行结果。</returns>
+        </member>
+        <member name="T:Yd.Extensions.Security.DefaultRoles">
+            <summary>
+            默认角色。
+            </summary>
+        </member>
+        <member name="F:Yd.Extensions.Security.DefaultRoles.Members">
+            <summary>
+            普通会员。
+            </summary>
+        </member>
+        <member name="F:Yd.Extensions.Security.DefaultRoles.Moderators">
+            <summary>
+            管理员。
+            </summary>
+        </member>
+        <member name="F:Yd.Extensions.Security.DefaultRoles.Administrators">
+            <summary>
+            系统管理员。
+            </summary>
+        </member>
+        <member name="F:Yd.Extensions.Security.DefaultRoles.Developers">
+            <summary>
+            开发者。
+            </summary>
         </member>
         <member name="T:Yd.Extensions.Security.EventQuery">
             <summary>
@@ -987,6 +1033,66 @@
             <param name="ids">用户Id。</param>
             <returns>返回缓存用户实例对象列表。</returns>
         </member>
+        <member name="M:Yd.Extensions.Security.IUserManager.IsEnoughAsync(System.Int32,System.Int32)">
+            <summary>
+            判断消费积分是否足够。
+            </summary>
+            <param name="userId">用户Id。</param>
+            <param name="score">用户积分。</param>
+            <returns>返回判断结果。</returns>
+        </member>
+        <member name="M:Yd.Extensions.Security.IUserManager.RechargeAsync(System.Int32,System.Int32,System.Int32,System.String)">
+            <summary>
+            充值积分。
+            </summary>
+            <param name="sourceId">原始用户Id。</param>
+            <param name="userId">用户Id。</param>
+            <param name="score">用户积分。</param>
+            <param name="remark">备注。</param>
+            <returns>返回充值结果。</returns>
+        </member>
+        <member name="M:Yd.Extensions.Security.IUserManager.LoadScoresAsync(Yd.Extensions.Security.UserScoreQuery)">
+            <summary>
+            分页加载用户积分。
+            </summary>
+            <param name="query">用户积分查询实例。</param>
+            <returns>返回用户积分列表。</returns>
+        </member>
+        <member name="M:Yd.Extensions.Security.IUserManager.LoadUsersByParentId(System.Int32)">
+            <summary>
+            通过父级Id获取用户名称和Id列表。
+            </summary>
+            <param name="parentId">父级用户Id。</param>
+            <returns>用户名称和Id列表。</returns>
+        </member>
+        <member name="M:Yd.Extensions.Security.IUserManager.LoadUsersByParentIdAsync(System.Int32)">
+            <summary>
+            通过父级Id获取用户名称和Id列表。
+            </summary>
+            <param name="parentId">父级用户Id。</param>
+            <returns>用户名称和Id列表。</returns>
+        </member>
+        <member name="M:Yd.Extensions.Security.IUserManager.UpdateScore(System.Int32,System.Int32,System.String,System.Nullable{Yd.Extensions.Security.ScoreType})">
+            <summary>
+            更新用户积分。
+            </summary>
+            <param name="userId">用户Id。</param>
+            <param name="score">用户积分。</param>
+            <param name="remark">描述。</param>
+            <param name="scoreType">积分使用类型。</param>
+            <returns>返回添加结果。</returns>
+        </member>
+        <member name="M:Yd.Extensions.Security.IUserManager.UpdateScoreAsync(System.Int32,System.Int32,System.String,System.Nullable{Yd.Extensions.Security.ScoreType},System.Threading.CancellationToken)">
+            <summary>
+            更新用户积分。
+            </summary>
+            <param name="userId">用户Id。</param>
+            <param name="score">用户积分。</param>
+            <param name="remark">描述。</param>
+            <param name="scoreType">积分使用类型。</param>
+            <param name="cancellationToken">取消标志。</param>
+            <returns>返回添加结果。</returns>
+        </member>
         <member name="T:Yd.Extensions.Security.LoginDirection">
             <summary>
             登录后的转向。
@@ -1020,6 +1126,11 @@
         <member name="F:Yd.Extensions.Security.Permissions.Administrator">
             <summary>
             登录后台。
+            </summary>
+        </member>
+        <member name="F:Yd.Extensions.Security.Permissions.SiteSettings">
+            <summary>
+            网站配置。
             </summary>
         </member>
         <member name="F:Yd.Extensions.Security.Permissions.Task">
@@ -1155,6 +1266,31 @@
             <param name="userRoleContext">用户角色数据库操作接口。</param>
             <param name="roleClaimContext">用户声明数据库操作接口。</param>
         </member>
+        <member name="T:Yd.Extensions.Security.ScoreType">
+            <summary>
+            积分使用类型。
+            </summary>
+        </member>
+        <member name="F:Yd.Extensions.Security.ScoreType.Recharge">
+            <summary>
+            充值。
+            </summary>
+        </member>
+        <member name="F:Yd.Extensions.Security.ScoreType.Refund">
+            <summary>
+            退款。
+            </summary>
+        </member>
+        <member name="F:Yd.Extensions.Security.ScoreType.Consume">
+            <summary>
+            消费。
+            </summary>
+        </member>
+        <member name="F:Yd.Extensions.Security.ScoreType.Others">
+            <summary>
+            其他。
+            </summary>
+        </member>
         <member name="T:Yd.Extensions.Security.SecuritySettings">
             <summary>
             安全配置。
@@ -1279,11 +1415,6 @@
         <member name="P:Yd.Extensions.Security.User.Score">
             <summary>
             积分。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.Security.User.LockedScore">
-            <summary>
-            锁定积分。
             </summary>
         </member>
         <member name="P:Yd.Extensions.Security.User.ScoredDate">
@@ -1456,6 +1587,66 @@
             <param name="ids">用户Id。</param>
             <returns>返回缓存用户实例对象列表。</returns>
         </member>
+        <member name="M:Yd.Extensions.Security.UserManager.IsEnoughAsync(System.Int32,System.Int32)">
+            <summary>
+            判断消费积分是否足够。
+            </summary>
+            <param name="userId">用户Id。</param>
+            <param name="score">用户积分。</param>
+            <returns>返回判断结果。</returns>
+        </member>
+        <member name="M:Yd.Extensions.Security.UserManager.RechargeAsync(System.Int32,System.Int32,System.Int32,System.String)">
+            <summary>
+            充值积分。
+            </summary>
+            <param name="sourceId">原始用户Id。</param>
+            <param name="userId">用户Id。</param>
+            <param name="score">用户积分。</param>
+            <param name="remark">备注。</param>
+            <returns>返回充值结果。</returns>
+        </member>
+        <member name="M:Yd.Extensions.Security.UserManager.LoadScoresAsync(Yd.Extensions.Security.UserScoreQuery)">
+            <summary>
+            分页加载用户积分。
+            </summary>
+            <param name="query">用户积分查询实例。</param>
+            <returns>返回用户积分列表。</returns>
+        </member>
+        <member name="M:Yd.Extensions.Security.UserManager.LoadUsersByParentId(System.Int32)">
+            <summary>
+            通过父级Id获取用户名称和Id列表。
+            </summary>
+            <param name="parentId">父级用户Id。</param>
+            <returns>用户名称和Id列表。</returns>
+        </member>
+        <member name="M:Yd.Extensions.Security.UserManager.LoadUsersByParentIdAsync(System.Int32)">
+            <summary>
+            通过父级Id获取用户名称和Id列表。
+            </summary>
+            <param name="parentId">父级用户Id。</param>
+            <returns>用户名称和Id列表。</returns>
+        </member>
+        <member name="M:Yd.Extensions.Security.UserManager.UpdateScore(System.Int32,System.Int32,System.String,System.Nullable{Yd.Extensions.Security.ScoreType})">
+            <summary>
+            更新用户积分。
+            </summary>
+            <param name="userId">用户Id。</param>
+            <param name="score">用户积分。</param>
+            <param name="remark">描述。</param>
+            <param name="scoreType">积分使用类型。</param>
+            <returns>返回添加结果。</returns>
+        </member>
+        <member name="M:Yd.Extensions.Security.UserManager.UpdateScoreAsync(System.Int32,System.Int32,System.String,System.Nullable{Yd.Extensions.Security.ScoreType},System.Threading.CancellationToken)">
+            <summary>
+            更新用户积分。
+            </summary>
+            <param name="userId">用户Id。</param>
+            <param name="score">用户积分。</param>
+            <param name="remark">描述。</param>
+            <param name="scoreType">积分使用类型。</param>
+            <param name="cancellationToken">取消标志。</param>
+            <returns>返回添加结果。</returns>
+        </member>
         <member name="T:Yd.Extensions.Security.UserRole">
             <summary>
             用户和角色关联类。
@@ -1474,6 +1665,11 @@
         <member name="P:Yd.Extensions.Security.UserScore.UserId">
             <summary>
             用户Id。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.UserScore.ScoreType">
+            <summary>
+            积分使用类型。
             </summary>
         </member>
         <member name="P:Yd.Extensions.Security.UserScore.Score">
@@ -1501,6 +1697,11 @@
             安全码。
             </summary>
         </member>
+        <member name="P:Yd.Extensions.Security.UserScore.Remark">
+            <summary>
+            备注。
+            </summary>
+        </member>
         <member name="P:Yd.Extensions.Security.UserScore.HashedKey">
             <summary>
             哈希码。
@@ -1509,6 +1710,55 @@
         <member name="P:Yd.Extensions.Security.UserScore.IsValid">
             <summary>
             是否合法。
+            </summary>
+        </member>
+        <member name="T:Yd.Extensions.Security.UserScoreExtensions">
+            <summary>
+            用户积分扩展类。
+            </summary>
+        </member>
+        <member name="M:Yd.Extensions.Security.UserScoreExtensions.UpdateScore(Gentings.Data.Internal.IDbTransactionContext{Yd.Extensions.Security.User},System.Int32,System.Int32,System.String,System.Nullable{Yd.Extensions.Security.ScoreType})">
+            <summary>
+            更新用户积分。
+            </summary>
+            <param name="db">数据库事务接口实例。</param>
+            <param name="userId">用户Id。</param>
+            <param name="score">用户积分。</param>
+            <param name="remark">描述。</param>
+            <param name="scoreType">积分使用类型。</param>
+            <returns>返回添加结果。</returns>
+        </member>
+        <member name="M:Yd.Extensions.Security.UserScoreExtensions.UpdateScoreAsync(Gentings.Data.Internal.IDbTransactionContext{Yd.Extensions.Security.User},System.Int32,System.Int32,System.String,System.Nullable{Yd.Extensions.Security.ScoreType},System.Threading.CancellationToken)">
+            <summary>
+            更新用户积分。
+            </summary>
+            <param name="db">数据库事务接口实例。</param>
+            <param name="userId">用户Id。</param>
+            <param name="score">用户积分。</param>
+            <param name="remark">描述。</param>
+            <param name="scoreType">积分使用类型。</param>
+            <param name="cancellationToken">取消标志。</param>
+            <returns>返回添加结果。</returns>
+        </member>
+        <member name="T:Yd.Extensions.Security.UserScoreQuery">
+            <summary>
+            用户积分查询。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.UserScoreQuery.ScoreType">
+            <summary>
+            积分使用类型。
+            </summary>
+        </member>
+        <member name="M:Yd.Extensions.Security.UserScoreQuery.Init(Gentings.Data.IQueryContext{Yd.Extensions.Security.UserScore})">
+            <summary>
+            初始化查询上下文。
+            </summary>
+            <param name="context">查询上下文。</param>
+        </member>
+        <member name="P:Yd.Extensions.Security.UserScoreQuery.UserId">
+            <summary>
+            当前用户Id。
             </summary>
         </member>
         <member name="T:Yd.Extensions.Security.UserStore">

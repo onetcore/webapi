@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using Gentings.Extensions.Emails;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Yd.Extensions;
 using Yd.Extensions.Security;
 
 namespace Yd.Extensions.RazorPages.Areas.Security.Pages
@@ -42,6 +41,11 @@ namespace Yd.Extensions.RazorPages.Areas.Security.Pages
             [DataType(DataType.Password)]
             [Compare("Password", ErrorMessage = "{0}和{1}不匹配！")]
             public string ConfirmPassword { get; set; }
+
+            /// <summary>
+            /// 验证码。
+            /// </summary>
+            public string Code { get; set; }
         }
 
         private readonly IUserManager _userManager;
@@ -85,7 +89,7 @@ namespace Yd.Extensions.RazorPages.Areas.Security.Pages
                         var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                         var callbackUrl = UrlHelperExtensions.Page(Url, "/Account/ConfirmEmail",
                             pageHandler: null,
-                            values: new { userId = user.Id, code = code },
+                            values: new { userId = user.Id, code },
                             protocol: Request.Scheme);
 
                         await _emailSender.SendEmailAsync(user.Id, Input.Email, "激活账号",

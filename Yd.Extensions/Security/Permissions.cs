@@ -13,6 +13,7 @@ namespace Yd.Extensions.Security
         protected override void Init()
         {
             Add("admin", "初始配置管理", "允许用户可以管理初始配置相关内容!");
+            Add("settings", "网站配置", "允许用户管理网站配置信息！");
             Add("task", "后台服务", "允许管理后台服务相关操作!");
             Add("taskinterval", "配置定时模式", "允许配置后台服务定时模式相关操作!");
             Add("storages", "文件管理", "允许管理文件存储相关操作!");
@@ -22,6 +23,11 @@ namespace Yd.Extensions.Security
         /// 登录后台。
         /// </summary>
         public const string Administrator = "core.admin";
+
+        /// <summary>
+        /// 网站配置。
+        /// </summary>
+        public const string SiteSettings = "core.settings";
 
         /// <summary>
         /// 后台服务。

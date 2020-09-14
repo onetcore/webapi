@@ -3,14 +3,17 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Data.Common;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Gentings;
+using Gentings.Data;
 using Gentings.Extensions;
 using Gentings.Identity;
 using Gentings.Storages.Avatars;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Caching.Memory;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Yd.Extensions.Security.Roles;
 
@@ -32,11 +35,20 @@ namespace Yd.Extensions.Security
         /// <param name="keyNormalizer">唯一键格式化字符串。</param>
         /// <param name="errors">错误实例。</param>
         /// <param name="serviceProvider">服务提供者接口。</param>
-        public UserManager(IUserStore<User> store, IOptions<IdentityOptions> optionsAccessor, IPasswordHasher<User> passwordHasher, IEnumerable<IUserValidator<User>> userValidators, IEnumerable<IPasswordValidator<User>> passwordValidators, ILookupNormalizer keyNormalizer, IdentityErrorDescriber errors, IServiceProvider serviceProvider)
+        public UserManager(IUserStore<User> store,
+            IOptions<IdentityOptions> optionsAccessor,
+            IPasswordHasher<User> passwordHasher,
+            IEnumerable<IUserValidator<User>> userValidators,
+            IEnumerable<IPasswordValidator<User>> passwordValidators,
+            ILookupNormalizer keyNormalizer,
+            IdentityErrorDescriber errors,
+            IServiceProvider serviceProvider)
             : base(store, optionsAccessor, passwordHasher, userValidators, passwordValidators, keyNormalizer, errors, serviceProvider)
         {
+            _scoreDB = serviceProvider.GetRequiredService<IDbContext<UserScore>>();
         }
 
+        private readonly IDbContext<UserScore> _scoreDB;
         private readonly Type _cacheKey = typeof(CachedUser);
         private readonly IEntityType _cachedUser = typeof(CachedUser).GetEntityType();
 
@@ -157,6 +169,113 @@ namespace Yd.Extensions.Security
             }
 
             return users;
+        }
+
+        /// <summary>
+        /// 判断消费积分是否足够。
+        /// </summary>
+        /// <param name="userId">用户Id。</param>
+        /// <param name="score">用户积分。</param>
+        /// <returns>返回判断结果。</returns>
+        public virtual async Task<bool> IsEnoughAsync(int userId, int score)
+        {
+            var id = await DbContext.UserContext.AsQueryable()
+                .WithNolock()
+                .Select(x => x.Id)
+                .Where(x => x.Id == userId && x.Score > score)
+                .FirstOrDefaultAsync(reader => reader.GetInt32(0));
+            return id > 0;
+        }
+
+        /// <summary>
+        /// 充值积分。
+        /// </summary>
+        /// <param name="sourceId">原始用户Id。</param>
+        /// <param name="userId">用户Id。</param>
+        /// <param name="score">用户积分。</param>
+        /// <param name="remark">备注。</param>
+        /// <returns>返回充值结果。</returns>
+        public virtual Task<bool> RechargeAsync(int sourceId, int userId, int score, string remark = null)
+        {
+            return DbContext.UserContext.BeginTransactionAsync(async db =>
+           {
+               if (await db.UpdateScoreAsync(sourceId, -score, remark))
+                   return await db.UpdateScoreAsync(userId, score, remark);
+               return false;
+           });
+        }
+
+        /// <summary>
+        /// 分页加载用户积分。
+        /// </summary>
+        /// <param name="query">用户积分查询实例。</param>
+        /// <returns>返回用户积分列表。</returns>
+        public virtual Task<IPageEnumerable<UserScore>> LoadScoresAsync(UserScoreQuery query)
+        {
+            return _scoreDB.LoadAsync(query);
+        }
+
+        /// <summary>
+        /// 通过父级Id获取用户名称和Id列表。
+        /// </summary>
+        /// <param name="parentId">父级用户Id。</param>
+        /// <returns>用户名称和Id列表。</returns>
+        public virtual Dictionary<string, int> LoadUsersByParentId(int parentId)
+        {
+            return DbContext.UserContext.AsQueryable()
+                .Select(x => new { x.Id, x.NickName })
+                .Where(x => x.ParentId == parentId)
+                .AsEnumerable(reader => new
+                {
+                    Id = reader.GetInt32(0),
+                    NickName = reader.GetString(1)
+                })
+                .ToDictionary(x => x.NickName, x => x.Id);
+        }
+
+        /// <summary>
+        /// 通过父级Id获取用户名称和Id列表。
+        /// </summary>
+        /// <param name="parentId">父级用户Id。</param>
+        /// <returns>用户名称和Id列表。</returns>
+        public virtual async Task<Dictionary<string, int>> LoadUsersByParentIdAsync(int parentId)
+        {
+            var users = await DbContext.UserContext.AsQueryable()
+                .Select(x => new { x.Id, x.NickName })
+                .Where(x => x.ParentId == parentId)
+                .AsEnumerableAsync(reader => new
+                {
+                    Id = reader.GetInt32(0),
+                    NickName = reader.GetString(1)
+                });
+            return users.ToDictionary(x => x.NickName, x => x.Id);
+        }
+
+        /// <summary>
+        /// 更新用户积分。
+        /// </summary>
+        /// <param name="userId">用户Id。</param>
+        /// <param name="score">用户积分。</param>
+        /// <param name="remark">描述。</param>
+        /// <param name="scoreType">积分使用类型。</param>
+        /// <returns>返回添加结果。</returns>
+        public virtual bool UpdateScore(int userId, int score, string remark = null, ScoreType? scoreType = null)
+        {
+            return DbContext.UserContext.BeginTransaction(db => db.UpdateScore(userId, score, remark));
+        }
+
+        /// <summary>
+        /// 更新用户积分。
+        /// </summary>
+        /// <param name="userId">用户Id。</param>
+        /// <param name="score">用户积分。</param>
+        /// <param name="remark">描述。</param>
+        /// <param name="scoreType">积分使用类型。</param>
+        /// <param name="cancellationToken">取消标志。</param>
+        /// <returns>返回添加结果。</returns>
+        public virtual Task<bool> UpdateScoreAsync(int userId, int score, string remark = null, ScoreType? scoreType = null, CancellationToken cancellationToken = default)
+        {
+            return DbContext.UserContext.BeginTransactionAsync(db => db.UpdateScoreAsync(userId, score, remark, scoreType, cancellationToken), cancellationToken: cancellationToken);
         }
     }
 }

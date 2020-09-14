@@ -2,7 +2,6 @@
 using Gentings.AspNetCore.RazorPages.AdminMenus;
 using Gentings.Extensions.Settings;
 using Microsoft.Extensions.DependencyInjection;
-using Yd.Extensions;
 using Yd.Extensions.Security;
 
 namespace Yd.Extensions.RazorPages.Areas.Core
@@ -41,6 +40,9 @@ namespace Yd.Extensions.RazorPages.Areas.Core
                             .Allow(Permissions.Administrator));
                 menu.AddMenu("notifier",
                     it => it.Texted("通知管理").Page("/Admin/Notifications/Index", area: AreaName)
+                        .Allow(Permissions.Administrator));
+                menu.AddMenu("sensitive",
+                    it => it.Texted("敏感词汇管理").Page("/Admin/SensitiveWords/Index", area: AreaName)
                         .Allow(Permissions.Administrator));
                 if (_serviceProvider.GetService<ISettingDictionaryManager>() != null)
                     menu.AddMenu("dicsettings",

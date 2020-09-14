@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using Gentings.Identity;
+using Gentings.Storages.Media;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Yd.Extensions.Security;
@@ -33,6 +34,18 @@ namespace Yd.Extensions.RazorPages
         {
             var errors = result.Errors.Select(x => x.Description).ToList();
             return Error(string.Join(", ", errors));
+        }
+
+        /// <summary>
+        /// 返回JSON试图结果。
+        /// </summary>
+        /// <param name="result">数据结果。</param>
+        /// <returns>返回JSON试图结果。</returns>
+        protected IActionResult Json(MediaResult result)
+        {
+            if (result.Succeeded)
+                return Success(new { result.Url });
+            return Error(result.Message);
         }
     }
 }

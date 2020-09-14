@@ -1,5 +1,4 @@
 ﻿using Gentings.Identity.Permissions;
-using Yd.Extensions;
 using Yd.Extensions.Security;
 
 namespace Yd.Extensions.RazorPages.Areas.Core.Pages.Admin

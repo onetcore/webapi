@@ -23,7 +23,7 @@
         <label>LOGO图标</label>
         <div class="input-group max50">
             <input readonly="readonly" type="text" asp-for="Input.LogoUrl" class="form-control uploaded" />
-            <div class="input-group-append" data-toggle="uploader">
+            <div class="input-group-append" js-upload="@Url.Page("./Settings", "Upload")">
                 <button type="button" class="btn btn-secondary"><i class="fa fa-upload"></i></button>
             </div>
         </div>
@@ -44,5 +44,4 @@
     <div class="form-group">
         <button type="submit" class="btn btn-outline-secondary">提交</button>
     </div>
-    <input js-uploader="@Url.Page("./Settings", "Upload")" type="file" class="hide" />
 </form>
