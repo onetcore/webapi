@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Gentings;
-using Gentings.AspNetCore.RazorPages.TagHelpers;
+using Gentings.AspNetCore.TagHelpers;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using Yd.Extensions.Security;

@@ -1,4 +1,4 @@
-﻿using Gentings.AspNetCore.RazorPages;
+﻿using Gentings.AspNetCore;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Gentings.Projects

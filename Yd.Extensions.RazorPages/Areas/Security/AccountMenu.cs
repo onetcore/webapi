@@ -1,4 +1,4 @@
-﻿using Gentings.AspNetCore.RazorPages.AdminMenus;
+﻿using Gentings.AspNetCore.AdminMenus;
 using Yd.Extensions.Security;
 
 namespace Yd.Extensions.RazorPages.Areas.Security

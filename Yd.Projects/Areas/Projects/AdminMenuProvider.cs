@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using Gentings.AspNetCore.RazorPages.AdminMenus;
+using Gentings.AspNetCore.AdminMenus;
 using Gentings.Projects.APIs;
 
 namespace Gentings.Projects.Areas.Projects

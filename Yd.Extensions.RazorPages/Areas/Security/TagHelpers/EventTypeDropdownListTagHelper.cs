@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Gentings.AspNetCore.RazorPages.TagHelpers;
+using Gentings.AspNetCore.TagHelpers;
 using Gentings.Extensions.AspNetCore.EventLogging;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Razor.TagHelpers;

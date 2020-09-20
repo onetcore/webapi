@@ -1,4 +1,4 @@
-﻿using Gentings.AspNetCore.RazorPages.TagHelpers;
+﻿using Gentings.AspNetCore.TagHelpers;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using Yd.Extensions.RazorPages.Properties;
 

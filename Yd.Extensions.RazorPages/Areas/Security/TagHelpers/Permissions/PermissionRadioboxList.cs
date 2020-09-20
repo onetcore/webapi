@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Gentings;
-using Gentings.AspNetCore.RazorPages.TagHelpers.Bootstraps;
+using Gentings.AspNetCore.TagHelpers.Bootstraps;
 using Gentings.Identity.Permissions;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 

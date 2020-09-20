@@ -1,5 +1,5 @@
 ﻿using Gentings;
-using Gentings.AspNetCore.RazorPages;
+using Gentings.AspNetCore;
 using Gentings.Extensions.AspNetCore.EventLogging;
 using Gentings.Extensions.Notifications;
 using Gentings.Extensions.Settings;

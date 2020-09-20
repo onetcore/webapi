@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Gentings.AspNetCore.RazorPages.TagHelpers;
+using Gentings.AspNetCore.TagHelpers;
 using Gentings.Tasks;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Razor.TagHelpers;

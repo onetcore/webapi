@@ -1,6 +1,6 @@
 ﻿using System;
-using Gentings.AspNetCore.RazorPages.AdminMenus;
-using Gentings.AspNetCore.RazorPages.AdminMenus.TagHelpers;
+using Gentings.AspNetCore.AdminMenus;
+using Gentings.AspNetCore.AdminMenus.TagHelpers;
 using Gentings.Identity.Permissions;
 using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.AspNetCore.Razor.TagHelpers;

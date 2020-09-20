@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Gentings.AspNetCore.RazorPages.TagHelpers;
+using Gentings.AspNetCore.TagHelpers;
 using Gentings.Extensions.Settings;
 using Gentings.Storages.Media;
 using Microsoft.AspNetCore.Mvc.Rendering;

@@ -1,5 +1,5 @@
 ﻿using System;
-using Gentings.AspNetCore.RazorPages.AdminMenus;
+using Gentings.AspNetCore.AdminMenus;
 using Gentings.Extensions.Settings;
 using Microsoft.Extensions.DependencyInjection;
 using Yd.Extensions.Security;
@@ -46,7 +46,7 @@ namespace Yd.Extensions.RazorPages.Areas.Core
                         .Allow(Permissions.Administrator));
                 if (_serviceProvider.GetService<ISettingDictionaryManager>() != null)
                     menu.AddMenu("dicsettings",
-                        it => it.Texted("字典管理").Page("/Admin/Settings/Index", area: AreaName)
+                        it => it.Texted("字典管理").Page("/Admin/DictionarySettings/Index", area: AreaName)
                             .Allow(Permissions.Administrator));
             });
         }

@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Gentings.AspNetCore.RazorPages.TagHelpers.Bootstraps;
+using Gentings.AspNetCore.TagHelpers.Bootstraps;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using Yd.Extensions.Security.Roles;
 

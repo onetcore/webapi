@@ -1,4 +1,4 @@
-﻿using Gentings.AspNetCore.RazorPages.AdminMenus;
+﻿using Gentings.AspNetCore.AdminMenus;
 
 namespace Yd
 {

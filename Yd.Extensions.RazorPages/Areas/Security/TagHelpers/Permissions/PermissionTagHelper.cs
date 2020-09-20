@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using Gentings.AspNetCore.RazorPages.TagHelpers;
+using Gentings.AspNetCore.TagHelpers;
 using Gentings.Identity.Permissions;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 

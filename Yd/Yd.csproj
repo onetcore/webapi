@@ -13,7 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\gentings\Gentings.AspNetCore.Emails\Gentings.AspNetCore.Emails.csproj" />
-    <ProjectReference Include="..\..\gentings\Gentings.AspNetCore.RazorPages\Gentings.AspNetCore.RazorPages.csproj" />
+    <ProjectReference Include="..\..\gentings\Gentings.AspNetCore\Gentings.AspNetCore.csproj" />
     <ProjectReference Include="..\..\gentings\Gentings.Core\Gentings.Core.csproj" />
     <ProjectReference Include="..\..\gentings\Gentings.Extensions.Emails\Gentings.Extensions.Emails.csproj" />
     <ProjectReference Include="..\..\Gentings\Gentings.Identity\Gentings.Identity.csproj" />

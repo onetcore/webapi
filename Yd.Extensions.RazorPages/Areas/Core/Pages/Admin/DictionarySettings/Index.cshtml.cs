@@ -2,7 +2,7 @@
 using Gentings.Extensions.Settings;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Yd.Extensions.RazorPages.Areas.Core.Pages.Admin.Settings
+namespace Yd.Extensions.RazorPages.Areas.Core.Pages.Admin.DictionarySettings
 {
     public class IndexModel : ModelBase
     {
