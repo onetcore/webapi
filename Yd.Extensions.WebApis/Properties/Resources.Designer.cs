@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Yd.Extensions.Properties {
+namespace Yd.Extensions.WebApis.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Yd.Extensions.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Yd.Extensions.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Yd.Extensions.WebApis.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,83 +61,92 @@ namespace Yd.Extensions.Properties {
         }
         
         /// <summary>
-        ///   查找类似 游客 的本地化字符串。
+        ///   查找类似 验证码过期！ 的本地化字符串。
         /// </summary>
-        internal static string Anonymous {
+        internal static string ErrorCode_CaptchExpired {
             get {
-                return ResourceManager.GetString("Anonymous", resourceCulture);
+                return ResourceManager.GetString("ErrorCode_CaptchExpired", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   查找类似 系统管理员 的本地化字符串。
+        ///   查找类似 短信验证码发送错误! 的本地化字符串。
         /// </summary>
-        internal static string DefaultRoles_Administrators {
+        internal static string ErrorCode_GetCaptchaFailured {
             get {
-                return ResourceManager.GetString("DefaultRoles_Administrators", resourceCulture);
+                return ResourceManager.GetString("ErrorCode_GetCaptchaFailured", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   查找类似 开发人员 的本地化字符串。
+        ///   查找类似 验证码错误！ 的本地化字符串。
         /// </summary>
-        internal static string DefaultRoles_Developers {
+        internal static string ErrorCode_InvalidCaptcha {
             get {
-                return ResourceManager.GetString("DefaultRoles_Developers", resourceCulture);
+                return ResourceManager.GetString("ErrorCode_InvalidCaptcha", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   查找类似 普通会员 的本地化字符串。
+        ///   查找类似 电话号码不存在！ 的本地化字符串。
         /// </summary>
-        internal static string DefaultRoles_Members {
+        internal static string ErrorCode_InvalidPhoneNumber {
             get {
-                return ResourceManager.GetString("DefaultRoles_Members", resourceCulture);
+                return ResourceManager.GetString("ErrorCode_InvalidPhoneNumber", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   查找类似 管理员 的本地化字符串。
+        ///   查找类似 用户名或者密码错误！ 的本地化字符串。
         /// </summary>
-        internal static string DefaultRoles_Moderators {
+        internal static string ErrorCode_InvalidUserNameOrPassword {
             get {
-                return ResourceManager.GetString("DefaultRoles_Moderators", resourceCulture);
+                return ResourceManager.GetString("ErrorCode_InvalidUserNameOrPassword", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   查找类似 用户 的本地化字符串。
+        ///   查找类似 电话号码已经存在! 的本地化字符串。
         /// </summary>
-        internal static string EventType_User {
+        internal static string ErrorCode_PhoneNumberAlreadyExisted {
             get {
-                return ResourceManager.GetString("EventType_User", resourceCulture);
+                return ResourceManager.GetString("ErrorCode_PhoneNumberAlreadyExisted", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   查找类似 用户中心 的本地化字符串。
+        ///   查找类似 注册失败！ 的本地化字符串。
         /// </summary>
-        internal static string LoginDirection_Account {
+        internal static string ErrorCode_RegisterFailured {
             get {
-                return ResourceManager.GetString("LoginDirection_Account", resourceCulture);
+                return ResourceManager.GetString("ErrorCode_RegisterFailured", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   查找类似 后台管理 的本地化字符串。
+        ///   查找类似 未找到角色！ 的本地化字符串。
         /// </summary>
-        internal static string LoginDirection_Admin {
+        internal static string ErrorCode_RoleNotFound {
             get {
-                return ResourceManager.GetString("LoginDirection_Admin", resourceCulture);
+                return ResourceManager.GetString("ErrorCode_RoleNotFound", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   查找类似 首页 的本地化字符串。
+        ///   查找类似 未找到用户！ 的本地化字符串。
         /// </summary>
-        internal static string LoginDirection_Default {
+        internal static string ErrorCode_UserNotFound {
             get {
-                return ResourceManager.GetString("LoginDirection_Default", resourceCulture);
+                return ResourceManager.GetString("ErrorCode_UserNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 成功开通了账户。 的本地化字符串。
+        /// </summary>
+        internal static string Register_Success {
+            get {
+                return ResourceManager.GetString("Register_Success", resourceCulture);
             }
         }
     }

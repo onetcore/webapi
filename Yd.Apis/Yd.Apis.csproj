@@ -24,6 +24,7 @@
     <ProjectReference Include="..\..\Gentings\Gentings.Identity\Gentings.Identity.csproj" />
     <ProjectReference Include="..\..\gentings\Gentings.Storages\Gentings.Storages.csproj" />
     <ProjectReference Include="..\..\Gentings\Gentings\Gentings.csproj" />
+    <ProjectReference Include="..\Yd.Extensions.WebApis\Yd.Extensions.WebApis.csproj" />
     <ProjectReference Include="..\Yd.Extensions\Yd.Extensions.csproj" />
     <ProjectReference Include="..\Yd.Projects\Yd.Projects.csproj" />
   </ItemGroup>

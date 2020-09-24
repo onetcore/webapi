@@ -4,7 +4,6 @@ using Gentings.Identity;
 using Gentings.Identity.Permissions;
 using Microsoft.AspNetCore.Mvc;
 using Yd.Extensions.Security;
-using Yd.Extensions.Security.Controllers.Admin.Users;
 
 namespace Yd.Extensions.RazorPages.Areas.Security.Pages.Admin
 {

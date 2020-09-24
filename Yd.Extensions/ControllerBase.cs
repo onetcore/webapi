@@ -1,6 +1,4 @@
 ﻿using Gentings.Identity;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
 using Yd.Extensions.Security;
 using Yd.Extensions.Security.Roles;
 
@@ -9,8 +7,6 @@ namespace Yd.Extensions
     /// <summary>
     /// 控制器基类。
     /// </summary>
-    [ApiController]
-    [Route("api/[controller]")]
     public abstract class ControllerBase : Gentings.Extensions.AspNetCore.ControllerBase
     {
         private User _user;
@@ -25,27 +21,4 @@ namespace Yd.Extensions
         /// </summary>
         protected Role Role => _role ??= GetRequiredService<IRoleManager>().FindById(User.RoleId);
     }
-
-    /// <summary>
-    /// 控制器基类。
-    /// </summary>
-    [Authorize]
-    [Area("admin")]
-    [Route("api/[area]/[controller]")]
-    public abstract class AdminControllerBase : ControllerBase
-    {
-
-    }
-
-    /// <summary>
-    /// 控制器基类。
-    /// </summary>
-    [Authorize]
-    [Area("account")]
-    [Route("api/[area]/[controller]")]
-    public abstract class AccountControllerBase : ControllerBase
-    {
-
-    }
-
 }
