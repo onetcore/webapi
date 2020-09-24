@@ -31,7 +31,7 @@
         else
         {
             <input asp-for="Input.Email" class="form-control max-250" />
-            <button id="email-verification" type="submit" asp-page-handler="SendVerificationEmail" class="btn btn-link">发送激活邮件</button>
+            <button .visible="!string.IsNullOrEmpty(Model.Input?.Email)" type="submit" asp-page-handler="SendVerificationEmail" class="btn btn-link">发送激活邮件</button>
         }
         <span asp-validation-for="Input.Email" class="text-danger"></span>
     </div>

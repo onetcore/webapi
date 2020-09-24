@@ -45,7 +45,7 @@ namespace Yd.Extensions.RazorPages.Areas.Security.Pages
                 // For more information on how to enable account confirmation and password reset please
                 // visit https://go.microsoft.com/fwlink/?LinkID=532713
                 var code = await _userManager.GeneratePasswordResetTokenAsync(user);
-                var callbackUrl = UrlHelperExtensions.Page(Url, "/ResetPassword",
+                var callbackUrl = Url.Page("/ResetPassword",
                     pageHandler: null,
                     values: new { code, area = SecuritySettings.ExtensionName },
                     protocol: Request.Scheme);

@@ -87,7 +87,7 @@ namespace Yd.Extensions.RazorPages.Areas.Security.Pages
                     if (Settings.RequireConfirmedEmail)
                     {
                         var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                        var callbackUrl = UrlHelperExtensions.Page(Url, "/Account/ConfirmEmail",
+                        var callbackUrl = Url.Page("/Account/ConfirmEmail",
                             pageHandler: null,
                             values: new { userId = user.Id, code },
                             protocol: Request.Scheme);

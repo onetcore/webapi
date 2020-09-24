@@ -62,10 +62,10 @@ namespace Yd.Extensions.RazorPages.Areas.Security.Pages.Account
         public async Task<IActionResult> OnPostLinkLoginAsync(string provider)
         {
             // Clear the existing external cookie to ensure a clean login process
-            await AuthenticationHttpContextExtensions.SignOutAsync(HttpContext, IdentityConstants.ExternalScheme);
+            await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
 
             // Request a redirect to the external login provider to link a login for the current user
-            var redirectUrl = UrlHelperExtensions.Page(Url, "./ExternalLogins", "LinkLoginCallback");
+            var redirectUrl = Url.Page("./ExternalLogins", "LinkLoginCallback");
             var properties = _userManager.SignInManager.ConfigureExternalAuthenticationProperties(provider, redirectUrl, UserId.ToString());
             return new ChallengeResult(provider, properties);
         }
@@ -91,7 +91,7 @@ namespace Yd.Extensions.RazorPages.Areas.Security.Pages.Account
             }
 
             // Clear the existing external cookie to ensure a clean login process
-            await AuthenticationHttpContextExtensions.SignOutAsync(HttpContext, IdentityConstants.ExternalScheme);
+            await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
 
             return RedirectToSuccessPage($"已经成功绑定了{info.ProviderDisplayName}登录方式。");
         }

@@ -112,11 +112,15 @@ namespace Yd.Extensions.RazorPages.Areas.Security.Pages.Admin.User
             var user = await _userManager.GetUserAsync();
             if (user == null)
             {
-                return NotFound("用户不存在！");
+                return ErrorPage("用户不存在！");
+            }
+            if (string.IsNullOrWhiteSpace(user.Email))
+            {
+                return ErrorPage("电子邮件不存在！");
             }
 
             var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-            var callbackUrl = UrlHelperExtensions.Page(Url, "/Account/ConfirmEmail",
+            var callbackUrl = Url.Page("/Account/ConfirmEmail",
                 pageHandler: null,
                 values: new { userId = user.Id, code = code },
                 protocol: Request.Scheme);
