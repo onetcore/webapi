@@ -46,7 +46,7 @@
     },
     {
       "provider": "unpkg",
-      "library": "gtcore@0.0.38",
+      "library": "gtcore@0.0.44",
       "destination": "wwwroot/projects/lib/gtcore/",
       "files": [
         "dist/css/gtcore.min.css",

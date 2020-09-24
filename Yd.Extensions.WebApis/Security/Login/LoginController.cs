@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Gentings.AspNetCore;
 using Gentings.Extensions.Captchas;
+using Gentings.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
@@ -92,18 +93,7 @@ namespace Yd.Extensions.WebApis.Security.Login
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
                 new Claim(ClaimTypes.Name, user.UserName)
             };
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:SecurityKey"]));
-            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-            var expires = DateTime.Now.AddMinutes(Convert.ToInt32(_configuration["Jwt:Expires"]));
-
-            var token = new JwtSecurityToken(
-                _configuration["Jwt:Issuer"],
-                _configuration["Jwt:Audience"],
-                claims,
-                expires: expires,
-                signingCredentials: creds
-            );
-            return new JwtSecurityTokenHandler().WriteToken(token);
+            return _configuration.CreateJwtSecurityToken(claims);
         }
     }
 }

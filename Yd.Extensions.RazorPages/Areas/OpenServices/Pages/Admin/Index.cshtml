@@ -1,0 +1,67 @@
+﻿@page
+@model IndexModel
+@{
+    ViewBag.Title = "应用程序列表";
+    ViewBag.Current = "open.apps";
+}
+
+<div class="gt-toolbar mb-3">
+    <form class="form-inline" method="get">
+        <gt:toolbar-btn-group>
+            <gt:enum-dropdownlist class="form-control form-control-sm" for="Query.Status" default-text="请选择状态"></gt:enum-dropdownlist>
+        </gt:toolbar-btn-group>
+        <gt:toolbar-form-group>
+            <label>AppId：</label>
+            <input asp-for="Query.AppId" />
+        </gt:toolbar-form-group>
+        <gt:toolbar-form-group>
+            <label>名称：</label>
+            <gt:toolbar-input-group>
+                <input asp-for="Query.Name" />
+                <gt:append-search />
+            </gt:toolbar-input-group>
+        </gt:toolbar-form-group>
+    </form>
+    <gt:toolbar-btn-group right="true">
+        <a js-checked="post" js-confirm="你确定要删除所选择的应用吗？" asp-page-handler="Delete"><i class="fa fa-trash-o"></i> 删除</a>
+        <a js-modal="click" asp-page="./Edit"><i class="fa fa-plus"></i> 添加应用</a>
+    </gt:toolbar-btn-group>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-striped table-bordered data-view">
+        <thead>
+            <tr>
+                <th class="checkbox-only"><gt:checkall></gt:checkall></th>
+                <th>应用名称</th>
+                <th>用户名称</th>
+                <th>过期时间</th>
+            </tr>
+        </thead>
+        <tbody class="data-content">
+            @foreach (var app in Model.Applications)
+            {
+                <tr>
+                    <td class="checkbox-only"><gt:checkbox value="@app.Id"></gt:checkbox></td>
+                    <td>
+                        <div>
+                            <b>@app.Name</b>
+                            <div class="data-action">
+                                <a title="API列表" asp-page="./Apis" asp-route-id="@app.Id"><i class="fa fa-link"></i> APIs</a>
+                                <a js-modal="click" asp-page="./Edit" asp-route-id="@app.Id"><i class="fa fa-pencil"></i> 编辑</a>
+                                <a js-confirm="你确定要删除“@app.Name”吗？" js-action="post" asp-page-handler="Delete" asp-route-ids="@app.Id"><i class="fa fa-trash-o"></i> 删除</a>
+                            </div>
+                        </div>
+                        <div class="text-secondary">@Html.Raw(app.Summary)</div>
+                        <div><i>AppId：</i>@app.Id</div>
+                        <div><i>密钥：</i>@app.AppSecret</div>
+                    </td>
+                    <td>@(app["NickName"])</td>
+                    <td><gt:datetimeoffset date="@app.ExpiredDate"></gt:datetimeoffset></td>
+                </tr>
+            }
+            <gt:warning-tabled colspan="4" attach="Model.Applications">还没有找到任何应用程序！</gt:warning-tabled>
+        </tbody>
+    </table>
+    <gt:page class="page-center d-print-none mb-0" route-userid="@Model.Query.UserId" route-status="@Model.Query.Status" route-user-name="@Model.Query.UserName" route-appid="@Model.Query.AppId" route-name="@Model.Query.Name" data="Model.Applications"></gt:page>
+</div>

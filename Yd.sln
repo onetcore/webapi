@@ -35,7 +35,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gentings.SaaS", "..\genting
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gentings.AspNetCore", "..\gentings\Gentings.AspNetCore\Gentings.AspNetCore.csproj", "{54E53C15-E164-40C6-A928-9C85FCB90478}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yd.Extensions.WebApis", "Yd.Extensions.WebApis\Yd.Extensions.WebApis.csproj", "{30F1CB26-ED96-4107-A9A0-D4C8D0CF9E4D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yd.Extensions.WebApis", "Yd.Extensions.WebApis\Yd.Extensions.WebApis.csproj", "{30F1CB26-ED96-4107-A9A0-D4C8D0CF9E4D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

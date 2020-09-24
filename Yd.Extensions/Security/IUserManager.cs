@@ -109,5 +109,12 @@ namespace Yd.Extensions.Security
         /// <param name="cancellationToken">取消标志。</param>
         /// <returns>返回添加结果。</returns>
         Task<bool> UpdateScoreAsync(int userId, int score, string remark = null, ScoreType? scoreType = null, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// 获取当前用户的所有子账户列表。
+        /// </summary>
+        /// <param name="userId">当前用户Id。</param>
+        /// <returns>返回当前用户的所有子账户列表。</returns>
+        Task<IEnumerable<GroupableUser>> LoadSubUsersAsync(int userId);
     }
 }

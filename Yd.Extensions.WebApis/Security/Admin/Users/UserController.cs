@@ -75,7 +75,6 @@ namespace Yd.Extensions.WebApis.Security.Admin.Users
                 user.PhoneNumberConfirmed = !string.IsNullOrEmpty(model.PhoneNumber);
                 user.TwoFactorEnabled = Settings.RequiredTwoFactorEnabled;
                 user.Type = UserType.Normal;
-                user.Level = User.Level + 1;
                 user.ParentId = UserId;
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)

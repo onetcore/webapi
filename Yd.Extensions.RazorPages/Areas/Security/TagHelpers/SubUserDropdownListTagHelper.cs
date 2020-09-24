@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Gentings;
 using Gentings.AspNetCore.TagHelpers;
+using Gentings.Extensions;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using Yd.Extensions.Security;
@@ -9,14 +11,14 @@ using Yd.Extensions.Security;
 namespace Yd.Extensions.RazorPages.Areas.Security.TagHelpers
 {
     /// <summary>
-    /// 子用户列表。
+    /// 所有子用户列表。
     /// </summary>
-    [HtmlTargetElement("gt:user-dropdownlist")]
-    public class UserDropdownListTagHelper : DropdownListTagHelper
+    [HtmlTargetElement("gt:subuser-dropdownlist")]
+    public class SubUserDropdownListTagHelper : DropdownListTagHelper
     {
         private readonly IUserManager _userManager;
 
-        public UserDropdownListTagHelper(IUserManager userManager)
+        public SubUserDropdownListTagHelper(IUserManager userManager)
         {
             _userManager = userManager;
         }
@@ -31,13 +33,17 @@ namespace Yd.Extensions.RazorPages.Areas.Security.TagHelpers
         /// 初始化选项列表。
         /// </summary>
         /// <returns>返回选项列表。</returns>
-        protected override IEnumerable<SelectListItem> Init()
+        protected override async Task<IEnumerable<SelectListItem>> InitAsync()
         {
             if (UserId == null)
                 UserId = HttpContext.User.GetUserId();
-            return _userManager.LoadUsersByParentId(UserId.Value)
-                .Select(x => new SelectListItem(x.Key, x.Value.ToString()))
+            var users = await _userManager.LoadSubUsersAsync(UserId.Value);
+            users = users.MakeDictionary().Values
+                .Where(x => x.ParentId == UserId.Value)
                 .ToList();
+            var items = new List<SelectListItem>();
+            InitChildren(items, users);
+            return items;
         }
     }
 }

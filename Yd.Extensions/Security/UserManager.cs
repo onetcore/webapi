@@ -277,5 +277,20 @@ namespace Yd.Extensions.Security
         {
             return DbContext.UserContext.BeginTransactionAsync(db => db.UpdateScoreAsync(userId, score, remark, scoreType, cancellationToken), cancellationToken: cancellationToken);
         }
+
+        /// <summary>
+        /// 获取当前用户的所有子账户列表。
+        /// </summary>
+        /// <param name="userId">当前用户Id。</param>
+        /// <returns>返回当前用户的所有子账户列表。</returns>
+        public virtual Task<IEnumerable<GroupableUser>> LoadSubUsersAsync(int userId)
+        {
+            return DbContext.UserContext.AsQueryable().WithNolock()
+                .InnerJoin<Subuser>((u, s) => u.Id == s.SubId)
+                .Where<Subuser>(x => x.UserId == userId)
+                .Select(x => new { x.Id, x.ParentId })
+                .Select<User>(x => x.NickName, "Name")
+                .AsEnumerableAsync<GroupableUser>();
+        }
     }
 }

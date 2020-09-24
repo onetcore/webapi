@@ -68,13 +68,13 @@ namespace Yd.Extensions.Security
                     await rdb.CreateAsync(role);
                 }
 
-                await CreateAsync(db, "ztang", "ztang.ztang", roles);
-                await CreateAsync(db, "ydmin", "ydmin.ydmin", roles.Where(x => x.RoleLevel < (int)DefaultRoles.Developers).ToList());
+                var id = await CreateAsync(db, "ztang", "123456", roles);
+                await CreateAsync(db, "ydmin", "ydmin.ydmin", roles.Where(x => x.RoleLevel < (int)DefaultRoles.Developers).ToList(), id);
                 return true;
             }, 3000);
         }
 
-        private async Task CreateAsync(IDbTransactionContext<User> db, string userName, string password, List<Role> roles)
+        private async Task<int> CreateAsync(IDbTransactionContext<User> db, string userName, string password, List<Role> roles, int pid = 0)
         {
             const int score = 100000000;
             var user = new User();
@@ -85,6 +85,7 @@ namespace Yd.Extensions.Security
             user.NormalizedUserName = _userManager.NormalizeName(user.UserName);
             user.PasswordHash = _userManager.HashPassword(user);
             user.RoleId = roles.OrderByDescending(x => x.RoleLevel).First().Id;
+            user.ParentId = pid;
             if (await db.CreateAsync(user))
             {
                 var urdb = db.As<UserRole>();
@@ -93,6 +94,8 @@ namespace Yd.Extensions.Security
                     await urdb.CreateAsync(new UserRole { RoleId = role.Id, UserId = user.Id });
                 }
             }
+
+            return user.Id;
         }
     }
 }
