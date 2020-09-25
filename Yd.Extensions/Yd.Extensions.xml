@@ -146,6 +146,16 @@
             禁用。
             </summary>
         </member>
+        <member name="F:Yd.Extensions.OpenServices.ApplicationStatus.Pending">
+            <summary>
+            等待验证。
+            </summary>
+        </member>
+        <member name="F:Yd.Extensions.OpenServices.ApplicationStatus.Unapproved">
+            <summary>
+            验证失败。
+            </summary>
+        </member>
         <member name="T:Yd.Extensions.OpenServices.ErrorCode">
             <summary>
             错误代码。
@@ -263,6 +273,31 @@
             扩展名称。
             </summary>
         </member>
+        <member name="T:Yd.Extensions.OpenServices.Permissions">
+            <summary>
+            权限。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.OpenServices.Permissions.Category">
+            <summary>
+            分类。
+            </summary>
+        </member>
+        <member name="F:Yd.Extensions.OpenServices.Permissions.OpenServices">
+            <summary>
+            应用管理。
+            </summary>
+        </member>
+        <member name="F:Yd.Extensions.OpenServices.Permissions.Settings">
+            <summary>
+            应用配置管理。
+            </summary>
+        </member>
+        <member name="M:Yd.Extensions.OpenServices.Permissions.Init">
+            <summary>
+            初始化权限实例。
+            </summary>
+        </member>
         <member name="T:Yd.Extensions.OpenServices.ServiceBase">
             <summary>
             开发服务基类。
@@ -341,6 +376,31 @@
         <member name="P:Yd.Extensions.Properties.Resources.Anonymous">
             <summary>
               查找类似 游客 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Properties.Resources.ApplicationStatus_Disabled">
+            <summary>
+              查找类似 禁用 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Properties.Resources.ApplicationStatus_Expired">
+            <summary>
+              查找类似 过期 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Properties.Resources.ApplicationStatus_Normal">
+            <summary>
+              查找类似 正常 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Properties.Resources.ApplicationStatus_Pending">
+            <summary>
+              查找类似 等待验证 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Properties.Resources.ApplicationStatus_Unapproved">
+            <summary>
+              查找类似 验证失败 的本地化字符串。
             </summary>
         </member>
         <member name="P:Yd.Extensions.Properties.Resources.DefaultRoles_Administrators">

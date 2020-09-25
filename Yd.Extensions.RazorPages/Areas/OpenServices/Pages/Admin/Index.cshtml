@@ -1,4 +1,5 @@
 ﻿@page
+
 @model IndexModel
 @{
     ViewBag.Title = "应用程序列表";
@@ -34,8 +35,8 @@
             <tr>
                 <th class="checkbox-only"><gt:checkall></gt:checkall></th>
                 <th>应用名称</th>
-                <th>用户名称</th>
-                <th>过期时间</th>
+                <th>所属用户</th>
+                <th>添加时间/过期时间</th>
             </tr>
         </thead>
         <tbody class="data-content">
@@ -45,6 +46,7 @@
                     <td class="checkbox-only"><gt:checkbox value="@app.Id"></gt:checkbox></td>
                     <td>
                         <div>
+                            <span .class-alert-success="@(app.Status == ApplicationStatus.Normal)" .class-alert-danger="@(app.Status != ApplicationStatus.Normal)" class="label alert">@Model.Localizer.GetString(app.Status)</span>
                             <b>@app.Name</b>
                             <div class="data-action">
                                 <a title="API列表" asp-page="./Apis" asp-route-id="@app.Id"><i class="fa fa-link"></i> APIs</a>
@@ -53,11 +55,11 @@
                             </div>
                         </div>
                         <div class="text-secondary">@Html.Raw(app.Summary)</div>
-                        <div><i>AppId：</i>@app.Id</div>
-                        <div><i>密钥：</i>@app.AppSecret</div>
+                        <div><i>AppId：</i><span class="label alert alert-info">@app.Id</span></div>
+                        <div><i>AppSecret：</i><span class="label alert alert-info">@app.AppSecret</span></div>
                     </td>
                     <td>@(app["NickName"])</td>
-                    <td><gt:datetimeoffset date="@app.ExpiredDate"></gt:datetimeoffset></td>
+                    <td>添加：<gt:datetimeoffset date="@app.CreatedDate"></gt:datetimeoffset><br/>过期：<gt:datetimeoffset date="@app.ExpiredDate"></gt:datetimeoffset></td>
                 </tr>
             }
             <gt:warning-tabled colspan="4" attach="Model.Applications">还没有找到任何应用程序！</gt:warning-tabled>

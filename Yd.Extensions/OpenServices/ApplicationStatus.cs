@@ -19,5 +19,15 @@
         /// 禁用。
         /// </summary>
         Disabled,
+
+        /// <summary>
+        /// 等待验证。
+        /// </summary>
+        Pending,
+
+        /// <summary>
+        /// 验证失败。
+        /// </summary>
+        Unapproved,
     }
 }

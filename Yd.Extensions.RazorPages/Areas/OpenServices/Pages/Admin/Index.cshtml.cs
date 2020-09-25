@@ -1,3 +1,5 @@
+using System;
+using System.Threading.Tasks;
 using Gentings.Extensions;
 using Gentings.Identity.Permissions;
 using Microsoft.AspNetCore.Mvc;
@@ -23,6 +25,14 @@ namespace Yd.Extensions.RazorPages.Areas.OpenServices.Pages.Admin
         public void OnGet()
         {
             Applications = _applicationManager.Load(Query);
+        }
+
+        public async Task<IActionResult> OnPostDeleteAsync(Guid[] ids)
+        {
+            if (ids == null || ids.Length == 0)
+                return Error("请选择应用后再进行删除操作！");
+            var result = await _applicationManager.DeleteAsync(ids);
+            return Json(result, "应用");
         }
     }
 }

@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Gentings;
+using Gentings.Identity.Permissions;
 using Microsoft.AspNetCore.Mvc;
 using Yd.Extensions.OpenServices;
 
 namespace Yd.Extensions.RazorPages.Areas.OpenServices.Pages.Admin
 {
+    [PermissionAuthorize(Permissions.Settings)]
     public class EditModel : ModelBase
     {
         private readonly IApplicationManager _applicationManager;

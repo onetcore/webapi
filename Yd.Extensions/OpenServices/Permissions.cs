@@ -1,7 +1,6 @@
 ﻿using Gentings.Identity.Permissions;
-using Yd.Extensions.OpenServices;
 
-namespace Yd.Extensions.RazorPages.Areas.OpenServices
+namespace Yd.Extensions.OpenServices
 {
     /// <summary>
     /// 权限。
