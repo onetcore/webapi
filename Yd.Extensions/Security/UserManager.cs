@@ -194,13 +194,14 @@ namespace Yd.Extensions.Security
         /// <param name="userId">用户Id。</param>
         /// <param name="score">用户积分。</param>
         /// <param name="remark">备注。</param>
+        /// <param name="targetId">目标Id。</param>
         /// <returns>返回充值结果。</returns>
-        public virtual Task<bool> RechargeAsync(int sourceId, int userId, int score, string remark = null)
+        public virtual Task<bool> RechargeAsync(int sourceId, int userId, int score, string remark = null, int? targetId = null)
         {
             return DbContext.UserContext.BeginTransactionAsync(async db =>
            {
-               if (await db.UpdateScoreAsync(sourceId, -score, remark))
-                   return await db.UpdateScoreAsync(userId, score, remark);
+               if (await db.UpdateScoreAsync(sourceId, -score, targetId, remark))
+                   return await db.UpdateScoreAsync(userId, score, targetId, remark);
                return false;
            });
         }
@@ -258,10 +259,11 @@ namespace Yd.Extensions.Security
         /// <param name="score">用户积分。</param>
         /// <param name="remark">描述。</param>
         /// <param name="scoreType">积分使用类型。</param>
+        /// <param name="targetId">目标Id。</param>
         /// <returns>返回添加结果。</returns>
-        public virtual bool UpdateScore(int userId, int score, string remark = null, ScoreType? scoreType = null)
+        public virtual bool UpdateScore(int userId, int score, string remark = null, ScoreType? scoreType = null, int? targetId = null)
         {
-            return DbContext.UserContext.BeginTransaction(db => db.UpdateScore(userId, score, remark));
+            return DbContext.UserContext.BeginTransaction(db => db.UpdateScore(userId, score, targetId, remark));
         }
 
         /// <summary>
@@ -271,11 +273,12 @@ namespace Yd.Extensions.Security
         /// <param name="score">用户积分。</param>
         /// <param name="remark">描述。</param>
         /// <param name="scoreType">积分使用类型。</param>
+        /// <param name="targetId">目标Id。</param>
         /// <param name="cancellationToken">取消标志。</param>
         /// <returns>返回添加结果。</returns>
-        public virtual Task<bool> UpdateScoreAsync(int userId, int score, string remark = null, ScoreType? scoreType = null, CancellationToken cancellationToken = default)
+        public virtual Task<bool> UpdateScoreAsync(int userId, int score, string remark = null, ScoreType? scoreType = null, int? targetId = null, CancellationToken cancellationToken = default)
         {
-            return DbContext.UserContext.BeginTransactionAsync(db => db.UpdateScoreAsync(userId, score, remark, scoreType, cancellationToken), cancellationToken: cancellationToken);
+            return DbContext.UserContext.BeginTransactionAsync(db => db.UpdateScoreAsync(userId, score, targetId, remark, scoreType, cancellationToken), cancellationToken: cancellationToken);
         }
 
         /// <summary>

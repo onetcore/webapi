@@ -9,8 +9,8 @@ namespace Yd.Extensions.OpenServices
     /// 开发服务基类。
     /// </summary>
     [OpenService]
-    [Route("open/[controller]/[action]")]
-    public abstract class ServiceBase : Gentings.AspNetCore.ControllerBase, IOpenServices
+    [Route("open/[controller]")]
+    public abstract class ServiceControllerBase : Gentings.AspNetCore.ControllerBase, IOpenServices
     {
         private Guid? _appid;
         /// <summary>

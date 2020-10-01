@@ -65,6 +65,11 @@ namespace Yd.Extensions.Security
         public string Remark { get; set; }
 
         /// <summary>
+        /// 关联Id。
+        /// </summary>
+        public int? TargetId { get; set; }
+
+        /// <summary>
         /// 哈希码。
         /// </summary>
         protected virtual string HashedKey =>

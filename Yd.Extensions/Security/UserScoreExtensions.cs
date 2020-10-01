@@ -16,10 +16,11 @@ namespace Yd.Extensions.Security
         /// <param name="db">数据库事务接口实例。</param>
         /// <param name="userId">用户Id。</param>
         /// <param name="score">用户积分。</param>
+        /// <param name="targetId">目标Id。</param>
         /// <param name="remark">描述。</param>
         /// <param name="scoreType">积分使用类型。</param>
         /// <returns>返回添加结果。</returns>
-        public static bool UpdateScore(this IDbTransactionContext<User> db, int userId, int score, string remark = null, ScoreType? scoreType = null)
+        public static bool UpdateScore(this IDbTransactionContext<User> db, int userId, int score, int? targetId = null, string remark = null, ScoreType? scoreType = null)
         {
             var user = db.Find(userId);
             if (user == null || user.Score < score)
@@ -36,6 +37,7 @@ namespace Yd.Extensions.Security
             if (!db.Update(userId, new { user.Score, user.ScoredDate }))
                 return false;
 
+            userScore.TargetId = targetId;
             userScore.AfterScore = user.Score;
             userScore.Remark = remark;
             userScore.UserId = userId;
@@ -50,11 +52,12 @@ namespace Yd.Extensions.Security
         /// <param name="db">数据库事务接口实例。</param>
         /// <param name="userId">用户Id。</param>
         /// <param name="score">用户积分。</param>
+        /// <param name="targetId">目标Id。</param>
         /// <param name="remark">描述。</param>
         /// <param name="scoreType">积分使用类型。</param>
         /// <param name="cancellationToken">取消标志。</param>
         /// <returns>返回添加结果。</returns>
-        public static async Task<bool> UpdateScoreAsync(this IDbTransactionContext<User> db, int userId, int score, string remark = null, ScoreType? scoreType = null, CancellationToken cancellationToken = default)
+        public static async Task<bool> UpdateScoreAsync(this IDbTransactionContext<User> db, int userId, int score, int? targetId = null, string remark = null, ScoreType? scoreType = null, CancellationToken cancellationToken = default)
         {
             var user = await db.FindAsync(userId, cancellationToken);
             if (user == null || user.Score < score)
@@ -71,6 +74,7 @@ namespace Yd.Extensions.Security
             if (!await db.UpdateAsync(userId, new { user.Score, user.ScoredDate }, cancellationToken))
                 return false;
 
+            userScore.TargetId = targetId;
             userScore.AfterScore = user.Score;
             userScore.Remark = remark;
             userScore.UserId = userId;

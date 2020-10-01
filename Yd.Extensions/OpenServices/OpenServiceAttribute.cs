@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Linq;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace Yd.Extensions.OpenServices
@@ -14,7 +16,14 @@ namespace Yd.Extensions.OpenServices
         /// <param name="context">验证过滤器上下文<see cref="T:Microsoft.AspNetCore.Mvc.Filters.AuthorizationFilterContext" />实例。</param>
         public void OnAuthorization(AuthorizationFilterContext context)
         {
-
+            var allowAnonymous = context.ActionDescriptor.EndpointMetadata.Any(x => x is AllowAnonymousAttribute);
+            if (allowAnonymous)
+                return;
+            if (!context.HttpContext.User.Identity.IsAuthenticated)
+            {
+                context.Result = new ChallengeResult();
+                return;
+            }
         }
     }
 }

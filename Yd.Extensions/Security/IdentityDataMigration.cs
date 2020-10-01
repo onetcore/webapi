@@ -50,6 +50,7 @@ namespace Yd.Extensions.Security
                 .Column(x => x.SecurityKey)
                 .Column(x => x.CreatedDate)
                 .Column(x => x.Remark)
+                .Column(x => x.TargetId)
                 .ForeignKey<User>(x => x.UserId, x => x.Id, onDelete: ReferentialAction.Cascade));
             builder.CreateTable<UserAlias>(table => table
                 .Column(x => x.Id)

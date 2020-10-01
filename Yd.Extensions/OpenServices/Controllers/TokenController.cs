@@ -9,19 +9,19 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 
-namespace Yd.Extensions.OpenServices
+namespace Yd.Extensions.OpenServices.Controllers
 {
     /// <summary>
     /// Token服务。
     /// </summary>
-    public class TokenService : ServiceBase
+    public class TokenController : ServiceControllerBase
     {
         private readonly IApplicationManager _applicationManager;
         /// <summary>
-        /// 初始化类<see cref="TokenService"/>。
+        /// 初始化类<see cref="TokenController"/>。
         /// </summary>
         /// <param name="applicationManager">应用管理实例。</param>
-        public TokenService(IApplicationManager applicationManager)
+        public TokenController(IApplicationManager applicationManager)
         {
             _applicationManager = applicationManager;
         }
@@ -42,6 +42,16 @@ namespace Yd.Extensions.OpenServices
             /// </summary>
             [Required(ErrorMessage = "密钥不能为空！")]
             public string AppSecret { get; set; }
+        }
+
+        /// <summary>
+        /// 获取验证Token。
+        /// </summary>
+        /// <returns>返回Token实例。</returns>
+        [HttpGet]
+        public IActionResult Index()
+        {
+            return OkResult("成功获取Token路径！");
         }
 
         /// <summary>
