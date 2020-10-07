@@ -1,13 +1,10 @@
-﻿@{
-    var settings = SettingsManager.GetSettings<SiteSettings>();
-}
-@inject ISettingsManager SettingsManager
+﻿@inject SiteSettings Settings
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - @settings.SiteName</title>
+    <title>@ViewData["Title"] - @Settings.SiteName</title>
     <link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.min.css" />
     <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/lib/gtcore/dist/css/gtcore.min.css" />

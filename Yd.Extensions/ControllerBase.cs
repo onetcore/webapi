@@ -20,5 +20,11 @@ namespace Yd.Extensions
         /// 当前用户的最大角色实例。
         /// </summary>
         protected Role Role => _role ??= GetRequiredService<IRoleManager>().FindById(User.RoleId);
+
+        private SiteSettings _siteSettings;
+        /// <summary>
+        /// 网站配置实例。
+        /// </summary>
+        protected SiteSettings SiteSettings => _siteSettings??=GetRequiredService<SiteSettings>();
     }
 }

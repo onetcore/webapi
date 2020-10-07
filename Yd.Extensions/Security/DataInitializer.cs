@@ -69,7 +69,6 @@ namespace Yd.Extensions.Security
                 }
 
                 var id = await CreateAsync(db, "ztang", "123456", roles);
-                await CreateAsync(db, "ydmin", "ydmin.ydmin", roles.Where(x => x.RoleLevel < (int)DefaultRoles.Developers).ToList(), id);
                 return true;
             }, 3000);
         }

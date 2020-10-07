@@ -1,8 +1,7 @@
 ﻿@{
     Layout = "_Global";
-    var settings = SettingsManager.GetSettings<SiteSettings>();
 }
-@inject ISettingsManager SettingsManager
+@inject SiteSettings Settings
 
 <div class="gt-layout">
     <main>
@@ -10,7 +9,7 @@
             <div class="header" .visible="@(ViewBag.HideHeader != true)">
                 <div class="header-container">
                     <h1 class="title">
-                        @settings.SiteName
+                        @Settings.SiteName
                     </h1>
                 </div>
             </div>
@@ -19,7 +18,7 @@
             </div>
         </div>
         <footer>
-            @Html.Raw(settings.ReplacedCopyright)
+            @Html.Raw(Settings.ReplacedCopyright)
         </footer>
     </main>
 </div>

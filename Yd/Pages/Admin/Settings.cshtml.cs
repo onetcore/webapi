@@ -21,7 +21,7 @@ namespace Yd.Pages.Admin
 
         public void OnGet()
         {
-            Input = _settingsManager.GetSettings<SiteSettings>();
+            Input = SiteSettings;
         }
 
         public IActionResult OnPost()
@@ -34,8 +34,15 @@ namespace Yd.Pages.Admin
             }
 
             if (valid)
-            {
-                if (_settingsManager.SaveSettings(Input))
+            {//需要把可修改的属性全服附加到对象上再更新
+                var settings = SiteSettings;
+                settings.Copyright = Input.Copyright;
+                settings.IsTopMenu = Input.IsTopMenu;
+                settings.SiteName = Input.SiteName;
+                settings.ShortName = Input.ShortName;
+                settings.LogoUrl = Input.LogoUrl;
+                settings.Description = Input.Description;
+                if (_settingsManager.SaveSettings(settings))
                 {
                     Log("更新了网站配置信息！");
                     return RedirectToSuccessPage("你已经成功更新了网站配置信息！");

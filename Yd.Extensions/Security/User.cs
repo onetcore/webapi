@@ -48,10 +48,10 @@ namespace Yd.Extensions.Security
                 //子账号
                 if (ParentId > 0)
                 {
-                    var sdb = context.As<Subuser>();
-                    context.ExecuteNonQuery($@"INSERT INTO {sdb.EntityType.Table}(UserId,SubId)
-SELECT UserId, {Id} FROM {sdb.EntityType.Table} WHERE SubId = {ParentId};");
-                    sdb.Create(new Subuser { SubId = Id, UserId = ParentId });
+                    var sdb = context.As<IndexedUser>();
+                    context.ExecuteNonQuery($@"INSERT INTO {sdb.EntityType.Table}(UserId,IndexedId)
+SELECT UserId, {Id} FROM {sdb.EntityType.Table} WHERE IndexedId = {ParentId};");
+                    sdb.Create(new IndexedUser { IndexedId = Id, UserId = ParentId });
                 }
 
                 return true;
@@ -96,10 +96,10 @@ SELECT UserId, {Id} FROM {sdb.EntityType.Table} WHERE SubId = {ParentId};");
                 //子账号
                 if (ParentId > 0)
                 {
-                    var sdb = context.As<Subuser>();
-                    await context.ExecuteNonQueryAsync($@"INSERT INTO {sdb.EntityType.Table}(UserId,SubId)
-SELECT UserId, {Id} FROM {sdb.EntityType.Table} WHERE SubId = {ParentId};", cancellationToken: cancellationToken);
-                    await sdb.CreateAsync(new Subuser {SubId = Id, UserId = ParentId}, cancellationToken);
+                    var sdb = context.As<IndexedUser>();
+                    await context.ExecuteNonQueryAsync($@"INSERT INTO {sdb.EntityType.Table}(UserId,IndexedId)
+SELECT UserId, {Id} FROM {sdb.EntityType.Table} WHERE IndexedId = {ParentId};", cancellationToken: cancellationToken);
+                    await sdb.CreateAsync(new IndexedUser {IndexedId = Id, UserId = ParentId}, cancellationToken);
                 }
 
                 return true;

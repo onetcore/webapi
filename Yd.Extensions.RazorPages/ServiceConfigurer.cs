@@ -1,11 +1,6 @@
 ﻿using Gentings;
 using Gentings.AspNetCore;
-using Gentings.Extensions.AspNetCore.EventLogging;
-using Gentings.Extensions.Notifications;
-using Gentings.Extensions.Settings;
 using Gentings.Identity.Permissions;
-using Gentings.Storages;
-using Gentings.Tasks;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
@@ -40,12 +35,7 @@ namespace Yd.Extensions.RazorPages
                         options.MinimumSameSitePolicy = SameSiteMode.None;
                     });
             });
-            builder.AddPermissions<Role, UserRole>()
-                .AddNotification()
-                .AddEventLoggers()
-                .AddTaskServices()
-                .AddMediaStorages()
-                .AddSettings(true);
+            builder.AddPermissions<Role, UserRole>();
         }
 
         /// <summary>

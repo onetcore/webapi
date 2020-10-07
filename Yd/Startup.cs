@@ -3,12 +3,18 @@ using Gentings;
 using Gentings.AspNetCore;
 using Gentings.AspNetCore.WebSockets;
 using Gentings.Data.SqlServer;
+using Gentings.Extensions.AspNetCore.EventLogging;
+using Gentings.Extensions.Notifications;
+using Gentings.Extensions.Settings;
+using Gentings.Storages;
+using Gentings.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json.Serialization;
+using Yd.Extensions;
 
 namespace Yd
 {
@@ -25,7 +31,12 @@ namespace Yd
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddGentings(Configuration)
-                .AddSqlServer();
+                .AddSqlServer()
+                .AddNotification()
+                .AddEventLoggers()
+                .AddTaskServices()
+                .AddMediaStorages()
+                .AddSettings<SiteSettings>(true);
             services.AddMvcCore()
                 .AddNewtonsoftJson(options => options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver())
                 .AddJsonOptions(options =>

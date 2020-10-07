@@ -15,40 +15,12 @@ namespace Yd.Extensions.Security
     public interface IUserManager : IUserManager<User, Role>, IScopedService
     {
         /// <summary>
-        /// 获取缓存用户实例。
-        /// </summary>
-        /// <param name="id">用户Id。</param>
-        /// <returns>返回缓存用户实例对象。</returns>
-        CachedUser GetCachedUser(int id);
-
-        /// <summary>
-        /// 获取缓存用户实例。
-        /// </summary>
-        /// <param name="id">用户Id。</param>
-        /// <returns>返回缓存用户实例对象。</returns>
-        Task<CachedUser> GetCachedUserAsync(int id);
-
-        /// <summary>
         /// 上传头像。
         /// </summary>
         /// <param name="id">用户Id。</param>
         /// <param name="avatarFile">头像文件实例。</param>
         /// <returns>返回上传结果。</returns>
         Task<string> UploadAvatarAsync(int id, IFormFile avatarFile);
-
-        /// <summary>
-        /// 获取缓存用户实例列表。
-        /// </summary>
-        /// <param name="ids">用户Id。</param>
-        /// <returns>返回缓存用户实例对象列表。</returns>
-        IEnumerable<CachedUser> GetCachedUsers(int[] ids);
-
-        /// <summary>
-        /// 获取缓存用户实例列表。
-        /// </summary>
-        /// <param name="ids">用户Id。</param>
-        /// <returns>返回缓存用户实例对象列表。</returns>
-        Task<IEnumerable<CachedUser>> GetCachedUsersAsync(int[] ids);
 
         /// <summary>
         /// 判断消费积分是否足够。
@@ -77,20 +49,6 @@ namespace Yd.Extensions.Security
         Task<IPageEnumerable<UserScore>> LoadScoresAsync(UserScoreQuery query);
 
         /// <summary>
-        /// 通过父级Id获取用户名称和Id列表。
-        /// </summary>
-        /// <param name="parentId">父级用户Id。</param>
-        /// <returns>用户名称和Id列表。</returns>
-        Dictionary<string, int> LoadUsersByParentId(int parentId);
-
-        /// <summary>
-        /// 通过父级Id获取用户名称和Id列表。
-        /// </summary>
-        /// <param name="parentId">父级用户Id。</param>
-        /// <returns>用户名称和Id列表。</returns>
-        Task<Dictionary<string, int>> LoadUsersByParentIdAsync(int parentId);
-
-        /// <summary>
         /// 更新用户积分。
         /// </summary>
         /// <param name="userId">用户Id。</param>
@@ -112,12 +70,5 @@ namespace Yd.Extensions.Security
         /// <param name="cancellationToken">取消标志。</param>
         /// <returns>返回添加结果。</returns>
         Task<bool> UpdateScoreAsync(int userId, int score, string remark = null, ScoreType? scoreType = null, int? targetId = null, CancellationToken cancellationToken = default);
-
-        /// <summary>
-        /// 获取当前用户的所有子账户列表。
-        /// </summary>
-        /// <param name="userId">当前用户Id。</param>
-        /// <returns>返回当前用户的所有子账户列表。</returns>
-        Task<IEnumerable<GroupableUser>> LoadSubUsersAsync(int userId);
     }
 }

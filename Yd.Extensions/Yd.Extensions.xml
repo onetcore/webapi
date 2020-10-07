@@ -19,6 +19,11 @@
             当前用户的最大角色实例。
             </summary>
         </member>
+        <member name="P:Yd.Extensions.ControllerBase.SiteSettings">
+            <summary>
+            网站配置实例。
+            </summary>
+        </member>
         <member name="T:Yd.Extensions.OpenServices.Application">
             <summary>
             应用实例。
@@ -449,66 +454,6 @@
               查找类似 首页 的本地化字符串。
             </summary>
         </member>
-        <member name="T:Yd.Extensions.Security.CachedUser">
-            <summary>
-            缓存用户实例。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.Security.CachedUser.Id">
-            <summary>
-            用户Id。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.Security.CachedUser.UserName">
-            <summary>
-            用户名称。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.Security.CachedUser.Avatar">
-            <summary>
-            头像。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.Security.CachedUser.NickName">
-            <summary>
-            昵称。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.Security.CachedUser.RoleId">
-            <summary>
-            角色名称。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.Security.CachedUser.RoleName">
-            <summary>
-            角色名称。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.Security.CachedUser.RoleColor">
-            <summary>
-            角色颜色。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.Security.CachedUser.RoleIcon">
-            <summary>
-            用户角色URL地址。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.Security.CachedUser.RoleLevel">
-            <summary>
-            角色等级。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.Security.CachedUser.Email">
-            <summary>
-            电子邮件。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.Security.CachedUser.PhoneNumber">
-            <summary>
-            电话号码。
-            </summary>
-        </member>
         <member name="T:Yd.Extensions.Security.DataInitializer">
             <summary>
             用户初始化。
@@ -580,11 +525,6 @@
             </summary>
             <param name="context">查询上下文。</param>
         </member>
-        <member name="T:Yd.Extensions.Security.GroupableUser">
-            <summary>
-            分组化用户，用于获取子账户列表。
-            </summary>
-        </member>
         <member name="T:Yd.Extensions.Security.IdentityDataMigration">
             <summary>
             数据迁移类。
@@ -643,20 +583,6 @@
             用户管理接口。
             </summary>
         </member>
-        <member name="M:Yd.Extensions.Security.IUserManager.GetCachedUser(System.Int32)">
-            <summary>
-            获取缓存用户实例。
-            </summary>
-            <param name="id">用户Id。</param>
-            <returns>返回缓存用户实例对象。</returns>
-        </member>
-        <member name="M:Yd.Extensions.Security.IUserManager.GetCachedUserAsync(System.Int32)">
-            <summary>
-            获取缓存用户实例。
-            </summary>
-            <param name="id">用户Id。</param>
-            <returns>返回缓存用户实例对象。</returns>
-        </member>
         <member name="M:Yd.Extensions.Security.IUserManager.UploadAvatarAsync(System.Int32,Microsoft.AspNetCore.Http.IFormFile)">
             <summary>
             上传头像。
@@ -664,20 +590,6 @@
             <param name="id">用户Id。</param>
             <param name="avatarFile">头像文件实例。</param>
             <returns>返回上传结果。</returns>
-        </member>
-        <member name="M:Yd.Extensions.Security.IUserManager.GetCachedUsers(System.Int32[])">
-            <summary>
-            获取缓存用户实例列表。
-            </summary>
-            <param name="ids">用户Id。</param>
-            <returns>返回缓存用户实例对象列表。</returns>
-        </member>
-        <member name="M:Yd.Extensions.Security.IUserManager.GetCachedUsersAsync(System.Int32[])">
-            <summary>
-            获取缓存用户实例列表。
-            </summary>
-            <param name="ids">用户Id。</param>
-            <returns>返回缓存用户实例对象列表。</returns>
         </member>
         <member name="M:Yd.Extensions.Security.IUserManager.IsEnoughAsync(System.Int32,System.Int32)">
             <summary>
@@ -705,20 +617,6 @@
             <param name="query">用户积分查询实例。</param>
             <returns>返回用户积分列表。</returns>
         </member>
-        <member name="M:Yd.Extensions.Security.IUserManager.LoadUsersByParentId(System.Int32)">
-            <summary>
-            通过父级Id获取用户名称和Id列表。
-            </summary>
-            <param name="parentId">父级用户Id。</param>
-            <returns>用户名称和Id列表。</returns>
-        </member>
-        <member name="M:Yd.Extensions.Security.IUserManager.LoadUsersByParentIdAsync(System.Int32)">
-            <summary>
-            通过父级Id获取用户名称和Id列表。
-            </summary>
-            <param name="parentId">父级用户Id。</param>
-            <returns>用户名称和Id列表。</returns>
-        </member>
         <member name="M:Yd.Extensions.Security.IUserManager.UpdateScore(System.Int32,System.Int32,System.String,System.Nullable{Yd.Extensions.Security.ScoreType},System.Nullable{System.Int32})">
             <summary>
             更新用户积分。
@@ -741,13 +639,6 @@
             <param name="targetId">目标Id。</param>
             <param name="cancellationToken">取消标志。</param>
             <returns>返回添加结果。</returns>
-        </member>
-        <member name="M:Yd.Extensions.Security.IUserManager.LoadSubUsersAsync(System.Int32)">
-            <summary>
-            获取当前用户的所有子账户列表。
-            </summary>
-            <param name="userId">当前用户Id。</param>
-            <returns>返回当前用户的所有子账户列表。</returns>
         </member>
         <member name="T:Yd.Extensions.Security.LoginDirection">
             <summary>
@@ -842,6 +733,27 @@
             <param name="context">数据库事务操作实例。</param>
             <param name="cancellationToken">取消标志。</param>
             <returns>返回操作结果，返回<c>true</c>表示操作成功，将自动提交事务，如果<c>false</c>或发生错误，则回滚事务。</returns>
+        </member>
+        <member name="M:Yd.Extensions.Security.Roles.Role.AddUsersToDefaultRole(Gentings.Data.Internal.IDbTransactionContext{Yd.Extensions.Security.Roles.Role})">
+            <summary>
+            如果当前角色是默认角色，将所有用户添加到角色中。
+            </summary>
+            <param name="context">当前事务实例。</param>
+        </member>
+        <member name="M:Yd.Extensions.Security.Roles.Role.AddUsersToDefaultRoleAsync(Gentings.Data.Internal.IDbTransactionContext{Yd.Extensions.Security.Roles.Role},System.Threading.CancellationToken)">
+            <summary>
+            如果当前角色是默认角色，将所有用户添加到角色中。
+            </summary>
+            <param name="context">当前事务实例。</param>
+            <param name="cancellationToken">取消标识。</param>
+        </member>
+        <member name="M:Yd.Extensions.Security.Roles.Role.GetAddUsersToRoleSQL(System.String,System.String)">
+            <summary>
+            获取将用户添加到角色中的SQL语句。
+            </summary>
+            <param name="userRoleTable">用户角色关联表格。</param>
+            <param name="userTable">用户表格。</param>
+            <returns>返回SQL语句。</returns>
         </member>
         <member name="M:Yd.Extensions.Security.Roles.Role.OnUpdate(Gentings.Data.Internal.IDbTransactionContext{Yd.Extensions.Security.Roles.Role})">
             <summary>
@@ -992,21 +904,6 @@
             配置服务。
             </summary>
             <param name="builder">容器构建实例。</param>
-        </member>
-        <member name="T:Yd.Extensions.Security.Subuser">
-            <summary>
-            子用户索引表格。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.Security.Subuser.UserId">
-            <summary>
-            用户Id。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.Security.Subuser.SubId">
-            <summary>
-            子用户Id。
-            </summary>
         </member>
         <member name="T:Yd.Extensions.Security.User">
             <summary>
@@ -1190,30 +1087,6 @@
             <param name="errors">错误实例。</param>
             <param name="serviceProvider">服务提供者接口。</param>
         </member>
-        <member name="M:Yd.Extensions.Security.UserManager.GetCachedUser(System.Int32)">
-            <summary>
-            获取缓存用户实例。
-            </summary>
-            <param name="id">用户Id。</param>
-            <returns>返回缓存用户实例对象。</returns>
-        </member>
-        <member name="P:Yd.Extensions.Security.UserManager.CachedUsers">
-            <summary>
-            缓存用户实例。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.Security.UserManager.CachedQueryable">
-            <summary>
-            缓存查询实例。
-            </summary>
-        </member>
-        <member name="M:Yd.Extensions.Security.UserManager.GetCachedUserAsync(System.Int32)">
-            <summary>
-            获取缓存用户实例。
-            </summary>
-            <param name="id">用户Id。</param>
-            <returns>返回缓存用户实例对象。</returns>
-        </member>
         <member name="M:Yd.Extensions.Security.UserManager.UploadAvatarAsync(System.Int32,Microsoft.AspNetCore.Http.IFormFile)">
             <summary>
             上传头像。
@@ -1221,27 +1094,6 @@
             <param name="id">用户Id。</param>
             <param name="avatarFile">头像文件实例。</param>
             <returns>返回上传结果。</returns>
-        </member>
-        <member name="M:Yd.Extensions.Security.UserManager.Converter(System.Data.Common.DbDataReader)">
-            <summary>
-            转换实例。
-            </summary>
-            <param name="reader">数据库读取器。</param>
-            <returns>返回缓存用户实例。</returns>
-        </member>
-        <member name="M:Yd.Extensions.Security.UserManager.GetCachedUsers(System.Int32[])">
-            <summary>
-            获取缓存用户实例列表。
-            </summary>
-            <param name="ids">用户Id。</param>
-            <returns>返回缓存用户实例对象列表。</returns>
-        </member>
-        <member name="M:Yd.Extensions.Security.UserManager.GetCachedUsersAsync(System.Int32[])">
-            <summary>
-            获取缓存用户实例列表。
-            </summary>
-            <param name="ids">用户Id。</param>
-            <returns>返回缓存用户实例对象列表。</returns>
         </member>
         <member name="M:Yd.Extensions.Security.UserManager.IsEnoughAsync(System.Int32,System.Int32)">
             <summary>
@@ -1269,20 +1121,6 @@
             <param name="query">用户积分查询实例。</param>
             <returns>返回用户积分列表。</returns>
         </member>
-        <member name="M:Yd.Extensions.Security.UserManager.LoadUsersByParentId(System.Int32)">
-            <summary>
-            通过父级Id获取用户名称和Id列表。
-            </summary>
-            <param name="parentId">父级用户Id。</param>
-            <returns>用户名称和Id列表。</returns>
-        </member>
-        <member name="M:Yd.Extensions.Security.UserManager.LoadUsersByParentIdAsync(System.Int32)">
-            <summary>
-            通过父级Id获取用户名称和Id列表。
-            </summary>
-            <param name="parentId">父级用户Id。</param>
-            <returns>用户名称和Id列表。</returns>
-        </member>
         <member name="M:Yd.Extensions.Security.UserManager.UpdateScore(System.Int32,System.Int32,System.String,System.Nullable{Yd.Extensions.Security.ScoreType},System.Nullable{System.Int32})">
             <summary>
             更新用户积分。
@@ -1305,13 +1143,6 @@
             <param name="targetId">目标Id。</param>
             <param name="cancellationToken">取消标志。</param>
             <returns>返回添加结果。</returns>
-        </member>
-        <member name="M:Yd.Extensions.Security.UserManager.LoadSubUsersAsync(System.Int32)">
-            <summary>
-            获取当前用户的所有子账户列表。
-            </summary>
-            <param name="userId">当前用户Id。</param>
-            <returns>返回当前用户的所有子账户列表。</returns>
         </member>
         <member name="T:Yd.Extensions.Security.UserQuery">
             <summary>

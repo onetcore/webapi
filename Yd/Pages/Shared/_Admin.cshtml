@@ -1,21 +1,20 @@
 ﻿@{
     Layout = "_Global";
-    var settings = SettingsManager.GetSettings<SiteSettings>();
     var notifications = NotificationManager.Load();
     var notificationSize = notifications.Count(x => x.Status == NotificationStatus.New);
     var events = EventManager.LoadMessages(Current.Id);
-    ViewBag.ClassName = settings.IsTopMenu ? "gt-skin gt-topmenu" : "gt-skin";
+    ViewBag.ClassName = Settings.IsTopMenu ? "gt-skin gt-topmenu" : "gt-skin";
 }
 @inject User Current
-@inject ISettingsManager SettingsManager
+@inject SiteSettings Settings
 @inject INotificationManager NotificationManager
 @inject IEventManager EventManager
 
 <div class="navbar d-print-none">
     <div class="logo">
         <a asp-page="/admin/index" asp-area="">
-            <img src="@(settings.LogoUrl??"/images/logo.svg")" alt="@settings.SiteName" />
-            <h1>@(settings.ShortName ?? settings.SiteName)</h1>
+            <img src="@(Settings.LogoUrl??"/images/logo.svg")" alt="@Settings.SiteName" />
+            <h1>@(Settings.ShortName ?? Settings.SiteName)</h1>
         </a>
     </div>
     <gt:permission-menu class="nav js-menu" provider="admin"></gt:permission-menu>
@@ -23,11 +22,11 @@
 <div class="mini-bg"></div>
 <main>
     <header class="d-print-none">
-        <div .visible="@settings.IsTopMenu" class="navbar d-print-none">
+        <div .visible="@Settings.IsTopMenu" class="navbar d-print-none">
             <div class="logo">
                 <a asp-page="/admin/index" asp-area="">
-                    <img src="@(settings.LogoUrl??"/images/logo.svg")" alt="@settings.SiteName" />
-                    <h1>@(settings.ShortName ?? settings.SiteName)</h1>
+                    <img src="@(Settings.LogoUrl??"/images/logo.svg")" alt="@Settings.SiteName" />
+                    <h1>@(Settings.ShortName ?? Settings.SiteName)</h1>
                 </a>
             </div>
             <gt:permission-menu class="nav js-menu" provider="admin"></gt:permission-menu>
@@ -112,7 +111,7 @@
         </div>
     </div>
     <footer>
-        @Html.Raw(settings.ReplacedCopyright)
+        @Html.Raw(Settings.ReplacedCopyright)
     </footer>
 </main>
 

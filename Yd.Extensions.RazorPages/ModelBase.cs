@@ -25,6 +25,12 @@ namespace Yd.Extensions.RazorPages
         /// </summary>
         public Role Role => _role ??= GetRequiredService<IRoleManager>().GetCacheRole(User.RoleId);
 
+        private SiteSettings _siteSettings;
+        /// <summary>
+        /// 网站配置实例。
+        /// </summary>
+        public SiteSettings SiteSettings => _siteSettings ??= GetRequiredService<SiteSettings>();
+
         /// <summary>
         /// 返回JSON试图结果。
         /// </summary>
