@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Gentings;
 using Gentings.Identity.Permissions;
 using Microsoft.AspNetCore.Mvc;
-using Yd.Extensions.OpenServices;
+using Yd.Extensions.Controllers.OpenServices;
 
 namespace Yd.Extensions.RazorPages.Areas.OpenServices.Pages.Admin
 {
@@ -32,6 +32,11 @@ namespace Yd.Extensions.RazorPages.Areas.OpenServices.Pages.Admin
                 ModelState.AddModelError("Input.Name", "名称不能为空！");
                 return Error();
             }
+            if (Input.UserId == 0)
+            {
+                ModelState.AddModelError("Input.UserId", "请选择用户后再进行操作！");
+                return Error();
+            }
 
             var application = await _applicationManager.FindAsync(Input.Id);
             if (application != null)
@@ -45,13 +50,8 @@ namespace Yd.Extensions.RazorPages.Areas.OpenServices.Pages.Admin
             {
                 application = Input;
             }
-            if (Input.UserId == 0)
-            {
-                ModelState.AddModelError("Input.UserId", "请选择用户后再进行操作！");
-                return Error();
-            }
 
-            var result = await _applicationManager.SaveAsync(Input);
+            var result = await _applicationManager.SaveAsync(application);
             LogResult(result, Input.Name);
             return Json(result, Input.Name);
         }

@@ -23,6 +23,4 @@
     <ProjectReference Include="..\Yd.Extensions\Yd.Extensions.csproj" />
     <ProjectReference Include="..\Yd.Projects\Yd.Projects.csproj" />
   </ItemGroup>
-
-  <ProjectExtensions><VisualStudio><UserProperties properties_4launchsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
 </Project>

@@ -5,3 +5,43 @@
 .max50 {
     max-width: 50%;
 }
+
+pre.prettyprint {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+    pre.prettyprint .linenums li {
+        list-style-type: decimal;
+        background-color: transparent;
+    }
+
+    pre.prettyprint .com {
+        color: #28a745;
+    }
+
+.test-result {
+    position: relative;
+    height: 200px;
+}
+
+    .test-result:after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 2px 5px;
+        content: '返回代码';
+        font-size: 12px;
+        border-left: 1px solid #dcdcdc;
+        border-bottom: 1px solid #dcdcdc;
+        border-bottom-left-radius: 5px;
+        background-color: #dcdcdc;
+    }
+
+    .test-result > pre {
+        height: 200px;
+    }
+
+.focus-none:focus {
+    outline: 0;
+}

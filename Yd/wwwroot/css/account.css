@@ -1,2 +1,16 @@
-﻿body {
+﻿pre.prettyprint .linenums li {
+    list-style-type: decimal;
+    background-color: transparent;
+}
+
+pre.prettyprint .com {
+    color: #28a745;
+}
+
+.max-250 {
+    max-width: 250px;
+}
+
+.max50 {
+    max-width: 50%;
 }

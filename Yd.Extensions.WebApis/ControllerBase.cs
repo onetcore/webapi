@@ -8,7 +8,7 @@ namespace Yd.Extensions.WebApis
     /// </summary>
     [ApiController]
     [Route("api/[controller]")]
-    public abstract class ControllerBase : Extensions.ControllerBase
+    public abstract class ControllerBase : Controllers.ControllerBase
     {
     }
 
@@ -16,22 +16,21 @@ namespace Yd.Extensions.WebApis
     /// 控制器基类。
     /// </summary>
     [Authorize]
+    [ApiController]
+    [Area("account")]
+    [Route("api/[account]/[controller]")]
+    public abstract class AccountControllerBase : Controllers.ControllerBase
+    {
+    }
+
+    /// <summary>
+    /// 控制器基类。
+    /// </summary>
+    [Authorize]
+    [ApiController]
     [Area("admin")]
     [Route("api/[area]/[controller]")]
-    public abstract class AdminControllerBase : ControllerBase
+    public abstract class AdminControllerBase : Controllers.ControllerBase
     {
-
     }
-
-    /// <summary>
-    /// 控制器基类。
-    /// </summary>
-    [Authorize]
-    [Area("account")]
-    [Route("api/[area]/[controller]")]
-    public abstract class AccountControllerBase : ControllerBase
-    {
-
-    }
-
 }

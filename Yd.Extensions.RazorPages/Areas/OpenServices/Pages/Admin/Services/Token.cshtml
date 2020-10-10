@@ -1,0 +1,18 @@
+﻿@page
+@model TokenModel
+@{
+    ViewBag.Title = "设置Token";
+    Layout = "_Modal";
+}
+
+<textarea id="token" class="form-control focus-none customScrollBar" rows="10"></textarea>
+
+<script type="text/javascript">
+    var token = sessionStorage.getItem("token");
+    $('#token').val(token);
+</script>
+
+@section footer
+{
+    <button type="button" onclick="tester.token(this)" class="btn btn-primary"><i class="fa fa-unlock"></i> 设置</button>
+}

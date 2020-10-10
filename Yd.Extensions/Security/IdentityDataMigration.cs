@@ -36,10 +36,6 @@ namespace Yd.Extensions.Security
         public override void Up1(MigrationBuilder builder)
         {
             base.Up1(builder);
-            builder.CreateTable<IndexedUser>(table => table
-                .Column(x => x.UserId)
-                .Column(x => x.IndexedId)
-                .ForeignKey<User>(x => x.UserId, x => x.Id, onDelete: ReferentialAction.Cascade));
             builder.CreateTable<UserScore>(table => table
                 .Column(x => x.Id)
                 .Column(x => x.UserId)

@@ -2,6 +2,7 @@
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using Gentings.Extensions.Emails;
+using Gentings.Storages;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Yd.Extensions.Security;
@@ -74,6 +75,12 @@ namespace Yd.Extensions.RazorPages.Areas.Security.Pages
             returnUrl = returnUrl ?? Url.Content("~/");
             if (ModelState.IsValid)
             {
+                if (Settings.ValidCode && !HttpContext.IsCodeValid("register", Input.Code))
+                {
+                    ModelState.AddModelError("Input.Code", "验证码不正确！");
+                    return Page();
+                }
+
                 var user = new User();
                 user.UserName = Input.UserName;
                 user.NormalizedUserName = _userManager.NormalizeName(Input.UserName);

@@ -69,7 +69,7 @@ namespace Yd.Extensions.WebApis.Security.Login
                 var captcha = await _captchaManager.GetCaptchaAsync(model.Mobile, "login");
                 if (captcha == null)
                     return BadResult(ErrorCode.InvalidCaptcha);
-                if (captcha.CaptchaExpiredDate <= DateTimeOffset.Now)
+                if (captcha.ExpiredDate <= DateTimeOffset.Now)
                     return BadResult(ErrorCode.CaptchExpired);
                 if (!captcha.Code.Equals(model.Captcha, StringComparison.OrdinalIgnoreCase))
                     return BadResult(ErrorCode.InvalidCaptcha);

@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Gentings.Extensions.Settings;
+using Gentings.Storages;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -59,15 +60,13 @@ namespace Yd.Extensions.RazorPages.Areas.Security.Pages
         {
             if (ModelState.IsValid)
             {
-                var settings = await _settingsManager.GetSettingsAsync<SecuritySettings>();
-#if !DEBUG
-                if (settings.ValidCode && !HttpContext.IsCodeValid("login", Input.Code))
+                if (Settings.ValidCode && !HttpContext.IsCodeValid("login", Input.Code))
                 {
                     ModelState.AddModelError("Input.Code", "验证码不正确！");
                     return Page();
                 }
-#endif
-                returnUrl ??= Url.GetDirection(settings.LoginDirection);
+
+                returnUrl ??= Url.GetDirection(Settings.LoginDirection);
                 Input.UserName = Input.UserName.Trim();
                 Input.Password = Input.Password.Trim();
 

@@ -1,5 +1,4 @@
 ﻿@page
-
 @model IndexModel
 @{
     ViewBag.Title = "应用程序列表";
@@ -9,16 +8,14 @@
 <div class="gt-toolbar mb-3">
     <form class="form-inline" method="get">
         <gt:toolbar-btn-group>
-            <gt:enum-dropdownlist class="form-control form-control-sm" for="Query.Status" default-text="请选择状态"></gt:enum-dropdownlist>
         </gt:toolbar-btn-group>
         <gt:toolbar-form-group>
-            <label>AppId：</label>
-            <input asp-for="Query.AppId" />
+            <input placeholder="AppId" asp-for="Query.AppId" />
         </gt:toolbar-form-group>
         <gt:toolbar-form-group>
-            <label>名称：</label>
             <gt:toolbar-input-group>
-                <input asp-for="Query.Name" />
+                <input placeholder="名称" asp-for="Query.Name" />
+                <gt:enum-dropdownlist class="form-control form-control-sm" for="Query.Status" default-text="请选择状态"></gt:enum-dropdownlist>
                 <gt:append-search />
             </gt:toolbar-input-group>
         </gt:toolbar-form-group>
@@ -35,8 +32,8 @@
             <tr>
                 <th class="checkbox-only"><gt:checkall></gt:checkall></th>
                 <th>应用名称</th>
-                <th>所属用户</th>
-                <th>添加时间/过期时间</th>
+                <th width="100px">所属用户</th>
+                <th width="150px">添加时间/过期时间</th>
             </tr>
         </thead>
         <tbody class="data-content">
@@ -55,11 +52,11 @@
                             </div>
                         </div>
                         <div class="text-secondary">@Html.Raw(app.Summary)</div>
-                        <div><i>AppId：</i><span class="label alert alert-info">@app.Id</span></div>
-                        <div><i>AppSecret：</i><span class="label alert alert-info">@app.AppSecret</span></div>
+                        <div><i>AppId：</i><input type="text" readonly="readonly" value="@app.Id" class="label alert alert-info focus-none" style="width: 250px" /></div>
+                        <div><i>AppSecret：</i><input type="text" readonly="readonly" class="label alert alert-info focus-none" value="@app.AppSecret" style="width: 250px"/></div>
                     </td>
                     <td>@(app["NickName"])</td>
-                    <td>添加：<gt:datetimeoffset date="@app.CreatedDate"></gt:datetimeoffset><br/>过期：<gt:datetimeoffset date="@app.ExpiredDate"></gt:datetimeoffset></td>
+                    <td>添加：@app.CreatedDate.ToString("yyyy-MM-dd")<br />过期：@app.ExpiredDate.ToString("yyyy-MM-dd")</td>
                 </tr>
             }
             <gt:warning-tabled colspan="4" attach="Model.Applications">还没有找到任何应用程序！</gt:warning-tabled>

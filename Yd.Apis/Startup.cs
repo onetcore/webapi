@@ -58,6 +58,7 @@ namespace Yd.Apis
                 {
                     options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
                     options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+                    options.JsonSerializerOptions.WriteIndented = true;
                 })
                 .AddApiExplorer();
             AddJwtBearer(services);

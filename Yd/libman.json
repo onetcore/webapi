@@ -6,11 +6,12 @@
       "library": "jquery@3.4.1",
       "destination": "wwwroot/lib/jquery/",
       "files": [
+        "jquery.js",
         "jquery.min.js"
       ]
     },
     {
-      "library": "twitter-bootstrap@4.4.1",
+      "library": "twitter-bootstrap@4.5.2",
       "destination": "wwwroot/lib/bootstrap/",
       "files": [
         "js/bootstrap.bundle.min.js",
