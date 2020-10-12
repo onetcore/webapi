@@ -6,7 +6,7 @@ var tester = {
         var method = current.attr('method');
         var url = current.attr('action') || location.href;
         var headers = {};
-        if (widows.$token) headers = { 'Authorization': 'Bearer ' + widows.$token };
+        if (window.$token) headers = { 'Authorization': 'Bearer ' + window.$token };
         var formData = new FormData(current[0]);
         var data = {};
         if (method === 'GET') {

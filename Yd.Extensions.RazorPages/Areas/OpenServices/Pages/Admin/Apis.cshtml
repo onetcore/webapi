@@ -17,35 +17,35 @@
                 @foreach (var api in doc.Value)
                 {
                     index++;
-                    var service = Model.ServiceManager.GetOrCreate(api.HttpMethod.Method, api.RouteTemplate, () => new OpenService
+                    var service = Model.ServiceManager.GetOrCreate(api.HttpMethod, api.RouteTemplate, () => new OpenService
                     {
                         Category = api.GroupName,
                         Description = api.Summary?.Summary,
-                        HttpMethod = api.HttpMethod.Method,
+                        HttpMethod = api.HttpMethod,
                         Route = api.RouteTemplate
                     });
                     <div class="media text-muted pt-3">
                         <div class="mr-2 text-white rounded position-relative" style="background-color: @(api.HttpMethod.GetColor()); font-size: 12px; width: 32px; height: 32px; overflow: hidden;">
-                            <span class="b-span">@api.HttpMethod.ToString().ToUpper()</span>
+                            <span class="b-span">@api.HttpMethod</span>
                         </div>
                         <div .class-border-bottom="@(index<count)" class="media-body pb-3 mb-0 small lh-125 d-flex flex-row">
                             <div class="flex-auto">
                                 <div class="d-flex">
-                                    <a js-modal="click" asp-page="./Test" asp-route-method="@api.HttpMethod.Method" asp-route-id="@api.RouteTemplate"><strong class="d-block">@@@api.RouteTemplate</strong></a>
+                                    <a js-modal="click" asp-page="./Services/Test" asp-route-method="@api.HttpMethod" asp-route-id="@api.RouteTemplate"><strong class="d-block">@@@api.RouteTemplate</strong></a>
                                     <a .visible="@(!api.IsAnonymous)" class="text-success ml-1" title="需要登录验证" .icon="fa-lock"></a>
                                 </div>
                                 @api.Summary?.Summary
                                 @foreach (var parameter in api.Parameters)
                                 {
                                     <div class="mt-2">
-                                        @parameter.Name:{
-                                        @if (parameter.ParameterType.IsLinkable())
+                                        @parameter.Name<span class="text-danger" .visible="@parameter.IsRequired">*</span>: {
+                                        @if (parameter.Type.IsLinkable())
                                         {
-                                            <a asp-page="./Type" asp-route-type="@parameter.ParameterType.FullName">@parameter.ParameterType.GetRealTypeName()</a>
+                                            <a asp-page="./Services/Type" asp-route-type="@parameter.Type.FullName">@parameter.Type.GetRealTypeName()</a>
                                         }
                                         else
                                         {
-                                            <span>@parameter.ParameterType.GetRealTypeName()</span>
+                                            <span>@parameter.Type.GetRealTypeName()</span>
                                         }
                                         } @api.GetParameterDescriptor(parameter.Name)?.Summary
                                     </div>

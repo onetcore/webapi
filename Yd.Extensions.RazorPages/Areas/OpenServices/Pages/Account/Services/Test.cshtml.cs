@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Yd.Extensions.Controllers;
 using Yd.Extensions.Controllers.OpenServices;
 
-namespace Yd.Extensions.RazorPages.Areas.OpenServices.Pages.Admin.Services
+namespace Yd.Extensions.RazorPages.Areas.OpenServices.Pages.Account.Services
 {
     /// <summary>
     /// µ÷ÊÔ´°¿Ú¡£

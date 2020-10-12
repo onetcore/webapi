@@ -1,0 +1,50 @@
+﻿@page
+@model IndexModel
+@{
+    ViewBag.Title = "应用程序列表";
+    ViewBag.Current = "apps";
+}
+
+<div class="gt-toolbar mb-3">
+    <gt:toolbar-btn-group right="true">
+        <a js-checked="post" js-confirm="你确定要删除所选择的应用吗？" asp-page-handler="Delete"><i class="fa fa-trash-o"></i> 删除</a>
+        <a js-modal="click" asp-page="./Edit"><i class="fa fa-plus"></i> 添加应用</a>
+    </gt:toolbar-btn-group>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-striped table-bordered data-view">
+        <thead>
+            <tr>
+                <th class="checkbox-only"><gt:checkall></gt:checkall></th>
+                <th>应用名称</th>
+                <th width="100px">所属用户</th>
+                <th width="150px">添加时间/过期时间</th>
+            </tr>
+        </thead>
+        <tbody class="data-content">
+            @foreach (var app in Model.Applications)
+            {
+                <tr>
+                    <td class="checkbox-only"><gt:checkbox value="@app.Id"></gt:checkbox></td>
+                    <td>
+                        <div>
+                            <span .class-alert-success="@(app.Status == ApplicationStatus.Normal)" .class-alert-danger="@(app.Status != ApplicationStatus.Normal)" class="label alert">@Model.Localizer.GetString(app.Status)</span>
+                            <b>@app.Name</b>
+                            <div class="data-action">
+                                <a js-modal="click" asp-page="./Edit" asp-route-id="@app.Id"><i class="fa fa-pencil"></i> 编辑</a> 
+                                <a js-confirm="你确定要删除“@app.Name”吗？" js-action="post" asp-page-handler="Delete" asp-route-ids="@app.Id"><i class="fa fa-trash-o"></i> 删除</a>
+                            </div>
+                        </div>
+                        <div class="text-secondary">@Html.Raw(app.Summary)</div>
+                        <div><i>AppId：</i><input type="text" readonly="readonly" value="@app.Id" class="label alert alert-info focus-none" style="width: 250px" /></div>
+                        <div><i>AppSecret：</i><input type="text" readonly="readonly" class="label alert alert-info focus-none" value="@app.AppSecret" style="width: 250px"/></div>
+                    </td>
+                    <td>@(app["NickName"])</td>
+                    <td>添加：@app.CreatedDate.ToString("yyyy-MM-dd")<br />过期：@app.ExpiredDate.ToString("yyyy-MM-dd")</td>
+                </tr>
+            }
+            <gt:warning-tabled colspan="4" attach="Model.Applications">还没有找到任何应用程序！</gt:warning-tabled>
+        </tbody>
+    </table>
+</div>

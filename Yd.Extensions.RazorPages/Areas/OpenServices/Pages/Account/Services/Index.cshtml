@@ -15,7 +15,6 @@
         <div .class-show="pane" .class-active="pane" class="tab-pane fade show active" id="@doc.Key">
             @foreach (var api in doc.Value)
             {
-                index++;
                 var service = Model.ServiceManager.GetOrCreate(api.HttpMethod, api.RouteTemplate, () => new OpenService
                 {
                     Category = api.GroupName,
@@ -23,6 +22,8 @@
                     HttpMethod = api.HttpMethod,
                     Route = api.RouteTemplate
                 });
+                if (Model.Services.Contains(service.Id)) { continue; }
+                index++;
                 <div class="media text-muted pt-3">
                     <div class="mr-2 text-white rounded position-relative" style="background-color: @(api.HttpMethod.GetColor()); font-size: 12px; width: 32px; height: 32px; overflow: hidden;">
                         <span class="b-span">@api.HttpMethod</span>

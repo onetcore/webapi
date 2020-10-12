@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Linq;
-using System.Reflection;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc.Controllers;
-using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.Extensions.Caching.Memory;
 using Gentings.Extensions;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Yd.Extensions.Controllers.Documents;
 
 namespace Yd.Extensions.Controllers
@@ -16,13 +15,13 @@ namespace Yd.Extensions.Controllers
     public abstract class DocumentManagerBase : IDocumentManagerBase
     {
         private readonly IMemoryCache _cache;
-        private readonly IActionDescriptorCollectionProvider _provider;
+        private readonly IApiDescriptionGroupCollectionProvider _provider;
         /// <summary>
         /// 初始化类<see cref="DocumentManagerBase"/>。
         /// </summary>
         /// <param name="cache">缓存接口。</param>
         /// <param name="provider">Action描述实例提供者。</param>
-        protected DocumentManagerBase(IMemoryCache cache, IActionDescriptorCollectionProvider provider)
+        protected DocumentManagerBase(IMemoryCache cache, IApiDescriptionGroupCollectionProvider provider)
         {
             _cache = cache;
             _provider = provider;
@@ -37,23 +36,27 @@ namespace Yd.Extensions.Controllers
             return _cache.GetOrCreate(typeof(ApiDescriptor), ctx =>
             {
                 ctx.SetDefaultAbsoluteExpiration();
-                return _provider.ActionDescriptors.Items
-                    .Select(x => x as ControllerActionDescriptor)
-                    .Where(x => x != null)
+                return _provider.ApiDescriptionGroups.Items
+                    .SelectMany(x => x.Items)
                     .Where(IsValidated)
-                    .Select(x => new ApiDescriptor
+                    .Select(x =>
                     {
-                        GroupName = x.ControllerTypeInfo.GetCustomAttribute<ApiServiceAttribute>()?.GroupName ?? "core",
-                        ControllerName = x.ControllerName,
-                        Assembly = new AssemblyInfo(x.ControllerTypeInfo.Assembly),
-                        ActionName = x.ActionName,
-                        DisplayName = x.DisplayName,
-                        RouteTemplate = x.AttributeRouteInfo.Template.ToLower(),
-                        HttpMethod = x.MethodInfo.GetHttpMethod(),
-                        RouteValues = x.RouteValues,
-                        Parameters = x.Parameters,
-                        Summary = x.MethodInfo.GetSummary(),
-                        IsAnonymous = x.IsAnonymous(),
+                        var controller = x.ActionDescriptor as ControllerActionDescriptor;
+                        return new ApiDescriptor
+                        {
+                            GroupName = x.GroupName ?? "core",
+                            ControllerName = controller.ControllerName,
+                            Assembly = new AssemblyInfo(controller.ControllerTypeInfo.Assembly),
+                            ActionName = controller.ActionName,
+                            DisplayName = controller.DisplayName,
+                            RouteTemplate = x.RelativePath.ToLower(),
+                            HttpMethod = x.HttpMethod,
+                            RouteValues = controller.RouteValues,
+                            ResponseTypes = x.SupportedResponseTypes,
+                            Parameters = x.ParameterDescriptions,
+                            Summary = controller.MethodInfo.GetSummary(),
+                            IsAnonymous = controller.IsAnonymous(),
+                        };
                     })
                     .OrderBy(x => x.Assembly.AssemblyName)
                     .ThenBy(x => x.ControllerName)
@@ -66,10 +69,9 @@ namespace Yd.Extensions.Controllers
         /// </summary>
         /// <param name="descriptor">控制器操作实例。</param>
         /// <returns>返回判断结果。</returns>
-        protected virtual bool IsValidated(ControllerActionDescriptor descriptor)
+        protected virtual bool IsValidated(ApiDescription descriptor)
         {
-            var settings = descriptor.ControllerTypeInfo.GetCustomAttribute<ApiServiceAttribute>();
-            return settings?.IgnoreApi != true;
+            return true;
         }
 
         /// <summary>

@@ -1,4 +1,5 @@
-﻿using Gentings.AspNetCore;
+﻿using Gentings;
+using Gentings.AspNetCore;
 
 namespace Yd.Extensions.Controllers.OpenServices.Controllers
 {
@@ -14,5 +15,10 @@ namespace Yd.Extensions.Controllers.OpenServices.Controllers
         public TokenResult(string data) : base(data)
         {
         }
+
+        /// <summary>
+        /// 用于返回特性使用。
+        /// </summary>
+        public TokenResult() : base(Cores.GeneralKey(512)) { }
     }
 }

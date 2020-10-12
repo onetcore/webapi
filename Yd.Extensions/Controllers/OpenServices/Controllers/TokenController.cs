@@ -41,8 +41,8 @@ namespace Yd.Extensions.Controllers.OpenServices.Controllers
         /// <param name="input">验证模型实例。</param>
         /// <returns>返回Token实例。</returns>
         [HttpPost]
+        [ApiResult(typeof(TokenResult))]
         [AllowAnonymous]
-        [ApiDataResult(typeof(TokenResult))]
         public async Task<IActionResult> Index([FromBody] TokenModel input)
         {
             if (!ModelState.IsValid)

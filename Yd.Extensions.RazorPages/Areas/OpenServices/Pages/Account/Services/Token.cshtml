@@ -1,0 +1,10 @@
+﻿@page
+@model TokenModel
+@{
+    ViewBag.Title = "设置Token";
+    Layout = "_Modal";
+}
+
+<form method="post">
+    <textarea asp-for="Input.Token" class="form-control focus-none customScrollBar" rows="10" style="font-size: 12px"></textarea>
+</form>

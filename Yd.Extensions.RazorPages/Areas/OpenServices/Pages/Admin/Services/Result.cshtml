@@ -1,0 +1,22 @@
+﻿@page
+@model ResultModel
+@{
+    ViewBag.Title = $"[{Model.ApiDescriptor.HttpMethod}] {Model.ApiDescriptor.RouteTemplate}";
+    ViewBag.HideFooter = true;
+    ViewBag.ClassName = "modal-fullbody";
+    Layout = "_Modal";
+}
+
+<div class="bg-white rounded shadow-sm test-result border-top customScrollBar">
+    @foreach (var responseType in Model.ApiDescriptor.ResponseTypes)
+    {
+        <pre class="prettyprint border-0 linenums w-100">@responseType.Type.ToJsonString("null")</pre>
+    }
+</div>
+
+<script type="text/javascript">
+    $('.prettyprint').each(function () {
+        $(this).html(JSON.format($(this).html()));
+    });
+    prettyPrint();
+</script>

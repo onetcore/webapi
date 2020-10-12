@@ -1,4 +1,6 @@
-﻿using System.Reflection;
+﻿using System.Linq;
+using System.Reflection;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.Extensions.Caching.Memory;
@@ -15,7 +17,7 @@ namespace Yd.Extensions.Controllers.OpenServices
         /// </summary>
         /// <param name="cache">缓存接口。</param>
         /// <param name="provider">Action描述实例提供者。</param>
-        public ServiceDocumentManager(IMemoryCache cache, IActionDescriptorCollectionProvider provider) : base(cache, provider)
+        public ServiceDocumentManager(IMemoryCache cache, IApiDescriptionGroupCollectionProvider provider) : base(cache, provider)
         {
         }
 
@@ -24,10 +26,10 @@ namespace Yd.Extensions.Controllers.OpenServices
         /// </summary>
         /// <param name="descriptor">控制器操作实例。</param>
         /// <returns>返回判断结果。</returns>
-        protected override bool IsValidated(ControllerActionDescriptor descriptor)
+        protected override bool IsValidated(ApiDescription descriptor)
         {
             if (base.IsValidated(descriptor))
-                return descriptor.ControllerTypeInfo.IsDefined(typeof(OpenServiceAttribute));
+                return descriptor.ActionDescriptor.EndpointMetadata.Any(x => x is OpenServiceAttribute);
             return false;
         }
     }

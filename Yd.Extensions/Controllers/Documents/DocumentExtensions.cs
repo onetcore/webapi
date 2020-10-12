@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Net.Http;
 using System.Reflection;
-using Microsoft.AspNetCore.Mvc;
 
 namespace Yd.Extensions.Controllers.Documents
 {
@@ -10,28 +8,6 @@ namespace Yd.Extensions.Controllers.Documents
     /// </summary>
     public static class DocumentExtensions
     {
-        /// <summary>
-        /// 获取HTTP请求方法。
-        /// </summary>
-        /// <param name="info">当前方法实例。</param>
-        /// <returns>返回HTTP请求方法。</returns>
-        public static HttpMethod GetHttpMethod(this MemberInfo info)
-        {
-            if (info.IsDefined(typeof(HttpPostAttribute)))
-                return HttpMethod.Post;
-            if (info.IsDefined(typeof(HttpPutAttribute)))
-                return HttpMethod.Put;
-            if (info.IsDefined(typeof(HttpDeleteAttribute)))
-                return HttpMethod.Delete;
-            if (info.IsDefined(typeof(HttpHeadAttribute)))
-                return HttpMethod.Head;
-            if (info.IsDefined(typeof(HttpPatchAttribute)))
-                return HttpMethod.Patch;
-            if (info.IsDefined(typeof(HttpOptionsAttribute)))
-                return HttpMethod.Options;
-            return HttpMethod.Get;
-        }
-
         /// <summary>
         /// 获取方法注释。
         /// </summary>
@@ -48,21 +24,21 @@ namespace Yd.Extensions.Controllers.Documents
         /// </summary>
         /// <param name="method">HTTP请求方法。</param>
         /// <returns>返回HTTP请求方法颜色。</returns>
-        public static string GetColor(this HttpMethod method)
+        public static string GetColor(this string method)
         {
-            if (method == HttpMethod.Post)
+            if (method == "POST")
                 return "#28a745";
-            if (method == HttpMethod.Get)
+            if (method == "GET")
                 return "#007bff";
-            if (method == HttpMethod.Delete)
+            if (method == "DELETE")
                 return "#dc3545";
-            if (method == HttpMethod.Put)
+            if (method == "PUT")
                 return "#d39e00";
-            if (method == HttpMethod.Head)
+            if (method == "HEAD")
                 return "#0062cc";
-            if (method == HttpMethod.Patch)
+            if (method == "PATCH")
                 return "#17a2b8";
-            if (method == HttpMethod.Options)
+            if (method == "OPTIONS")
                 return "#adb5bd";
             return "#007bff";
         }

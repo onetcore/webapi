@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Net.Http;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Yd.Extensions.Controllers.Documents;
 
 namespace Yd.Extensions.Controllers
@@ -48,7 +48,7 @@ namespace Yd.Extensions.Controllers
         /// <summary>
         /// HTTP方法。
         /// </summary>
-        public HttpMethod HttpMethod { get; set; }
+        public string HttpMethod { get; set; }
 
         /// <summary>
         /// 是否需要登录验证。
@@ -63,7 +63,7 @@ namespace Yd.Extensions.Controllers
         /// <summary>
         /// 参数描述实例。
         /// </summary>
-        public IList<Microsoft.AspNetCore.Mvc.Abstractions.ParameterDescriptor> Parameters { get; set; }
+        public IList<ApiParameterDescription> Parameters { get; set; }
 
         /// <summary>
         /// 获取参数描述信息。
@@ -78,6 +78,11 @@ namespace Yd.Extensions.Controllers
                 return descriptor;
             return null;
         }
+
+        /// <summary>
+        /// 返回类型实例。
+        /// </summary>
+        public IList<ApiResponseType> ResponseTypes { get; set; }
 
         /// <summary>
         /// 实现对比接口。

@@ -71,6 +71,11 @@
             <param name="parameterName">参数名称。</param>
             <returns>返回参数描述信息实例。</returns>
         </member>
+        <member name="P:Yd.Extensions.Controllers.ApiDescriptor.ResponseTypes">
+            <summary>
+            返回类型实例。
+            </summary>
+        </member>
         <member name="M:Yd.Extensions.Controllers.ApiDescriptor.Equals(Yd.Extensions.Controllers.ApiDescriptor,Yd.Extensions.Controllers.ApiDescriptor)">
             <summary>
             实现对比接口。
@@ -103,14 +108,14 @@
             API文档管理类。
             </summary>
         </member>
-        <member name="M:Yd.Extensions.Controllers.ApiDocumentManager.#ctor(Microsoft.Extensions.Caching.Memory.IMemoryCache,Microsoft.AspNetCore.Mvc.Infrastructure.IActionDescriptorCollectionProvider)">
+        <member name="M:Yd.Extensions.Controllers.ApiDocumentManager.#ctor(Microsoft.Extensions.Caching.Memory.IMemoryCache,Microsoft.AspNetCore.Mvc.ApiExplorer.IApiDescriptionGroupCollectionProvider)">
             <summary>
             初始化类<see cref="T:Yd.Extensions.Controllers.ApiDocumentManager"/>。
             </summary>
             <param name="cache">缓存接口。</param>
             <param name="provider">Action描述实例提供者。</param>
         </member>
-        <member name="M:Yd.Extensions.Controllers.ApiDocumentManager.IsValidated(Microsoft.AspNetCore.Mvc.Controllers.ControllerActionDescriptor)">
+        <member name="M:Yd.Extensions.Controllers.ApiDocumentManager.IsValidated(Microsoft.AspNetCore.Mvc.ApiExplorer.ApiDescription)">
             <summary>
             判断是否符合当前文档实例。
             </summary>
@@ -135,6 +140,14 @@
             </summary>
             <param name="descriptor">操作描述实例。</param>
             <returns>返回判断结果。</returns>
+        </member>
+        <member name="M:Yd.Extensions.Controllers.ApiExtensions.ToJsonString(System.Type,System.String)">
+            <summary>
+            获取当前类型实例的JSON字符串。
+            </summary>
+            <param name="type">类型实例。</param>
+            <param name="defaultValue">默认字符串。</param>
+            <returns>返回JSON字符串。</returns>
         </member>
         <member name="T:Yd.Extensions.Controllers.ApiServiceAttribute">
             <summary>
@@ -210,7 +223,7 @@
             接口管理实现基类。
             </summary>
         </member>
-        <member name="M:Yd.Extensions.Controllers.DocumentManagerBase.#ctor(Microsoft.Extensions.Caching.Memory.IMemoryCache,Microsoft.AspNetCore.Mvc.Infrastructure.IActionDescriptorCollectionProvider)">
+        <member name="M:Yd.Extensions.Controllers.DocumentManagerBase.#ctor(Microsoft.Extensions.Caching.Memory.IMemoryCache,Microsoft.AspNetCore.Mvc.ApiExplorer.IApiDescriptionGroupCollectionProvider)">
             <summary>
             初始化类<see cref="T:Yd.Extensions.Controllers.DocumentManagerBase"/>。
             </summary>
@@ -223,7 +236,7 @@
             </summary>
             <returns>返回API描述列表。</returns>
         </member>
-        <member name="M:Yd.Extensions.Controllers.DocumentManagerBase.IsValidated(Microsoft.AspNetCore.Mvc.Controllers.ControllerActionDescriptor)">
+        <member name="M:Yd.Extensions.Controllers.DocumentManagerBase.IsValidated(Microsoft.AspNetCore.Mvc.ApiExplorer.ApiDescription)">
             <summary>
             判断是否符合当前文档实例。
             </summary>
@@ -302,13 +315,6 @@
             扩展方法类型。
             </summary>
         </member>
-        <member name="M:Yd.Extensions.Controllers.Documents.DocumentExtensions.GetHttpMethod(System.Reflection.MemberInfo)">
-            <summary>
-            获取HTTP请求方法。
-            </summary>
-            <param name="info">当前方法实例。</param>
-            <returns>返回HTTP请求方法。</returns>
-        </member>
         <member name="M:Yd.Extensions.Controllers.Documents.DocumentExtensions.GetSummary(System.Reflection.MemberInfo)">
             <summary>
             获取方法注释。
@@ -316,7 +322,7 @@
             <param name="info">当前方法实例。</param>
             <returns>返回方法注释实例。</returns>
         </member>
-        <member name="M:Yd.Extensions.Controllers.Documents.DocumentExtensions.GetColor(System.Net.Http.HttpMethod)">
+        <member name="M:Yd.Extensions.Controllers.Documents.DocumentExtensions.GetColor(System.String)">
             <summary>
             获取HTTP请求方法颜色。
             </summary>
@@ -779,6 +785,11 @@
             </summary>
             <param name="data">数据实例。</param>
         </member>
+        <member name="M:Yd.Extensions.Controllers.OpenServices.Controllers.TokenResult.#ctor">
+            <summary>
+            用于返回特性使用。
+            </summary>
+        </member>
         <member name="T:Yd.Extensions.Controllers.OpenServices.ErrorCode">
             <summary>
             错误代码。
@@ -1006,14 +1017,14 @@
             开放服务文档管理实现类。
             </summary>
         </member>
-        <member name="M:Yd.Extensions.Controllers.OpenServices.ServiceDocumentManager.#ctor(Microsoft.Extensions.Caching.Memory.IMemoryCache,Microsoft.AspNetCore.Mvc.Infrastructure.IActionDescriptorCollectionProvider)">
+        <member name="M:Yd.Extensions.Controllers.OpenServices.ServiceDocumentManager.#ctor(Microsoft.Extensions.Caching.Memory.IMemoryCache,Microsoft.AspNetCore.Mvc.ApiExplorer.IApiDescriptionGroupCollectionProvider)">
             <summary>
             初始化类<see cref="T:Yd.Extensions.Controllers.OpenServices.ServiceDocumentManager"/>。
             </summary>
             <param name="cache">缓存接口。</param>
             <param name="provider">Action描述实例提供者。</param>
         </member>
-        <member name="M:Yd.Extensions.Controllers.OpenServices.ServiceDocumentManager.IsValidated(Microsoft.AspNetCore.Mvc.Controllers.ControllerActionDescriptor)">
+        <member name="M:Yd.Extensions.Controllers.OpenServices.ServiceDocumentManager.IsValidated(Microsoft.AspNetCore.Mvc.ApiExplorer.ApiDescription)">
             <summary>
             判断是否符合当前文档实例。
             </summary>
