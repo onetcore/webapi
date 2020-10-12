@@ -28,6 +28,7 @@ namespace Yd.Extensions.Controllers.OpenServices
             builder.CreateTable<OpenService>(table => table
                 .Column(x => x.Id)
                 .Column(x => x.Route)
+                .Column(x => x.HttpMethod)
                 .Column(x => x.Category)
                 .Column(x => x.Description)
                 .Column(x => x.Disabled)
@@ -38,6 +39,7 @@ namespace Yd.Extensions.Controllers.OpenServices
                 .ForeignKey<Application>(x => x.AppId, x => x.Id, onDelete: ReferentialAction.Cascade)
                 .ForeignKey<OpenService>(x => x.ServiceId, x => x.Id, onDelete: ReferentialAction.Cascade)
             );
+            builder.CreateIndex<OpenService>(x => new {x.HttpMethod, x.Route}, true);
         }
     }
 }

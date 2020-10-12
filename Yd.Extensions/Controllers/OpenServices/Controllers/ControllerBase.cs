@@ -2,7 +2,6 @@
 using System.Security.Claims;
 using Gentings;
 using Microsoft.AspNetCore.Mvc;
-using Yd.Extensions.Properties;
 
 namespace Yd.Extensions.Controllers.OpenServices.Controllers
 {
@@ -51,5 +50,11 @@ namespace Yd.Extensions.Controllers.OpenServices.Controllers
                 return _application;
             }
         }
+
+        private SiteSettings _settings;
+        /// <summary>
+        /// 网站配置实例。
+        /// </summary>
+        protected SiteSettings Settings => _settings ??= GetRequiredService<SiteSettings>();
     }
 }

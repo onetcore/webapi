@@ -7,6 +7,9 @@
 }
 
 <form method="@Model.Api.HttpMethod" action="/@Model.Api.RouteTemplate">
+    <div class="alert alert-info">
+        <i class="fa fa-info-circle"></i> @Model.Api.Summary?.Summary
+    </div>
     @foreach (var parameter in Model.Api.Parameters)
     {
         var typeDescriptor = AssemblyDocument.GetTypeDescriptor(parameter.ParameterType);
@@ -14,7 +17,7 @@
         {
             <div class="form-group form-control-sm row">
                 <label class="col-3">@(parameter.Name)：</label>
-                <input type="text" name="@parameter.Name.ToLowerCamelCase()" class="form-control form-control-sm col-5" />
+                <input type="text" name="@parameter.Name.ToLowerCamelCase()" class="form-control form-control-sm col-5"/>
                 <small class="text-secondary col-4">@Model.Api.GetParameterDescriptor(parameter.Name)?.Summary</small>
             </div>
         }
@@ -28,7 +31,7 @@
                 }
                 <div class="form-group form-control-sm row">
                     <label class="col-3">@(property.Name)：</label>
-                    <input type="text" name="@property.Name" class="form-control form-control-sm col-5" />
+                    <input type="text" name="@property.Name" class="form-control form-control-sm col-5"/>
                     <small class="text-secondary col-4">@typeDescriptor.GetPropertyDescriptor(property)?.Summary</small>
                 </div>
             }
@@ -39,7 +42,6 @@
 
 @section footer
 {
-    <a .visible="@(!Model.Api.IsAnonymous)" type="button" asp-page="./Token" js-modal="click" class="btn btn-primary"><i class="fa fa-lock"></i> Token</a>
     <button type="button" onclick="tester.submit(this)" class="btn btn-primary"><i class="fa fa-check"></i> 提交</button>
     <button type="button" onclick="tester.reset(this)" class="btn btn-danger"><i class="fa fa-check"></i> 重置</button>
 }

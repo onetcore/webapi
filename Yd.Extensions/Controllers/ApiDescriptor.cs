@@ -111,5 +111,10 @@ namespace Yd.Extensions.Controllers
             if (ReferenceEquals(null, other)) return 1;
             return string.Compare(RouteTemplate, other.RouteTemplate, StringComparison.OrdinalIgnoreCase);
         }
+
+        /// <summary>
+        /// JwtToken键。
+        /// </summary>
+        public const string JwtToken = "jwt-token";
     }
 }

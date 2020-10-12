@@ -9,14 +9,21 @@ namespace Yd.Extensions.RazorPages.Areas.OpenServices.Pages.Admin.Services
     /// </summary>
     public class IndexModel : ModelBase
     {
+        /// <summary>
+        /// 服务管理接口。
+        /// </summary>
+        public IOpenServiceManager ServiceManager { get; }
         private readonly IServiceDocumentManager _serviceManager;
+
         /// <summary>
         /// 初始化类<see cref="IndexModel"/>。
         /// </summary>
-        /// <param name="serviceManager">服务文档管理接口。</param>
-        public IndexModel(IServiceDocumentManager serviceManager)
+        /// <param name="serviceDocumentManager">服务文档管理接口。</param>
+        /// <param name="serviceManager">开放服务管理接口。</param>
+        public IndexModel(IServiceDocumentManager serviceDocumentManager, IOpenServiceManager serviceManager)
         {
-            _serviceManager = serviceManager;
+            ServiceManager = serviceManager;
+            _serviceManager = serviceDocumentManager;
         }
         /// <summary>
         /// 文档列表。

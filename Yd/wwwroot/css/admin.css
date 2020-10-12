@@ -44,4 +44,9 @@ pre.prettyprint {
 
 .focus-none:focus {
     outline: 0;
+    box-shadow: none;
+}
+
+.flex-auto {
+    flex: 1 1 auto;
 }

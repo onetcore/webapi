@@ -22,6 +22,12 @@ namespace Yd.Extensions.Controllers.OpenServices
         public string Route { get; set; }
 
         /// <summary>
+        /// 方法。
+        /// </summary>
+        [Size(20)]
+        public string HttpMethod { get; set; }
+
+        /// <summary>
         /// 分类。
         /// </summary>
         [Size(64)]

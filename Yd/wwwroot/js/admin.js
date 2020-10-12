@@ -6,8 +6,7 @@ var tester = {
         var method = current.attr('method');
         var url = current.attr('action') || location.href;
         var headers = {};
-        var token = sessionStorage.getItem('token');
-        if (token) headers = { 'Authorization': 'Bearer ' + token };
+        if (widows.$token) headers = { 'Authorization': 'Bearer ' + widows.$token };
         var formData = new FormData(current[0]);
         var data = {};
         if (method === 'GET') {
@@ -42,13 +41,6 @@ var tester = {
     reset: function (current) {
         current = $(current).parents('.modal').find('form');
         current.reset();
-    },
-    token: function (current) {
-        var modal = $(current).parents('.modal');
-        current = modal.find('#token');
-        current = $.trim(current.val());
-        sessionStorage.setItem('token', current);
-        modal.modal('hide');
     }
 };
 JSON.format = function (code) {
