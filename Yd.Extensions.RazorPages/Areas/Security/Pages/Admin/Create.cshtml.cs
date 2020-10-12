@@ -10,7 +10,7 @@ namespace Yd.Extensions.RazorPages.Areas.Security.Pages.Admin
     /// <summary>
     /// 添加用户。
     /// </summary>
-    [PermissionAuthorize(Security.Permissions.Users)]
+    [PermissionAuthorize(SecurityPermissions.Users)]
     public class CreateModel : ModelBase
     {
         private readonly IUserManager _userManager;

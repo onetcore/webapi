@@ -9,7 +9,7 @@ namespace Yd.Extensions.RazorPages.Areas.Security.Pages.Admin
     /// <summary>
     /// 锁定用户。
     /// </summary>
-    [PermissionAuthorize(Security.Permissions.Users)]
+    [PermissionAuthorize(SecurityPermissions.Users)]
     public class LockoutModel : ModelBase
     {
         private readonly IUserManager _userManager;

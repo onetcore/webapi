@@ -9,7 +9,7 @@ namespace Yd.Extensions.RazorPages.Areas.Security.Pages.Admin.Permissions
     /// <summary>
     /// 权限。
     /// </summary>
-    [PermissionAuthorize(Security.Permissions.PermissionManager)]
+    [PermissionAuthorize(SecurityPermissions.PermissionManager)]
     public class IndexModel : ModelBase
     {
         private readonly IPermissionManager _permissionManager;

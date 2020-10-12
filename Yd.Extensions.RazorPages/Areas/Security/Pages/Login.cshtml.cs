@@ -1,14 +1,13 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using Gentings.Extensions.Settings;
 using Gentings.Storages;
 using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Yd.Extensions.RazorPages.Areas.Security.Models;
 using Yd.Extensions.Security;
 
 namespace Yd.Extensions.RazorPages.Areas.Security.Pages
@@ -16,19 +15,58 @@ namespace Yd.Extensions.RazorPages.Areas.Security.Pages
     /// <summary>
     /// 登录模型。
     /// </summary>
-    [AllowAnonymous]
     public class LoginModel : ModelBase
     {
         private readonly IUserManager _userManager;
         private readonly ISettingsManager _settingsManager;
-
+        /// <summary>
+        /// 用户登录输入模型。
+        /// </summary>
         [BindProperty]
-        public SigninUser Input { get; set; }
+        public InputModel Input { get; set; }
 
+        /// <summary>
+        /// 登录用户模型。
+        /// </summary>
+        public class InputModel
+        {
+            /// <summary>
+            /// 用户名。
+            /// </summary>
+            [Required(ErrorMessage = "用户名不能为空!")]
+            public string UserName { get; set; }
+
+            /// <summary>
+            /// 密码。
+            /// </summary>
+            [Required(ErrorMessage = "密码不能为空!")]
+            [DataType(DataType.Password)]
+            public string Password { get; set; }
+
+            /// <summary>
+            /// 验证码。
+            /// </summary>
+            public string Code { get; set; }
+
+            /// <summary>
+            /// 登录状态。
+            /// </summary>
+            public bool RememberMe { get; set; }
+        }
+
+        /// <summary>
+        /// 外部登录列表。
+        /// </summary>
         public IList<AuthenticationScheme> ExternalLogins { get; set; }
 
+        /// <summary>
+        /// 返回地址。
+        /// </summary>
         public string ReturnUrl { get; set; }
 
+        /// <summary>
+        /// 错误消息。
+        /// </summary>
         [TempData]
         public string ErrorMessage { get; set; }
 
@@ -45,8 +83,7 @@ namespace Yd.Extensions.RazorPages.Areas.Security.Pages
                 ModelState.AddModelError(string.Empty, ErrorMessage);
             }
 
-            var settings = await _settingsManager.GetSettingsAsync<SecuritySettings>();
-            returnUrl ??= Url.GetDirection(settings.LoginDirection);
+            returnUrl ??= Url.GetDirection(Settings.LoginDirection);
 
             // Clear the existing external cookie to ensure a clean login process
             await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);

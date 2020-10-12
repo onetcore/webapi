@@ -11,7 +11,6 @@ namespace Yd.Pages.Admin
         public override void Init(MenuItem root)
         {
             root.AddMenu("dashboard", item => item.Texted("控制面板", "home").Page("/Admin/Index"));
-            root.AddMenu("sys", item => item.AddMenu("settings", it => it.Texted("系统配置").Page("/Admin/Settings")));
         }
     }
 }

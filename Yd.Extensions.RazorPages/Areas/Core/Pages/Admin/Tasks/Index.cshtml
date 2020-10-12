@@ -1,5 +1,4 @@
 ﻿@page
-@using Permissions = Yd.Extensions.Security.Permissions
 @model IndexModel
 @{
     ViewData["Title"] = "后台服务";
@@ -27,7 +26,7 @@
                             }
                         </a>
                         <div class="text-secondary">
-                            @Html.Raw(task.Description)<span>(@Html.Raw(task.ToIntervalDisplayString())执行<a asp-page="./Interval" asp-route-id="@task.Id" js-modal="click" .permission="@Permissions.TaskInterval" title="配置执行模式"><i class="fa fa-pencil"></i></a>)</span>
+                            @Html.Raw(task.Description)<span>(@Html.Raw(task.ToIntervalDisplayString())执行<a asp-page="./Interval" asp-route-id="@task.Id" js-modal="click" .permission="@CorePermissions.TaskInterval" title="配置执行模式"><i class="fa fa-pencil"></i></a>)</span>
                         </div>
                     </td>
                     <td>

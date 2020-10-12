@@ -1,9 +1,14 @@
 ﻿using System.Threading.Tasks;
 using Gentings.Extensions.Settings;
+using Gentings.Identity.Permissions;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Yd.Extensions.RazorPages.Areas.Core.Pages.Admin.DictionarySettings
 {
+    /// <summary>
+    /// 编辑字典。
+    /// </summary>
+    [PermissionAuthorize(CorePermissions.EditNotifier)]
     public class EditModel : ModelBase
     {
         private readonly ISettingDictionaryManager _settingManager;

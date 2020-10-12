@@ -5,7 +5,7 @@ namespace Yd.Extensions.RazorPages.Areas.Security.Pages.Admin
     /// <summary>
     /// 模型基类。
     /// </summary>
-    [PermissionAuthorize(Extensions.Security.Permissions.Administrator)]
+    [PermissionAuthorize]
     public abstract class ModelBase : Security.ModelBase
     {
 

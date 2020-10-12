@@ -1,29 +1,46 @@
 ﻿using System.Threading.Tasks;
 using Gentings.Extensions.Settings;
+using Gentings.Identity.Permissions;
 using Gentings.Storages.Media;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Yd.Extensions;
 
-namespace Yd.Pages.Admin
+namespace Yd.Extensions.RazorPages.Areas.Core.Pages.Admin
 {
+    /// <summary>
+    /// 网站配置。
+    /// </summary>
+    [PermissionAuthorize(CorePermissions.SiteSettings)]
     public class SettingsModel : ModelBase
     {
         private readonly ISettingsManager _settingsManager;
-
+        /// <summary>
+        /// 初始化类<see cref="SettingsModel"/>。
+        /// </summary>
+        /// <param name="settingsManager">配置管理接口。</param>
         public SettingsModel(ISettingsManager settingsManager)
         {
             _settingsManager = settingsManager;
         }
 
+        /// <summary>
+        /// 配置输入模型。
+        /// </summary>
         [BindProperty]
         public SiteSettings Input { get; set; }
 
+        /// <summary>
+        /// 获取当前网站配置。
+        /// </summary>
         public void OnGet()
         {
             Input = SiteSettings;
         }
 
+        /// <summary>
+        /// 保存配置实例。
+        /// </summary>
+        /// <returns>返回保存结果。</returns>
         public IActionResult OnPost()
         {
             var valid = true;
@@ -53,6 +70,11 @@ namespace Yd.Pages.Admin
             return Page();
         }
 
+        /// <summary>
+        /// 上传LOGO图片。
+        /// </summary>
+        /// <param name="file">上传文件实例。</param>
+        /// <returns>返回上传结果。</returns>
         public async Task<IActionResult> OnPostUploadAsync(IFormFile file)
         {
             var mediaDirectory = GetRequiredService<IMediaDirectory>();

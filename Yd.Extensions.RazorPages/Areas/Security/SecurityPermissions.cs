@@ -6,7 +6,7 @@ namespace Yd.Extensions.RazorPages.Areas.Security
     /// <summary>
     /// 权限。
     /// </summary>
-    public class Permissions : PermissionProvider
+    public class SecurityPermissions : PermissionProvider
     {
         /// <summary>
         /// 分类。
@@ -44,7 +44,7 @@ namespace Yd.Extensions.RazorPages.Areas.Security
         /// <summary>
         /// 权限管理权限。
         /// </summary>
-        public const string PermissionManager = "security.permissions";
+        public const string PermissionManager = "SecurityPermissions";
 
         /// <summary>
         /// 管理日志权限。

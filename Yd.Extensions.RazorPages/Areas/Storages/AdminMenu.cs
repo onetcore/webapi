@@ -1,20 +1,22 @@
 ﻿using System;
+using Gentings;
 using Gentings.AspNetCore.AdminMenus;
-using Yd.Extensions.Security;
+using Gentings.Storages.Media;
 
 namespace Yd.Extensions.RazorPages.Areas.Storages
 {
     /// <summary>
     /// 管理菜单。
     /// </summary>
-    public class AdminMenuProvider : MenuProvider
+    public class AdminMenu : MenuProvider
     {
         private readonly IServiceProvider _serviceProvider;
+
         /// <summary>
-        /// 初始化类<see cref="Yd.Extensions.RazorPages.Areas.Core.AdminMenuProvider"/>。
+        /// 初始化类<see cref="AdminMenu"/>。
         /// </summary>
-        /// <param name="serviceProvider">服务提供者接口。</param>
-        public AdminMenuProvider(IServiceProvider serviceProvider)
+        /// <param name="serviceProvider">服务提供者。</param>
+        public AdminMenu(IServiceProvider serviceProvider)
         {
             _serviceProvider = serviceProvider;
         }
@@ -30,8 +32,9 @@ namespace Yd.Extensions.RazorPages.Areas.Storages
         /// <param name="root">根目录菜单。</param>
         public override void Init(MenuItem root)
         {
-            root.AddMenu("sys", menu => menu
-                .AddMenu("storages", it => it.Texted("文件管理").Page("/Admin/Index", area: AreaName).Allow(Permissions.Storages))
+            if (_serviceProvider.IsServiceRegistered<IMediaDirectory>())
+                root.AddMenu("sys", menu => menu
+                .AddMenu("storages", it => it.Texted("文件管理").Page("/Admin/Index", area: AreaName).Allow(StoragePermissions.View))
             );
         }
     }

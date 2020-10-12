@@ -3,13 +3,14 @@ using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using Gentings.Extensions.Emails;
 using Gentings.Storages;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Yd.Extensions.Security;
 
 namespace Yd.Extensions.RazorPages.Areas.Security.Pages
 {
-    [AllowAnonymous]
+    /// <summary>
+    /// 注册。
+    /// </summary>
     public class RegisterModel : ModelBase
     {
         [BindProperty]

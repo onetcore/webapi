@@ -2,21 +2,20 @@
 using Gentings.AspNetCore.AdminMenus;
 using Gentings.Extensions.Settings;
 using Microsoft.Extensions.DependencyInjection;
-using Yd.Extensions.Security;
 
 namespace Yd.Extensions.RazorPages.Areas.Core
 {
     /// <summary>
     /// 管理菜单。
     /// </summary>
-    public class AdminMenuProvider : MenuProvider
+    public class AdminMenu : MenuProvider
     {
         private readonly IServiceProvider _serviceProvider;
         /// <summary>
-        /// 初始化类<see cref="AdminMenuProvider"/>。
+        /// 初始化类<see cref="AdminMenu"/>。
         /// </summary>
         /// <param name="serviceProvider">服务提供者接口。</param>
-        public AdminMenuProvider(IServiceProvider serviceProvider)
+        public AdminMenu(IServiceProvider serviceProvider)
         {
             _serviceProvider = serviceProvider;
         }
@@ -37,17 +36,20 @@ namespace Yd.Extensions.RazorPages.Areas.Core
                 menu.Texted("系统管理", "fa-cogs")
                     .AddMenu("tasks",
                         it => it.Texted("后台服务").Page("/Admin/Tasks/Index", area: AreaName)
-                            .Allow(Permissions.Administrator));
+                            .Allow(CorePermissions.Task));
                 menu.AddMenu("notifier",
                     it => it.Texted("通知管理").Page("/Admin/Notifications/Index", area: AreaName)
-                        .Allow(Permissions.Administrator));
+                        .Allow(CorePermissions.Notifier));
                 menu.AddMenu("sensitive",
                     it => it.Texted("敏感词汇管理").Page("/Admin/SensitiveWords/Index", area: AreaName)
-                        .Allow(Permissions.Administrator));
+                        .Allow(CorePermissions.Sensitive));
                 if (_serviceProvider.GetService<ISettingDictionaryManager>() != null)
                     menu.AddMenu("dicsettings",
                         it => it.Texted("字典管理").Page("/Admin/DictionarySettings/Index", area: AreaName)
-                            .Allow(Permissions.Administrator));
+                            .Allow(CorePermissions.DictionarySettings));
+                menu.AddMenu("settings",
+                        it => it.Texted("系统配置").Page("/Admin/Settings", area: AreaName)
+                    .Allow(CorePermissions.SiteSettings));
             });
         }
     }

@@ -7,7 +7,7 @@ namespace Yd.Extensions.RazorPages.Areas.Security.Pages.Admin.Logs
     /// <summary>
     /// 日志分类。
     /// </summary>
-    [PermissionAuthorize(Extensions.Security.Permissions.Administrator)]
+    [PermissionAuthorize(SecurityPermissions.Logs)]
     public class CategoryModel : ModelBase
     {
         private readonly IEventTypeManager _eventTypeManager;

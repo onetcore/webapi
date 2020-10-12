@@ -3,11 +3,13 @@ using System.Threading.Tasks;
 using Gentings.Identity.Permissions;
 using Gentings.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Yd.Extensions.Security;
 
 namespace Yd.Extensions.RazorPages.Areas.Core.Pages.Admin.Tasks
 {
-    [PermissionAuthorize(Permissions.TaskInterval)]
+    /// <summary>
+    /// 设置后台服务时间间隔。
+    /// </summary>
+    [PermissionAuthorize(CorePermissions.TaskInterval)]
     public class IntervalModel : ModelBase
     {
         private readonly ITaskManager _taskManager;

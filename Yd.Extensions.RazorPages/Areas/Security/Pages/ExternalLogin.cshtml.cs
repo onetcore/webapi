@@ -1,7 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Yd.Extensions.Security;
 
@@ -10,7 +9,6 @@ namespace Yd.Extensions.RazorPages.Areas.Security.Pages
     /// <summary>
     /// 外部登录模型。
     /// </summary>
-    [AllowAnonymous]
     public class ExternalLoginModel : ModelBase
     {
         private readonly IUserManager _userManager;

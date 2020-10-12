@@ -3,7 +3,7 @@
     /// <summary>
     /// 模型基类。
     /// </summary>
-    public abstract class ModelBase : Gentings.Extensions.AspNetCore.ModelBase
+    public abstract class ModelBase : RazorPages.ModelBase
     {
 
     }

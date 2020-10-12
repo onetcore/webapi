@@ -5,11 +5,13 @@ using System.Threading.Tasks;
 using Gentings.Identity.Permissions;
 using Gentings.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Yd.Extensions.Security;
 
 namespace Yd.Extensions.RazorPages.Areas.Core.Pages.Admin.Tasks
 {
-    [PermissionAuthorize(Permissions.Task)]
+    /// <summary>
+    /// 后台服务列表。
+    /// </summary>
+    [PermissionAuthorize(CorePermissions.Task)]
     public class IndexModel : ModelBase
     {
         private readonly ITaskManager _taskManager;

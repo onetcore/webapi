@@ -11,7 +11,7 @@ namespace Yd.Extensions.RazorPages.Areas.Storages.TagHelpers
     /// <summary>
     /// 扩展名称。
     /// </summary>
-    [HtmlTargetElement("gt:extension-name-dropdownlist")]
+    [HtmlTargetElement("gt:extension-dropdownlist")]
     public class ExtensionNameDropdownListTagHelper : DropdownListTagHelper
     {
         private readonly IMediaDirectory _mediaDirectory;

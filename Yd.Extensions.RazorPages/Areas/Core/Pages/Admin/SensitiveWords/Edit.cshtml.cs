@@ -1,9 +1,14 @@
 ﻿using System.Threading.Tasks;
 using Gentings.Extensions.SensitiveWords;
+using Gentings.Identity.Permissions;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Yd.Extensions.RazorPages.Areas.Core.Pages.Admin.SensitiveWords
 {
+    /// <summary>
+    /// 编辑敏感词汇。
+    /// </summary>
+    [PermissionAuthorize(CorePermissions.EditSensitive)]
     public class EditModel : ModelBase
     {
         private readonly ISensitiveWordManager _sensitiveWordManager;

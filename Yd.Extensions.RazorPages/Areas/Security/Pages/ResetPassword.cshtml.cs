@@ -1,12 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Yd.Extensions.Security;
 
 namespace Yd.Extensions.RazorPages.Areas.Security.Pages
 {
-    [AllowAnonymous]
     public class ResetPasswordModel : ModelBase
     {
         [BindProperty]

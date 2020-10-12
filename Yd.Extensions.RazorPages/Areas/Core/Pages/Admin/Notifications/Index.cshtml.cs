@@ -2,10 +2,15 @@
 using System.Linq;
 using Gentings.Extensions.Notifications;
 using Gentings.Extensions.Settings;
+using Gentings.Identity.Permissions;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Yd.Extensions.RazorPages.Areas.Core.Pages.Admin.Notifications
 {
+    /// <summary>
+    /// 通知管理。
+    /// </summary>
+    [PermissionAuthorize(CorePermissions.Notifier)]
     public class IndexModel : ModelBase
     {
         private readonly INotificationTypeManager _typeManager;

@@ -3,12 +3,17 @@ using System.Linq;
 using System.Threading.Tasks;
 using Gentings.Extensions;
 using Gentings.Extensions.SensitiveWords;
+using Gentings.Identity.Permissions;
 using Gentings.Storages;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Yd.Extensions.RazorPages.Areas.Core.Pages.Admin.SensitiveWords
 {
+    /// <summary>
+    /// 敏感词汇管理。
+    /// </summary>
+    [PermissionAuthorize(CorePermissions.Sensitive)]
     public class IndexModel : ModelBase
     {
         private readonly ISensitiveWordManager _sensitiveWordManager;

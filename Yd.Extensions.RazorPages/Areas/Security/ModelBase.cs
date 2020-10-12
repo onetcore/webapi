@@ -20,6 +20,5 @@ namespace Yd.Extensions.RazorPages.Areas.Security
         /// 事件类型。
         /// </summary>
         protected override string EventType => Resources.EventType_Users;
-
     }
 }

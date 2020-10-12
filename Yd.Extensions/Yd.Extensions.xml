@@ -1323,41 +1323,6 @@
             后台管理。
             </summary>
         </member>
-        <member name="T:Yd.Extensions.Security.Permissions">
-            <summary>
-            通用权限提供者。
-            </summary>
-        </member>
-        <member name="M:Yd.Extensions.Security.Permissions.Init">
-            <summary>
-            初始化权限实例。
-            </summary>
-        </member>
-        <member name="F:Yd.Extensions.Security.Permissions.Administrator">
-            <summary>
-            登录后台。
-            </summary>
-        </member>
-        <member name="F:Yd.Extensions.Security.Permissions.SiteSettings">
-            <summary>
-            网站配置。
-            </summary>
-        </member>
-        <member name="F:Yd.Extensions.Security.Permissions.Task">
-            <summary>
-            后台服务。
-            </summary>
-        </member>
-        <member name="F:Yd.Extensions.Security.Permissions.TaskInterval">
-            <summary>
-            配置后台服务定时模式。
-            </summary>
-        </member>
-        <member name="F:Yd.Extensions.Security.Permissions.Storages">
-            <summary>
-            文件管理。
-            </summary>
-        </member>
         <member name="T:Yd.Extensions.Security.Roles.IRoleManager">
             <summary>
             角色管理。

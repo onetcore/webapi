@@ -5,7 +5,7 @@
     ViewBag.Current = "sys.notifier";
 }
 
-<div class="gt-toolbar mb-3">
+<div class="gt-toolbar mb-3" .permission="@CorePermissions.EditNotifier">
     <gt:toolbar-btn-group right="true">
         <a js-checked="post" js-confirm="你确定要删除所选择的通知类型吗？" asp-page-handler="Delete" .icon="fa-trash-o">删除</a>
         <a js-modal="click" asp-page="./Edit" .icon="plus">添加类型</a>
@@ -20,7 +20,7 @@
                 <th>ID</th>
                 <th>图标</th>
                 <th>名称</th>
-                <th class="data-action">操作</th>
+                <th class="data-action" .permission="@CorePermissions.EditNotifier">操作</th>
             </tr>
         </thead>
         <tbody class="data-content">
@@ -31,7 +31,7 @@
                     <td>@type.Id</td>
                     <td><gt:icon class="icon-circle" src="@type.IconUrl"></gt:icon></td>
                     <td>@type.Name</td>
-                    <td class="data-action">
+                    <td class="data-action" .permission="@CorePermissions.EditNotifier">
                         <a js-modal="click" asp-page="./Edit" asp-route-id="@type.Id"><i class="fa fa-pencil"></i> 编辑</a>
                         <a js-confirm="你确定要删除“@type.Name”吗？" js-action="post" asp-page-handler="Delete" asp-route-ids="@type.Id"><i class="fa fa-trash-o"></i> 删除</a>
                     </td>

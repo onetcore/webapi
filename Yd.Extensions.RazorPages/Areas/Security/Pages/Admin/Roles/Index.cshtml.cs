@@ -11,7 +11,7 @@ namespace Yd.Extensions.RazorPages.Areas.Security.Pages.Admin.Roles
     /// <summary>
     /// 角色。
     /// </summary>
-    [PermissionAuthorize(Security.Permissions.Roles)]
+    [PermissionAuthorize(SecurityPermissions.Roles)]
     public class IndexModel : ModelBase
     {
         private readonly IRoleManager _roleManager;

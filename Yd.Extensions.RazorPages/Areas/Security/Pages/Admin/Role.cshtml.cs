@@ -10,7 +10,7 @@ namespace Yd.Extensions.RazorPages.Areas.Security.Pages.Admin
     /// <summary>
     /// 角色模型。
     /// </summary>
-    [PermissionAuthorize(Security.Permissions.Users)]
+    [PermissionAuthorize(SecurityPermissions.Users)]
     public class RoleModel : ModelBase
     {
         private readonly IUserManager _userManager;

@@ -3,8 +3,6 @@ using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using Gentings.Extensions.Emails;
 using Gentings.Storages;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Yd.Extensions.Security;
 
@@ -13,7 +11,6 @@ namespace Yd.Extensions.RazorPages.Areas.Security.Pages
     /// <summary>
     /// 忘记密码页面。
     /// </summary>
-    [AllowAnonymous]
     public class ForgotPasswordModel : ModelBase
     {
         /// <summary>

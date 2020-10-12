@@ -1,9 +1,14 @@
 ﻿using System.Linq;
 using Gentings.Extensions.Settings;
+using Gentings.Identity.Permissions;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Yd.Extensions.RazorPages.Areas.Core.Pages.Admin.DictionarySettings
 {
+    /// <summary>
+    /// 字典管理。
+    /// </summary>
+    [PermissionAuthorize(CorePermissions.EditNotifier)]
     public class IndexModel : ModelBase
     {
         private readonly ISettingDictionaryManager _settingManager;

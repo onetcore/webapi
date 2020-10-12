@@ -1,11 +1,16 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
+using Gentings.Identity.Permissions;
 using Gentings.Storages.Media;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Yd.Extensions.RazorPages.Areas.Storages.Pages.Admin
 {
+    /// <summary>
+    /// 重命名。
+    /// </summary>
+    [PermissionAuthorize(StoragePermissions.Rename)]
     public class EditModel : ModelBase
     {
         private readonly IMediaDirectory _mediaDirectory;

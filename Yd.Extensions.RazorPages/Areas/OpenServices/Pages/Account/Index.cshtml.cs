@@ -1,13 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Gentings.Identity.Permissions;
 using Microsoft.AspNetCore.Mvc;
 using Yd.Extensions.Controllers.OpenServices;
 
 namespace Yd.Extensions.RazorPages.Areas.OpenServices.Pages.Account
 {
-    [PermissionAuthorize(Permissions.OpenServices)]
     public class IndexModel : ModelBase
     {
         private readonly IApplicationManager _applicationManager;

@@ -10,7 +10,7 @@ namespace Yd.Extensions.RazorPages.Areas.Security.Pages.Admin.Logs
     /// <summary>
     /// 日志。
     /// </summary>
-    [PermissionAuthorize(Security.Permissions.Logs)]
+    [PermissionAuthorize(SecurityPermissions.Logs)]
     public class IndexModel : ModelBase
     {
         private readonly IEventManager _eventManager;

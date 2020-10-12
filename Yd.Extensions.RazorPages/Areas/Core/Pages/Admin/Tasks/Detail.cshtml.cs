@@ -1,8 +1,13 @@
-﻿using Gentings.Tasks;
+﻿using Gentings.Identity.Permissions;
+using Gentings.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Yd.Extensions.RazorPages.Areas.Core.Pages.Admin.Tasks
 {
+    /// <summary>
+    /// 后台服务详情。
+    /// </summary>
+    [PermissionAuthorize(CorePermissions.Task)]
     public class DetailModel : ModelBase
     {
         private readonly ITaskManager _taskManager;

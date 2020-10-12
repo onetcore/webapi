@@ -1,9 +1,14 @@
 ﻿using System.Threading.Tasks;
 using Gentings.Extensions.Notifications;
+using Gentings.Identity.Permissions;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Yd.Extensions.RazorPages.Areas.Core.Pages.Admin.Notifications
 {
+    /// <summary>
+    /// 编辑通知。
+    /// </summary>
+    [PermissionAuthorize(CorePermissions.EditNotifier)]
     public class EditModel : ModelBase
     {
         private readonly INotificationTypeManager _typeManager;

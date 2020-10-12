@@ -7,7 +7,7 @@ using Yd.Extensions.Security;
 
 namespace Yd.Extensions.RazorPages.Areas.Security.Pages.Admin
 {
-    [PermissionAuthorize(Security.Permissions.Users)]
+    [PermissionAuthorize(SecurityPermissions.Users)]
     public class EditModel : ModelBase
     {
         private readonly IUserManager _userManager;

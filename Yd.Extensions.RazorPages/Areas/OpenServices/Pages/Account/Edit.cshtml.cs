@@ -7,7 +7,7 @@ using Yd.Extensions.Controllers.OpenServices;
 
 namespace Yd.Extensions.RazorPages.Areas.OpenServices.Pages.Account
 {
-    [PermissionAuthorize(Permissions.Settings)]
+    [PermissionAuthorize(OpenServicePermissions.Create)]
     public class EditModel : ModelBase
     {
         private readonly IApplicationManager _applicationManager;

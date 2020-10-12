@@ -15,11 +15,11 @@ namespace Yd.Extensions.RazorPages.Areas.Security
         public override void Init(MenuItem root)
         {
             root.AddMenu("users", item => item.Texted("用户管理", "fa-users").Page("/Admin/Index", area: SecuritySettings.ExtensionName)
-                .AddMenu("index", it => it.Texted("用户列表").Page("/Admin/Index", area: SecuritySettings.ExtensionName).Allow(Permissions.Users))
-                .AddMenu("roles", it => it.Texted("角色列表").Page("/Admin/Roles/Index", area: SecuritySettings.ExtensionName).Allow(Permissions.Roles))
-                .AddMenu("permissions", it => it.Texted("权限列表").Page("/Admin/Permissions/Index", area: SecuritySettings.ExtensionName).Allow(Permissions.PermissionManager))
-                .AddMenu("logs", it => it.Texted("日志管理").Page("/Admin/Logs/Index", area: SecuritySettings.ExtensionName).Allow(Permissions.Logs))
-                .AddMenu("settings", it => it.Texted("用户配置").Page("/Admin/Settings", area: SecuritySettings.ExtensionName).Allow(Permissions.Settings))
+                .AddMenu("index", it => it.Texted("用户列表").Page("/Admin/Index", area: SecuritySettings.ExtensionName).Allow(SecurityPermissions.Users))
+                .AddMenu("roles", it => it.Texted("角色列表").Page("/Admin/Roles/Index", area: SecuritySettings.ExtensionName).Allow(SecurityPermissions.Roles))
+                .AddMenu("permissions", it => it.Texted("权限列表").Page("/Admin/Permissions/Index", area: SecuritySettings.ExtensionName).Allow(SecurityPermissions.PermissionManager))
+                .AddMenu("logs", it => it.Texted("日志管理").Page("/Admin/Logs/Index", area: SecuritySettings.ExtensionName).Allow(SecurityPermissions.Logs))
+                .AddMenu("settings", it => it.Texted("用户配置").Page("/Admin/Settings", area: SecuritySettings.ExtensionName).Allow(SecurityPermissions.Settings))
             );
             root.AddMenu("account", item => item.Texted("账号管理", "fa-user").Page("/Admin/User/Index", area: SecuritySettings.ExtensionName)
                 .AddMenu("index", it => it.Texted("编辑资料").Page("/Admin/User/Index", area: SecuritySettings.ExtensionName))

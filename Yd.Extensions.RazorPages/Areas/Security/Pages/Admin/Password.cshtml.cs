@@ -10,7 +10,7 @@ namespace Yd.Extensions.RazorPages.Areas.Security.Pages.Admin
     /// <summary>
     /// 设置密码。
     /// </summary>
-    [PermissionAuthorize(Security.Permissions.Users)]
+    [PermissionAuthorize(SecurityPermissions.Users)]
     public class PasswordModel : ModelBase
     {
         private readonly IUserManager _userManager;

@@ -1,9 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
+using Gentings.Identity.Permissions;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Yd.Extensions.Controllers;
 using Yd.Extensions.Controllers.OpenServices;
 
@@ -12,6 +11,7 @@ namespace Yd.Extensions.RazorPages.Areas.OpenServices.Pages.Admin
     /// <summary>
     /// 开放服务模型。
     /// </summary>
+    [PermissionAuthorize(OpenServicePermissions.Setting)]
     public class ApisModel : ModelBase
     {
         /// <summary>

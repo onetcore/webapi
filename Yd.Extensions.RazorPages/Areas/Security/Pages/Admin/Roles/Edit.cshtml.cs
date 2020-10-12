@@ -7,7 +7,7 @@ using Yd.Extensions.Security.Roles;
 
 namespace Yd.Extensions.RazorPages.Areas.Security.Pages.Admin.Roles
 {
-    [PermissionAuthorize(Security.Permissions.Roles)]
+    [PermissionAuthorize(SecurityPermissions.Roles)]
     public class EditModel : ModelBase
     {
         private readonly IRoleManager _roleManager;
