@@ -19,7 +19,7 @@
                 <th class="checkbox-only"><gt:checkall></gt:checkall></th>
                 <th>标识</th>
                 <th>值</th>
-                <th class="data-action">操作</th>
+                <th width="120px">操作</th>
             </tr>
         </thead>
         <tbody class="data-content">
@@ -27,7 +27,7 @@
             {
                 <tr>
                     <td colspan="4">
-                        <a class="text-dark" title="@Model.Current.Value" asp-route-id="@Model.Current.ParentId">@Model.Current.Path <i class="fa fa-level-up"></i></a>
+                        <a title="点击访问父级项目" class="text-dark" title="@Model.Current.Value" asp-route-id="@Model.Current.ParentId">@Model.Current.Path <i class="fa fa-level-up"></i></a>
                     </td>
                 </tr>
             }
@@ -36,10 +36,17 @@
                 <tr>
                     <td class="checkbox-only"><gt:checkbox value="@setting.Id"></gt:checkbox></td>
                     <td>
-                        <a title="点击访问子项目" class="text-dark" asp-route-id="@setting.Id">@(setting.Path) <i class="fa fa-level-down"></i></a>
+                        @if (setting.Count > 0)
+                        {
+                            <a title="点击访问子项目" class="text-dark" asp-route-id="@setting.Id">@(setting.Path) <i class="fa fa-level-down"></i></a>
+                        }
+                        else
+                        {
+                            @(setting.Path)
+                        }
                     </td>
                     <td>@setting.Value</td>
-                    <td class="data-action">
+                    <td>
                         <a js-modal="click" asp-page="./Edit" asp-route-id="@setting.Id"><i class="fa fa-pencil"></i> 编辑</a>
                         <a asp-route-pid="@Model.Current.Id" js-confirm="你确定要删除“@setting.Name”吗？" js-action="post" asp-page-handler="Delete" asp-route-ids="@setting.Id"><i class="fa fa-trash-o"></i> 删除</a>
                     </td>

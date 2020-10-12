@@ -68,8 +68,8 @@
                 <div class="text-secondary">用于替换登录页面的背景图片</div>
             </td>
             <td class="align-middle text-right border-left-0">
-                <input type="hidden" asp-for="Input.LoginBg" />
-                <img class="login-bg" title="点击上传" data-toggle="uploader" src="@Model.Input.LoginBg" />
+                <input class="uploaded" type="hidden" asp-for="Input.LoginBg" />
+                <img class="login-bg uploaded" title="点击上传" js-upload="@Url.Page("./Settings", "Upload")" src="@Model.Input.LoginBg" />
             </td>
         </tr>
         </tbody>
@@ -77,7 +77,6 @@
     <div class="form-group">
         <button type="submit" class="btn btn-outline-secondary">提交</button>
     </div>
-    <input js-uploader="@Url.Page("./Settings", "Upload")" type="file" class="hide" />
 </form>
 
 @section header

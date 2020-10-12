@@ -19,11 +19,11 @@ namespace Yd.Extensions.RazorPages.Areas.Storages.Pages.Admin
         [BindProperty(SupportsGet = true)]
         public MediaQuery Query { get; set; }
 
-        public IPageEnumerable<MediaFile> Model { get; private set; }
+        public IPageEnumerable<MediaFile> Files { get; private set; }
 
         public async Task<IActionResult> OnGetAsync()
         {
-            Model = await _mediaDirectory.LoadAsync(Query);
+            Files = await _mediaDirectory.LoadAsync(Query);
             return Page();
         }
 

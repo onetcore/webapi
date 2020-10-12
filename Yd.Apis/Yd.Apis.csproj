@@ -26,7 +26,6 @@
     <ProjectReference Include="..\..\Gentings\Gentings\Gentings.csproj" />
     <ProjectReference Include="..\Yd.Extensions.WebApis\Yd.Extensions.WebApis.csproj" />
     <ProjectReference Include="..\Yd.Extensions\Yd.Extensions.csproj" />
-    <ProjectReference Include="..\Yd.Projects\Yd.Projects.csproj" />
   </ItemGroup>
   
   <ItemGroup>

@@ -21,6 +21,5 @@
     <ProjectReference Include="..\..\Gentings\Gentings\Gentings.csproj" />
     <ProjectReference Include="..\Yd.Extensions.RazorPages\Yd.Extensions.RazorPages.csproj" />
     <ProjectReference Include="..\Yd.Extensions\Yd.Extensions.csproj" />
-    <ProjectReference Include="..\Yd.Projects\Yd.Projects.csproj" />
   </ItemGroup>
 </Project>
