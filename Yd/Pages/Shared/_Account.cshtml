@@ -12,7 +12,7 @@
 
 <div class="navbar d-print-none">
     <div class="logo">
-        <a asp-page="/admin/index" asp-area="">
+        <a asp-page="/account/index" asp-area="">
             <img src="@(Settings.LogoUrl??"/images/logo.svg")" alt="@Settings.SiteName" />
             <h1>@(Settings.ShortName ?? Settings.SiteName)</h1>
         </a>
@@ -74,7 +74,7 @@
                                 }
                             </div>
                             <div class="dropdown-panel-action">
-                                <a href="/Security/Account/Log">更多</a>
+                                <a asp-page="/account/user/log" asp-area="@SecuritySettings.ExtensionName">更多</a>
                             </div>
                         </div>
                     </div>
@@ -85,9 +85,9 @@
                     <img class="avatar" src="@Current.Avatar" title="@Current.NickName"> @Current.NickName
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" asp-page="/admin/user/index" asp-area="@SecuritySettings.ExtensionName"><i class="fa fa-user-o"></i>编辑资料</a>
-                    <a class="dropdown-item" asp-page="/admin/user/changepassword" asp-area="@SecuritySettings.ExtensionName"><i class="fa fa-key"></i>修改密码</a>
-                    <a class="dropdown-item" asp-page="/admin/user/log" asp-area="@SecuritySettings.ExtensionName"><i class="fa fa-envelope"></i>活动日志</a>
+                    <a class="dropdown-item" asp-page="/account/user/index" asp-area="@SecuritySettings.ExtensionName"><i class="fa fa-user-o"></i>编辑资料</a>
+                    <a class="dropdown-item" asp-page="/account/user/changepassword" asp-area="@SecuritySettings.ExtensionName"><i class="fa fa-key"></i>修改密码</a>
+                    <a class="dropdown-item" asp-page="/account/user/log" asp-area="@SecuritySettings.ExtensionName"><i class="fa fa-envelope"></i>活动日志</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" asp-controller="Account" asp-action="Logout" asp-area=""><i class="fa fa-sign-out"></i>退出</a>
                 </div>
@@ -97,7 +97,7 @@
     <div class="main">
         <div class="header" .visible="@(ViewBag.HideHeader != true)">
             <div class="header-container">
-                <gt:menu-navigator class="d-print-none" home="控制面板" href="@Url.Page("/admin/index")" provider="admin"></gt:menu-navigator>
+                <gt:menu-navigator class="d-print-none" home="控制面板" href="@Url.Page("/account/index")" provider="account"></gt:menu-navigator>
                 @*<h1 class="title">@ViewBag.Title</h1>*@
                 @if (ViewBag.Description != null)
                 {
