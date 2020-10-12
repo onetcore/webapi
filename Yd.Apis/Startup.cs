@@ -5,7 +5,6 @@ using System.Text.Json;
 using Gentings;
 using Gentings.AspNetCore;
 using Gentings.Data.SqlServer;
-using Gentings.Extensions.Settings;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -47,8 +46,7 @@ namespace Yd.Apis
         {
             services.AddMemoryCache();
             services.AddGentings(Configuration)
-                    .AddSqlServer()
-                    .AddSettings(true);
+                    .AddSqlServer();
             services.AddMvcCore()
                 .AddNewtonsoftJson(options =>
                 {

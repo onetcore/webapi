@@ -1,6 +1,7 @@
 ﻿using System.Linq;
+using Gentings.AspNetCore;
 using Gentings.Identity;
-using Gentings.Storages.Media;
+using Gentings.Storages;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Yd.Extensions.Security;
@@ -11,7 +12,7 @@ namespace Yd.Extensions.RazorPages
     /// <summary>
     /// 页面模型基类。
     /// </summary>
-    public abstract class ModelBase : Gentings.Extensions.AspNetCore.ModelBase
+    public abstract class ModelBase : Gentings.Extensions.ModelBase
     {
         private User _user;
         /// <summary>
@@ -53,5 +54,13 @@ namespace Yd.Extensions.RazorPages
                 return Success(new { result.Url });
             return Error(result.Message);
         }
+
+        /// <summary>
+        /// 判断验证码。
+        /// </summary>
+        /// <param name="key">当前唯一键。</param>
+        /// <param name="code">验证码。</param>
+        /// <returns>返回判断结果。</returns>
+        protected bool IsCodeValid(string key, string code) => HttpContext.IsCodeValid(key, code);
     }
 }

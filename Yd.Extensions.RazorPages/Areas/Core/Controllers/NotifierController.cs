@@ -9,7 +9,7 @@ namespace Yd.Extensions.RazorPages.Areas.Core.Controllers
     /// 通知控制器。
     /// </summary>
     [Authorize]
-    public class NotifierController : Gentings.AspNetCore.ControllerBase
+    public class NotifierController : Extensions.Controllers.ControllerBase
     {
         private readonly INotificationManager _notificationManager;
 

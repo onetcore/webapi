@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Gentings.Extensions.Settings;
-using Gentings.Storages.Media;
+using Gentings.Storages;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Yd.Extensions.Security;

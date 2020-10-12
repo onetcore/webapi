@@ -3,7 +3,7 @@ using Gentings;
 using Gentings.AspNetCore;
 using Gentings.AspNetCore.WebSockets;
 using Gentings.Data.SqlServer;
-using Gentings.Extensions.AspNetCore.EventLogging;
+using Gentings.Extensions.EventLogging;
 using Gentings.Extensions.Notifications;
 using Gentings.Extensions.Settings;
 using Gentings.Storages;
@@ -14,7 +14,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json.Serialization;
-using Yd.Extensions;
 
 namespace Yd
 {
@@ -36,7 +35,7 @@ namespace Yd
                 .AddEventLoggers()
                 .AddTaskServices()
                 .AddMediaStorages()
-                .AddSettings<SiteSettings>(true);
+                .AddSettingDictionary();
             services.AddMvcCore()
                 .AddNewtonsoftJson(options => options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver())
                 .AddJsonOptions(options =>

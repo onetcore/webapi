@@ -1,10 +1,7 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Gentings.Extensions;
 using Gentings.Extensions.SensitiveWords;
 using Gentings.Identity.Permissions;
-using Gentings.Storages;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,24 +14,39 @@ namespace Yd.Extensions.RazorPages.Areas.Core.Pages.Admin.SensitiveWords
     public class IndexModel : ModelBase
     {
         private readonly ISensitiveWordManager _sensitiveWordManager;
-        private readonly IStorageDirectory _storageDirectory;
-
-        public IndexModel(ISensitiveWordManager sensitiveWordManager, IStorageDirectory storageDirectory)
+        /// <summary>
+        /// 初始化类<see cref="IndexModel"/>。
+        /// </summary>
+        /// <param name="sensitiveWordManager">敏感词汇管理接口。</param>
+        public IndexModel(ISensitiveWordManager sensitiveWordManager)
         {
             _sensitiveWordManager = sensitiveWordManager;
-            _storageDirectory = storageDirectory;
         }
 
+        /// <summary>
+        /// 敏感词汇查询实例。
+        /// </summary>
         [BindProperty(SupportsGet = true)]
         public SensitiveWordQuery Query { get; set; }
 
+        /// <summary>
+        /// 敏感词汇查询列表。
+        /// </summary>
         public IPageEnumerable<SensitiveWord> Words { get; set; }
 
+        /// <summary>
+        /// 获取敏感词汇。
+        /// </summary>
         public void OnGet()
         {
             Words = _sensitiveWordManager.Load(Query);
         }
 
+        /// <summary>
+        /// 删除敏感词汇。
+        /// </summary>
+        /// <param name="ids">词汇Id列表。</param>
+        /// <returns>返回删除结果。</returns>
         public IActionResult OnPostDelete(int[] ids)
         {
             if (ids == null || ids.Length == 0)
@@ -43,22 +55,20 @@ namespace Yd.Extensions.RazorPages.Areas.Core.Pages.Admin.SensitiveWords
             return Json(result, "敏感词汇");
         }
 
+        /// <summary>
+        /// 上传文件导入敏感词汇。
+        /// </summary>
+        /// <param name="file">上传文件实例。</param>
+        /// <returns>返回上传结果。</returns>
         public async Task<IActionResult> OnPostUploadAsync(IFormFile file)
         {
             if (file.Length == 0)
                 return Error("请选择有内容的文件后再上传！");
-            var tempFile = await _storageDirectory.SaveToTempAsync(file);
-            var text = await StorageUtility.ReadTextAsync(tempFile.FullName);
-            if (string.IsNullOrWhiteSpace(text))
-                return Error("文件内容为空字符串，请重新上传！");
-            var words = text.Trim().Split(new string[] {"\r\n", "\n"}, StringSplitOptions.RemoveEmptyEntries)
-                .Select(x => x.Trim())
-                .Where(x => x.Length < 32)
-                .Distinct(StringComparer.OrdinalIgnoreCase)
-                .ToList();
-            var result = await _sensitiveWordManager.ImportAsync(words);
-            if (result)
-                return Success($"恭喜你已经成功上传了{words.Count}个敏感词汇！");
+            var result = await _sensitiveWordManager.ImportAsync(file);
+            if (result == -1)
+                return Error("请选择有内容的文件后再上传！");
+            if (result > 0)
+                return Success($"恭喜你已经成功导入了 {result} 个敏感词汇！");
             return Error("上传敏感词汇失败，请重试！");
         }
     }

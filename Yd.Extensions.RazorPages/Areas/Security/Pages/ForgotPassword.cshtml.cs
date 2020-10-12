@@ -2,7 +2,6 @@
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using Gentings.Extensions.Emails;
-using Gentings.Storages;
 using Microsoft.AspNetCore.Mvc;
 using Yd.Extensions.Security;
 
@@ -54,7 +53,7 @@ namespace Yd.Extensions.RazorPages.Areas.Security.Pages
         {
             if (ModelState.IsValid)
             {
-                if (Settings.ValidCode && !HttpContext.IsCodeValid("forgot", Input.Code))
+                if (Settings.ValidCode && !IsCodeValid("forgot", Input.Code))
                 {
                     ModelState.AddModelError("Input.Code", "验证码不正确！");
                     return Page();

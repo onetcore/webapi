@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 using Gentings.Identity.Permissions;
-using Gentings.Storages.Media;
+using Gentings.Storages;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Yd.Extensions.RazorPages.Areas.Storages.Pages.Admin

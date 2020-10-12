@@ -1,11 +1,8 @@
 ﻿@page
-
-
-
 @model LogModel
 @{
     ViewData["Title"] = "活动日志";
-    ViewData["Current"] = AccountMenu.Log;
+    ViewData["Current"] = "account.log";
     var date = DateTime.MinValue;
 }
 @inject ILocalizer Localizer

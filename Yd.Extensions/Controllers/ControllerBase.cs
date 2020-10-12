@@ -7,7 +7,7 @@ namespace Yd.Extensions.Controllers
     /// <summary>
     /// 控制器基类。
     /// </summary>
-    public abstract class ControllerBase : Gentings.Extensions.AspNetCore.ControllerBase
+    public abstract class ControllerBase : Gentings.Extensions.ControllerBase
     {
         private User _user;
         /// <summary>

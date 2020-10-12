@@ -38,10 +38,10 @@ namespace Yd.Extensions.RazorPages.Areas.Core
                         it => it.Texted("后台服务").Page("/Admin/Tasks/Index", area: AreaName)
                             .Allow(CorePermissions.Task));
                 menu.AddMenu("notifier",
-                    it => it.Texted("通知管理").Page("/Admin/Notifications/Index", area: AreaName)
+                    it => it.Texted("通知类型").Page("/Admin/Notifications/Index", area: AreaName)
                         .Allow(CorePermissions.Notifier));
                 menu.AddMenu("sensitive",
-                    it => it.Texted("敏感词汇管理").Page("/Admin/SensitiveWords/Index", area: AreaName)
+                    it => it.Texted("敏感词汇").Page("/Admin/SensitiveWords/Index", area: AreaName)
                         .Allow(CorePermissions.Sensitive));
                 if (_serviceProvider.GetService<ISettingDictionaryManager>() != null)
                     menu.AddMenu("dicsettings",

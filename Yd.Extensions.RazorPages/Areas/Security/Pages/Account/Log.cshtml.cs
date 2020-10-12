@@ -1,5 +1,5 @@
 ﻿using Gentings.Extensions;
-using Gentings.Extensions.AspNetCore.EventLogging;
+using Gentings.Extensions.EventLogging;
 using Yd.Extensions.Security;
 
 namespace Yd.Extensions.RazorPages.Areas.Security.Pages.Account

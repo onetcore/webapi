@@ -1,5 +1,5 @@
 ﻿using Gentings.AspNetCore.TagHelpers;
-using Gentings.Extensions.AspNetCore.EventLogging;
+using Gentings.Extensions.EventLogging;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.TagHelpers;
 using Microsoft.AspNetCore.Razor.TagHelpers;

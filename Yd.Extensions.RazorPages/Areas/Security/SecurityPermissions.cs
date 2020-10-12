@@ -44,7 +44,7 @@ namespace Yd.Extensions.RazorPages.Areas.Security
         /// <summary>
         /// 权限管理权限。
         /// </summary>
-        public const string PermissionManager = "SecurityPermissions";
+        public const string PermissionManager = "security.permissions";
 
         /// <summary>
         /// 管理日志权限。

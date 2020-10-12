@@ -35,7 +35,7 @@ namespace Yd.Extensions.Security
         /// <summary>
         /// 优先级，越大越靠前。
         /// </summary>
-        public int Priority { get; }
+        public int Priority => 100;
 
         /// <summary>
         /// 判断是否禁用。

@@ -1,5 +1,6 @@
 ﻿using Gentings;
 using Gentings.AspNetCore;
+using Gentings.Extensions.Emails;
 using Gentings.Identity.Permissions;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
@@ -35,7 +36,8 @@ namespace Yd.Extensions.RazorPages
                         options.MinimumSameSitePolicy = SameSiteMode.None;
                     });
             });
-            builder.AddPermissions<Role, UserRole>();
+            builder.AddPermissions<Role, UserRole>()
+                   .AddEmails();
         }
 
         /// <summary>

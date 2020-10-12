@@ -1182,7 +1182,7 @@
             当前用户角色等级。
             </summary>
         </member>
-        <member name="M:Yd.Extensions.Security.EventQuery.Init(Gentings.Data.IQueryContext{Gentings.Extensions.AspNetCore.EventLogging.EventMessage})">
+        <member name="M:Yd.Extensions.Security.EventQuery.Init(Gentings.Data.IQueryContext{Gentings.Extensions.EventLogging.EventMessage})">
             <summary>
             初始化查询上下文。
             </summary>
@@ -1245,14 +1245,6 @@
             <summary>
             用户管理接口。
             </summary>
-        </member>
-        <member name="M:Yd.Extensions.Security.IUserManager.UploadAvatarAsync(System.Int32,Microsoft.AspNetCore.Http.IFormFile)">
-            <summary>
-            上传头像。
-            </summary>
-            <param name="id">用户Id。</param>
-            <param name="avatarFile">头像文件实例。</param>
-            <returns>返回上传结果。</returns>
         </member>
         <member name="M:Yd.Extensions.Security.IUserManager.IsEnoughAsync(System.Int32,System.Int32)">
             <summary>
@@ -1714,14 +1706,6 @@
             <param name="keyNormalizer">唯一键格式化字符串。</param>
             <param name="errors">错误实例。</param>
             <param name="serviceProvider">服务提供者接口。</param>
-        </member>
-        <member name="M:Yd.Extensions.Security.UserManager.UploadAvatarAsync(System.Int32,Microsoft.AspNetCore.Http.IFormFile)">
-            <summary>
-            上传头像。
-            </summary>
-            <param name="id">用户Id。</param>
-            <param name="avatarFile">头像文件实例。</param>
-            <returns>返回上传结果。</returns>
         </member>
         <member name="M:Yd.Extensions.Security.UserManager.IsEnoughAsync(System.Int32,System.Int32)">
             <summary>

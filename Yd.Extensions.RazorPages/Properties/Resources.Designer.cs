@@ -86,14 +86,5 @@ namespace Yd.Extensions.RazorPages.Properties {
                 return ResourceManager.GetString("EventType_Users", resourceCulture);
             }
         }
-        
-        /// <summary>
-        ///   查找类似 点击刷新验证码 的本地化字符串。
-        /// </summary>
-        internal static string VerifierTagHelper_ClickRefresh {
-            get {
-                return ResourceManager.GetString("VerifierTagHelper_ClickRefresh", resourceCulture);
-            }
-        }
     }
 }

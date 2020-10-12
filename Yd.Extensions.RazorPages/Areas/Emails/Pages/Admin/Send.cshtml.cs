@@ -103,10 +103,7 @@ namespace Yd.Extensions.RazorPages.Areas.Emails.Pages.Admin
                 var hashKey = message.HashKey;
                 message.HashKey = null;
                 if (hashKey == message.HashKey || _messageManager.Update(Input.Id, new { Input.Title, Input.Content, message.ExtendProperties, Input.To, message.HashKey, Status = EmailStatus.Pending, TryTimes = 0 }))
-                {
-                    Notifier.Send(UserId, "邮件", "发送了一个电子邮件");
                     return Success("你已经成功发送邮件！");
-                }
                 return Error("发送邮件失败！");
             }
 
@@ -119,10 +116,7 @@ namespace Yd.Extensions.RazorPages.Areas.Emails.Pages.Admin
             message.Source = Input.Source;
             message.To = Input.To;
             if (_messageManager.Save(message))
-            {
-                Notifier.Send(UserId, "邮件", "发送了一个电子邮件");
                 return Success("你已经成功发送邮件！");
-            }
             return Error("发送邮件失败！");
         }
     }

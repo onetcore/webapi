@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Gentings.Extensions.Settings;
 using Gentings.Identity.Permissions;
-using Gentings.Storages.Media;
+using Gentings.Storages;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 

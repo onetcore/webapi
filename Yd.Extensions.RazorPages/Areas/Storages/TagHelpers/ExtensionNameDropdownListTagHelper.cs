@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using Gentings.AspNetCore.TagHelpers;
 using Gentings.Extensions.Settings;
-using Gentings.Storages.Media;
+using Gentings.Storages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 

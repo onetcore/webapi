@@ -5,8 +5,6 @@ using System.Threading.Tasks;
 using Gentings.Data;
 using Gentings.Extensions;
 using Gentings.Identity;
-using Gentings.Storages.Avatars;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
@@ -44,20 +42,6 @@ namespace Yd.Extensions.Security
         }
 
         private readonly IDbContext<UserScore> _scoreDB;
-
-        /// <summary>
-        /// 上传头像。
-        /// </summary>
-        /// <param name="id">用户Id。</param>
-        /// <param name="avatarFile">头像文件实例。</param>
-        /// <returns>返回上传结果。</returns>
-        public virtual async Task<string> UploadAvatarAsync(int id, IFormFile avatarFile)
-        {
-            var url = await GetRequiredService<IAvatarManager>().UploadAsync(id, avatarFile);
-            if (!string.IsNullOrEmpty(url))
-                await UpdateAsync(id, new { Avatar = url });
-            return url;
-        }
 
         /// <summary>
         /// 判断消费积分是否足够。

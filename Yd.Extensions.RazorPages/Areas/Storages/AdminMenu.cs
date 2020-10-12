@@ -1,7 +1,7 @@
 ﻿using System;
 using Gentings;
 using Gentings.AspNetCore.AdminMenus;
-using Gentings.Storages.Media;
+using Gentings.Storages;
 
 namespace Yd.Extensions.RazorPages.Areas.Storages
 {

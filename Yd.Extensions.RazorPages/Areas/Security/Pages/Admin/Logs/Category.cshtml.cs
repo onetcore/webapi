@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Gentings.Extensions.AspNetCore.EventLogging;
+using Gentings.Extensions.EventLogging;
 using Gentings.Identity.Permissions;
 
 namespace Yd.Extensions.RazorPages.Areas.Security.Pages.Admin.Logs

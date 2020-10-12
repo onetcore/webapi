@@ -14,14 +14,6 @@ namespace Yd.Extensions.Security
     public interface IUserManager : IUserManager<User, Role>, IScopedService
     {
         /// <summary>
-        /// 上传头像。
-        /// </summary>
-        /// <param name="id">用户Id。</param>
-        /// <param name="avatarFile">头像文件实例。</param>
-        /// <returns>返回上传结果。</returns>
-        Task<string> UploadAvatarAsync(int id, IFormFile avatarFile);
-
-        /// <summary>
         /// 判断消费积分是否足够。
         /// </summary>
         /// <param name="userId">用户Id。</param>

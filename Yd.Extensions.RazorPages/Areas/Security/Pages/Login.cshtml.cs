@@ -3,7 +3,6 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using Gentings.Extensions.Settings;
-using Gentings.Storages;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -97,7 +96,7 @@ namespace Yd.Extensions.RazorPages.Areas.Security.Pages
         {
             if (ModelState.IsValid)
             {
-                if (Settings.ValidCode && !HttpContext.IsCodeValid("login", Input.Code))
+                if (Settings.ValidCode && !IsCodeValid("login", Input.Code))
                 {
                     ModelState.AddModelError("Input.Code", "验证码不正确！");
                     return Page();

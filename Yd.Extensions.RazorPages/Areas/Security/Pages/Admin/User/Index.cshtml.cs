@@ -7,6 +7,9 @@ using Yd.Extensions.Security;
 
 namespace Yd.Extensions.RazorPages.Areas.Security.Pages.Admin.User
 {
+    /// <summary>
+    /// 编辑用户资料。
+    /// </summary>
     public class IndexModel : ModelBase
     {
         public bool IsEmailConfirmed { get; set; }
@@ -30,14 +33,12 @@ namespace Yd.Extensions.RazorPages.Areas.Security.Pages.Admin.User
         }
 
         private readonly IUserManager _userManager;
-        private readonly IEmailManager _emailSender;
+        private readonly IEmailManager _emailManager;
 
-        public IndexModel(
-            IUserManager userManager,
-            IEmailManager emailSender)
+        public IndexModel(IUserManager userManager, IEmailManager emailManager)
         {
             _userManager = userManager;
-            _emailSender = emailSender;
+            _emailManager = emailManager;
         }
 
         public async Task<IActionResult> OnGetAsync()
@@ -114,6 +115,7 @@ namespace Yd.Extensions.RazorPages.Areas.Security.Pages.Admin.User
             {
                 return ErrorPage("用户不存在！");
             }
+
             if (string.IsNullOrWhiteSpace(user.Email))
             {
                 return ErrorPage("电子邮件不存在！");
@@ -124,7 +126,7 @@ namespace Yd.Extensions.RazorPages.Areas.Security.Pages.Admin.User
                 pageHandler: null,
                 values: new { userId = user.Id, code = code },
                 protocol: Request.Scheme);
-            await _emailSender.SendEmailAsync(
+            await _emailManager.SendEmailAsync(
                 user.Id,
                 user.Email,
                 "确认电子邮件",
