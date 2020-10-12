@@ -1920,6 +1920,17 @@
             子账号。
             </summary>
         </member>
+        <member name="T:Yd.Extensions.ServiceConfigurer">
+            <summary>
+            注册当前登录用户。
+            </summary>
+        </member>
+        <member name="M:Yd.Extensions.ServiceConfigurer.ConfigureServices(Gentings.IServiceBuilder)">
+            <summary>
+            配置服务方法。
+            </summary>
+            <param name="builder">容器构建实例。</param>
+        </member>
         <member name="T:Yd.Extensions.SiteSettings">
             <summary>
             网站配置。
