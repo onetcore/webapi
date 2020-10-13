@@ -1,17 +1,9 @@
 ﻿@page
-
-
-
 @model IndexModel
 @{
     ViewData["Title"] = "用户资料";
     ViewData["Current"] = AccountMenu.Index;
 }
-
-<div class="account-title">
-    <h4>@ViewData["Title"]</h4>
-    <hr/>
-</div>
 
 <form method="post">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>

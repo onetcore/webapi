@@ -1,20 +1,11 @@
 ﻿@page
-
-
-
 @model LogModel
+@inject ILocalizer Localizer
 @{
     ViewData["Title"] = "活动日志";
     ViewData["Current"] = AccountMenu.Log;
     var date = DateTime.MinValue;
 }
-@inject ILocalizer Localizer
-
-
-<div class="account-title">
-    <h4>@ViewData["Title"]</h4>
-    <hr />
-</div>
 
 <div class="table-responsive">
     <table class="table table-striped table-bordered">

@@ -117,8 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="EventType_Core" xml:space="preserve">
-    <value>默认</value>
+  <data name="EventType_Emails" xml:space="preserve">
+    <value>电子邮件</value>
+  </data>
+  <data name="EventType_OpenServices" xml:space="preserve">
+    <value>开放服务</value>
   </data>
   <data name="EventType_Storages" xml:space="preserve">
     <value>文件</value>

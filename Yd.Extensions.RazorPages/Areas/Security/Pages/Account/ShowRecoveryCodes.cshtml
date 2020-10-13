@@ -1,15 +1,9 @@
 ﻿@page
-
-
 @model ShowRecoveryCodesModel
 @{
     ViewData["Title"] = "二次登录验证码";
     ViewData["Current"] = AccountMenu.TwoFactorAuthentication;
 }
-
-<div class="account-title">
-    <h4>@ViewData["Title"]</h4>
-</div>
 
 <div class="alert alert-warning" role="alert">
     <p>

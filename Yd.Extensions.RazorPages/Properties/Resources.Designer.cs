@@ -61,11 +61,20 @@ namespace Yd.Extensions.RazorPages.Properties {
         }
         
         /// <summary>
-        ///   查找类似 默认 的本地化字符串。
+        ///   查找类似 电子邮件 的本地化字符串。
         /// </summary>
-        internal static string EventType_Core {
+        internal static string EventType_Emails {
             get {
-                return ResourceManager.GetString("EventType_Core", resourceCulture);
+                return ResourceManager.GetString("EventType_Emails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 开放服务 的本地化字符串。
+        /// </summary>
+        internal static string EventType_OpenServices {
+            get {
+                return ResourceManager.GetString("EventType_OpenServices", resourceCulture);
             }
         }
         

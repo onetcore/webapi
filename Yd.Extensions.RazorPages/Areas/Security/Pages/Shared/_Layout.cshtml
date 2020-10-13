@@ -1,27 +1,26 @@
-﻿@inject ISettingsManager SettingsManager
+﻿@inject SiteSettings SiteSettings
+@inject SecuritySettings SecuritySettings
 @{
     Layout = "_Global";
-    var settings = SettingsManager.GetSettings<SiteSettings>();
-    var securitySettings = SettingsManager.GetSettings<SecuritySettings>();
 }
 
 <div class="signin">
     <div class="login-title">
-        <img class="mb-1" src="@(settings.LogoUrl??"/images/logo.png")" alt="@settings.SiteName" width="72" height="72">
-        <h1 class="h3 mb-3 text-primary">@settings.SiteName</h1>
+        <img class="mb-1" src="@(SiteSettings.LogoUrl??"/images/logo.png")" alt="@SiteSettings.SiteName" width="72" height="72">
+        <h1 class="h3 mb-3 text-primary">@SiteSettings.SiteName</h1>
     </div>
     <div class="signin-panel">
         @RenderBody()
     </div>
 </div>
-<div class="copyright">@Html.Raw(settings.ReplacedCopyright)</div>
+<div class="copyright">@Html.Raw(SiteSettings.ReplacedCopyright)</div>
 
 @section header{
     <link href="~/security/css/signin.css" rel="stylesheet" />
-    @if (!string.IsNullOrEmpty(securitySettings.LoginBg))
+    @if (!string.IsNullOrEmpty(SecuritySettings.LoginBg))
     {
-        <style>
-            body{ background-image: url('@securitySettings.LoginBg');}
+        <style type="text/css">
+            body{ background-image: url('@SecuritySettings.LoginBg');}
         </style>
     }
     @RenderSection("header", false)

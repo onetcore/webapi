@@ -1,5 +1,4 @@
-﻿using Gentings.Extensions.Settings;
-using Yd.Extensions.RazorPages.Properties;
+﻿using Yd.Extensions.RazorPages.Properties;
 using Yd.Extensions.Security;
 
 namespace Yd.Extensions.RazorPages.Areas.Security
@@ -13,8 +12,7 @@ namespace Yd.Extensions.RazorPages.Areas.Security
         /// <summary>
         /// 安全配置。
         /// </summary>
-        public SecuritySettings Settings => _settings ??= GetRequiredService<ISettingsManager>()
-            .GetSettings<SecuritySettings>();
+        public SecuritySettings Settings => _settings ??= GetRequiredService<SecuritySettings>();
 
         /// <summary>
         /// 事件类型。
