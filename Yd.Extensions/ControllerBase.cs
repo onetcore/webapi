@@ -2,7 +2,7 @@
 using Yd.Extensions.Security;
 using Yd.Extensions.Security.Roles;
 
-namespace Yd.Extensions.ApiOpenServices
+namespace Yd.Extensions
 {
     /// <summary>
     /// 控制器基类。

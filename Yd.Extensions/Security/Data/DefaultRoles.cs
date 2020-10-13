@@ -1,4 +1,4 @@
-﻿namespace Yd.Extensions.Security
+﻿namespace Yd.Extensions.Security.Data
 {
     /// <summary>
     /// 默认角色。

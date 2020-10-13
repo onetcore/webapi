@@ -9,7 +9,7 @@ namespace Yd.Extensions.RazorPages.Areas.Security.Controllers
     /// 用户控制器。
     /// </summary>
     [Authorize]
-    public class AccountController : Extensions.ApiOpenServices.ControllerBase
+    public class AccountController : ControllerBase
     {
         private readonly IUserManager _userManager;
 
