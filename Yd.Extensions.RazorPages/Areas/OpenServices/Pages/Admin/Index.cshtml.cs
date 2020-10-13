@@ -2,7 +2,7 @@ using System;
 using System.Threading.Tasks;
 using Gentings.Extensions;
 using Microsoft.AspNetCore.Mvc;
-using Yd.Extensions.Controllers.OpenServices;
+using Yd.Extensions.ApiOpenServices.OpenServices;
 
 namespace Yd.Extensions.RazorPages.Areas.OpenServices.Pages.Admin
 {

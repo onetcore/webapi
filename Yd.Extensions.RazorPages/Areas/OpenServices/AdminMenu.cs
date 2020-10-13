@@ -1,5 +1,5 @@
 ﻿using Gentings.AspNetCore.AdminMenus;
-using Yd.Extensions.Controllers.OpenServices;
+using Yd.Extensions.ApiOpenServices.OpenServices;
 
 namespace Yd.Extensions.RazorPages.Areas.OpenServices
 {

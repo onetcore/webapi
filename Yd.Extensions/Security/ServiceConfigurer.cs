@@ -1,6 +1,7 @@
 ﻿using Gentings;
 using Gentings.Identity;
 using Microsoft.Extensions.DependencyInjection;
+using Yd.Extensions.Security.Data;
 using Yd.Extensions.Security.Roles;
 
 namespace Yd.Extensions.Security
@@ -16,10 +17,7 @@ namespace Yd.Extensions.Security
         /// <param name="builder">容器构建实例。</param>
         protected override void ConfigureIdentityServices(IServiceBuilder builder)
         {
-            builder.AddServices(services =>
-            {
-                services.AddScoped(service => service.GetRequiredService<IUserManager>().GetUser() ?? _anonymous);
-            });
+            builder.AddScoped(service => service.GetRequiredService<IUserManager>().GetUser() ?? _anonymous);
         }
 
         private static readonly User _anonymous = new User { UserName = "Anonymous" };

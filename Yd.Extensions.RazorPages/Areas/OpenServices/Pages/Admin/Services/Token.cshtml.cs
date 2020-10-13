@@ -1,7 +1,7 @@
 using System;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Yd.Extensions.Controllers;
+using Yd.Extensions.ApiOpenServices;
 
 namespace Yd.Extensions.RazorPages.Areas.OpenServices.Pages.Admin.Services
 {

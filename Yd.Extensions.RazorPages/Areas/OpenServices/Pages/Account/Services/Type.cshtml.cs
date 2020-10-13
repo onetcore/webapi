@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.AspNetCore.Mvc;
-using Yd.Extensions.Controllers.Documents;
+using Yd.Extensions.ApiOpenServices.Documents;
 
 namespace Yd.Extensions.RazorPages.Areas.OpenServices.Pages.Account.Services
 {

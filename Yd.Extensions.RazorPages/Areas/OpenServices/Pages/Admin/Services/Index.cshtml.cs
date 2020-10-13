@@ -1,6 +1,6 @@
 using System.Collections.Generic;
-using Yd.Extensions.Controllers;
-using Yd.Extensions.Controllers.OpenServices;
+using Yd.Extensions.ApiOpenServices;
+using Yd.Extensions.ApiOpenServices.OpenServices;
 
 namespace Yd.Extensions.RazorPages.Areas.OpenServices.Pages.Admin.Services
 {

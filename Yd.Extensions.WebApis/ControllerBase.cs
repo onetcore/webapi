@@ -8,7 +8,7 @@ namespace Yd.Extensions.WebApis
     /// </summary>
     [ApiController]
     [Route("api/[controller]")]
-    public abstract class ControllerBase : Controllers.ControllerBase
+    public abstract class ControllerBase : ApiOpenServices.ControllerBase
     {
     }
 
@@ -19,7 +19,7 @@ namespace Yd.Extensions.WebApis
     [ApiController]
     [Area("account")]
     [Route("api/[account]/[controller]")]
-    public abstract class AccountControllerBase : Controllers.ControllerBase
+    public abstract class AccountControllerBase : ApiOpenServices.ControllerBase
     {
     }
 
@@ -30,7 +30,7 @@ namespace Yd.Extensions.WebApis
     [ApiController]
     [Area("admin")]
     [Route("api/[area]/[controller]")]
-    public abstract class AdminControllerBase : Controllers.ControllerBase
+    public abstract class AdminControllerBase : ApiOpenServices.ControllerBase
     {
     }
 }

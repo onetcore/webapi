@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using System.Text;
 using System.Threading.Tasks;
 using Gentings.AspNetCore;
-using Gentings.Extensions.Captchas;
+using Gentings.Extensions.SMS.Captchas;
 using Gentings.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
-using Microsoft.IdentityModel.Tokens;
 using Yd.Extensions.Security;
 using Yd.Extensions.Security.Roles;
 
