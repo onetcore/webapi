@@ -33,8 +33,8 @@ namespace Yd.Extensions.RazorPages.Areas.Security.TagHelpers
         /// <summary>
         /// 是否只是第一子集。
         /// </summary>
-        [HtmlAttributeName("toponly")]
-        public bool TopOnly { get; set; }
+        [HtmlAttributeName("toppest")]
+        public bool Toppest { get; set; }
 
         /// <summary>
         /// 初始化选项列表。
@@ -44,7 +44,7 @@ namespace Yd.Extensions.RazorPages.Areas.Security.TagHelpers
         {
             if (UserId == null)
                 UserId = HttpContext.User.GetUserId();
-            var users = await _userManager.LoadChildrenAsync(UserId.Value, TopOnly);
+            var users = await _userManager.LoadChildrenAsync(UserId.Value, Toppest);
             var items = new List<SelectListItem>();
             InitChildren(items, users);
             return items;
