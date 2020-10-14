@@ -198,26 +198,6 @@
             <param name="other">程序集信息实例。</param>
             <returns>返回对比结果。</returns>
         </member>
-        <member name="T:Yd.Extensions.ApiOpenServices.ControllerBase">
-            <summary>
-            控制器基类。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.ControllerBase.User">
-            <summary>
-            当前登录用户Id。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.ControllerBase.Role">
-            <summary>
-            当前用户的最大角色实例。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.ControllerBase.SiteSettings">
-            <summary>
-            网站配置实例。
-            </summary>
-        </member>
         <member name="T:Yd.Extensions.ApiOpenServices.DocumentManagerBase">
             <summary>
             接口管理实现基类。
@@ -1031,6 +1011,26 @@
             <param name="descriptor">控制器操作实例。</param>
             <returns>返回判断结果。</returns>
         </member>
+        <member name="T:Yd.Extensions.ControllerBase">
+            <summary>
+            控制器基类。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.ControllerBase.User">
+            <summary>
+            当前登录用户Id。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.ControllerBase.Role">
+            <summary>
+            当前用户的最大角色实例。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.ControllerBase.SiteSettings">
+            <summary>
+            网站配置实例。
+            </summary>
+        </member>
         <member name="T:Yd.Extensions.Properties.Resources">
             <summary>
               一个强类型的资源类，用于查找本地化的字符串等。
@@ -1147,6 +1147,31 @@
             </summary>
             <returns>返回执行结果。</returns>
         </member>
+        <member name="T:Yd.Extensions.Security.Data.DefaultRoles">
+            <summary>
+            默认角色。
+            </summary>
+        </member>
+        <member name="F:Yd.Extensions.Security.Data.DefaultRoles.Members">
+            <summary>
+            普通会员。
+            </summary>
+        </member>
+        <member name="F:Yd.Extensions.Security.Data.DefaultRoles.Moderators">
+            <summary>
+            管理员。
+            </summary>
+        </member>
+        <member name="F:Yd.Extensions.Security.Data.DefaultRoles.Administrators">
+            <summary>
+            系统管理员。
+            </summary>
+        </member>
+        <member name="F:Yd.Extensions.Security.Data.DefaultRoles.Developers">
+            <summary>
+            开发者。
+            </summary>
+        </member>
         <member name="T:Yd.Extensions.Security.Data.IdentityDataMigration">
             <summary>
             数据迁移类。
@@ -1181,31 +1206,6 @@
             <param name="userRoleContext">用户角色数据库操作接口。</param>
             <param name="roleClaimContext">角色声明数据库操作接口。</param>
             <param name="serviceProvider">服务提供者。</param>
-        </member>
-        <member name="T:Yd.Extensions.Security.DefaultRoles">
-            <summary>
-            默认角色。
-            </summary>
-        </member>
-        <member name="F:Yd.Extensions.Security.DefaultRoles.Members">
-            <summary>
-            普通会员。
-            </summary>
-        </member>
-        <member name="F:Yd.Extensions.Security.DefaultRoles.Moderators">
-            <summary>
-            管理员。
-            </summary>
-        </member>
-        <member name="F:Yd.Extensions.Security.DefaultRoles.Administrators">
-            <summary>
-            系统管理员。
-            </summary>
-        </member>
-        <member name="F:Yd.Extensions.Security.DefaultRoles.Developers">
-            <summary>
-            开发者。
-            </summary>
         </member>
         <member name="T:Yd.Extensions.Security.EventQuery">
             <summary>
@@ -1525,60 +1525,6 @@
             <param name="user">用户实例。</param>
             <param name="cancellationToken">取消标志。</param>
             <returns>返回操作结果，返回<c>true</c>表示操作成功，将自动提交事务，如果<c>false</c>或发生错误，则回滚事务。</returns>
-        </member>
-        <member name="T:Yd.Extensions.Security.UserFieldBase">
-            <summary>
-            包含用户字段基类。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.Security.UserFieldBase.UserName">
-            <summary>
-            用户名称。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.Security.UserFieldBase.Avatar">
-            <summary>
-            头像。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.Security.UserFieldBase.NickName">
-            <summary>
-            用户姓名。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.Security.UserFieldBase.RoleId">
-            <summary>
-            角色名称。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.Security.UserFieldBase.RoleName">
-            <summary>
-            角色名称。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.Security.UserFieldBase.RoleColor">
-            <summary>
-            角色颜色。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.Security.UserFieldBase.RoleIcon">
-            <summary>
-            用户角色URL地址。
-            </summary>
-        </member>
-        <member name="T:Yd.Extensions.Security.UserFieldExtensions">
-            <summary>
-            用户列扩展类。
-            </summary>
-        </member>
-        <member name="M:Yd.Extensions.Security.UserFieldExtensions.JoinSelect``1(Gentings.Data.IQueryable{``0},System.Linq.Expressions.Expression{System.Func{``0,Yd.Extensions.Security.User,System.Boolean}})">
-            <summary>
-            选择用户相关联字段。
-            </summary>
-            <typeparam name="TModel">当前实例模型。</typeparam>
-            <param name="queryable">查询实例。</param>
-            <param name="expression">关联表达式。</param>
-            <returns>返回当前查询实例。</returns>
         </member>
         <member name="T:Yd.Extensions.Security.UserLogin">
             <summary>

@@ -2,7 +2,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
-using Gentings.Extensions.Settings;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -17,7 +16,6 @@ namespace Yd.Extensions.RazorPages.Areas.Security.Pages
     public class LoginModel : ModelBase
     {
         private readonly IUserManager _userManager;
-        private readonly ISettingsManager _settingsManager;
         /// <summary>
         /// 用户登录输入模型。
         /// </summary>
@@ -69,10 +67,9 @@ namespace Yd.Extensions.RazorPages.Areas.Security.Pages
         [TempData]
         public string ErrorMessage { get; set; }
 
-        public LoginModel(IUserManager userManager, ISettingsManager settingsManager)
+        public LoginModel(IUserManager userManager)
         {
             _userManager = userManager;
-            _settingsManager = settingsManager;
         }
 
         public async Task OnGetAsync(string returnUrl = null)

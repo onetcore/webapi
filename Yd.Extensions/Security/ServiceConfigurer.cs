@@ -1,5 +1,5 @@
 ﻿using Gentings;
-using Gentings.Extensions.Settings;
+using Gentings.Settings;
 using Gentings.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using Yd.Extensions.Security.Data;
