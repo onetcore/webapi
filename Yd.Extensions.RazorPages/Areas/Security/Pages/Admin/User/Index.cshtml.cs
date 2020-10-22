@@ -53,7 +53,7 @@ namespace Yd.Extensions.RazorPages.Areas.Security.Pages.Admin.User
             {
                 Email = user.Email,
                 PhoneNumber = user.PhoneNumber,
-                UserName = user.UserName
+                UserName = user.NickName
             };
 
             IsEmailConfirmed = user.EmailConfirmed;
@@ -74,7 +74,7 @@ namespace Yd.Extensions.RazorPages.Areas.Security.Pages.Admin.User
                 return NotFound("用户不存在！");
             }
 
-            user.UserName = Input.UserName;
+            user.NickName = Input.UserName;
 
             if (Input.Email != user.Email)
             {
@@ -91,7 +91,7 @@ namespace Yd.Extensions.RazorPages.Areas.Security.Pages.Admin.User
             await _userManager.UpdateAsync(user.Id,
                 new
                 {
-                    user.UserName,
+                    user.NickName,
                     user.Email,
                     user.NormalizedEmail,
                     user.EmailConfirmed,

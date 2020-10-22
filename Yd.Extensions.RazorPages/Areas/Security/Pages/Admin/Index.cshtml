@@ -1,5 +1,4 @@
 ﻿@page
-@using Yd.Extensions.Security.Roles
 @model IndexModel
 @inject IRoleManager RoleManager
 @{
@@ -38,6 +37,7 @@
                 <th>角色</th>
                 <th>电话号码</th>
                 <th>电子邮件</th>
+                <th>@Model.Settings.ScoreName<span .visible="@(!string.IsNullOrEmpty(Model.Settings.ScoreUnit))">(@Model.Settings.ScoreUnit)</span></th>
                 <th class="gt-datetime">注册时间</th>
             </tr>
         </thead>
@@ -64,6 +64,7 @@
                     <td>@RoleManager.GetCacheRole(user.RoleId).Name</td>
                     <td>@user.PhoneNumber</td>
                     <td>@user.Email</td>
+                    <td>@user.Score</td>
                     <td>@user.CreatedDate.ToString("yyyy-MM-dd HH:mm")</td>
                 </tr>
             }
