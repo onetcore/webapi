@@ -1,6 +1,6 @@
 ﻿@echo off
 SET RARLINE="%ProgramFiles%\WinRAR\Winrar.exe"
-%RARLINE% a -m1 -r -o+ -s -x%0 ./update.rar ./website/configdata
+%RARLINE% a -m1 -r -o+ -s -x%0 ./update.rar ./website/app_data
 %RARLINE% a -m1 -r -o+ -s -x%0 ./update.rar ./website/runtimes
 %RARLINE% a -m1 -r -o+ -s -x%0 ./update.rar ./website/zh-Hans
 %RARLINE% a -m1 -r -o+ -s -x%0 ./update.rar ./website/wwwroot/favicon.ico

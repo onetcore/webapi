@@ -2,7 +2,7 @@
 SET RARLINE="%ProgramFiles%\WinRAR\Winrar.exe"
 %RARLINE% a -m1 -r -o+ -s -x%0 ./install.rar ./storages
 %RARLINE% a -m1 -r -o+ -s -x%0 ./install.rar ./config
-%RARLINE% a -m1 -r -o+ -s -x%0 ./install.rar ./website/configdata
+%RARLINE% a -m1 -r -o+ -s -x%0 ./install.rar ./website/app_data
 %RARLINE% a -m1 -r -o+ -s -x%0 ./install.rar ./website/runtimes
 %RARLINE% a -m1 -r -o+ -s -x%0 ./install.rar ./website/zh-Hans
 %RARLINE% a -m1 -r -o+ -s -x%0 ./install.rar ./website/wwwroot/favicon.ico
