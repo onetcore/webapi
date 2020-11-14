@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Gentings;
-using Gentings.Data;
-using Gentings.Data.Initializers;
-using Gentings.Data.Internal;
+using Gentings.Identity.Data;
 using Yd.Extensions.Security.Roles;
 
 namespace Yd.Extensions.Security.Data
@@ -13,88 +7,31 @@ namespace Yd.Extensions.Security.Data
     /// <summary>
     /// 用户初始化。
     /// </summary>
-    public class DataInitializer : IInitializer
+    public class DataInitializer : DataInitializer<User, Role, UserRole>
     {
-        private readonly IDbContext<User> _context;
-        private readonly IUserManager _userManager;
-        private readonly ILocalizer _localizer;
-
         /// <summary>
         /// 初始化类<see cref="DataInitializer"/>。
         /// </summary>
-        /// <param name="context">用户数据库操作接口实例。</param>
-        /// <param name="userManager">用户管理实例。</param>
-        /// <param name="localizer">资源接口。</param>
-        public DataInitializer(IDbContext<User> context, IUserManager userManager, ILocalizer localizer)
+        /// <param name="serviceProvider">服务提供者接口。</param>
+        /// <param name="userManager">用户管理接口。</param>
+        public DataInitializer(IServiceProvider serviceProvider, IUserManager userManager)
+            : base(serviceProvider, userManager)
         {
-            _context = context;
-            _userManager = userManager;
-            _localizer = localizer;
         }
 
         /// <summary>
-        /// 优先级，越大越靠前。
+        /// 默认角色类型。
         /// </summary>
-        public int Priority => 100;
+        protected override Type DefaultRolesType { get; } = typeof(DefaultRoles);
 
         /// <summary>
-        /// 判断是否禁用。
+        /// 判断哪些默认角色为默认添加到用户的角色，如果返回<c>true</c>，则添加用户时候会自动添加到用户中。
         /// </summary>
+        /// <param name="defaultRole">默认角色枚举实例。</param>
         /// <returns>返回判断结果。</returns>
-        public Task<bool> IsDisabledAsync()
+        protected override bool IsDefault(Enum defaultRole)
         {
-            return _context.AnyAsync();
-        }
-
-        /// <summary>
-        /// 安装时候预先执行的接口。
-        /// </summary>
-        /// <returns>返回执行结果。</returns>
-        public Task<bool> ExecuteAsync()
-        {
-            return _context.BeginTransactionAsync(async db =>
-            {
-                var roles = new List<Role>();
-                var rdb = db.As<Role>();
-                foreach (DefaultRoles value in Enum.GetValues(typeof(DefaultRoles)))
-                {
-                    var role = new Role();
-                    roles.Add(role);
-                    role.Name = _localizer.GetString(value);
-                    role.NormalizedName = role.Name.ToUpper();
-                    role.RoleLevel = (int)value;
-                    role.IsSystem = true;//系统角色不能删除
-                    role.IsDefault = value == DefaultRoles.Members;//默认添加的角色
-                    await rdb.CreateAsync(role);
-                }
-
-                var id = await CreateAsync(db, "ztang", "123456", roles);
-                return true;
-            }, 3000);
-        }
-
-        private async Task<int> CreateAsync(IDbTransactionContext<User> db, string userName, string password, List<Role> roles, int pid = 0)
-        {
-            const int score = 100000000;
-            var user = new User();
-            user.UserName = userName;
-            user.PasswordHash = password;
-            user.NickName = user.UserName;
-            user.Score = score;
-            user.NormalizedUserName = _userManager.NormalizeName(user.UserName);
-            user.PasswordHash = _userManager.HashPassword(user);
-            user.RoleId = roles.OrderByDescending(x => x.RoleLevel).First().Id;
-            user.ParentId = pid;
-            if (await db.CreateAsync(user))
-            {
-                var urdb = db.As<UserRole>();
-                foreach (var role in roles)
-                {
-                    await urdb.CreateAsync(new UserRole { RoleId = role.Id, UserId = user.Id });
-                }
-            }
-
-            return user.Id;
+            return (DefaultRoles)defaultRole == DefaultRoles.Members;
         }
     }
 }
