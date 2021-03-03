@@ -1,5 +1,4 @@
 ﻿using Yd.Extensions.RazorPages.Properties;
-using Yd.Extensions.Security;
 
 namespace Yd.Extensions.RazorPages.Areas.Security
 {
@@ -8,12 +7,6 @@ namespace Yd.Extensions.RazorPages.Areas.Security
     /// </summary>
     public abstract class ModelBase : RazorPages.ModelBase
     {
-        private SecuritySettings _settings;
-        /// <summary>
-        /// 安全配置。
-        /// </summary>
-        public SecuritySettings Settings => _settings ??= GetRequiredService<SecuritySettings>();
-
         /// <summary>
         /// 事件类型。
         /// </summary>

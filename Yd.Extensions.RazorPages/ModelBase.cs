@@ -32,6 +32,13 @@ namespace Yd.Extensions.RazorPages
         /// </summary>
         public SiteSettings SiteSettings => _siteSettings ??= GetRequiredService<SiteSettings>();
 
+        private SecuritySettings _settings;
+        /// <summary>
+        /// 安全配置。
+        /// </summary>
+        public SecuritySettings Settings => _settings ??= GetRequiredService<SecuritySettings>();
+
+
         /// <summary>
         /// 返回JSON试图结果。
         /// </summary>

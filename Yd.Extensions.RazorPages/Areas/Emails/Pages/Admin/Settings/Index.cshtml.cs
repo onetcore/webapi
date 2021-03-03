@@ -24,14 +24,14 @@ namespace Yd.Extensions.RazorPages.Areas.Emails.Pages.Admin.Settings
         /// <summary>
         /// 邮件配置列表。
         /// </summary>
-        public IEnumerable<EmailSettings> Settings { get; private set; }
+        public IEnumerable<EmailSettings> EmailSettings { get; private set; }
 
         /// <summary>
         /// 获取邮件配置列表。
         /// </summary>
         public void OnGet()
         {
-            Settings = _settingsManager.Fetch();
+            EmailSettings = _settingsManager.Fetch();
         }
 
         /// <summary>

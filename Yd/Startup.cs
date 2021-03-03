@@ -43,7 +43,7 @@ namespace Yd
                     options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
                 })
                 .AddApiExplorer();
-            services.AddRazorPages().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+            services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -65,7 +65,7 @@ namespace Yd
             app.UseStaticFiles();
 
             app.UseRouting();
-            //下面两个位置一定要放对
+            //涓嬮潰涓や釜浣嶇疆涓�瀹氳鏀惧
             app.UseAuthentication();
             app.UseAuthorization();
             app.UseGentings(Configuration);

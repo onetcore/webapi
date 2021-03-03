@@ -64,11 +64,14 @@
                     <td>@RoleManager.GetCacheRole(user.RoleId).Name</td>
                     <td>@user.PhoneNumber</td>
                     <td>@user.Email</td>
-                    <td>@user.Score</td>
+                    <td>
+                        @(user.Score)
+                        <a class="ml-1" js-action="modal" title="充值" asp-page="./Score" asp-route-id="@user.Id"><i class="fa fa-money"></i> 充值</a>
+                    </td>
                     <td>@user.CreatedDate.ToString("yyyy-MM-dd HH:mm")</td>
                 </tr>
             }
-            <gt:warning-tabled colspan="5" attach="Model.Model">当前网站还没添加其他用户！</gt:warning-tabled>
+            <gt:warning-tabled colspan="6" attach="Model.Model">当前网站还没添加其他用户！</gt:warning-tabled>
         </tbody>
     </table>
     <gt:page route-start="@Model.Query.Start" route-end="@Model.Query.End" route-name="@Model.Query.Name" class="page-center d-print-none mb-0" data="Model.Model"></gt:page>

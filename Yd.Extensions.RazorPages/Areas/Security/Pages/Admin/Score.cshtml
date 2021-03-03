@@ -1,0 +1,19 @@
+﻿@page
+@model ScoreModel
+@{
+    Layout = "_Modal";
+    ViewBag.Title = "充值";
+}
+
+<form method="post">
+    <input type="hidden" asp-for="Input.UserId" />
+    <div class="form-group">
+        <label>@(Model.Settings.ScoreName)（@Model.Settings.ScoreUnit）</label>
+        <input class="form-control" asp-for="Input.Score" />
+        <span asp-validation-for="Input.Score" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>备注</label>
+        <textarea asp-for="Input.Summary" class="form-control" rows="3"></textarea>
+    </div>
+</form>

@@ -33,10 +33,7 @@ namespace Yd.Extensions.RazorPages.Areas.Core
         {
             root.AddMenu("sys", menu =>
             {
-                menu.Texted("系统管理", "fa-cogs")
-                    .AddMenu("tasks",
-                        it => it.Texted("后台服务").Page("/Admin/Tasks/Index", area: AreaName)
-                            .Allow(CorePermissions.Task));
+                menu.Texted("系统管理", "fa-cogs");
                 menu.AddMenu("notifier",
                     it => it.Texted("通知类型").Page("/Admin/Notifications/Index", area: AreaName)
                         .Allow(CorePermissions.Notifier));
@@ -50,6 +47,12 @@ namespace Yd.Extensions.RazorPages.Areas.Core
                 menu.AddMenu("settings",
                         it => it.Texted("系统配置").Page("/Admin/Settings", area: AreaName)
                     .Allow(CorePermissions.SiteSettings));
+                menu.AddMenu("tasks",
+                        it => it.Texted("后台任务管理").Page("/Admin/Tasks/Index", area: AreaName)
+                            .Allow(CorePermissions.Task))
+                    .AddMenu("background-service",
+                        it => it.Texted("后台服务列表").Page("/Admin/Tasks/BackgroundService", area: AreaName)
+                            .Allow(CorePermissions.Task));
             });
         }
     }

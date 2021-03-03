@@ -1122,30 +1122,24 @@
             用户初始化。
             </summary>
         </member>
-        <member name="M:Yd.Extensions.Security.Data.DataInitializer.#ctor(Gentings.Data.IDbContext{Yd.Extensions.Security.User},Yd.Extensions.Security.IUserManager,Gentings.ILocalizer)">
+        <member name="M:Yd.Extensions.Security.Data.DataInitializer.#ctor(System.IServiceProvider,Yd.Extensions.Security.IUserManager)">
             <summary>
             初始化类<see cref="T:Yd.Extensions.Security.Data.DataInitializer"/>。
             </summary>
-            <param name="context">用户数据库操作接口实例。</param>
-            <param name="userManager">用户管理实例。</param>
-            <param name="localizer">资源接口。</param>
+            <param name="serviceProvider">服务提供者接口。</param>
+            <param name="userManager">用户管理接口。</param>
         </member>
-        <member name="P:Yd.Extensions.Security.Data.DataInitializer.Priority">
+        <member name="P:Yd.Extensions.Security.Data.DataInitializer.DefaultRolesType">
             <summary>
-            优先级，越大越靠前。
+            默认角色类型。
             </summary>
         </member>
-        <member name="M:Yd.Extensions.Security.Data.DataInitializer.IsDisabledAsync">
+        <member name="M:Yd.Extensions.Security.Data.DataInitializer.IsDefault(System.Enum)">
             <summary>
-            判断是否禁用。
+            判断哪些默认角色为默认添加到用户的角色，如果返回<c>true</c>，则添加用户时候会自动添加到用户中。
             </summary>
+            <param name="defaultRole">默认角色枚举实例。</param>
             <returns>返回判断结果。</returns>
-        </member>
-        <member name="M:Yd.Extensions.Security.Data.DataInitializer.ExecuteAsync">
-            <summary>
-            安装时候预先执行的接口。
-            </summary>
-            <returns>返回执行结果。</returns>
         </member>
         <member name="T:Yd.Extensions.Security.Data.DefaultRoles">
             <summary>
