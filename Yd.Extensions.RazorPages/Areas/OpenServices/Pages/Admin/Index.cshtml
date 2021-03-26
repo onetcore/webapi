@@ -15,7 +15,7 @@
         <gt:toolbar-form-group>
             <gt:toolbar-input-group>
                 <input placeholder="名称" asp-for="Query.Name" />
-                <gt:enum-dropdownlist class="form-control form-control-sm" for="Query.Status" default-text="请选择状态"></gt:enum-dropdownlist>
+                <gt:enum-dropdownlist class="form-control form-control-sm" asp-for="Query.Status" default-text="请选择状态"></gt:enum-dropdownlist>
                 <gt:append-search />
             </gt:toolbar-input-group>
         </gt:toolbar-form-group>
@@ -62,5 +62,5 @@
             <gt:warning-tabled colspan="4" attach="Model.Applications">还没有找到任何应用程序！</gt:warning-tabled>
         </tbody>
     </table>
-    <gt:page class="page-center d-print-none mb-0" route-userid="@Model.Query.UserId" route-status="@Model.Query.Status" route-user-name="@Model.Query.UserName" route-appid="@Model.Query.AppId" route-name="@Model.Query.Name" data="Model.Applications"></gt:page>
+    <gt:page class="page-center d-print-none mb-0" asp-route-userid="@Model.Query.UserId" asp-route-status="@Model.Query.Status" asp-route-user-name="@Model.Query.UserName" asp-route-appid="@Model.Query.AppId" asp-route-name="@Model.Query.Name" data="Model.Applications"></gt:page>
 </div>

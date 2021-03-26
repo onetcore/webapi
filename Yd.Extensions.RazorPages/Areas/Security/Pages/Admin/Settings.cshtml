@@ -15,7 +15,7 @@
                         <div class="text-secondary">是否开放用户注册功能</div>
                     </td>
                     <td class="align-middle text-right border-left-0">
-                        <gt:checkbox for="Input.Registrable"> </gt:checkbox>
+                        <gt:checkbox asp-for="Input.Registrable"> </gt:checkbox>
                     </td>
                 </tr>
                 <tr>
@@ -24,7 +24,7 @@
                         <div class="text-secondary">是否邮件地址唯一，如果通过邮件地址登录就需要设置唯一</div>
                     </td>
                     <td class="align-middle text-right border-left-0">
-                        <gt:checkbox for="Input.RequireUniqueEmail"> </gt:checkbox>
+                        <gt:checkbox asp-for="Input.RequireUniqueEmail"> </gt:checkbox>
                     </td>
                 </tr>
                 <tr>
@@ -33,7 +33,7 @@
                         <div class="text-secondary">注册成功后，是否需要通过邮件才能激活账号</div>
                     </td>
                     <td class="align-middle text-right border-left-0">
-                        <gt:checkbox for="Input.RequireConfirmedEmail"> </gt:checkbox>
+                        <gt:checkbox asp-for="Input.RequireConfirmedEmail"> </gt:checkbox>
                     </td>
                 </tr>
                 <tr>
@@ -42,7 +42,7 @@
                         <div class="text-secondary">注册成功后，是否需要通过短信才能激活账号</div>
                     </td>
                     <td class="align-middle text-right border-left-0">
-                        <gt:checkbox for="Input.RequireConfirmedPhoneNumber"> </gt:checkbox>
+                        <gt:checkbox asp-for="Input.RequireConfirmedPhoneNumber"> </gt:checkbox>
                     </td>
                 </tr>
                 <tr>
@@ -51,7 +51,7 @@
                         <div class="text-secondary">在登录页面是否开启验证码</div>
                     </td>
                     <td class="align-middle text-right border-left-0">
-                        <gt:checkbox for="Input.ValidCode"> </gt:checkbox>
+                        <gt:checkbox asp-for="Input.ValidCode"> </gt:checkbox>
                     </td>
                 </tr>
                 <tr>
@@ -60,7 +60,7 @@
                         <div class="text-secondary">用户密码登录成功后，是否需要进行短信验证</div>
                     </td>
                     <td class="align-middle text-right border-left-0">
-                        <gt:checkbox for="Input.RequiredTwoFactorEnabled"> </gt:checkbox>
+                        <gt:checkbox asp-for="Input.RequiredTwoFactorEnabled"> </gt:checkbox>
                     </td>
                 </tr>
                 <tr>
@@ -69,7 +69,7 @@
                         <div class="text-secondary">用户登录成功后，默认转向的页面</div>
                     </td>
                     <td class="align-middle text-right border-left-0">
-                        <gt:enum-radioboxlist class="row" iclass="col-4" for="Input.LoginDirection"></gt:enum-radioboxlist>
+                        <gt:enum-radioboxlist class="row" iclass="col-4" asp-for="Input.LoginDirection"></gt:enum-radioboxlist>
                     </td>
                 </tr>
                 <tr>
@@ -94,7 +94,7 @@
                         <div class="text-secondary">对新用户是否开启锁定功能</div>
                     </td>
                     <td class="align-middle text-right border-left-0">
-                        <gt:checkbox for="Input.AllowedLockoutForNewUsers"> </gt:checkbox>
+                        <gt:checkbox asp-for="Input.AllowedLockoutForNewUsers"> </gt:checkbox>
                     </td>
                 </tr>
                 <tr>
@@ -136,7 +136,7 @@
                         <div class="text-secondary">密码是否需要数字字符</div>
                     </td>
                     <td class="align-middle text-right border-left-0">
-                        <gt:checkbox for="Input.RequireDigit"> </gt:checkbox>
+                        <gt:checkbox asp-for="Input.RequireDigit"> </gt:checkbox>
                     </td>
                 </tr>
                 <tr>
@@ -145,7 +145,7 @@
                         <div class="text-secondary">密码是否需要小写字母</div>
                     </td>
                     <td class="align-middle text-right border-left-0">
-                        <gt:checkbox for="Input.RequireLowercase"> </gt:checkbox>
+                        <gt:checkbox asp-for="Input.RequireLowercase"> </gt:checkbox>
                     </td>
                 </tr>
                 <tr>
@@ -154,7 +154,7 @@
                         <div class="text-secondary">密码是否需要大写字母</div>
                     </td>
                     <td class="align-middle text-right border-left-0">
-                        <gt:checkbox for="Input.RequireUppercase"> </gt:checkbox>
+                        <gt:checkbox asp-for="Input.RequireUppercase"> </gt:checkbox>
                     </td>
                 </tr>
                 <tr>
@@ -163,7 +163,7 @@
                         <div class="text-secondary">密码是否需要符号字符</div>
                     </td>
                     <td class="align-middle text-right border-left-0">
-                        <gt:checkbox for="Input.RequireNonAlphanumeric"> </gt:checkbox>
+                        <gt:checkbox asp-for="Input.RequireNonAlphanumeric"> </gt:checkbox>
                     </td>
                 </tr>
                 <tr>

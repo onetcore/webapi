@@ -11,7 +11,7 @@
         <input asp-for="Query.Sid" type="hidden"/>
         <gt:toolbar-form-group>
             <label>状态：</label>
-            <gt:enum-dropdownlist class="form-control form-control-sm" for="Query.Status"></gt:enum-dropdownlist>
+            <gt:enum-dropdownlist class="form-control form-control-sm" asp-for="Query.Status"></gt:enum-dropdownlist>
         </gt:toolbar-form-group>
         <gt:toolbar-form-group>
             <label>邮件地址：</label>
@@ -57,5 +57,5 @@
         <gt:warning-tabled colspan="4" attach="Model.Emails">没有找到相关邮件！</gt:warning-tabled>
         </tbody>
     </table>
-    <gt:page data="@Model.Emails" route-sid="@Model.Query.Sid" route-status="@Model.Query.Status" route-title="@Model.Query.Title" route-to="@Model.Query.To"></gt:page>
+    <gt:page data="@Model.Emails" asp-route-sid="@Model.Query.Sid" asp-route-status="@Model.Query.Status" asp-route-title="@Model.Query.Title" asp-route-to="@Model.Query.To"></gt:page>
 </div>

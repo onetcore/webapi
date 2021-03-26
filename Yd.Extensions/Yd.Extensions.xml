@@ -1176,12 +1176,6 @@
             优先级，在两个迁移数据需要先后时候使用。
             </summary>
         </member>
-        <member name="M:Yd.Extensions.Security.Data.IdentityDataMigration.Up1(Gentings.Data.Migrations.MigrationBuilder)">
-            <summary>
-            建立索引。
-            </summary>
-            <param name="builder">数据迁移构建实例。</param>
-        </member>
         <member name="T:Yd.Extensions.Security.Data.UserStore">
             <summary>
             用户存储。
@@ -1216,37 +1210,6 @@
             初始化查询上下文。
             </summary>
             <param name="context">查询上下文。</param>
-        </member>
-        <member name="T:Yd.Extensions.Security.IUserAliasManager">
-            <summary>
-            用户别名管理接口。
-            </summary>
-        </member>
-        <member name="T:Yd.Extensions.Security.UserAliasManager">
-            <summary>
-            用户别名管理类型。
-            </summary>
-        </member>
-        <member name="M:Yd.Extensions.Security.UserAliasManager.#ctor(Gentings.Data.IDbContext{Yd.Extensions.Security.UserAlias})">
-            <summary>
-            初始化类<see cref="T:Yd.Extensions.Security.UserAliasManager"/>。
-            </summary>
-            <param name="context">数据库操作实例。</param>
-        </member>
-        <member name="M:Yd.Extensions.Security.UserAliasManager.Find(System.String)">
-            <summary>
-            通过唯一键获取当前值。
-            </summary>
-            <param name="id">唯一Id。</param>
-            <returns>返回当前模型实例。</returns>
-        </member>
-        <member name="M:Yd.Extensions.Security.UserAliasManager.FindAsync(System.String,System.Threading.CancellationToken)">
-            <summary>
-            通过唯一键获取当前值。
-            </summary>
-            <param name="id">唯一Id。</param>
-            <param name="cancellationToken">取消标识。</param>
-            <returns>返回当前模型实例。</returns>
         </member>
         <member name="T:Yd.Extensions.Security.IUserManager">
             <summary>
@@ -1402,31 +1365,6 @@
             积分。
             </summary>
         </member>
-        <member name="T:Yd.Extensions.Security.UserAlias">
-            <summary>
-            用户别名，用于推广。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.Security.UserAlias.UserId">
-            <summary>
-            用户Id。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.Security.UserAlias.Id">
-            <summary>
-            唯一Id。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.Security.UserAlias.Level">
-            <summary>
-            用户等级。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.Security.UserAlias.Count">
-            <summary>
-            推广数量。
-            </summary>
-        </member>
         <member name="T:Yd.Extensions.Security.UserClaim">
             <summary>
             用户声明。
@@ -1436,23 +1374,6 @@
             <summary>
             用户事件。
             </summary>
-        </member>
-        <member name="M:Yd.Extensions.Security.UserEventHandler.OnCreated(Gentings.Data.Internal.IDbTransactionContext{Yd.Extensions.Security.User},Yd.Extensions.Security.User)">
-            <summary>
-            当用户添加后触发得方法。
-            </summary>
-            <param name="context">数据库事务操作实例。</param>
-            <param name="user">用户实例。</param>
-            <returns>返回操作结果，返回<c>true</c>表示操作成功，将自动提交事务，如果<c>false</c>或发生错误，则回滚事务。</returns>
-        </member>
-        <member name="M:Yd.Extensions.Security.UserEventHandler.OnCreatedAsync(Gentings.Data.Internal.IDbTransactionContext{Yd.Extensions.Security.User},Yd.Extensions.Security.User,System.Threading.CancellationToken)">
-            <summary>
-            当用户添加后触发得方法。
-            </summary>
-            <param name="context">数据库事务操作实例。</param>
-            <param name="user">用户实例。</param>
-            <param name="cancellationToken">取消标志。</param>
-            <returns>返回操作结果，返回<c>true</c>表示操作成功，将自动提交事务，如果<c>false</c>或发生错误，则回滚事务。</returns>
         </member>
         <member name="T:Yd.Extensions.Security.UserLogin">
             <summary>

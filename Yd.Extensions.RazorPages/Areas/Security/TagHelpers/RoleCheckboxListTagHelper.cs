@@ -31,13 +31,13 @@ namespace Yd.Extensions.RazorPages.Areas.Security.TagHelpers
         /// 附加复选项目列表，文本/值。
         /// </summary>
         /// <param name="items">复选框项目列表实例。</param>
-        protected override void Init(IDictionary<string, string> items)
+        protected override void Init(IDictionary<string, object> items)
         {
             foreach (var role in _roleManager.Load())
             {
                 if (MaxRoleLevel > 0 && role.RoleLevel >= MaxRoleLevel || role.RoleLevel == 0)
                     continue;
-                items.Add(role.Name, role.Id.ToString());
+                items.Add(role.Name, role.Id);
             }
         }
     }

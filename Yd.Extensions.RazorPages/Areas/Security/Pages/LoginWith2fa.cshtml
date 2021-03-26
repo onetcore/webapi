@@ -14,7 +14,7 @@
         <span asp-validation-for="Input.TwoFactorCode" class="text-danger"></span>
     </div>
     <div class="form-label-group">
-        <gt:checkbox for="Input.RememberMachine" class="mb-3">记住这个设备信息</gt:checkbox>
+        <gt:checkbox asp-for="Input.RememberMachine" class="mb-3">记住这个设备信息</gt:checkbox>
     </div>
     <p>你的登录需要进行二次验证，请输入二次验证码进行验证。</p>
     <p>

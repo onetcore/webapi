@@ -53,11 +53,11 @@ namespace Yd.Extensions.RazorPages.Areas.Security.TagHelpers.Permissions
         /// 附加复选项目列表，文本/值。
         /// </summary>
         /// <param name="items">复选框项目列表实例。</param>
-        protected override void Init(IDictionary<string, string> items)
+        protected override void Init(IDictionary<string, object> items)
         {
-            items.Add(_localizer.GetString(PermissionValue.Allow), ((int)PermissionValue.Allow).ToString());
-            items.Add(_localizer.GetString(PermissionValue.Deny), ((int)PermissionValue.Deny).ToString());
-            items.Add(_localizer.GetString(PermissionValue.NotSet), ((int)PermissionValue.NotSet).ToString());
+            items.Add(_localizer.GetString(PermissionValue.Allow), (int)PermissionValue.Allow);
+            items.Add(_localizer.GetString(PermissionValue.Deny), (int)PermissionValue.Deny);
+            items.Add(_localizer.GetString(PermissionValue.NotSet), (int)PermissionValue.NotSet);
         }
     }
 }

@@ -9,7 +9,7 @@
     <form method="get" class="form-inline">
         <gt:toolbar-form-group>
             <label>类型：</label>
-            <gt:extension-dropdownlist class="form-control form-control-sm" default-text="选择类型" for="Query.ExtensionName"></gt:extension-dropdownlist>
+            <gt:extension-dropdownlist class="form-control form-control-sm" default-text="选择类型" asp-for="Query.ExtensionName"></gt:extension-dropdownlist>
         </gt:toolbar-form-group>
         <gt:toolbar-form-group>
             <label>名称：</label>
@@ -65,5 +65,5 @@
             <gt:warning-tabled colspan="4" attach="Model.Files">还没有上传任何文件！</gt:warning-tabled>
         </tbody>
     </table>
-    <gt:page class="page-center" data="@Model.Files" route-extension-name="@Model.Query.ExtensionName" route-name="@Model.Query.Name"></gt:page>
+    <gt:page class="page-center" data="@Model.Files" asp-route-extension-name="@Model.Query.ExtensionName" asp-route-name="@Model.Query.Name"></gt:page>
 </div>

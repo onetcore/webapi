@@ -8,7 +8,7 @@
 <form method="post">
     <input type="hidden" asp-for="Input.Id"/>
     <div class="form-group">
-        <gt:checkbox for="Input.Enabled">启用</gt:checkbox>
+        <gt:checkbox asp-for="Input.Enabled">启用</gt:checkbox>
     </div>
     <div class="row">
         <div class="form-group col-6">
@@ -19,7 +19,7 @@
         <div class="form-group col-6 pl-0">
             <label>SMTP端口</label>
             <input asp-for="Input.SmtpPort" class="form-control" />
-            <gt:checkbox for="Input.UseSsl">使用SSL</gt:checkbox>
+            <gt:checkbox asp-for="Input.UseSsl">使用SSL</gt:checkbox>
             <span class="text-danger" asp-validation-for="Input.SmtpPort"></span>
         </div>
     </div>

@@ -48,5 +48,5 @@
             <gt:warning-tabled colspan="4" attach="@Model.Words">还没有添加任何字典实例！</gt:warning-tabled>
         </tbody>
     </table>
-    <gt:page class="page-center" route-word="@Model.Query.Word" data="@Model.Words"></gt:page>
+    <gt:page class="page-center" asp-route-word="@Model.Query.Word" data="@Model.Words"></gt:page>
 </div>

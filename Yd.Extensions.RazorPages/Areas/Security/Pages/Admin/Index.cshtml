@@ -11,9 +11,9 @@
         <gt:toolbar-form-group>
             <label>注册时间：</label>
             <gt:toolbar-range-group>
-                <gt:datetimepicker for="Query.Start" type="DateTime" max-selector="#Query_End" />
+                <gt:datetimepicker asp-for="Query.Start" type="DateTime" max-selector="#Query_End" />
                 <divider />
-                <gt:datetimepicker for="Query.End" type="DateTime" min-selector="#Query_Start" class="radius-right" />
+                <gt:datetimepicker asp-for="Query.End" type="DateTime" min-selector="#Query_Start" class="radius-right" />
             </gt:toolbar-range-group>
         </gt:toolbar-form-group>
         <gt:toolbar-form-group>
@@ -74,5 +74,5 @@
             <gt:warning-tabled colspan="6" attach="Model.Model">当前网站还没添加其他用户！</gt:warning-tabled>
         </tbody>
     </table>
-    <gt:page route-start="@Model.Query.Start" route-end="@Model.Query.End" route-name="@Model.Query.Name" class="page-center d-print-none mb-0" data="Model.Model"></gt:page>
+    <gt:page asp-route-start="@Model.Query.Start" asp-route-end="@Model.Query.End" asp-route-name="@Model.Query.Name" class="page-center d-print-none mb-0" data="Model.Model"></gt:page>
 </div>

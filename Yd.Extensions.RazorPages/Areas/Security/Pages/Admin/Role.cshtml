@@ -6,6 +6,6 @@
 }
 
 <form method="post">
-    <gt:role-checkboxlist max="Model.Role.RoleLevel" class="row" iclass="col-6" for="Input.RoleId"></gt:role-checkboxlist>
+    <gt:role-checkboxlist max="Model.Role.RoleLevel" class="row" iclass="col-6" asp-for="Input.RoleId"></gt:role-checkboxlist>
     <input type="hidden" asp-for="Input.UserId" />
 </form>

@@ -11,14 +11,14 @@
     <form class="form-inline" method="get">
         <gt:toolbar-form-group>
             <label>分类：</label>
-            <gt:event-type-dropdownlist class="form-control form-control-sm" default-text="全部" default-value="0" for="Query.EventId"></gt:event-type-dropdownlist>
+            <gt:event-type-dropdownlist class="form-control form-control-sm" default-text="全部" default-value="0" asp-for="Query.EventId"></gt:event-type-dropdownlist>
         </gt:toolbar-form-group>
         <gt:toolbar-form-group>
             <label>日期：</label>
             <gt:toolbar-range-group>
-                <gt:datetimepicker type="Date" max-selector="#Query_End" for="Query.Start" />
+                <gt:datetimepicker type="Date" max-selector="#Query_End" asp-for="Query.Start" />
                 <divider />
-                <gt:datetimepicker type="Date" class="radius-right" max-selector="#Query_Start" for="Query.End" />
+                <gt:datetimepicker type="Date" class="radius-right" max-selector="#Query_Start" asp-for="Query.End" />
             </gt:toolbar-range-group>
         </gt:toolbar-form-group>
         <gt:toolbar-form-group>

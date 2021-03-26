@@ -26,7 +26,7 @@
     </div>
     <div class="form-group">
         <label>选择用户</label>
-        <gt:user-dropdownlist default-text="选择用户" default-value="0" class="form-control" for="Input.UserId"></gt:user-dropdownlist>
+        <gt:user-dropdownlist default-text="选择用户" default-value="0" class="form-control" asp-for="Input.UserId"></gt:user-dropdownlist>
         <span asp-validation-for="Input.UserId" class="text-danger"></span>
     </div>
     <div class="form-group">

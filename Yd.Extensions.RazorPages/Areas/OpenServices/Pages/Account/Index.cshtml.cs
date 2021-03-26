@@ -23,7 +23,7 @@ namespace Yd.Extensions.RazorPages.Areas.OpenServices.Pages.Account
         public void OnGet()
         {
             Query.UserId = UserId;
-            Applications = _applicationManager.Fetch(Query);
+            Applications = _applicationManager.Load(Query);
         }
 
         public async Task<IActionResult> OnPostDeleteAsync(Guid[] ids)
