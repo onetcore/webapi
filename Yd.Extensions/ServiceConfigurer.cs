@@ -1,5 +1,5 @@
 ﻿using Gentings;
-using Gentings.Settings;
+using Gentings.Extensions.Settings;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Yd.Extensions

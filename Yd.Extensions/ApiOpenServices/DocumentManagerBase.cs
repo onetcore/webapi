@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
 using System.Collections.Generic;
+using Gentings;
 using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.Extensions.Caching.Memory;
-using Gentings.Extensions;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Yd.Extensions.ApiOpenServices.Documents;
 

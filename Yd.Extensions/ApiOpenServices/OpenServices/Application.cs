@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Gentings;
+using Gentings.Data.Extensions;
 using Gentings.Extensions;
 
 namespace Yd.Extensions.ApiOpenServices.OpenServices

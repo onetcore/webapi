@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Gentings.Extensions.Notifications;
-using Gentings.Settings;
+using Gentings.Extensions.Settings;
 using Gentings.Identity.Permissions;
 using Microsoft.AspNetCore.Mvc;
 

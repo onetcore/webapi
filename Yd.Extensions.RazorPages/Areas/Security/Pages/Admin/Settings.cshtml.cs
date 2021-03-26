@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using Gentings.Settings;
+using Gentings.Extensions.Settings;
 using Gentings.Storages;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
