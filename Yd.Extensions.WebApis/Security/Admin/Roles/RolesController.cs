@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
-using Gentings.Identity;
+using Gentings.Security;
 using Microsoft.AspNetCore.Mvc;
 using Yd.Extensions.Security.Roles;
 
@@ -41,7 +41,7 @@ namespace Yd.Extensions.WebApis.Security.Admin.Roles
         public async Task<IActionResult> Remove([FromBody]int[] ids)
         {
             if (ids == null || ids.Length == 0)
-                return BadParameter(nameof(ids));
+                return InvalidParameters(nameof(ids));
             var result = await _roleManager.DeleteAsync(ids);
             if (result.Succeeded)
                 return OkResult();

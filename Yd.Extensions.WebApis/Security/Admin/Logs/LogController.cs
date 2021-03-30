@@ -1,7 +1,7 @@
-﻿using System.Threading.Tasks;
-using Gentings.Extensions.EventLogging;
+﻿using System;
+using System.Threading.Tasks;
+using Gentings.Extensions.Events;
 using Microsoft.AspNetCore.Mvc;
-using Yd.Extensions.Security;
 
 namespace Yd.Extensions.WebApis.Security.Admin.Logs
 {
@@ -11,17 +11,14 @@ namespace Yd.Extensions.WebApis.Security.Admin.Logs
     public class LogController : AdminControllerBase
     {
         private readonly IEventManager _eventManager;
-        private readonly IEventTypeManager _eventTypeManager;
 
         /// <summary>
         /// 初始化类<see cref="LogController"/>。
         /// </summary>
         /// <param name="eventManager">用户日志管理实例。</param>
-        /// <param name="eventTypeManager">事件类型管理实例。</param>
-        public LogController(IEventManager eventManager, IEventTypeManager eventTypeManager)
+        public LogController(IEventManager eventManager)
         {
             _eventManager = eventManager;
-            _eventTypeManager = eventTypeManager;
         }
 
         /// <summary>
@@ -30,9 +27,10 @@ namespace Yd.Extensions.WebApis.Security.Admin.Logs
         /// <param name="query">日志查询实例。</param>
         /// <returns>返回日志列表结果。</returns>
         [HttpGet]
-        public async Task<IActionResult> Index([FromQuery] EventQuery query)
+        public async Task<IActionResult> Index([FromQuery] Extensions.Security.EventQuery query)
         {
-            query.RoleLevel = Role.RoleLevel;
+            query.UserId = UserId;
+            query.IsChildren = true;
             var events = await _eventManager.LoadAsync(query);
             return OkResult(events);
         }
@@ -44,7 +42,7 @@ namespace Yd.Extensions.WebApis.Security.Admin.Logs
         [HttpGet("types")]
         public async Task<IActionResult> LoadEventTypes()
         {
-            var types = await _eventTypeManager.FetchAsync();
+            var types = await _eventManager.GetEventTypesAsync();
             return OkResult(types);
         }
 
@@ -56,10 +54,10 @@ namespace Yd.Extensions.WebApis.Security.Admin.Logs
         [HttpPost("save-type")]
         public async Task<IActionResult> SaveEventType(EventType eventType)
         {
-            var result = await _eventTypeManager.SaveAsync(eventType);
+            var result = await _eventManager.UpdateAsync(eventType);
             if (result)
                 return OkResult();
-            return BadResult(result.ToString("日志类型"));
+            return BadResult("更新了日志类型失败，请重试！");
         }
     }
 }

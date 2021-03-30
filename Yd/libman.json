@@ -53,6 +53,14 @@
         "dist/css/gtcore.min.css",
         "dist/js/gtcore.min.js"
       ]
+    },
+    {
+      "library": "highlight.js@10.7.1",
+      "destination": "wwwroot/lib/highlight.js/",
+      "files": [
+        "highlight.min.js",
+        "styles/vs2015.min.css"
+      ]
     }
   ]
 }

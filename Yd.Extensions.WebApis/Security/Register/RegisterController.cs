@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Gentings.Extensions.SMS.Captchas;
-using Gentings.Identity;
+using Gentings.Security;
 using Microsoft.AspNetCore.Mvc;
 using Yd.Extensions.Security;
 using Yd.Extensions.WebApis.Properties;
@@ -11,7 +11,7 @@ namespace Yd.Extensions.WebApis.Security.Register
     /// <summary>
     /// 注册。
     /// </summary>
-    public class RegisterController : ControllerBase
+    public class RegisterController : Extensions.Security.ControllerBase
     {
         private readonly IUserManager _userManager;
         private readonly ICaptchaManager _captchaManager;
@@ -52,13 +52,17 @@ namespace Yd.Extensions.WebApis.Security.Register
             //邀请码
             if (!string.IsNullOrEmpty(model.InviteKey))
             {
-               
+
             }
 
             var result = await _userManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
             {
-                Log(user.Id, Resources.Register_Success);
+                await Events.LogAsync(@event =>
+                {
+                    @event.UserId = UserId;
+                    @event.Message = Resources.Register_Success;
+                }, EventType);
                 return OkResult();
             }
             return BadResult(ErrorCode.RegisterFailured, result.ToErrorString());

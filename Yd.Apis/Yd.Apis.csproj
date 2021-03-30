@@ -21,7 +21,7 @@
   </ItemGroup>
   
   <ItemGroup>
-    <ProjectReference Include="..\..\Gentings\Gentings.Identity\Gentings.Identity.csproj" />
+    <ProjectReference Include="..\..\gentings\Gentings.Data.SqlServer\Gentings.Data.SqlServer.csproj" />
     <ProjectReference Include="..\..\gentings\Gentings.Storages\Gentings.Storages.csproj" />
     <ProjectReference Include="..\..\Gentings\Gentings\Gentings.csproj" />
     <ProjectReference Include="..\Yd.Extensions.WebApis\Yd.Extensions.WebApis.csproj" />

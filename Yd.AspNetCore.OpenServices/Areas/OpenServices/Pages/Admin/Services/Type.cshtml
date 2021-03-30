@@ -1,0 +1,79 @@
+﻿@page "{type}"
+@model TypeModel
+@{
+    ViewData.AddLibraries(ImportLibrary.Prettify);
+    ViewData["Title"] = Model.Type.GetRealTypeName();
+    ViewBag.Current = "open.services";
+}
+
+<div class="d-flex align-items-center p-3 mb-3 text-white-50 bg-purple rounded shadow-sm">
+    <div class="mr-3 icon-48 icon-en48 text-uppercase">@Model.TagName</div>
+    <div class="lh-100">
+        <h6 class="mb-0 text-white lh-100">@ViewBag.Title</h6>
+        <small>@Model.TypeDescriptor.Summary</small>
+    </div>
+</div>
+
+<div class="my-3 pt-3 px-3 bg-white rounded shadow-sm">
+    <h6 class="border-bottom pb-2 mb-0">成员列表</h6>
+    @foreach (var property in Model.Type.GetProperties())
+    {
+        if (!property.CanRead || !property.CanWrite)
+        {
+            continue;
+        }
+        <div class="media text-muted pt-3">
+            <div class="mr-2 text-white rounded position-relative" style="background-color: #28a745; font-size: 12px; width: 32px; height: 32px; overflow: hidden;">
+                <span class="b-span">属性</span>
+            </div>
+            <div class="media-body pb-3 mb-0 small lh-125 border-bottom">
+                <a href="#"><strong class="d-block">@@@property.Name</strong></a>
+                {
+                @if (property.PropertyType.IsLinkable())
+                {
+                    <a asp-route-type="@property.PropertyType.FullName">@property.PropertyType.GetRealTypeName()</a>
+                }
+                else
+                {
+                    <span>@property.PropertyType.GetRealTypeName()</span>
+                }
+                }
+                @Model.TypeDescriptor.GetPropertyDescriptor(property)?.Summary
+            </div>
+        </div>
+    }
+    <ul class="nav nav-tabs justify-content-end border-bottom mb-0 border-bottom-0" role="tablist">
+        <li class="nav-item active">
+            <a class="nav-link active" id="cs-tab" data-toggle="tab" href="#cs" role="tab">C#</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="ts-tab" data-toggle="tab" href="#ts" role="tab">TypeScript</a>
+        </li>
+    </ul>
+</div>
+
+<div class="mt-3 bg-white rounded shadow-sm">
+    <div class="tab-content">
+        <div id="cs" class="media text-muted pt-3 tab-pane fade show active">
+            <pre class="prettyprint border-0 linenums w-100">@Model.Type.GetClass()</pre>
+        </div>
+        <div id="ts" class="media text-muted pt-3 tab-pane fade">
+            <pre class="prettyprint border-0 linenums w-100">@Model.Type.GetTypeScriptInterface()</pre>
+        </div>
+    </div>
+</div>
+
+@section header
+{
+    <style type="text/css">
+        .main-container {
+            padding: 0 !important;
+            background-color: transparent !important;
+        }
+    </style>
+}
+
+@section footer
+{
+    <script type="text/javascript">prettyPrint();</script>
+}

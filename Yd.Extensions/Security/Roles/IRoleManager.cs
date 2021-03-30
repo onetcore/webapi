@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Gentings;
-using Gentings.Identity.Roles;
+using Gentings.Security.Roles;
 
 namespace Yd.Extensions.Security.Roles
 {

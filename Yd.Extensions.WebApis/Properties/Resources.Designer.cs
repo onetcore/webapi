@@ -47,8 +47,8 @@ namespace Yd.Extensions.WebApis.Properties {
         }
         
         /// <summary>
-        ///   重写当前线程的 CurrentUICulture 属性
-        ///   重写当前线程的 CurrentUICulture 属性。
+        ///   重写当前线程的 CurrentUICulture 属性，对
+        ///   使用此强类型资源类的所有资源查找执行重写。
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         internal static global::System.Globalization.CultureInfo Culture {
@@ -138,6 +138,24 @@ namespace Yd.Extensions.WebApis.Properties {
         internal static string ErrorCode_UserNotFound {
             get {
                 return ResourceManager.GetString("ErrorCode_UserNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 通过账号成功登录了账户。 的本地化字符串。
+        /// </summary>
+        internal static string Login_Account_Success {
+            get {
+                return ResourceManager.GetString("Login_Account_Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 通过手机号码登录了系统。 的本地化字符串。
+        /// </summary>
+        internal static string Login_Mobile_Success {
+            get {
+                return ResourceManager.GetString("Login_Mobile_Success", resourceCulture);
             }
         }
         

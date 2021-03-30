@@ -1,5 +1,5 @@
 ﻿using Gentings;
-using Gentings.Identity;
+using Gentings.Security;
 using Yd.Extensions.Security.Roles;
 
 namespace Yd.Extensions.Security
@@ -9,6 +9,5 @@ namespace Yd.Extensions.Security
     /// </summary>
     public interface IUserManager : IUserManager<User, Role>, IScopedService
     {
-        
     }
 }

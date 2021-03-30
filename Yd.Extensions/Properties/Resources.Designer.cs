@@ -47,8 +47,8 @@ namespace Yd.Extensions.Properties {
         }
         
         /// <summary>
-        ///   重写当前线程的 CurrentUICulture 属性
-        ///   重写当前线程的 CurrentUICulture 属性。
+        ///   重写当前线程的 CurrentUICulture 属性，对
+        ///   使用此强类型资源类的所有资源查找执行重写。
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         internal static global::System.Globalization.CultureInfo Culture {
@@ -66,51 +66,6 @@ namespace Yd.Extensions.Properties {
         internal static string Anonymous {
             get {
                 return ResourceManager.GetString("Anonymous", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   查找类似 禁用 的本地化字符串。
-        /// </summary>
-        internal static string ApplicationStatus_Disabled {
-            get {
-                return ResourceManager.GetString("ApplicationStatus_Disabled", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   查找类似 过期 的本地化字符串。
-        /// </summary>
-        internal static string ApplicationStatus_Expired {
-            get {
-                return ResourceManager.GetString("ApplicationStatus_Expired", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   查找类似 正常 的本地化字符串。
-        /// </summary>
-        internal static string ApplicationStatus_Normal {
-            get {
-                return ResourceManager.GetString("ApplicationStatus_Normal", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   查找类似 等待验证 的本地化字符串。
-        /// </summary>
-        internal static string ApplicationStatus_Pending {
-            get {
-                return ResourceManager.GetString("ApplicationStatus_Pending", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   查找类似 验证失败 的本地化字符串。
-        /// </summary>
-        internal static string ApplicationStatus_Unapproved {
-            get {
-                return ResourceManager.GetString("ApplicationStatus_Unapproved", resourceCulture);
             }
         }
         
@@ -153,9 +108,9 @@ namespace Yd.Extensions.Properties {
         /// <summary>
         ///   查找类似 用户 的本地化字符串。
         /// </summary>
-        internal static string EventType_User {
+        internal static string EventType_Users {
             get {
-                return ResourceManager.GetString("EventType_User", resourceCulture);
+                return ResourceManager.GetString("EventType_Users", resourceCulture);
             }
         }
         

@@ -1,0 +1,60 @@
+﻿@page
+@using Yd.AspNetCore.Security
+@model IndexModel
+@{
+    ViewBag.Title = "通知管理";
+    ViewBag.Current = "users.notifier";
+}
+
+<div class="gt-toolbar mb-3">
+    <form class="form-inline" method="get">
+        <input type="hidden" asp-for="Query.UserId" />
+        <input type="hidden" asp-for="Query.SendId" />
+        <gt:toolbar-form-group>
+            <gt:toolbar-range-group>
+                <input placeholder="标题" asp-for="Query.Title" />
+                <gt:enum-dropdownlist asp-for="Query.Status" default-text="请选择状态"></gt:enum-dropdownlist>
+                <gt:append-search/>
+            </gt:toolbar-range-group>
+        </gt:toolbar-form-group>
+    </form>
+    <gt:toolbar-btn-group right="true" .permission="@SecurityPermissions.EditNotifier">
+        <a js-checked="post" js-confirm="你确定要删除所选择的通知吗？" asp-page-handler="Delete" .icon="fa-trash-o">删除</a>
+        <a js-modal="click" asp-page="./Edit" .icon="fa-send">发布</a>
+    </gt:toolbar-btn-group>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-striped table-bordered data-view">
+        <thead>
+            <tr>
+                <th class="checkbox-only"><gt:checkall></gt:checkall></th>
+                <th>标题</th>
+                <th>接收用户</th>
+                <th>发送用户</th>
+                <th>发布时间</th>
+                <th>状态</th>
+                <th class="data-action" .permission="@SecurityPermissions.EditNotifier">操作</th>
+            </tr>
+        </thead>
+        <tbody class="data-content">
+            @foreach (var item in Model.Items)
+            {
+                <tr>
+                    <td class="checkbox-only"><gt:checkbox value="@item.Id"></gt:checkbox></td>
+                    <td>@item.Title</td>
+                    <td><a asp-route-userid="@item.UserId">@Model.GetNickName(item.UserId)</a></td>
+                    <td><a asp-route-sendid="@item.SendId">@Model.GetNickName(item.SendId)</a></td>
+                    <td>@item.CreatedDate.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                    <td>@Model.Localizer[item.Status]</td>
+                    <td class="data-action" .permission="@SecurityPermissions.EditNotifier">
+                        <a js-modal="click" asp-page="./Edit" asp-route-id="@item.Id"><i class="fa fa-pencil"></i> 编辑</a>
+                        <a js-confirm="你确定要删除“@item.Title”吗？" js-action="post" asp-page-handler="Delete" asp-route-ids="@item.Id"><i class="fa fa-trash-o"></i> 删除</a>
+                    </td>
+                </tr>
+            }
+            <gt:warning-tabled colspan="7" attach="Model.Items">还没有添加任何通知！</gt:warning-tabled>
+        </tbody>
+    </table>
+    <gt:page class="page-center" asp-route-title="@Model.Query.Title" asp-route-status="@Model.Query.Status" asp-route-userid="@Model.Query.UserId" asp-route-sendid="@Model.Query.SendId"></gt:page>
+</div>

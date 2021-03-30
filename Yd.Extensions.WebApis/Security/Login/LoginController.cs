@@ -4,11 +4,10 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Gentings.AspNetCore;
 using Gentings.Extensions.SMS.Captchas;
-using Gentings.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
 using Yd.Extensions.Security;
 using Yd.Extensions.Security.Roles;
+using Yd.Extensions.WebApis.Properties;
 
 namespace Yd.Extensions.WebApis.Security.Login
 {
@@ -19,7 +18,6 @@ namespace Yd.Extensions.WebApis.Security.Login
     {
         private readonly IUserManager _userManager;
         private readonly IRoleManager _roleManager;
-        private readonly IConfiguration _configuration;
         private readonly ICaptchaManager _captchaManager;
 
         /// <summary>
@@ -27,13 +25,11 @@ namespace Yd.Extensions.WebApis.Security.Login
         /// </summary>
         /// <param name="userManager">用户管理接口。</param>
         /// <param name="roleManager">角色管理接口。</param>
-        /// <param name="configuration">配置接口。</param>
         /// <param name="captchaManager">验证码管理接口。</param>
-        public LoginController(IUserManager userManager, IRoleManager roleManager, IConfiguration configuration, ICaptchaManager captchaManager)
+        public LoginController(IUserManager userManager, IRoleManager roleManager, ICaptchaManager captchaManager)
         {
             _userManager = userManager;
             _roleManager = roleManager;
-            _configuration = configuration;
             _captchaManager = captchaManager;
         }
 
@@ -56,7 +52,11 @@ namespace Yd.Extensions.WebApis.Security.Login
                 var result = await _userManager.PasswordSignInAsync(user, model.Password, model.AutoLogin);
                 if (!result.Succeeded)
                     return BadResult(ErrorCode.InvalidUserNameOrPassword);
-                Log(user.Id, "通过账号登录了系统");
+                await Events.LogAsync(@event =>
+                {
+                    @event.UserId = UserId;
+                    @event.Message = Resources.Login_Account_Success;
+                }, EventType);
             }
             else
             {
@@ -71,7 +71,11 @@ namespace Yd.Extensions.WebApis.Security.Login
                 if (!captcha.Code.Equals(model.Captcha, StringComparison.OrdinalIgnoreCase))
                     return BadResult(ErrorCode.InvalidCaptcha);
                 await _userManager.SignInManager.SignInAsync(user, model.AutoLogin);
-                Log(user.Id, "通过手机号码登录了系统");
+                await Events.LogAsync(@event =>
+                {
+                    @event.UserId = UserId;
+                    @event.Message = Resources.Login_Mobile_Success;
+                }, EventType);
             }
 
             await _userManager.SetLoginStatusAsync(user);
@@ -90,7 +94,7 @@ namespace Yd.Extensions.WebApis.Security.Login
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
                 new Claim(ClaimTypes.Name, user.UserName)
             };
-            return _configuration.CreateJwtSecurityToken(claims);
+            return CreateJwtSecurityToken(claims);
         }
     }
 }

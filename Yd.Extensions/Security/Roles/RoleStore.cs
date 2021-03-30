@@ -1,5 +1,5 @@
 ﻿using Gentings.Data;
-using Gentings.Identity.Roles;
+using Gentings.Security.Roles;
 using Microsoft.AspNetCore.Identity;
 
 namespace Yd.Extensions.Security.Roles

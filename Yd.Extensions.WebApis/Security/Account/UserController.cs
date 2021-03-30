@@ -34,16 +34,5 @@ namespace Yd.Extensions.WebApis.Security.Account
                 return BadRequest();
             return Ok(user);
         }
-
-        /// <summary>
-        /// 退出登录。
-        /// </summary>
-        [HttpPost("logout")]
-        public async Task<IActionResult> Logout()
-        {
-            await _userManager.SignOutAsync();
-            Log("退出了登录。");
-            return OkResult();
-        }
     }
 }

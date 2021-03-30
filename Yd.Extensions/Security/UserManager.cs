@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Gentings.Identity;
+using Gentings.Security;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using Yd.Extensions.Security.Roles;

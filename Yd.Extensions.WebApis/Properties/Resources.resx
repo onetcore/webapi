@@ -144,6 +144,12 @@
   <data name="ErrorCode_UserNotFound" xml:space="preserve">
     <value>未找到用户！</value>
   </data>
+  <data name="Login_Account_Success" xml:space="preserve">
+    <value>通过账号成功登录了账户。</value>
+  </data>
+  <data name="Login_Mobile_Success" xml:space="preserve">
+    <value>通过手机号码登录了系统。</value>
+  </data>
   <data name="Register_Success" xml:space="preserve">
     <value>成功开通了账户。</value>
   </data>

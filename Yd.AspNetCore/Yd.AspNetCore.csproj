@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+    <LangVersion>8</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\gentings\Gentings.AspNetCore\Gentings.AspNetCore.csproj" />
+    <ProjectReference Include="..\..\gentings\Gentings.Extensions.SensitiveWords\Gentings.Extensions.SensitiveWords.csproj" />
+    <ProjectReference Include="..\..\gentings\Gentings.Security\Gentings.Security.csproj" />
+    <ProjectReference Include="..\..\Gentings\Gentings\Gentings.csproj" />
+    <ProjectReference Include="..\Yd.Extensions\Yd.Extensions.csproj" />
+  </ItemGroup>
+
+</Project>

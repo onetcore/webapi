@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
-using Gentings.Identity;
+using Gentings.Security;
 
 namespace Yd.Extensions.Security
 {

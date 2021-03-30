@@ -1,9 +1,8 @@
 ﻿@{
     Layout = "_Global";
-    var notifications = NotificationManager.Load();
-    var notificationSize = notifications.Count(x => x.Status == NotificationStatus.New);
-    var events = EventManager.LoadMessages(Current.Id);
     ViewBag.ClassName = Settings.IsTopMenu ? "gt-skin gt-topmenu" : "gt-skin";
+    var notifications = NotificationManager.Load(Current.Id, 10);
+    var events = EventManager.LoadUserEvents(Current.Id, 10);
 }
 @inject User Current
 @inject SiteSettings Settings
@@ -35,12 +34,12 @@
         <ul class="right navbar-nav">
             <li class="nav-item text-nowrap dropdown dropdown-panel">
                 <a class="nav-link dropdown-toggle dropleft" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fa fa-bell-o mr-1"></i><span class="number badge badge-danger size-total">0</span>
+                    <i class="fa fa-bell-o mr-1"></i><span class="number badge badge-danger">@notifications.News</span>
                 </a>
                 <div class="dropdown-menu dropdown-panel-body">
                     <ul class="nav nav-tabs">
-                        <li class="nav-item"><a class="nav-link active" id="notify-tab" data-toggle="tab" href="#notify" role="tab" aria-controls="notify" aria-selected="false">通知<span data-size="@notificationSize" class="badge size-notify">(@notificationSize)</span></a></li>
-                        <li class="nav-item"><a class="nav-link" id="task-tab" data-toggle="tab" href="#event" role="tab" aria-controls="notify" aria-selected="false">活动状态<span data-size="@(events.Count())" class="badge size-task">(@(events.Count()))</span></a></li>
+                        <li class="nav-item"><a class="nav-link active" id="notify-tab" data-toggle="tab" href="#notify" role="tab" aria-controls="notify" aria-selected="false">通知</a></li>
+                        <li class="nav-item"><a class="nav-link" id="task-tab" data-toggle="tab" href="#event" role="tab" aria-controls="notify" aria-selected="false">活动状态</a></li>
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane fade active show" id="notify" role="tabpanel">
@@ -48,9 +47,8 @@
                                 @foreach (var notification in notifications)
                                 {
                                     <a class="dropdown-panel-item notification-@(notification.Status.ToString().ToLower())" asp-controller="Notifier" asp-action="Confirmed" asp-area="" asp-route-id="@notification.Id">
-                                        <div class="dropdown-panel-item-icon"><gt:icon src="@notification.IconUrl" class="icon-circle"></gt:icon></div>
                                         <div class="dropdown-panel-item-content">
-                                            <div class="title">@notification.Message</div>
+                                            <div class="title">@notification.Title</div>
                                             <gt:datetimeoffset tag="div" date="@notification.CreatedDate" class="text"></gt:datetimeoffset>
                                         </div>
                                     </a>
@@ -97,13 +95,16 @@
     <div class="main">
         <div class="header" .visible="@(ViewBag.HideHeader != true)">
             <div class="header-container">
-                <gt:menu-navigator class="d-print-none" home="控制面板" href="@Url.Page("/admin/index")" provider="admin"></gt:menu-navigator>
-                @*<h1 class="title">@ViewBag.Title</h1>*@
-                @if (ViewBag.Description != null)
-                {
-                    <div class="summary">@Html.Raw(ViewBag.Description)</div>
-                }
-                @RenderSection("summary", false)
+                <div>
+                    <gt:menu-navigator class="d-print-none" home="控制面板" href="@Url.Page("/admin/index")" provider="admin"></gt:menu-navigator>
+                    @*<h1 class="title">@ViewBag.Title</h1>*@
+                    @if (ViewBag.Description != null)
+                    {
+                        <div class="summary">@Html.Raw(ViewBag.Description)</div>
+                    }
+                    @RenderSection("summary", false)
+                </div>
+                <div>@RenderSection("right", false)</div>
             </div>
         </div>
         <div class="main-container">

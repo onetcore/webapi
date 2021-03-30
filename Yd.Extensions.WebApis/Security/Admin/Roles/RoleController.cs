@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using Gentings.Identity;
+using Gentings.Security;
 using Microsoft.AspNetCore.Mvc;
 using Yd.Extensions.Security.Roles;
 

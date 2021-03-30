@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
-using Gentings.Extensions.EventLogging;
+using Gentings.Extensions.Events;
 using Microsoft.AspNetCore.Mvc;
-using Yd.Extensions.Security;
+using EventQuery = Yd.Extensions.Security.EventQuery;
 
 namespace Yd.Extensions.WebApis.Security.Logs
 {
@@ -11,17 +11,14 @@ namespace Yd.Extensions.WebApis.Security.Logs
     public class LogController : AccountControllerBase
     {
         private readonly IEventManager _eventManager;
-        private readonly IEventTypeManager _eventTypeManager;
 
         /// <summary>
         /// 初始化类<see cref="LogController"/>。
         /// </summary>
         /// <param name="eventManager">用户日志管理实例。</param>
-        /// <param name="eventTypeManager">事件类型管理实例。</param>
-        public LogController(IEventManager eventManager, IEventTypeManager eventTypeManager)
+        public LogController(IEventManager eventManager)
         {
             _eventManager = eventManager;
-            _eventTypeManager = eventTypeManager;
         }
 
         /// <summary>
@@ -44,7 +41,7 @@ namespace Yd.Extensions.WebApis.Security.Logs
         [HttpGet("types")]
         public async Task<IActionResult> LoadEventTypes()
         {
-            var types = await _eventTypeManager.FetchAsync();
+            var types = await _eventManager.GetEventTypesAsync();
             return OkResult(types);
         }
     }

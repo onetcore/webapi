@@ -1,0 +1,24 @@
+﻿@page
+@model EditModel
+@{
+    ViewBag.Title = "通知类型";
+    Layout = "_Modal";
+    ViewBag.ClassName = "modal-lg";
+}
+
+<form method="post">
+    <input type="hidden" asp-for="Input.Id" />
+    <div class="form-group">
+        <label>标题</label>
+        <input class="form-control" asp-for="Input.Title" />
+        <span asp-validation-for="Input.Title" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>角色</label>
+        <gt:role-dropdownlist asp-for="Input.RoleId" class="form-control"></gt:role-dropdownlist>
+    </div>
+    <div class="form-group">
+        <label>内容</label>
+        <gt:markdown style="min-height: 300px;" html-for="Input.Html" md-for="Input.Code" upload="@Url.Page("./Edit", "Upload")"></gt:markdown>
+    </div>
+</form>

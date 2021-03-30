@@ -3,8 +3,6 @@ using Gentings;
 using Gentings.AspNetCore;
 using Gentings.AspNetCore.WebSockets;
 using Gentings.Data.SqlServer;
-using Gentings.Extensions.EventLogging;
-using Gentings.Extensions.Notifications;
 using Gentings.Extensions.Settings;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -28,9 +26,7 @@ namespace Yd
         {
             services.AddGentings(Configuration)
                 .AddSqlServer()
-                .AddNotification()
-                .AddEventLoggers()
-                .AddSettingDictionary();
+                .AddSettings(true);
             services.AddMvcCore()
                 .AddJsonOptions(options =>
                 {

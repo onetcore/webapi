@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
-using Gentings.Identity;
+using Gentings.Security;
 using Microsoft.AspNetCore.Mvc;
 using Yd.Extensions.Security;
 
@@ -45,7 +45,7 @@ namespace Yd.Extensions.WebApis.Security.Admin.Users
         public async Task<IActionResult> Remove(int[] ids)
         {
             if (ids == null || ids.Length == 0)
-                return BadParameter(nameof(ids));
+                return InvalidParameters(nameof(ids));
             if (ids.Contains(UserId))
                 return BadResult("不能删除自己的账户！");
             var result = await _userManager.DeleteAsync(ids);
@@ -63,10 +63,10 @@ namespace Yd.Extensions.WebApis.Security.Admin.Users
         public async Task<IActionResult> Lockout([FromBody] LockoutUserModel model)
         {
             if (model.LockoutEnd < DateTimeOffset.Now)
-                return BadParameter(nameof(model.LockoutEnd));
+                return InvalidParameters(nameof(model.LockoutEnd));
 
             if (model.Ids == null || model.Ids.Length == 0)
-                return BadParameter(nameof(model.Ids));
+                return InvalidParameters(nameof(model.Ids));
 
             if (model.LockoutEnd.Offset == TimeSpan.Zero)
                 model.LockoutEnd = model.LockoutEnd.ToOffset(DateTimeOffset.Now.Offset);
@@ -89,7 +89,7 @@ namespace Yd.Extensions.WebApis.Security.Admin.Users
         public async Task<IActionResult> Unlock([FromBody] int[] ids)
         {
             if (ids == null || ids.Length == 0)
-                return BadParameter(nameof(ids));
+                return InvalidParameters(nameof(ids));
             var result = await _userManager.LockoutAsync(ids);
             if (result)
             {

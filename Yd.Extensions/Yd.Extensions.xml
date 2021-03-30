@@ -4,1013 +4,6 @@
         <name>Yd.Extensions</name>
     </assembly>
     <members>
-        <member name="T:Yd.Extensions.ApiOpenServices.ApiDescriptor">
-            <summary>
-            API实体。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.ApiDescriptor.Summary">
-            <summary>
-            注释信息。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.ApiDescriptor.Assembly">
-            <summary>
-            程序集名称。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.ApiDescriptor.ControllerName">
-            <summary>
-            Controller名称。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.ApiDescriptor.ActionName">
-            <summary>
-            Action名称。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.ApiDescriptor.DisplayName">
-            <summary>
-            显示名称。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.ApiDescriptor.GroupName">
-            <summary>
-            分组名称。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.ApiDescriptor.RouteTemplate">
-            <summary>
-            路由模板。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.ApiDescriptor.HttpMethod">
-            <summary>
-            HTTP方法。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.ApiDescriptor.IsAnonymous">
-            <summary>
-            是否需要登录验证。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.ApiDescriptor.RouteValues">
-            <summary>
-            路由参数列表。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.ApiDescriptor.Parameters">
-            <summary>
-            参数描述实例。
-            </summary>
-        </member>
-        <member name="M:Yd.Extensions.ApiOpenServices.ApiDescriptor.GetParameterDescriptor(System.String)">
-            <summary>
-            获取参数描述信息。
-            </summary>
-            <param name="parameterName">参数名称。</param>
-            <returns>返回参数描述信息实例。</returns>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.ApiDescriptor.ResponseTypes">
-            <summary>
-            返回类型实例。
-            </summary>
-        </member>
-        <member name="M:Yd.Extensions.ApiOpenServices.ApiDescriptor.Equals(Yd.Extensions.ApiOpenServices.ApiDescriptor,Yd.Extensions.ApiOpenServices.ApiDescriptor)">
-            <summary>
-            实现对比接口。
-            </summary>
-            <param name="x">API实体对象。</param>
-            <param name="y">API实体对象。</param>
-            <returns>返回对比结果。</returns>
-        </member>
-        <member name="M:Yd.Extensions.ApiOpenServices.ApiDescriptor.GetHashCode(Yd.Extensions.ApiOpenServices.ApiDescriptor)">
-            <summary>
-            哈希值。
-            </summary>
-            <param name="obj">API实体对象。</param>
-            <returns>返回当前程序集信息的哈希值。</returns>
-        </member>
-        <member name="M:Yd.Extensions.ApiOpenServices.ApiDescriptor.CompareTo(Yd.Extensions.ApiOpenServices.ApiDescriptor)">
-            <summary>
-            实现对比方法。
-            </summary>
-            <param name="other">API实体对象。</param>
-            <returns>返回对比结果。</returns>
-        </member>
-        <member name="F:Yd.Extensions.ApiOpenServices.ApiDescriptor.JwtToken">
-            <summary>
-            JwtToken键。
-            </summary>
-        </member>
-        <member name="T:Yd.Extensions.ApiOpenServices.ApiDocumentManager">
-            <summary>
-            API文档管理类。
-            </summary>
-        </member>
-        <member name="M:Yd.Extensions.ApiOpenServices.ApiDocumentManager.#ctor(Microsoft.Extensions.Caching.Memory.IMemoryCache,Microsoft.AspNetCore.Mvc.ApiExplorer.IApiDescriptionGroupCollectionProvider)">
-            <summary>
-            初始化类<see cref="T:Yd.Extensions.ApiOpenServices.ApiDocumentManager"/>。
-            </summary>
-            <param name="cache">缓存接口。</param>
-            <param name="provider">Action描述实例提供者。</param>
-        </member>
-        <member name="M:Yd.Extensions.ApiOpenServices.ApiDocumentManager.IsValidated(Microsoft.AspNetCore.Mvc.ApiExplorer.ApiDescription)">
-            <summary>
-            判断是否符合当前文档实例。
-            </summary>
-            <param name="descriptor">控制器操作实例。</param>
-            <returns>返回判断结果。</returns>
-        </member>
-        <member name="T:Yd.Extensions.ApiOpenServices.ApiExtensions">
-            <summary>
-            API扩展类。
-            </summary>
-        </member>
-        <member name="M:Yd.Extensions.ApiOpenServices.ApiExtensions.IsAnonymous(Microsoft.AspNetCore.Mvc.Controllers.ControllerActionDescriptor)">
-            <summary>
-            是否匿名可访问。
-            </summary>
-            <param name="descriptor">控制器描述实例。</param>
-            <returns>返回判断结果。</returns>
-        </member>
-        <member name="M:Yd.Extensions.ApiOpenServices.ApiExtensions.IsAnonymous(Microsoft.AspNetCore.Mvc.Abstractions.ActionDescriptor)">
-            <summary>
-            是否匿名可访问。
-            </summary>
-            <param name="descriptor">操作描述实例。</param>
-            <returns>返回判断结果。</returns>
-        </member>
-        <member name="M:Yd.Extensions.ApiOpenServices.ApiExtensions.ToJsonString(System.Type,System.String)">
-            <summary>
-            获取当前类型实例的JSON字符串。
-            </summary>
-            <param name="type">类型实例。</param>
-            <param name="defaultValue">默认字符串。</param>
-            <returns>返回JSON字符串。</returns>
-        </member>
-        <member name="T:Yd.Extensions.ApiOpenServices.ApiServiceAttribute">
-            <summary>
-            API服务特性。
-            </summary>
-        </member>
-        <member name="M:Yd.Extensions.ApiOpenServices.ApiServiceAttribute.#ctor(System.String,System.Boolean)">
-            <summary>
-            初始化类<see cref="T:Yd.Extensions.ApiOpenServices.ApiServiceAttribute"/>。
-            </summary>
-            <param name="groupName">分组名称。</param>
-            <param name="ignoreApi">是否忽略当前API。</param>
-        </member>
-        <member name="T:Yd.Extensions.ApiOpenServices.AssemblyInfo">
-            <summary>
-            程序集信息。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.AssemblyInfo.AssemblyName">
-            <summary>
-            程序集名称。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.AssemblyInfo.Version">
-            <summary>
-            版本。
-            </summary>
-        </member>
-        <member name="M:Yd.Extensions.ApiOpenServices.AssemblyInfo.Equals(Yd.Extensions.ApiOpenServices.AssemblyInfo,Yd.Extensions.ApiOpenServices.AssemblyInfo)">
-            <summary>
-            实现对比接口。
-            </summary>
-            <param name="x">程序集信息实例。</param>
-            <param name="y">程序集信息实例。</param>
-            <returns>返回对比结果。</returns>
-        </member>
-        <member name="M:Yd.Extensions.ApiOpenServices.AssemblyInfo.GetHashCode(Yd.Extensions.ApiOpenServices.AssemblyInfo)">
-            <summary>
-            哈希值。
-            </summary>
-            <param name="obj">程序集信息实例。</param>
-            <returns>返回当前程序集信息的哈希值。</returns>
-        </member>
-        <member name="M:Yd.Extensions.ApiOpenServices.AssemblyInfo.CompareTo(Yd.Extensions.ApiOpenServices.AssemblyInfo)">
-            <summary>
-            实现对比方法。
-            </summary>
-            <param name="other">程序集信息实例。</param>
-            <returns>返回对比结果。</returns>
-        </member>
-        <member name="T:Yd.Extensions.ApiOpenServices.DocumentManagerBase">
-            <summary>
-            接口管理实现基类。
-            </summary>
-        </member>
-        <member name="M:Yd.Extensions.ApiOpenServices.DocumentManagerBase.#ctor(Microsoft.Extensions.Caching.Memory.IMemoryCache,Microsoft.AspNetCore.Mvc.ApiExplorer.IApiDescriptionGroupCollectionProvider)">
-            <summary>
-            初始化类<see cref="T:Yd.Extensions.ApiOpenServices.DocumentManagerBase"/>。
-            </summary>
-            <param name="cache">缓存接口。</param>
-            <param name="provider">Action描述实例提供者。</param>
-        </member>
-        <member name="M:Yd.Extensions.ApiOpenServices.DocumentManagerBase.GetApiDescriptors">
-            <summary>
-            获取所有API描述。
-            </summary>
-            <returns>返回API描述列表。</returns>
-        </member>
-        <member name="M:Yd.Extensions.ApiOpenServices.DocumentManagerBase.IsValidated(Microsoft.AspNetCore.Mvc.ApiExplorer.ApiDescription)">
-            <summary>
-            判断是否符合当前文档实例。
-            </summary>
-            <param name="descriptor">控制器操作实例。</param>
-            <returns>返回判断结果。</returns>
-        </member>
-        <member name="M:Yd.Extensions.ApiOpenServices.DocumentManagerBase.GetAssemblies">
-            <summary>
-            获取程序集名称。
-            </summary>
-            <returns>程序集名称列表。</returns>
-        </member>
-        <member name="M:Yd.Extensions.ApiOpenServices.DocumentManagerBase.GetGroupApiDescriptors">
-            <summary>
-            分组获取API描述实例。
-            </summary>
-            <returns>返回API描述实例字典列表。</returns>
-        </member>
-        <member name="T:Yd.Extensions.ApiOpenServices.Documents.AssemblyDocument">
-            <summary>
-            XML注释文档实例。
-            </summary>
-        </member>
-        <member name="M:Yd.Extensions.ApiOpenServices.Documents.AssemblyDocument.#ctor(System.String)">
-            <summary>
-            初始化类<see cref="T:Yd.Extensions.ApiOpenServices.Documents.AssemblyDocument"/>。
-            </summary>
-            <param name="path">注释文件路径。</param>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.Documents.AssemblyDocument.AssemblyName">
-            <summary>
-            程序集名称。
-            </summary>
-        </member>
-        <member name="F:Yd.Extensions.ApiOpenServices.Documents.AssemblyDocument._members">
-            <summary>
-            类型成员。
-            </summary>
-        </member>
-        <member name="M:Yd.Extensions.ApiOpenServices.Documents.AssemblyDocument.TryGetDocument(System.String,Yd.Extensions.ApiOpenServices.Documents.AssemblyDocument@)">
-            <summary>
-            尝试获取当前注释实例。
-            </summary>
-            <param name="assemblyName">程序集。</param>
-            <param name="document">返回注释实例对象。</param>
-            <returns>返回获取结果。</returns>
-        </member>
-        <member name="M:Yd.Extensions.ApiOpenServices.Documents.AssemblyDocument.GetDocument(System.String)">
-            <summary>
-            获取当前注释实例。
-            </summary>
-            <param name="assemblyName">程序集。</param>
-            <returns>返回获取结果。</returns>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.Documents.AssemblyDocument.Assemblies">
-            <summary>
-            包含的程序集列表。
-            </summary>
-        </member>
-        <member name="M:Yd.Extensions.ApiOpenServices.Documents.AssemblyDocument.GetTypeDescriptor(System.Type)">
-            <summary>
-            获取类型注释描述。
-            </summary>
-            <param name="type">当前类型。</param>
-            <returns>返回注释描述实例。</returns>
-        </member>
-        <member name="M:Yd.Extensions.ApiOpenServices.Documents.AssemblyDocument.GetTypeDescriptor(System.String)">
-            <summary>
-            获取类型注释描述。
-            </summary>
-            <param name="typeFullName">当前类型。</param>
-            <returns>返回注释描述实例。</returns>
-        </member>
-        <member name="T:Yd.Extensions.ApiOpenServices.Documents.DocumentExtensions">
-            <summary>
-            扩展方法类型。
-            </summary>
-        </member>
-        <member name="M:Yd.Extensions.ApiOpenServices.Documents.DocumentExtensions.GetSummary(System.Reflection.MemberInfo)">
-            <summary>
-            获取方法注释。
-            </summary>
-            <param name="info">当前方法实例。</param>
-            <returns>返回方法注释实例。</returns>
-        </member>
-        <member name="M:Yd.Extensions.ApiOpenServices.Documents.DocumentExtensions.GetColor(System.String)">
-            <summary>
-            获取HTTP请求方法颜色。
-            </summary>
-            <param name="method">HTTP请求方法。</param>
-            <returns>返回HTTP请求方法颜色。</returns>
-        </member>
-        <member name="M:Yd.Extensions.ApiOpenServices.Documents.DocumentExtensions.IsLinkable(System.Type)">
-            <summary>
-            是否可以链接。
-            </summary>
-            <param name="type">类型实例。</param>
-            <returns>返回判断结果。</returns>
-        </member>
-        <member name="T:Yd.Extensions.ApiOpenServices.Documents.MethodDescriptor">
-            <summary>
-            方法实例。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.Documents.MethodDescriptor.FullName">
-            <summary>
-            全名。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.Documents.MethodDescriptor.Type">
-            <summary>
-            类型实例。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.Documents.MethodDescriptor.Name">
-            <summary>
-            名称。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.Documents.MethodDescriptor.IsConstructor">
-            <summary>
-            是否为构造函数。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.Documents.MethodDescriptor.Summary">
-            <summary>
-            描述。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.Documents.MethodDescriptor.Returns">
-            <summary>
-            返回描述。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.Documents.MethodDescriptor.Parameters">
-            <summary>
-            参数。
-            </summary>
-        </member>
-        <member name="T:Yd.Extensions.ApiOpenServices.Documents.ParameterDescriptor">
-            <summary>
-            参数实例。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.Documents.ParameterDescriptor.Name">
-            <summary>
-            参数名称。
-            </summary>
-        </member>
-        <member name="T:Yd.Extensions.ApiOpenServices.Documents.PropertyDescriptor">
-            <summary>
-            属性。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.Documents.PropertyDescriptor.FullName">
-            <summary>
-            全名。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.Documents.PropertyDescriptor.Type">
-            <summary>
-            类型实例。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.Documents.PropertyDescriptor.Name">
-            <summary>
-            名称。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.Documents.PropertyDescriptor.Summary">
-            <summary>
-            描述。
-            </summary>
-        </member>
-        <member name="T:Yd.Extensions.ApiOpenServices.Documents.ReturnDescriptor">
-            <summary>
-            返回描述。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.Documents.ReturnDescriptor.Method">
-            <summary>
-            当前方法。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.Documents.ReturnDescriptor.TypeName">
-            <summary>
-            类型名称。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.Documents.ReturnDescriptor.Summary">
-            <summary>
-            描述。
-            </summary>
-        </member>
-        <member name="T:Yd.Extensions.ApiOpenServices.Documents.TypeDescriptor">
-            <summary>
-            类型描述。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.Documents.TypeDescriptor.Assembly">
-            <summary>
-            程序集实例。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.Documents.TypeDescriptor.IsEnum">
-            <summary>
-            是否为枚举。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.Documents.TypeDescriptor.Namespace">
-            <summary>
-            命名空间。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.Documents.TypeDescriptor.Name">
-            <summary>
-            名称。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.Documents.TypeDescriptor.FullName">
-            <summary>
-            全名。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.Documents.TypeDescriptor.Summary">
-            <summary>
-            描述。
-            </summary>
-        </member>
-        <member name="F:Yd.Extensions.ApiOpenServices.Documents.TypeDescriptor._properties">
-            <summary>
-            属性列表。
-            </summary>
-        </member>
-        <member name="F:Yd.Extensions.ApiOpenServices.Documents.TypeDescriptor._methods">
-            <summary>
-            方法列表。
-            </summary>
-        </member>
-        <member name="M:Yd.Extensions.ApiOpenServices.Documents.TypeDescriptor.GetPropertyDescriptor(System.Reflection.PropertyInfo)">
-            <summary>
-            通过成员信息获取属性注释实例。
-            </summary>
-            <param name="info">成员信息。</param>
-            <returns>返回属性注释实例。</returns>
-        </member>
-        <member name="M:Yd.Extensions.ApiOpenServices.Documents.TypeDescriptor.GetMethodDescriptor(System.Reflection.MemberInfo)">
-            <summary>
-            通过成员信息获取方法注释实例。
-            </summary>
-            <param name="info">成员信息。</param>
-            <returns>返回方法注释实例。</returns>
-        </member>
-        <member name="T:Yd.Extensions.ApiOpenServices.Documents.TypeExtensions">
-            <summary>
-            扩展方法。
-            </summary>
-        </member>
-        <member name="M:Yd.Extensions.ApiOpenServices.Documents.TypeExtensions.GetRealType(System.Type)">
-            <summary>
-            获取真实类型，如果可空将获取真实类型。
-            </summary>
-            <param name="type">类型实例。</param>
-            <returns>返回真实类型。</returns>
-        </member>
-        <member name="M:Yd.Extensions.ApiOpenServices.Documents.TypeExtensions.GetRealTypeName(System.Type)">
-            <summary>
-            获取真实类型名称，如果可空将获取真实类型名称。
-            </summary>
-            <param name="type">类型实例。</param>
-            <returns>返回真实类型名称。</returns>
-        </member>
-        <member name="M:Yd.Extensions.ApiOpenServices.Documents.TypeExtensions.GetTypeScriptType(System.Type)">
-            <summary>
-            获取TypeScript类型。
-            </summary>
-            <param name="type">当前类型实例。</param>
-            <returns>返回TypeScript类型。</returns>
-        </member>
-        <member name="M:Yd.Extensions.ApiOpenServices.Documents.TypeExtensions.GetClass(System.Type)">
-            <summary>
-            获取类型定义。
-            </summary>
-            <param name="type">当前类型。</param>
-            <returns>返回接口定义。</returns>
-        </member>
-        <member name="M:Yd.Extensions.ApiOpenServices.Documents.TypeExtensions.GetTypeScriptInterface(System.Type)">
-            <summary>
-            获取TypeScript接口定义。
-            </summary>
-            <param name="type">当前类型。</param>
-            <returns>返回接口定义。</returns>
-        </member>
-        <member name="M:Yd.Extensions.ApiOpenServices.Documents.TypeExtensions.ToLowerCamelCase(System.String)">
-            <summary>
-            将名称转换为Camel格式名称。
-            </summary>
-            <param name="name">名称。</param>
-            <returns>返回驼峰格式字符串。</returns>
-        </member>
-        <member name="T:Yd.Extensions.ApiOpenServices.Documents.XmlExtensions">
-            <summary>
-            XML辅助类。
-            </summary>
-        </member>
-        <member name="M:Yd.Extensions.ApiOpenServices.Documents.XmlExtensions.GetInnerXml(System.Xml.XmlNode,System.String)">
-            <summary>
-            获取子节点文本字符串。
-            </summary>
-            <param name="node">节点实例。</param>
-            <param name="xpath">路径。</param>
-            <returns>返回子节点文本字符串。</returns>
-        </member>
-        <member name="T:Yd.Extensions.ApiOpenServices.IApiDocumentManager">
-            <summary>
-            接口管理实例。
-            </summary>
-        </member>
-        <member name="T:Yd.Extensions.ApiOpenServices.IDocumentManagerBase">
-            <summary>
-            接口管理实例。
-            </summary>
-        </member>
-        <member name="M:Yd.Extensions.ApiOpenServices.IDocumentManagerBase.GetApiDescriptors">
-            <summary>
-            获取所有API描述。
-            </summary>
-            <returns>返回API描述列表。</returns>
-        </member>
-        <member name="M:Yd.Extensions.ApiOpenServices.IDocumentManagerBase.GetAssemblies">
-            <summary>
-            获取程序集名称。
-            </summary>
-            <returns>程序集名称列表。</returns>
-        </member>
-        <member name="M:Yd.Extensions.ApiOpenServices.IDocumentManagerBase.GetGroupApiDescriptors">
-            <summary>
-            分组获取API描述实例。
-            </summary>
-            <returns>返回API描述实例字典列表。</returns>
-        </member>
-        <member name="T:Yd.Extensions.ApiOpenServices.OpenServices.Application">
-            <summary>
-            应用实例。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.OpenServices.Application.Id">
-            <summary>
-            获取或设置唯一Id。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.OpenServices.Application.AppSecret">
-            <summary>
-            密钥。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.OpenServices.Application.Name">
-            <summary>
-            名称。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.OpenServices.Application.Summary">
-            <summary>
-            备注。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.OpenServices.Application.CreatedDate">
-            <summary>
-            添加时间。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.OpenServices.Application.ExpiredDate">
-            <summary>
-            到期时间。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.OpenServices.Application.Status">
-            <summary>
-            状态。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.OpenServices.Application.UserId">
-            <summary>
-            所属用户Id。
-            </summary>
-        </member>
-        <member name="T:Yd.Extensions.ApiOpenServices.OpenServices.ApplicationDataMigration">
-            <summary>
-            数据库迁移类。
-            </summary>
-        </member>
-        <member name="M:Yd.Extensions.ApiOpenServices.OpenServices.ApplicationDataMigration.Create(Gentings.Data.Migrations.MigrationBuilder)">
-            <summary>
-            当模型建立时候构建的表格实例。
-            </summary>
-            <param name="builder">迁移实例对象。</param>
-        </member>
-        <member name="T:Yd.Extensions.ApiOpenServices.OpenServices.ApplicationQuery">
-            <summary>
-            应用查询实例。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.OpenServices.ApplicationQuery.Name">
-            <summary>
-            名称。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.OpenServices.ApplicationQuery.AppId">
-            <summary>
-            应用Id。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.OpenServices.ApplicationQuery.UserName">
-            <summary>
-            用户名称。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.OpenServices.ApplicationQuery.UserId">
-            <summary>
-            用户Id。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.OpenServices.ApplicationQuery.Status">
-            <summary>
-            状态。
-            </summary>
-        </member>
-        <member name="M:Yd.Extensions.ApiOpenServices.OpenServices.ApplicationQuery.Init(Gentings.Data.IQueryContext{Yd.Extensions.ApiOpenServices.OpenServices.Application})">
-            <summary>
-            初始化查询上下文。
-            </summary>
-            <param name="context">查询上下文。</param>
-        </member>
-        <member name="T:Yd.Extensions.ApiOpenServices.OpenServices.ApplicationService">
-            <summary>
-            应用服务。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.OpenServices.ApplicationService.AppId">
-            <summary>
-            应用Id。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.OpenServices.ApplicationService.ServiceId">
-            <summary>
-            服务Id。
-            </summary>
-        </member>
-        <member name="T:Yd.Extensions.ApiOpenServices.OpenServices.ApplicationStatus">
-            <summary>
-            应用状态。
-            </summary>
-        </member>
-        <member name="F:Yd.Extensions.ApiOpenServices.OpenServices.ApplicationStatus.Normal">
-            <summary>
-            正常。
-            </summary>
-        </member>
-        <member name="F:Yd.Extensions.ApiOpenServices.OpenServices.ApplicationStatus.Expired">
-            <summary>
-            过期。
-            </summary>
-        </member>
-        <member name="F:Yd.Extensions.ApiOpenServices.OpenServices.ApplicationStatus.Disabled">
-            <summary>
-            禁用。
-            </summary>
-        </member>
-        <member name="F:Yd.Extensions.ApiOpenServices.OpenServices.ApplicationStatus.Pending">
-            <summary>
-            等待验证。
-            </summary>
-        </member>
-        <member name="F:Yd.Extensions.ApiOpenServices.OpenServices.ApplicationStatus.Unapproved">
-            <summary>
-            验证失败。
-            </summary>
-        </member>
-        <member name="T:Yd.Extensions.ApiOpenServices.OpenServices.Controllers.ControllerBase">
-            <summary>
-            开发服务基类。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.OpenServices.Controllers.ControllerBase.AppId">
-            <summary>
-            当前请求的AppId。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.OpenServices.Controllers.ControllerBase.Application">
-            <summary>
-            当前请求的应用实例。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.OpenServices.Controllers.ControllerBase.Settings">
-            <summary>
-            网站配置实例。
-            </summary>
-        </member>
-        <member name="T:Yd.Extensions.ApiOpenServices.OpenServices.Controllers.TokenController">
-            <summary>
-            Token服务。
-            </summary>
-        </member>
-        <member name="M:Yd.Extensions.ApiOpenServices.OpenServices.Controllers.TokenController.#ctor(Yd.Extensions.ApiOpenServices.OpenServices.IApplicationManager)">
-            <summary>
-            初始化类<see cref="T:Yd.Extensions.ApiOpenServices.OpenServices.Controllers.TokenController"/>。
-            </summary>
-            <param name="applicationManager">应用管理实例。</param>
-        </member>
-        <member name="M:Yd.Extensions.ApiOpenServices.OpenServices.Controllers.TokenController.Index">
-            <summary>
-            获取验证Token。
-            </summary>
-            <returns>返回Token实例。</returns>
-        </member>
-        <member name="M:Yd.Extensions.ApiOpenServices.OpenServices.Controllers.TokenController.Index(Yd.Extensions.ApiOpenServices.OpenServices.Controllers.TokenModel)">
-            <summary>
-            获取验证Token。
-            </summary>
-            <param name="input">验证模型实例。</param>
-            <returns>返回Token实例。</returns>
-        </member>
-        <member name="T:Yd.Extensions.ApiOpenServices.OpenServices.Controllers.TokenModel">
-            <summary>
-            Token模型。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.OpenServices.Controllers.TokenModel.AppId">
-            <summary>
-            AppId。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.OpenServices.Controllers.TokenModel.AppSecret">
-            <summary>
-            密钥。
-            </summary>
-        </member>
-        <member name="T:Yd.Extensions.ApiOpenServices.OpenServices.Controllers.TokenResult">
-            <summary>
-            输出模型。
-            </summary>
-        </member>
-        <member name="M:Yd.Extensions.ApiOpenServices.OpenServices.Controllers.TokenResult.#ctor(System.String)">
-            <summary>
-            初始化类<see cref="T:Yd.Extensions.ApiOpenServices.OpenServices.Controllers.TokenResult"/>。
-            </summary>
-            <param name="data">数据实例。</param>
-        </member>
-        <member name="M:Yd.Extensions.ApiOpenServices.OpenServices.Controllers.TokenResult.#ctor">
-            <summary>
-            用于返回特性使用。
-            </summary>
-        </member>
-        <member name="T:Yd.Extensions.ApiOpenServices.OpenServices.ErrorCode">
-            <summary>
-            错误代码。
-            </summary>
-        </member>
-        <member name="F:Yd.Extensions.ApiOpenServices.OpenServices.ErrorCode.ApplicationNotFound">
-            <summary>
-            应用不存在。
-            </summary>
-        </member>
-        <member name="F:Yd.Extensions.ApiOpenServices.OpenServices.ErrorCode.AppSecretInvalid">
-            <summary>
-            密钥不正确。
-            </summary>
-        </member>
-        <member name="T:Yd.Extensions.ApiOpenServices.OpenServices.IApplicationManager">
-            <summary>
-            应用管理接口。
-            </summary>
-        </member>
-        <member name="M:Yd.Extensions.ApiOpenServices.OpenServices.IApplicationManager.FindUserApplicationAsync(System.Guid)">
-            <summary>
-            获取用户应用，包含用户实例。
-            </summary>
-            <param name="appId">应用Id。</param>
-            <returns>返回包含用户实例的应用类型实例。</returns>
-        </member>
-        <member name="M:Yd.Extensions.ApiOpenServices.OpenServices.IApplicationManager.LoadApplicationServicesAsync(System.Guid)">
-            <summary>
-            获取应用程序所包含的服务Id列表。
-            </summary>
-            <param name="appid">应用程序Id。</param>
-            <returns>返回服务Id列表。</returns>
-        </member>
-        <member name="M:Yd.Extensions.ApiOpenServices.OpenServices.IApplicationManager.AddApplicationServicesAsync(System.Guid,System.Int32[])">
-            <summary>
-            将服务添加到应用程序中。
-            </summary>
-            <param name="appid">应用程序Id。</param>
-            <param name="ids">服务Id列表。</param>
-            <returns>返回添加结果。</returns>
-        </member>
-        <member name="T:Yd.Extensions.ApiOpenServices.OpenServices.ApplicationManager">
-            <summary>
-            应用管理实现类。
-            </summary>
-        </member>
-        <member name="M:Yd.Extensions.ApiOpenServices.OpenServices.ApplicationManager.#ctor(Gentings.Data.IDbContext{Yd.Extensions.ApiOpenServices.OpenServices.Application},Gentings.Data.IDbContext{Yd.Extensions.ApiOpenServices.OpenServices.ApplicationService},Microsoft.Extensions.Caching.Memory.IMemoryCache)">
-            <summary>
-            初始化类<see cref="T:Yd.Extensions.ApiOpenServices.OpenServices.ApplicationManager"/>。
-            </summary>
-            <param name="context">数据库操作实例。</param>
-            <param name="asdb">应用程序服务数据库接口。</param>
-            <param name="cache">缓存接口。</param>
-        </member>
-        <member name="M:Yd.Extensions.ApiOpenServices.OpenServices.ApplicationManager.FindUserApplicationAsync(System.Guid)">
-            <summary>
-            获取用户应用，包含用户实例。
-            </summary>
-            <param name="appId">应用Id。</param>
-            <returns>返回包含用户实例的应用类型实例。</returns>
-        </member>
-        <member name="M:Yd.Extensions.ApiOpenServices.OpenServices.ApplicationManager.GetCacheKey(System.Guid)">
-            <summary>
-            获取缓存键。
-            </summary>
-            <param name="appid">AppId。</param>
-            <returns>返回缓存键字符串。</returns>
-        </member>
-        <member name="M:Yd.Extensions.ApiOpenServices.OpenServices.ApplicationManager.LoadApplicationServicesAsync(System.Guid)">
-            <summary>
-            获取应用程序所包含的服务Id列表。
-            </summary>
-            <param name="appid">应用程序Id。</param>
-            <returns>返回服务Id列表。</returns>
-        </member>
-        <member name="M:Yd.Extensions.ApiOpenServices.OpenServices.ApplicationManager.AddApplicationServicesAsync(System.Guid,System.Int32[])">
-            <summary>
-            将服务添加到应用程序中。
-            </summary>
-            <param name="appid">应用程序Id。</param>
-            <param name="ids">服务Id列表。</param>
-            <returns>返回添加结果。</returns>
-        </member>
-        <member name="T:Yd.Extensions.ApiOpenServices.OpenServices.IOpenServiceManager">
-            <summary>
-            开发服务管理接口。
-            </summary>
-        </member>
-        <member name="M:Yd.Extensions.ApiOpenServices.OpenServices.IOpenServiceManager.GetOrCreate(System.String,System.String,System.Func{Yd.Extensions.ApiOpenServices.OpenServices.OpenService})">
-            <summary>
-            获取或者添加开放服务实例。
-            </summary>
-            <param name="method">请求方法。</param>
-            <param name="route">路由模板。</param>
-            <param name="getService">获取服务实例。</param>
-            <returns>返回当前获取的服务实例。</returns>
-        </member>
-        <member name="M:Yd.Extensions.ApiOpenServices.OpenServices.IOpenServiceManager.GetOrCreateAsync(System.String,System.String,System.Func{Yd.Extensions.ApiOpenServices.OpenServices.OpenService})">
-            <summary>
-            获取或者添加开放服务实例。
-            </summary>
-            <param name="method">请求方法。</param>
-            <param name="route">路由模板。</param>
-            <param name="getService">获取服务实例。</param>
-            <returns>返回当前获取的服务实例。</returns>
-        </member>
-        <member name="T:Yd.Extensions.ApiOpenServices.OpenServices.OpenServiceManager">
-            <summary>
-            开发服务管理。
-            </summary>
-        </member>
-        <member name="M:Yd.Extensions.ApiOpenServices.OpenServices.OpenServiceManager.#ctor(Gentings.Data.IDbContext{Yd.Extensions.ApiOpenServices.OpenServices.OpenService})">
-            <summary>
-            初始化类<see cref="T:Yd.Extensions.ApiOpenServices.OpenServices.OpenServiceManager"/>。
-            </summary>
-            <param name="context">数据库操作实例。</param>
-        </member>
-        <member name="M:Yd.Extensions.ApiOpenServices.OpenServices.OpenServiceManager.GetOrCreate(System.String,System.String,System.Func{Yd.Extensions.ApiOpenServices.OpenServices.OpenService})">
-            <summary>
-            获取或者添加开放服务实例。
-            </summary>
-            <param name="method">请求方法。</param>
-            <param name="route">路由模板。</param>
-            <param name="getService">获取服务实例。</param>
-            <returns>返回当前获取的服务实例。</returns>
-        </member>
-        <member name="M:Yd.Extensions.ApiOpenServices.OpenServices.OpenServiceManager.GetOrCreateAsync(System.String,System.String,System.Func{Yd.Extensions.ApiOpenServices.OpenServices.OpenService})">
-            <summary>
-            获取或者添加开放服务实例。
-            </summary>
-            <param name="method">请求方法。</param>
-            <param name="route">路由模板。</param>
-            <param name="getService">获取服务实例。</param>
-            <returns>返回当前获取的服务实例。</returns>
-        </member>
-        <member name="T:Yd.Extensions.ApiOpenServices.OpenServices.IServiceDocumentManager">
-            <summary>
-            开放服务文档管理接口。
-            </summary>
-        </member>
-        <member name="T:Yd.Extensions.ApiOpenServices.OpenServices.OpenService">
-            <summary>
-            公开的API服务。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.OpenServices.OpenService.Id">
-            <summary>
-            获取或设置唯一Id。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.OpenServices.OpenService.Route">
-            <summary>
-            路由路径。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.OpenServices.OpenService.HttpMethod">
-            <summary>
-            方法。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.OpenServices.OpenService.Category">
-            <summary>
-            分类。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.OpenServices.OpenService.Description">
-            <summary>
-            描述。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.OpenServices.OpenService.Disabled">
-            <summary>
-            是否禁用。
-            </summary>
-        </member>
-        <member name="T:Yd.Extensions.ApiOpenServices.OpenServices.OpenServiceAttribute">
-            <summary>
-            开放服务特性。
-            </summary>
-        </member>
-        <member name="M:Yd.Extensions.ApiOpenServices.OpenServices.OpenServiceAttribute.OnAuthorization(Microsoft.AspNetCore.Mvc.Filters.AuthorizationFilterContext)">
-            <summary>
-            在管道中确认当前请求是否已经通过验证。
-            </summary>
-            <param name="context">验证过滤器上下文<see cref="T:Microsoft.AspNetCore.Mvc.Filters.AuthorizationFilterContext" />实例。</param>
-        </member>
-        <member name="T:Yd.Extensions.ApiOpenServices.OpenServices.OpenServiceSettings">
-            <summary>
-            开发服务配置。
-            </summary>
-        </member>
-        <member name="F:Yd.Extensions.ApiOpenServices.OpenServices.OpenServiceSettings.ExtensionName">
-            <summary>
-            扩展名称。
-            </summary>
-        </member>
-        <member name="T:Yd.Extensions.ApiOpenServices.OpenServices.Permissions">
-            <summary>
-            权限。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.ApiOpenServices.OpenServices.Permissions.Category">
-            <summary>
-            分类。
-            </summary>
-        </member>
-        <member name="F:Yd.Extensions.ApiOpenServices.OpenServices.Permissions.OpenServices">
-            <summary>
-            应用管理。
-            </summary>
-        </member>
-        <member name="F:Yd.Extensions.ApiOpenServices.OpenServices.Permissions.Settings">
-            <summary>
-            应用配置管理。
-            </summary>
-        </member>
-        <member name="M:Yd.Extensions.ApiOpenServices.OpenServices.Permissions.Init">
-            <summary>
-            初始化权限实例。
-            </summary>
-        </member>
-        <member name="T:Yd.Extensions.ApiOpenServices.OpenServices.ServiceDocumentManager">
-            <summary>
-            开放服务文档管理实现类。
-            </summary>
-        </member>
-        <member name="M:Yd.Extensions.ApiOpenServices.OpenServices.ServiceDocumentManager.#ctor(Microsoft.Extensions.Caching.Memory.IMemoryCache,Microsoft.AspNetCore.Mvc.ApiExplorer.IApiDescriptionGroupCollectionProvider)">
-            <summary>
-            初始化类<see cref="T:Yd.Extensions.ApiOpenServices.OpenServices.ServiceDocumentManager"/>。
-            </summary>
-            <param name="cache">缓存接口。</param>
-            <param name="provider">Action描述实例提供者。</param>
-        </member>
-        <member name="M:Yd.Extensions.ApiOpenServices.OpenServices.ServiceDocumentManager.IsValidated(Microsoft.AspNetCore.Mvc.ApiExplorer.ApiDescription)">
-            <summary>
-            判断是否符合当前文档实例。
-            </summary>
-            <param name="descriptor">控制器操作实例。</param>
-            <returns>返回判断结果。</returns>
-        </member>
         <member name="T:Yd.Extensions.ControllerBase">
             <summary>
             控制器基类。
@@ -1031,6 +24,54 @@
             网站配置实例。
             </summary>
         </member>
+        <member name="M:Yd.Extensions.ControllerBase.SaveSettingsAsync(System.Object,System.String)">
+            <summary>
+            保存配置实例。
+            </summary>
+            <param name="settings">当前配置实例对象。</param>
+            <param name="name">配置名称。</param>
+            <returns>返回配置结果。</returns>
+        </member>
+        <member name="M:Yd.Extensions.ControllerBase.GetSettingsAsync``1">
+            <summary>
+            获取配置实例。
+            </summary>
+            <typeparam name="TSettings">配置类型。</typeparam>
+            <returns>返回配置实例结果。</returns>
+        </member>
+        <member name="M:Yd.Extensions.ControllerBase.GetNamedString(System.String)">
+            <summary>
+            获取字典字符串。
+            </summary>
+            <param name="path">字典路径实例。</param>
+            <returns>返回当前字典字符串。</returns>
+        </member>
+        <member name="M:Yd.Extensions.ControllerBase.GetOrAddNamedString(System.String)">
+            <summary>
+            获取或添加字典字符串。
+            </summary>
+            <param name="path">字典路径实例。</param>
+            <returns>返回当前字典字符串。</returns>
+        </member>
+        <member name="M:Yd.Extensions.ControllerBase.GetNamedStringAsync(System.String)">
+            <summary>
+            获取字典字符串。
+            </summary>
+            <param name="path">字典路径实例。</param>
+            <returns>返回当前字典字符串。</returns>
+        </member>
+        <member name="M:Yd.Extensions.ControllerBase.GetOrAddNamedStringAsync(System.String)">
+            <summary>
+            获取或添加字典字符串。
+            </summary>
+            <param name="path">字典路径实例。</param>
+            <returns>返回当前字典字符串。</returns>
+        </member>
+        <member name="T:Yd.Extensions.OpenServices.ApplicationQuery">
+            <summary>
+            应用查询实例。
+            </summary>
+        </member>
         <member name="T:Yd.Extensions.Properties.Resources">
             <summary>
               一个强类型的资源类，用于查找本地化的字符串等。
@@ -1043,38 +84,13 @@
         </member>
         <member name="P:Yd.Extensions.Properties.Resources.Culture">
             <summary>
-              重写当前线程的 CurrentUICulture 属性
-              重写当前线程的 CurrentUICulture 属性。
+              重写当前线程的 CurrentUICulture 属性，对
+              使用此强类型资源类的所有资源查找执行重写。
             </summary>
         </member>
         <member name="P:Yd.Extensions.Properties.Resources.Anonymous">
             <summary>
               查找类似 游客 的本地化字符串。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.Properties.Resources.ApplicationStatus_Disabled">
-            <summary>
-              查找类似 禁用 的本地化字符串。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.Properties.Resources.ApplicationStatus_Expired">
-            <summary>
-              查找类似 过期 的本地化字符串。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.Properties.Resources.ApplicationStatus_Normal">
-            <summary>
-              查找类似 正常 的本地化字符串。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.Properties.Resources.ApplicationStatus_Pending">
-            <summary>
-              查找类似 等待验证 的本地化字符串。
-            </summary>
-        </member>
-        <member name="P:Yd.Extensions.Properties.Resources.ApplicationStatus_Unapproved">
-            <summary>
-              查找类似 验证失败 的本地化字符串。
             </summary>
         </member>
         <member name="P:Yd.Extensions.Properties.Resources.DefaultRoles_Administrators">
@@ -1097,7 +113,7 @@
               查找类似 管理员 的本地化字符串。
             </summary>
         </member>
-        <member name="P:Yd.Extensions.Properties.Resources.EventType_User">
+        <member name="P:Yd.Extensions.Properties.Resources.EventType_Users">
             <summary>
               查找类似 用户 的本地化字符串。
             </summary>
@@ -1115,6 +131,16 @@
         <member name="P:Yd.Extensions.Properties.Resources.LoginDirection_Default">
             <summary>
               查找类似 首页 的本地化字符串。
+            </summary>
+        </member>
+        <member name="T:Yd.Extensions.Security.ControllerBase">
+            <summary>
+            控制器基类。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.Security.ControllerBase.EventType">
+            <summary>
+            事件类型。
             </summary>
         </member>
         <member name="T:Yd.Extensions.Security.Data.DataInitializer">
@@ -1200,12 +226,12 @@
             事件查询实例。
             </summary>
         </member>
-        <member name="P:Yd.Extensions.Security.EventQuery.RoleLevel">
+        <member name="P:Yd.Extensions.Security.EventQuery.User">
             <summary>
-            当前用户角色等级。
+            用户。
             </summary>
         </member>
-        <member name="M:Yd.Extensions.Security.EventQuery.Init(Gentings.Data.IQueryContext{Gentings.Extensions.EventLogging.EventMessage})">
+        <member name="M:Yd.Extensions.Security.EventQuery.Init(Gentings.Data.IQueryContext{Gentings.Extensions.Events.Event})">
             <summary>
             初始化查询上下文。
             </summary>
@@ -1349,11 +375,10 @@
             注册当前登录用户。
             </summary>
         </member>
-        <member name="M:Yd.Extensions.Security.ServiceConfigurer.ConfigureIdentityServices(Gentings.IServiceBuilder)">
+        <member name="P:Yd.Extensions.Security.ServiceConfigurer.EnabledModule">
             <summary>
-            配置服务。
+            开启的功能模型。
             </summary>
-            <param name="builder">容器构建实例。</param>
         </member>
         <member name="T:Yd.Extensions.Security.User">
             <summary>
@@ -1415,7 +440,7 @@
         </member>
         <member name="T:Yd.Extensions.ServiceConfigurer">
             <summary>
-            注册当前登录用户。
+            注册网站配置。
             </summary>
         </member>
         <member name="M:Yd.Extensions.ServiceConfigurer.ConfigureServices(Gentings.IServiceBuilder)">

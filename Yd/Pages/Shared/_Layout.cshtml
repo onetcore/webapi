@@ -1,34 +1,13 @@
 ﻿@{
     Layout = "_Global";
 }
-@inject SiteSettings Settings
-
-<div class="gt-layout">
-    <main>
-        <div class="main">
-            <div class="header" .visible="@(ViewBag.HideHeader != true)">
-                <div class="header-container">
-                    <h1 class="title">
-                        @Settings.SiteName
-                    </h1>
-                </div>
-            </div>
-            <div class="main-container">
-                @RenderBody()
-            </div>
-        </div>
-        <footer>
-            @Html.Raw(Settings.ReplacedCopyright)
-        </footer>
-    </main>
-</div>
 
 @section header{
-    <link rel="stylesheet" href="~/css/site.min.css" />
+    <link rel="stylesheet" href="~/css/site.min.css" .dev-href="~/css/site.css" />
     @RenderSection("header", false)
 }
 
 @section footer{
-    <script src="~/js/site.min.js"></script>
+    <script src="~/js/site.min.js" .dev-src="~/js/site.js"></script>
     @RenderSection("footer", false)
 }

@@ -14,12 +14,17 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\gentings\Gentings.AspNetCore\Gentings.AspNetCore.csproj" />
-    <ProjectReference Include="..\..\gentings\Gentings.Core\Gentings.Core.csproj" />
+    <ProjectReference Include="..\..\gentings\Gentings.Data.SqlServer\Gentings.Data.SqlServer.csproj" />
     <ProjectReference Include="..\..\gentings\Gentings.Extensions\Gentings.Extensions.csproj" />
-    <ProjectReference Include="..\..\Gentings\Gentings.Identity\Gentings.Identity.csproj" />
+    <ProjectReference Include="..\..\gentings\Gentings.Security.Scores\Gentings.Security.Scores.csproj" />
+    <ProjectReference Include="..\..\gentings\Gentings.Security\Gentings.Security.csproj" />
     <ProjectReference Include="..\..\gentings\Gentings.Storages\Gentings.Storages.csproj" />
     <ProjectReference Include="..\..\Gentings\Gentings\Gentings.csproj" />
-    <ProjectReference Include="..\Yd.Extensions.RazorPages\Yd.Extensions.RazorPages.csproj" />
+    <ProjectReference Include="..\Yd.AspNetCore.Emails\Yd.AspNetCore.Emails.csproj" />
+    <ProjectReference Include="..\Yd.AspNetCore.OpenServices\Yd.AspNetCore.OpenServices.csproj" />
+    <ProjectReference Include="..\Yd.AspNetCore.Security\Yd.AspNetCore.Security.csproj" />
+    <ProjectReference Include="..\Yd.AspNetCore.Storages\Yd.AspNetCore.Storages.csproj" />
+    <ProjectReference Include="..\Yd.AspNetCore\Yd.AspNetCore.csproj" />
     <ProjectReference Include="..\Yd.Extensions\Yd.Extensions.csproj" />
   </ItemGroup>
 </Project>

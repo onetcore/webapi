@@ -120,21 +120,6 @@
   <data name="Anonymous" xml:space="preserve">
     <value>游客</value>
   </data>
-  <data name="ApplicationStatus_Disabled" xml:space="preserve">
-    <value>禁用</value>
-  </data>
-  <data name="ApplicationStatus_Expired" xml:space="preserve">
-    <value>过期</value>
-  </data>
-  <data name="ApplicationStatus_Normal" xml:space="preserve">
-    <value>正常</value>
-  </data>
-  <data name="ApplicationStatus_Pending" xml:space="preserve">
-    <value>等待验证</value>
-  </data>
-  <data name="ApplicationStatus_Unapproved" xml:space="preserve">
-    <value>验证失败</value>
-  </data>
   <data name="DefaultRoles_Administrators" xml:space="preserve">
     <value>系统管理员</value>
   </data>
@@ -147,7 +132,7 @@
   <data name="DefaultRoles_Moderators" xml:space="preserve">
     <value>管理员</value>
   </data>
-  <data name="EventType_User" xml:space="preserve">
+  <data name="EventType_Users" xml:space="preserve">
     <value>用户</value>
   </data>
   <data name="LoginDirection_Account" xml:space="preserve">

@@ -5,7 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 namespace Yd.Extensions
 {
     /// <summary>
-    /// 注册当前登录用户。
+    /// 注册网站配置。
     /// </summary>
     public class ServiceConfigurer : IServiceConfigurer
     {

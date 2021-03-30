@@ -32,5 +32,6 @@ namespace Yd.Extensions.WebApis
     [Route("api/[area]/[controller]")]
     public abstract class AdminControllerBase : Extensions.ControllerBase
     {
+        
     }
 }

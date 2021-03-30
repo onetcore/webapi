@@ -1,0 +1,49 @@
+﻿@page
+@model PermissionModel
+@{
+    ViewBag.Title = "权限配置";
+    ViewBag.Current = "users.roles";
+    ViewBag.SubTitle = Model.Current.Name;
+    var current = true;
+}
+<form method="post">
+    <input type="hidden" name="RoleId" value="@Model.Current.Id" />
+    <div class="tab-content mb-3">
+        @foreach (var key in Model.Permissions.Keys)
+        {
+            var permissions = Model.Permissions[key];
+            <div .class-active="current" .class-show="current" class="tab-pane fade" id="@key" role="tabpanel" aria-labelledby="@(key)-tab">
+                <table class="table table-striped table-bordered">
+                    <tbody>
+                    @foreach (var permission in permissions)
+                    {
+                        <tr>
+                            <td>
+                                <b>@permission.Text</b>
+                                <div class="text-secondary">@permission.Description</div>
+                            </td>
+                            <td class="text-middle"><gt:permission-radioboxlist class="row" iclass="col-4" disabled="Model.Current.RoleLevel >= Model.Role.RoleLevel" roleid="Model.Current.Id" permissionid="permission.Id"></gt:permission-radioboxlist></td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+            current = false;
+        }
+    </div>
+    <div .visible="Model.Current.RoleLevel < Model.Role.RoleLevel" class="mb-3">
+        <button type="submit" js-submit="true" class="btn btn-primary">提交</button>
+    </div>
+</form>
+
+@section summary{
+    <ul class="nav nav-tabs" role="tablist">
+        @foreach (var category in Model.Permissions.Keys)
+        {
+            <li class="nav-item" .class-active="!current">
+                <a .class-active="!current" class="nav-link" id="@(category)-tab" data-toggle="tab" href="#@(category)" role="tab" aria-controls="home" aria-selected="true">@Model.GetOrAddNamedString($"permissions.{category}")</a>
+            </li>
+            current = true;
+        }
+    </ul>
+}

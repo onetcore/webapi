@@ -4,20 +4,10 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - @Settings.SiteName</title>
-    <link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/lib/gtcore/dist/css/gtcore.min.css" />
-    @RenderSection("header", false)
+    <gt:header title="@ViewData["Title"]">@RenderSection("header", false)</gt:header>
 </head>
 <body class="@ViewBag.ClassName">
     @RenderBody()
-    <script src="~/lib/jquery/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="~/lib/feather-icons/feather.min.js"></script>
-    <script src="~/lib/gtcore/dist/js/gtcore.min.js"></script>
-    @RenderSection("footer", false)
-    <gt:status-message-panel modal="true"></gt:status-message-panel>
-    <form asp-antiforgery="true" id="ajax-protected-form"></form>
+    <gt:footer alert="true">@RenderSection("footer", false)</gt:footer>
 </body>
 </html>

@@ -1,4 +1,4 @@
-﻿using Gentings.Identity;
+﻿using Gentings.Security.Roles;
 using Yd.Extensions.Security.Roles;
 
 namespace Yd.Extensions.Security

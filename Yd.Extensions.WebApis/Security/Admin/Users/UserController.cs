@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Gentings.Extensions.Settings;
-using Gentings.Identity;
+using Gentings.Security;
 using Microsoft.AspNetCore.Mvc;
 using Yd.Extensions.Security;
 

@@ -1,0 +1,231 @@
+﻿@page
+@model SettingsModel
+@{
+    ViewBag.Title = "用户配置";
+    ViewBag.Current = "users.settings";
+}
+
+<form method="post" class="tab-content">
+    <div class="tab-pane fade show active" id="basic">
+        <table class="table table-striped table-bordered">
+            <tbody>
+                <tr>
+                    <td class="border-right-0">
+                        <b>用户注册</b>
+                        <div class="text-secondary">是否开放用户注册功能</div>
+                    </td>
+                    <td class="align-middle text-right border-left-0">
+                        <gt:checkbox asp-for="Input.Registrable"> </gt:checkbox>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="border-right-0">
+                        <b>唯一邮件地址</b>
+                        <div class="text-secondary">是否邮件地址唯一，如果通过邮件地址登录就需要设置唯一</div>
+                    </td>
+                    <td class="align-middle text-right border-left-0">
+                        <gt:checkbox asp-for="Input.RequireUniqueEmail"> </gt:checkbox>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="border-right-0">
+                        <b>邮件激活</b>
+                        <div class="text-secondary">注册成功后，是否需要通过邮件才能激活账号</div>
+                    </td>
+                    <td class="align-middle text-right border-left-0">
+                        <gt:checkbox asp-for="Input.RequireConfirmedEmail"> </gt:checkbox>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="border-right-0">
+                        <b>短信激活</b>
+                        <div class="text-secondary">注册成功后，是否需要通过短信才能激活账号</div>
+                    </td>
+                    <td class="align-middle text-right border-left-0">
+                        <gt:checkbox asp-for="Input.RequireConfirmedPhoneNumber"> </gt:checkbox>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="border-right-0">
+                        <b>验证码登录</b>
+                        <div class="text-secondary">在登录页面是否开启验证码</div>
+                    </td>
+                    <td class="align-middle text-right border-left-0">
+                        <gt:checkbox asp-for="Input.ValidCode"> </gt:checkbox>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="border-right-0">
+                        <b>二次登录验证</b>
+                        <div class="text-secondary">用户密码登录成功后，是否需要进行短信验证</div>
+                    </td>
+                    <td class="align-middle text-right border-left-0">
+                        <gt:checkbox asp-for="Input.RequiredTwoFactorEnabled"> </gt:checkbox>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="border-right-0">
+                        <b>登录转向类型</b>
+                        <div class="text-secondary">用户登录成功后，默认转向的页面</div>
+                    </td>
+                    <td class="align-middle text-right border-left-0">
+                        <gt:enum-radioboxlist class="row" iclass="col-4" asp-for="Input.LoginDirection"></gt:enum-radioboxlist>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="border-right-0">
+                        <b>登录页面背景图片</b>
+                        <div class="text-secondary">用于替换登录页面的背景图片</div>
+                    </td>
+                    <td class="align-middle text-right border-left-0">
+                        <input class="uploaded" type="hidden" asp-for="Input.LoginBg" />
+                        <img class="login-bg uploaded" title="点击上传" js-upload="@Url.Page("./Settings", "Upload")" src="@Model.Input.LoginBg" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="tab-pane fade" id="account">
+        <table class="table table-striped table-bordered">
+            <tbody>
+                <tr>
+                    <td class="border-right-0">
+                        <b>锁定功能</b>
+                        <div class="text-secondary">对新用户是否开启锁定功能</div>
+                    </td>
+                    <td class="align-middle text-right border-left-0">
+                        <gt:checkbox asp-for="Input.AllowedLockoutForNewUsers"> </gt:checkbox>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="border-right-0">
+                        <b>账号允许字符串</b>
+                        <div class="text-secondary">用户账号允许的字符串</div>
+                    </td>
+                    <td class="align-middle text-right border-left-0">
+                        <input class="form-control" asp-for="Input.AllowedUserNameCharacters" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="border-right-0">
+                        <b>登录失败锁定次数</b>
+                        <div class="text-secondary">用户尝试登录失败的次数，当达到这个次数时账号将被锁定</div>
+                    </td>
+                    <td class="align-middle text-right border-left-0">
+                        <input class="form-control" asp-for="Input.MaxFailedAccessAttempts" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="border-right-0">
+                        <b>锁定时间长度</b>
+                        <div class="text-secondary">用户登录失败达到次数后，锁定的时间长度</div>
+                    </td>
+                    <td class="align-middle text-right border-left-0">
+                        <input class="form-control" asp-for="Input.DefaultLockoutTimeSpan" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="tab-pane fade" id="password">
+        <table class="table table-striped table-bordered">
+            <tbody>
+                <tr>
+                    <td class="border-right-0">
+                        <b>数字字符</b>
+                        <div class="text-secondary">密码是否需要数字字符</div>
+                    </td>
+                    <td class="align-middle text-right border-left-0">
+                        <gt:checkbox asp-for="Input.RequireDigit"> </gt:checkbox>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="border-right-0">
+                        <b>小写字母</b>
+                        <div class="text-secondary">密码是否需要小写字母</div>
+                    </td>
+                    <td class="align-middle text-right border-left-0">
+                        <gt:checkbox asp-for="Input.RequireLowercase"> </gt:checkbox>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="border-right-0">
+                        <b>大写字母</b>
+                        <div class="text-secondary">密码是否需要大写字母</div>
+                    </td>
+                    <td class="align-middle text-right border-left-0">
+                        <gt:checkbox asp-for="Input.RequireUppercase"> </gt:checkbox>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="border-right-0">
+                        <b>符号字符</b>
+                        <div class="text-secondary">密码是否需要符号字符</div>
+                    </td>
+                    <td class="align-middle text-right border-left-0">
+                        <gt:checkbox asp-for="Input.RequireNonAlphanumeric"> </gt:checkbox>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="border-right-0">
+                        <b>唯一字符</b>
+                        <div class="text-secondary">密码必须包含的最小唯一字符数</div>
+                    </td>
+                    <td class="align-middle text-right border-left-0">
+                        <input class="form-control" asp-for="Input.RequiredUniqueChars" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="border-right-0">
+                        <b>密码最小长度</b>
+                        <div class="text-secondary">密码最小字符串长度</div>
+                    </td>
+                    <td class="align-middle text-right border-left-0">
+                        <input class="form-control" asp-for="Input.RequiredPasswordLength" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-outline-secondary">提交</button>
+    </div>
+</form>
+
+@section summary
+{
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item active">
+            <a class="nav-link active" data-toggle="tab" href="#basic" role="tab">基础配置</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#account" role="tab">账号配置</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#password" role="tab">密码配置</a>
+        </li>
+    </ul>
+}
+
+@section header
+{
+    <style>
+        img.login-bg {
+            height: 38px;
+            cursor: pointer;
+        }
+    </style>
+}
+
+@section footer{
+    <script type="text/javascript">
+        GtCore.queue(context => {
+            $('[data-toggle=uploader]', context).exec(current => {
+                current.on('uploaded',
+                    function (e, url) {
+                        current.attr('src', url).parent().find('input').val(url);
+                    });
+            });
+        });
+    </script>
+}

@@ -1,0 +1,60 @@
+﻿@page
+@model IndexModel
+@{
+    ViewBag.Title = "日志管理";
+    ViewBag.Current = "users.logs";
+    var date = DateTime.MinValue;
+}
+
+<div class="gt-toolbar d-print-none mb-3">
+    <form class="form-inline" method="get">
+        <gt:toolbar-form-group>
+            <label>分类：</label>
+            <gt:event-dropdownlist class="form-control form-control-sm" default-text="全部" default-value="0" asp-for="Query.EventId"></gt:event-dropdownlist>
+        </gt:toolbar-form-group>
+        <gt:toolbar-form-group>
+            <label>日期：</label>
+            <gt:toolbar-range-group>
+                <gt:datetimepicker type="Date" max-selector="#Query_End" asp-for="Query.Start" />
+                <divider />
+                <gt:datetimepicker type="Date" class="radius-right" max-selector="#Query_Start" asp-for="Query.End" />
+            </gt:toolbar-range-group>
+        </gt:toolbar-form-group>
+        <gt:toolbar-form-group>
+            <gt:toolbar-input-group>
+                <input asp-for="Query.User" placeholder="用户名称"/>
+                <gt:append-search/>
+            </gt:toolbar-input-group>
+        </gt:toolbar-form-group>
+    </form>
+</div>
+<div class="table-responsive">
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th class="text-center">时间</th>
+                <th class="text-center">分类</th>
+                <th>日志信息</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var message in Model.Model)
+            {
+                if (date != message.CreatedDate.Date.Date)
+                {
+                    date = message.CreatedDate.Date.Date;
+                    <tr>
+                        <th colspan="3">@date.ToString("yyyy-MM-dd")</th>
+                    </tr>
+                }
+                <tr>
+                    <td class="text-center">@message.CreatedDate.ToString("HH:mm")</td>
+                    <td class="text-center">@Model.GetEventType(message.EventId)</td>
+                    <td><a asp-route-userid="@message.UserId">@message["UserName"]</a> @Html.Raw(message.Message)</td>
+                </tr>
+            }
+            <gt:warning-tabled colspan="3" class="text-secondary" attach="Model.Model">没有查询到相关日志！</gt:warning-tabled>
+        </tbody>
+    </table>
+    <gt:page class="page-center d-print-none mb-0" data="Model.Model" asp-route-eventid="@Model.Query.EventId" asp-route-end="@Model.Query.End" asp-route-start="@Model.Query.Start" asp-route-user="@Model.Query.User"></gt:page>
+</div>

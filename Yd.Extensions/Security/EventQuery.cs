@@ -1,32 +1,28 @@
 ﻿using Gentings.Data;
-using Gentings.Extensions.EventLogging;
-using Yd.Extensions.Security.Roles;
+using Gentings.Extensions.Events;
 
 namespace Yd.Extensions.Security
 {
     /// <summary>
     /// 事件查询实例。
     /// </summary>
-    public class EventQuery : EventQueryBase<User>
+    public class EventQuery : Gentings.Security.EventQuery<User>
     {
         /// <summary>
-        /// 当前用户角色等级。
+        /// 用户。
         /// </summary>
-        public int RoleLevel { get; set; }
+        public string User { get; set; }
 
         /// <summary>
         /// 初始化查询上下文。
         /// </summary>
         /// <param name="context">查询上下文。</param>
-        protected override void Init(IQueryContext<EventMessage> context)
+        protected override void Init(IQueryContext<Event> context)
         {
             base.Init(context);
-            if (RoleLevel > 0)
-            {
-                context.Select()
-                    .LeftJoin<User, Role>((u, r) => u.RoleId == r.Id)
-                    .Where<Role>(x => x.RoleLevel <= RoleLevel);
-            }
+            if (!string.IsNullOrEmpty(User))
+                context.InnerJoin<User>((e, u) => e.UserId == u.Id)
+                    .Where<User>(x => x.NormalizedUserName.Contains(User) || x.NickName.Contains(User));
         }
     }
 }
