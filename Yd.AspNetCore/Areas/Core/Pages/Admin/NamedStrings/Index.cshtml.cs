@@ -4,7 +4,7 @@ using Gentings.Security.Permissions;
 using Microsoft.AspNetCore.Mvc;
 using Yd.AspNetCore.Core;
 
-namespace Yd.AspNetCore.Areas.Core.Pages.Admin.NamedSettings
+namespace Yd.AspNetCore.Areas.Core.Pages.Admin.NamedStrings
 {
     /// <summary>
     /// 字典管理。

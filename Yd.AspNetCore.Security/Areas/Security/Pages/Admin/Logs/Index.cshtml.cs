@@ -14,7 +14,10 @@ namespace Yd.AspNetCore.Security.Areas.Security.Pages.Admin.Logs
     public class IndexModel : ModelBase
     {
         private readonly IEventManager _eventManager;
-
+        /// <summary>
+        /// 初始化类<see cref="IndexModel"/>。
+        /// </summary>
+        /// <param name="eventManager">事件管理接口。</param>
         public IndexModel(IEventManager eventManager)
         {
             _eventManager = eventManager;
@@ -33,14 +36,20 @@ namespace Yd.AspNetCore.Security.Areas.Security.Pages.Admin.Logs
         [BindProperty(SupportsGet = true)]
         public EventQuery Query { get; set; }
 
-        public IPageEnumerable<Event> Model { get; set; }
+        /// <summary>
+        /// 事件列表。
+        /// </summary>
+        public IPageEnumerable<Event> Items { get; set; }
 
+        /// <summary>
+        /// 分页获取事件列表。
+        /// </summary>
         public void OnGet()
         {
             if (Query.End != null)
                 Query.End = Query.End.Value.Add(new TimeSpan(23, 59, 59));
             Query.IsChildren = true;
-            Model = _eventManager.Load(Query);
+            Items = _eventManager.Load(Query);
         }
     }
 }

@@ -16,8 +16,8 @@
     </form>
     <gt:toolbar-btn-group right="true" .permission="@CorePermissions.EditSensitive">
         <a js-checked="post" js-confirm="你确定要删除所选择的敏感词吗？" asp-page-handler="Delete" .icon="fa-trash-o">删除</a>
-        <a js-modal="click" asp-page="./Edit" .icon="plus">添加</a>
-        <a js-upload="click" asp-page-handler="Upload" .icon="upload">上传</a>
+        <a js-modal="click" asp-page="./Edit" .icon="fa-plus">添加</a>
+        <a js-upload="click" asp-page-handler="Upload" .icon="fa-upload">上传</a>
     </gt:toolbar-btn-group>
 </div>
 
@@ -42,6 +42,7 @@
                     <td>@word.CreatedDate.ToString("yyyy-MM-dd HH:mm:ss")</td>
                     <td class="data-action" .permission="@CorePermissions.EditSensitive">
                         <a js-modal="click" asp-page="./Edit" asp-route-id="@word.Id"><i class="fa fa-pencil"></i> 编辑</a>
+                        <a js-action="post" asp-route-ids="@word.Id" js-confirm="你确定要删除“@word.Word”吗？" asp-page-handler="Delete" .icon="fa-trash-o">删除</a>
                     </td>
                 </tr>
             }

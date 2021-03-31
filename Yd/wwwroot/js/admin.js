@@ -115,3 +115,17 @@ JSON.format = function (code) {
     }
     return result;
 }
+
+if (typeof window.CodeMirror !== 'undefined') {
+    var codeMirrors = document.querySelectorAll('.CodeMirror');
+    codeMirrors.forEach(item => {
+        window.CodeMirror.fromTextArea(item,
+            {
+                theme: 'idea',
+                lineNumbers: true, //显示行号
+                lineWrapping: true, //是否强制换行
+                mode: item.getAttribute('.mode') || 'htmlmixed',
+                extraKeys: { "Tab": "autocomplete" }
+            });
+    });
+}

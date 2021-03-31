@@ -16,7 +16,6 @@
     <ProjectReference Include="..\..\gentings\Gentings.AspNetCore\Gentings.AspNetCore.csproj" />
     <ProjectReference Include="..\..\gentings\Gentings.Data.SqlServer\Gentings.Data.SqlServer.csproj" />
     <ProjectReference Include="..\..\gentings\Gentings.Extensions\Gentings.Extensions.csproj" />
-    <ProjectReference Include="..\..\gentings\Gentings.Security.Scores\Gentings.Security.Scores.csproj" />
     <ProjectReference Include="..\..\gentings\Gentings.Security\Gentings.Security.csproj" />
     <ProjectReference Include="..\..\gentings\Gentings.Storages\Gentings.Storages.csproj" />
     <ProjectReference Include="..\..\Gentings\Gentings\Gentings.csproj" />

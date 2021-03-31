@@ -1,5 +1,6 @@
 ﻿@{
     Layout = "_Global";
+    ViewData.AddLibraries(ImportLibrary.GtCore);
     ViewBag.ClassName = Settings.IsTopMenu ? "gt-skin gt-topmenu" : "gt-skin";
     var notifications = NotificationManager.Load(Current.Id, 10);
     var events = EventManager.LoadUserEvents(Current.Id, 10);

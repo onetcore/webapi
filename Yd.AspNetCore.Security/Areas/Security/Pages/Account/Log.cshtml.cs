@@ -10,7 +10,10 @@ namespace Yd.AspNetCore.Security.Areas.Security.Pages.Account
     public class LogModel : ModelBase
     {
         private readonly IEventManager _eventManager;
-
+        /// <summary>
+        /// 初始化类<see cref="LogModel"/>。
+        /// </summary>
+        /// <param name="eventManager">事件管理接口。</param>
         public LogModel(IEventManager eventManager)
         {
             _eventManager = eventManager;
@@ -23,12 +26,19 @@ namespace Yd.AspNetCore.Security.Areas.Security.Pages.Account
         /// <returns>返回事件类型名称。</returns>
         public string GetEventType(int id) => _eventManager.GetEventType(id)?.Name;
 
-        public IPageEnumerable<Event> Model { get; set; }
+        /// <summary>
+        /// 事件列表。
+        /// </summary>
+        public IPageEnumerable<Event> Items { get; set; }
 
+        /// <summary>
+        /// 分页获取事件列表。
+        /// </summary>
+        /// <param name="query">事件查询实例。</param>
         public void OnGet(EventQuery query)
         {
             query.UserId = UserId;
-            Model = _eventManager.Load(query);
+            Items = _eventManager.Load(query);
         }
     }
 }

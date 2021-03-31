@@ -1,13 +1,14 @@
 ﻿@{
     Layout = "_Global";
 }
+@inject SiteSettings Settings
 
 @section header{
     <link rel="stylesheet" href="~/css/site.min.css" .dev-href="~/css/site.css" />
-    @RenderSection("header", false)
+    @RenderSection("header", false)@Html.Raw(Settings.Header)
 }
 
 @section footer{
     <script src="~/js/site.min.js" .dev-src="~/js/site.js"></script>
-    @RenderSection("footer", false)
+    @RenderSection("footer", false)@Html.Raw(Settings.Footer)
 }

@@ -49,6 +49,16 @@ namespace Yd.Extensions
         }
 
         /// <summary>
+        /// 头部代码。
+        /// </summary>
+        public string Header { get; set; }
+
+        /// <summary>
+        /// 尾部代码。
+        /// </summary>
+        public string Footer { get; set; }
+
+        /// <summary>
         /// 替换后的版本信息。
         /// </summary>
         public string ReplacedCopyright => Copyright?.Replace("$version", Cores.Version.ToString(3))

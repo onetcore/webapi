@@ -231,9 +231,9 @@
             用户。
             </summary>
         </member>
-        <member name="M:Yd.Extensions.Security.EventQuery.Init(Gentings.Data.IQueryContext{Gentings.Extensions.Events.Event})">
+        <member name="M:Yd.Extensions.Security.EventQuery.InitUsers(Gentings.Data.IQueryContext{Gentings.Extensions.Events.Event})">
             <summary>
-            初始化查询上下文。
+            初始化用户条件。
             </summary>
             <param name="context">查询上下文。</param>
         </member>
@@ -335,6 +335,11 @@
             <param name="userRoleContext">用户角色数据库操作接口。</param>
             <param name="roleClaimContext">用户声明数据库操作接口。</param>
         </member>
+        <member name="T:Yd.Extensions.Security.Scores.UserEventHandler">
+            <summary>
+            用户事件处理类。
+            </summary>
+        </member>
         <member name="T:Yd.Extensions.Security.SecuritySettings">
             <summary>
             安全配置。
@@ -397,7 +402,7 @@
         </member>
         <member name="T:Yd.Extensions.Security.UserEventHandler">
             <summary>
-            用户事件。
+            用户事件处理类。
             </summary>
         </member>
         <member name="T:Yd.Extensions.Security.UserLogin">
@@ -487,6 +492,16 @@
         <member name="P:Yd.Extensions.SiteSettings.Copyright">
             <summary>
             版权信息。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.SiteSettings.Header">
+            <summary>
+            头部代码。
+            </summary>
+        </member>
+        <member name="P:Yd.Extensions.SiteSettings.Footer">
+            <summary>
+            尾部代码。
             </summary>
         </member>
         <member name="P:Yd.Extensions.SiteSettings.ReplacedCopyright">

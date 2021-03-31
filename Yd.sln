@@ -39,19 +39,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gentings.Saas", "..\genting
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gentings.Security", "..\gentings\Gentings.Security\Gentings.Security.csproj", "{34F6085A-4DD1-4B41-91A3-F7B03F8D5960}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gentings.Security.Scores", "..\gentings\Gentings.Security.Scores\Gentings.Security.Scores.csproj", "{FE01B637-39E7-48F9-AA86-AC13DADC3A3E}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gentings.Utilities", "..\gentings\Gentings.Utilities\Gentings.Utilities.csproj", "{33124124-5E5A-489B-A337-71D6CDC2E91C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gentings.Extensions.OpenServices", "..\gentings\Gentings.Extensions.OpenServices\Gentings.Extensions.OpenServices.csproj", "{D40F429A-6657-4AB4-BA0F-7CF3F1EC2871}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yd.AspNetCore.Security", "Yd.AspNetCore.Security\Yd.AspNetCore.Security.csproj", "{4F7D22E2-ABAC-43BA-ACC2-BC3947844483}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yd.AspNetCore.Security", "Yd.AspNetCore.Security\Yd.AspNetCore.Security.csproj", "{4F7D22E2-ABAC-43BA-ACC2-BC3947844483}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yd.AspNetCore.Emails", "Yd.AspNetCore.Emails\Yd.AspNetCore.Emails.csproj", "{588608A8-7718-4CA9-9118-B003C60CAF9F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yd.AspNetCore.Emails", "Yd.AspNetCore.Emails\Yd.AspNetCore.Emails.csproj", "{588608A8-7718-4CA9-9118-B003C60CAF9F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yd.AspNetCore", "Yd.AspNetCore\Yd.AspNetCore.csproj", "{916C9368-7481-4DF4-BFC3-59382AC0430D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yd.AspNetCore", "Yd.AspNetCore\Yd.AspNetCore.csproj", "{916C9368-7481-4DF4-BFC3-59382AC0430D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yd.AspNetCore.OpenServices", "Yd.AspNetCore.OpenServices\Yd.AspNetCore.OpenServices.csproj", "{F266265B-EA84-47DE-87C6-E069DBEFFBEF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yd.AspNetCore.OpenServices", "Yd.AspNetCore.OpenServices\Yd.AspNetCore.OpenServices.csproj", "{F266265B-EA84-47DE-87C6-E069DBEFFBEF}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yd.AspNetCore.Storages", "Yd.AspNetCore.Storages\Yd.AspNetCore.Storages.csproj", "{1B751923-52F9-42A3-9934-88E58FBE5991}"
 EndProject
@@ -191,14 +189,6 @@ Global
 		{34F6085A-4DD1-4B41-91A3-F7B03F8D5960}.Release|Any CPU.Build.0 = Release|Any CPU
 		{34F6085A-4DD1-4B41-91A3-F7B03F8D5960}.Release|x64.ActiveCfg = Release|Any CPU
 		{34F6085A-4DD1-4B41-91A3-F7B03F8D5960}.Release|x64.Build.0 = Release|Any CPU
-		{FE01B637-39E7-48F9-AA86-AC13DADC3A3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FE01B637-39E7-48F9-AA86-AC13DADC3A3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FE01B637-39E7-48F9-AA86-AC13DADC3A3E}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{FE01B637-39E7-48F9-AA86-AC13DADC3A3E}.Debug|x64.Build.0 = Debug|Any CPU
-		{FE01B637-39E7-48F9-AA86-AC13DADC3A3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FE01B637-39E7-48F9-AA86-AC13DADC3A3E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FE01B637-39E7-48F9-AA86-AC13DADC3A3E}.Release|x64.ActiveCfg = Release|Any CPU
-		{FE01B637-39E7-48F9-AA86-AC13DADC3A3E}.Release|x64.Build.0 = Release|Any CPU
 		{33124124-5E5A-489B-A337-71D6CDC2E91C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{33124124-5E5A-489B-A337-71D6CDC2E91C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{33124124-5E5A-489B-A337-71D6CDC2E91C}.Debug|x64.ActiveCfg = Debug|Any CPU
@@ -274,7 +264,6 @@ Global
 		{DEEA8772-F5B2-41D3-8FF1-BF7B40892943} = {845EE051-7F8F-4333-9380-CD321DD44F6A}
 		{51D83B74-9E29-4CC7-A3E5-CFB63D6F68B0} = {845EE051-7F8F-4333-9380-CD321DD44F6A}
 		{34F6085A-4DD1-4B41-91A3-F7B03F8D5960} = {845EE051-7F8F-4333-9380-CD321DD44F6A}
-		{FE01B637-39E7-48F9-AA86-AC13DADC3A3E} = {845EE051-7F8F-4333-9380-CD321DD44F6A}
 		{33124124-5E5A-489B-A337-71D6CDC2E91C} = {845EE051-7F8F-4333-9380-CD321DD44F6A}
 		{D40F429A-6657-4AB4-BA0F-7CF3F1EC2871} = {845EE051-7F8F-4333-9380-CD321DD44F6A}
 	EndGlobalSection

@@ -10,7 +10,7 @@ namespace Yd.Pages.Admin
         /// <param name="root">根目录菜单。</param>
         public override void Init(MenuItem root)
         {
-            root.AddMenu("dashboard", item => item.Texted("控制面板", "home").Page("/Admin/Index"));
+            root.AddMenu("dashboard", item => item.Texted("控制面板", "fa-dashboard").Page("/Admin/Index"));
         }
     }
 }

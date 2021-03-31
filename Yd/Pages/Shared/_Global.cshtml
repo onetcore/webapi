@@ -1,4 +1,4 @@
-﻿@inject SiteSettings Settings
+﻿@{ViewData.AddLibraries(ImportLibrary.Bootstrap | ImportLibrary.FontAwesome);}
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +8,6 @@
 </head>
 <body class="@ViewBag.ClassName">
     @RenderBody()
-    <gt:footer alert="true">@RenderSection("footer", false)</gt:footer>
+    <gt:footer alert="@(ViewBag.Alert??true)">@RenderSection("footer", false)</gt:footer>
 </body>
 </html>

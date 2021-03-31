@@ -50,3 +50,7 @@ pre.prettyprint {
 .flex-auto {
     flex: 1 1 auto;
 }
+
+.CodeMirror {
+    border: 1px solid #c0c0c0;
+}

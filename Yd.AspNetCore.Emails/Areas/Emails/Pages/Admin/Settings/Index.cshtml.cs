@@ -24,14 +24,14 @@ namespace Yd.AspNetCore.Emails.Areas.Emails.Pages.Admin.Settings
         /// <summary>
         /// 邮件配置列表。
         /// </summary>
-        public IEnumerable<EmailSettings> EmailSettings { get; private set; }
+        public IEnumerable<EmailSettings> Items { get; private set; }
 
         /// <summary>
         /// 获取邮件配置列表。
         /// </summary>
         public void OnGet()
         {
-            EmailSettings = _settingsManager.Fetch();
+            Items = _settingsManager.Fetch();
         }
 
         /// <summary>

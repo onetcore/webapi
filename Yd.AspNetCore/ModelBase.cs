@@ -47,14 +47,14 @@ namespace Yd.AspNetCore
         /// </summary>
         /// <param name="userId">用户Id。</param>
         /// <returns>返回缓存用户昵称。</returns>
-        public string GetNickName(int userId) => UserManager.GetCachedUser(userId).NickName;
+        public string GetNickName(int userId) => UserManager.GetCachedUser(userId)?.NickName;
 
         /// <summary>
         /// 获取用户角色名称。
         /// </summary>
         /// <param name="userId">用户Id。</param>
         /// <returns>返回缓存角色名称。</returns>
-        public string GetRoleName(int userId) => UserManager.GetCachedUser(userId).RoleName;
+        public string GetRoleName(int userId) => UserManager.GetCachedUser(userId)?.RoleName;
 
         /// <summary>
         /// 保存配置实例。

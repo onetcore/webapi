@@ -14,12 +14,12 @@ namespace Yd.Extensions.Security
         public string User { get; set; }
 
         /// <summary>
-        /// 初始化查询上下文。
+        /// 初始化用户条件。
         /// </summary>
         /// <param name="context">查询上下文。</param>
-        protected override void Init(IQueryContext<Event> context)
+        protected override void InitUsers(IQueryContext<Event> context)
         {
-            base.Init(context);
+            base.InitUsers(context);
             if (!string.IsNullOrEmpty(User))
                 context.InnerJoin<User>((e, u) => e.UserId == u.Id)
                     .Where<User>(x => x.NormalizedUserName.Contains(User) || x.NickName.Contains(User));

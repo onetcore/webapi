@@ -1,4 +1,5 @@
 ﻿using Gentings;
+using Gentings.Tasks;
 using Gentings.Extensions.Settings;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -15,6 +16,7 @@ namespace Yd.Extensions
         /// <param name="builder">容器构建实例。</param>
         public void ConfigureServices(IServiceBuilder builder)
         {
+            builder.AddTaskServices();
             builder.AddScoped(ss => ss.GetRequiredService<ISettingsManager>().GetSettings<SiteSettings>());
         }
     }

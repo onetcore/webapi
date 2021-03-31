@@ -24,7 +24,7 @@ namespace Yd.AspNetCore.Emails
         /// <param name="root">根目录菜单。</param>
         public override void Init(MenuItem root)
         {
-            root.AddMenu("emails", menu => menu.Texted("邮件管理", "mail").Page("/Admin/Index", area: EmailSettings.ExtensionName).Allow(EmailPermissions.Email)
+            root.AddMenu("emails", menu => menu.Texted("邮件管理", "fa-envelope-open-o").Page("/Admin/Index", area: EmailSettings.ExtensionName).Allow(EmailPermissions.Email)
                 .AddMenu("index",
                         it => it.Texted("邮件发送列表").Page("/Admin/Index", area: EmailSettings.ExtensionName))
                     .AddMenu("settings",

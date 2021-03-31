@@ -21,26 +21,26 @@
             </tr>
         </thead>
         <tbody class="data-content">
-            @foreach (var setting in Model.EmailSettings)
+            @foreach (var item in Model.Items)
             {
                 <tr>
                     <td>
-                        @setting.SmtpServer (@setting.SmtpPort)
-                        <span class="label alert alert-info" .visible="@setting.UseSsl">SSL</span>
-                        @if (setting.Enabled)
+                        @item.SmtpServer (@item.SmtpPort)
+                        <span class="label alert alert-info" .visible="@item.UseSsl">SSL</span>
+                        @if (item.Enabled)
                         {<label class="label alert alert-success">启用</label>}
                         else
                         {<label class="label alert alert-danger">禁用</label>}
                     </td>
-                    <td>@setting.SmtpUserName</td>
-                    <td>@setting.Count</td>
+                    <td>@item.SmtpUserName</td>
+                    <td>@item.Count</td>
                     <td class="data-action">
-                        <a js-modal="click" asp-route-id="@setting.Id" asp-page="./Edit" .icon="fa-pencil">编辑</a> 
-                        <a js-action="post" asp-page-handler="Delete" asp-route-id="@setting.Id" .icon="fa-trash-o">删除</a>
+                        <a js-modal="click" asp-route-id="@item.Id" asp-page="./Edit" .icon="fa-pencil">编辑</a> 
+                        <a js-action="post" asp-page-handler="Delete" asp-route-id="@item.Id" .icon="fa-trash-o">删除</a>
                     </td>
                 </tr>
             }
-            <gt:warning-tabled colspan="4" attach="Model.Settings">还没有添加任何邮件配置信息！</gt:warning-tabled>
+            <gt:warning-tabled colspan="4" attach="Model.Items">还没有添加任何邮件配置信息！</gt:warning-tabled>
         </tbody>
     </table>
 </div>
