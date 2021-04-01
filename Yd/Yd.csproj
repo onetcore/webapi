@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\gentings\Gentings.Data.SqlServer\Gentings.Data.SqlServer.csproj" />
     <ProjectReference Include="..\Yd.AspNetCore.Emails\Yd.AspNetCore.Emails.csproj" />
     <ProjectReference Include="..\Yd.AspNetCore.OpenServices\Yd.AspNetCore.OpenServices.csproj" />
     <ProjectReference Include="..\Yd.AspNetCore.Security\Yd.AspNetCore.Security.csproj" />

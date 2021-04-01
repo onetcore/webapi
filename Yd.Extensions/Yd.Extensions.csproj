@@ -16,6 +16,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\gentings\Gentings.Extensions\Gentings.Extensions.csproj" />
+    <ProjectReference Include="..\..\gentings\Gentings.Security\Gentings.Security.csproj" />
+    <ProjectReference Include="..\..\gentings\Gentings.Storages\Gentings.Storages.csproj" />
+    <ProjectReference Include="..\..\gentings\Gentings\Gentings.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

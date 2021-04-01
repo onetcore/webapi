@@ -14,6 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\gentings\Gentings.Extensions.OpenServices\Gentings.Extensions.OpenServices.csproj" />
     <ProjectReference Include="..\Yd.AspNetCore\Yd.AspNetCore.csproj" />
   </ItemGroup>
 
