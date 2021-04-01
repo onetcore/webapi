@@ -70,6 +70,15 @@ namespace Yd.AspNetCore.Security.Properties {
         }
         
         /// <summary>
+        ///   查找类似 成功登录了账户。 的本地化字符串。
+        /// </summary>
+        internal static string Login_Success {
+            get {
+                return ResourceManager.GetString("Login_Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 成功开通了账户。 的本地化字符串。
         /// </summary>
         internal static string Register_Success {

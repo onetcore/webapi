@@ -8,7 +8,6 @@
   <ItemGroup>
     <PackageReference Include="BuildBundlerMinifier" Version="3.2.449" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.0" />
-    <ProjectReference Include="..\..\gentings\Gentings.Core\Gentings.Core.csproj" />
     <ProjectReference Include="..\..\Gentings\Gentings\Gentings.csproj" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.0" />
   </ItemGroup>

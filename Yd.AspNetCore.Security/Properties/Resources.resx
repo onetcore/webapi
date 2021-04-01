@@ -120,6 +120,9 @@
   <data name="EventType" xml:space="preserve">
     <value>用户</value>
   </data>
+  <data name="Login_Success" xml:space="preserve">
+    <value>成功登录了账户。</value>
+  </data>
   <data name="Register_Success" xml:space="preserve">
     <value>成功开通了账户。</value>
   </data>

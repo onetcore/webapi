@@ -113,7 +113,7 @@ namespace Yd.AspNetCore.Security.Areas.Security.Pages
                     await Events.LogAsync(@event =>
                     {
                         @event.UserId = UserId;
-                        @event.Message = Resources.Register_Success;
+                        @event.Message = Resources.Login_Success;
                     }, EventType);
                     Response.Cookies.Delete("login");
                     return LocalRedirect(returnUrl);
