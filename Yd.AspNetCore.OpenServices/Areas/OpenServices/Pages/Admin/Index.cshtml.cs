@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Threading.Tasks;
 using Gentings.Extensions;
 using Gentings.Extensions.OpenServices;
@@ -28,9 +28,9 @@ namespace Yd.AspNetCore.OpenServices.Areas.OpenServices.Pages.Admin
         public async Task<IActionResult> OnPostDeleteAsync(Guid[] ids)
         {
             if (ids == null || ids.Length == 0)
-                return Error("ÇëÑ¡ÔñÓ¦ÓÃºóÔÙ½øĞĞÉ¾³ı²Ù×÷£¡");
+                return Error("è¯·é€‰æ‹©åº”ç”¨åå†è¿›è¡Œåˆ é™¤æ“ä½œï¼");
             var result = await _applicationManager.DeleteAsync(ids);
-            return Json(result, "Ó¦ÓÃ");
+            return Json(result, "åº”ç”¨");
         }
     }
 }
