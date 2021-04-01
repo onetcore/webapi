@@ -1,7 +1,7 @@
 ﻿using Gentings.Extensions.OpenServices;
 using Yd.Extensions.Security;
 
-namespace Yd.Extensions.OpenServices
+namespace Yd.AspNetCore.OpenServices
 {
     /// <summary>
     /// 应用查询实例。

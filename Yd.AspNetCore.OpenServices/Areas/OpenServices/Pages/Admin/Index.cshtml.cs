@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 using Gentings.Extensions;
 using Gentings.Extensions.OpenServices;
 using Microsoft.AspNetCore.Mvc;
-using Yd.Extensions.OpenServices;
 
 namespace Yd.AspNetCore.OpenServices.Areas.OpenServices.Pages.Admin
 {

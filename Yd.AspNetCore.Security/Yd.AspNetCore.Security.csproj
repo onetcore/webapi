@@ -14,9 +14,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\gentings\Gentings.AspNetCore\Gentings.AspNetCore.csproj" />
-    <ProjectReference Include="..\..\gentings\Gentings.Extensions.Emails\Gentings.Extensions.Emails.csproj" />
-    <ProjectReference Include="..\..\gentings\Gentings.Security\Gentings.Security.csproj" />
     <ProjectReference Include="..\Yd.AspNetCore\Yd.AspNetCore.csproj" />
     <ProjectReference Include="..\Yd.Extensions\Yd.Extensions.csproj" />
   </ItemGroup>

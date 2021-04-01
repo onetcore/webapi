@@ -6,13 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.8.0" />
+    <PackageReference Include="Gentings.Extensions.SMS" Version="2.0.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\gentings\Gentings.Extensions.SMS\Gentings.Extensions.SMS.csproj" />
-    <ProjectReference Include="..\..\gentings\Gentings.Storages\Gentings.Storages.csproj" />
-    <ProjectReference Include="..\..\Gentings\Gentings\Gentings.csproj" />
     <ProjectReference Include="..\Yd.Extensions\Yd.Extensions.csproj" />
   </ItemGroup>
 

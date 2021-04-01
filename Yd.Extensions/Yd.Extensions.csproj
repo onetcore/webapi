@@ -1,5 +1,4 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <LangVersion>8</LangVersion>
@@ -10,11 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\gentings\Gentings.Extensions.OpenServices\Gentings.Extensions.OpenServices.csproj" />
-    <ProjectReference Include="..\..\gentings\Gentings.Extensions\Gentings.Extensions.csproj" />
-    <ProjectReference Include="..\..\gentings\Gentings.Security\Gentings.Security.csproj" />
-    <ProjectReference Include="..\..\gentings\Gentings.Storages\Gentings.Storages.csproj" />
-    <ProjectReference Include="..\..\Gentings\Gentings\Gentings.csproj" />
+    <PackageReference Include="Gentings" Version="2.0.1" />
+    <PackageReference Include="Gentings.Extensions" Version="2.0.1" />
+    <PackageReference Include="Gentings.Security" Version="2.0.1" />
+    <PackageReference Include="Gentings.Storages" Version="2.0.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -37,5 +35,4 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
-
 </Project>

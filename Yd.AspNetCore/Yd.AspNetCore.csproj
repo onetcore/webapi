@@ -10,11 +10,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\gentings\Gentings.AspNetCore\Gentings.AspNetCore.csproj" />
-    <ProjectReference Include="..\..\gentings\Gentings.Extensions.SensitiveWords\Gentings.Extensions.SensitiveWords.csproj" />
-    <ProjectReference Include="..\..\gentings\Gentings.Security\Gentings.Security.csproj" />
-    <ProjectReference Include="..\..\Gentings\Gentings\Gentings.csproj" />
-    <ProjectReference Include="..\Yd.Extensions\Yd.Extensions.csproj" />
+    <PackageReference Include="Gentings.AspNetCore" Version="2.0.1" />
+    <PackageReference Include="Gentings.Extensions.SensitiveWords" Version="2.0.1" />
+    <PackageReference Include="Gentings.Extensions.Emails" Version="2.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Yd.Extensions\Yd.Extensions.csproj" />
+  </ItemGroup>
 </Project>

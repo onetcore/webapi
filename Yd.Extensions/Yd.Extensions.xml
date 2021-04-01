@@ -67,11 +67,6 @@
             <param name="path">字典路径实例。</param>
             <returns>返回当前字典字符串。</returns>
         </member>
-        <member name="T:Yd.Extensions.OpenServices.ApplicationQuery">
-            <summary>
-            应用查询实例。
-            </summary>
-        </member>
         <member name="T:Yd.Extensions.Properties.Resources">
             <summary>
               一个强类型的资源类，用于查找本地化的字符串等。
