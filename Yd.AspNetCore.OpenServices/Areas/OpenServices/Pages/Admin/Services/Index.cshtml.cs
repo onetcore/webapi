@@ -1,36 +1,36 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using Gentings.Extensions.OpenServices;
 using Gentings.Extensions.OpenServices.ApiDocuments;
 
 namespace Yd.AspNetCore.OpenServices.Areas.OpenServices.Pages.Admin.Services
 {
     /// <summary>
-    /// ¿ª·Å·şÎñÄ£ĞÍ¡£
+    /// å¼€æ”¾æœåŠ¡æ¨¡å‹ã€‚
     /// </summary>
     public class IndexModel : AdminModelBase
     {
         /// <summary>
-        /// ·şÎñ¹ÜÀí½Ó¿Ú¡£
+        /// æœåŠ¡ç®¡ç†æ¥å£ã€‚
         /// </summary>
         public IOpenServiceManager ServiceManager { get; }
         private readonly IServiceDocumentManager _serviceManager;
 
         /// <summary>
-        /// ³õÊ¼»¯Àà<see cref="IndexModel"/>¡£
+        /// åˆå§‹åŒ–ç±»<see cref="IndexModel"/>ã€‚
         /// </summary>
-        /// <param name="serviceDocumentManager">·şÎñÎÄµµ¹ÜÀí½Ó¿Ú¡£</param>
-        /// <param name="serviceManager">¿ª·Å·şÎñ¹ÜÀí½Ó¿Ú¡£</param>
+        /// <param name="serviceDocumentManager">æœåŠ¡æ–‡æ¡£ç®¡ç†æ¥å£ã€‚</param>
+        /// <param name="serviceManager">å¼€æ”¾æœåŠ¡ç®¡ç†æ¥å£ã€‚</param>
         public IndexModel(IServiceDocumentManager serviceDocumentManager, IOpenServiceManager serviceManager)
         {
             ServiceManager = serviceManager;
             _serviceManager = serviceDocumentManager;
         }
         /// <summary>
-        /// ÎÄµµÁĞ±í¡£
+        /// æ–‡æ¡£åˆ—è¡¨ã€‚
         /// </summary>
         public IDictionary<string, IEnumerable<ApiDescriptor>> Document { get; private set; }
         /// <summary>
-        /// »ñÈ¡ÎÄµµÁĞ±í¡£
+        /// è·å–æ–‡æ¡£åˆ—è¡¨ã€‚
         /// </summary>
         public void OnGet()
         {

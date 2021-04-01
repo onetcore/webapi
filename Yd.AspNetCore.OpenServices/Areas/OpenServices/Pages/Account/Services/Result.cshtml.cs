@@ -1,4 +1,4 @@
-using System.Linq;
+ï»¿using System.Linq;
 using Gentings.Extensions.OpenServices;
 using Gentings.Extensions.OpenServices.ApiDocuments;
 using Microsoft.AspNetCore.Mvc;
@@ -6,27 +6,27 @@ using Microsoft.AspNetCore.Mvc;
 namespace Yd.AspNetCore.OpenServices.Areas.OpenServices.Pages.Account.Services
 {
     /// <summary>
-    /// ·µ»ØÏêÇé¡£
+    /// è¿”å›è¯¦æƒ…ã€‚
     /// </summary>
     public class ResultModel : AccountModelBase
     {
         private readonly IServiceDocumentManager _documentManager;
         /// <summary>
-        /// ³õÊ¼»¯Àà<see cref="ResultModel"/>¡£
+        /// åˆå§‹åŒ–ç±»<see cref="ResultModel"/>ã€‚
         /// </summary>
-        /// <param name="documentManager">ÎÄµµ¹ÜÀí½Ó¿Ú¡£</param>
+        /// <param name="documentManager">æ–‡æ¡£ç®¡ç†æ¥å£ã€‚</param>
         public ResultModel(IServiceDocumentManager documentManager)
         {
             _documentManager = documentManager;
         }
 
         /// <summary>
-        /// ·µ»ØÀàĞÍÁĞ±í¡£
+        /// è¿”å›ç±»å‹åˆ—è¡¨ã€‚
         /// </summary>
         public ApiDescriptor ApiDescriptor { get; private set; }
 
         /// <summary>
-        /// »ñÈ¡TokenÒ³Ãæ¡£
+        /// è·å–Tokené¡µé¢ã€‚
         /// </summary>
         public IActionResult OnGet(string method, string route)
         {

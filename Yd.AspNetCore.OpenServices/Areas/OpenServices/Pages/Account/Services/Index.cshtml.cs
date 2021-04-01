@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Gentings.Extensions.OpenServices;
@@ -8,23 +8,23 @@ using Microsoft.AspNetCore.Mvc;
 namespace Yd.AspNetCore.OpenServices.Areas.OpenServices.Pages.Account.Services
 {
     /// <summary>
-    /// ¿ª·Å·şÎñÄ£ĞÍ¡£
+    /// å¼€æ”¾æœåŠ¡æ¨¡å‹ã€‚
     /// </summary>
     public class IndexModel : AccountModelBase
     {
         /// <summary>
-        /// ·şÎñ¹ÜÀí½Ó¿Ú¡£
+        /// æœåŠ¡ç®¡ç†æ¥å£ã€‚
         /// </summary>
         public IOpenServiceManager ServiceManager { get; }
         private readonly IServiceDocumentManager _serviceManager;
         private readonly IApplicationManager _applicationManager;
 
         /// <summary>
-        /// ³õÊ¼»¯Àà<see cref="IndexModel"/>¡£
+        /// åˆå§‹åŒ–ç±»<see cref="IndexModel"/>ã€‚
         /// </summary>
-        /// <param name="serviceDocumentManager">·şÎñÎÄµµ¹ÜÀí½Ó¿Ú¡£</param>
-        /// <param name="serviceManager">¿ª·Å·şÎñ¹ÜÀí½Ó¿Ú¡£</param>
-        /// <param name="applicationManager">Ó¦ÓÃ³ÌĞò¹ÜÀí½Ó¿Ú¡£</param>
+        /// <param name="serviceDocumentManager">æœåŠ¡æ–‡æ¡£ç®¡ç†æ¥å£ã€‚</param>
+        /// <param name="serviceManager">å¼€æ”¾æœåŠ¡ç®¡ç†æ¥å£ã€‚</param>
+        /// <param name="applicationManager">åº”ç”¨ç¨‹åºç®¡ç†æ¥å£ã€‚</param>
         public IndexModel(IServiceDocumentManager serviceDocumentManager, IOpenServiceManager serviceManager, IApplicationManager applicationManager)
         {
             ServiceManager = serviceManager;
@@ -33,19 +33,19 @@ namespace Yd.AspNetCore.OpenServices.Areas.OpenServices.Pages.Account.Services
         }
 
         /// <summary>
-        /// ÎÄµµÁĞ±í¡£
+        /// æ–‡æ¡£åˆ—è¡¨ã€‚
         /// </summary>
         public IDictionary<string, IEnumerable<ApiDescriptor>> Document { get; private set; }
 
         /// <summary>
-        /// µ±Ç°Ó¦ÓÃ³ÌĞò¡£
+        /// å½“å‰åº”ç”¨ç¨‹åºã€‚
         /// </summary>
         public Application Application { get; private set; }
 
         /// <summary>
-        /// »ñÈ¡ÎÄµµÁĞ±í¡£
+        /// è·å–æ–‡æ¡£åˆ—è¡¨ã€‚
         /// </summary>
-        /// <param name="id">Ó¦ÓÃ³ÌĞòId¡£</param>
+        /// <param name="id">åº”ç”¨ç¨‹åºIdã€‚</param>
         public async Task<IActionResult> OnGet(Guid id)
         {
             Application = await _applicationManager.FindAsync(id);
@@ -57,7 +57,7 @@ namespace Yd.AspNetCore.OpenServices.Areas.OpenServices.Pages.Account.Services
         }
 
         /// <summary>
-        /// µ±Ç°Ó¦ÓÃ³ÌĞò°üº¬µÄ·şÎñId¡£
+        /// å½“å‰åº”ç”¨ç¨‹åºåŒ…å«çš„æœåŠ¡Idã€‚
         /// </summary>
         public List<int> Services { get; private set; }
     }

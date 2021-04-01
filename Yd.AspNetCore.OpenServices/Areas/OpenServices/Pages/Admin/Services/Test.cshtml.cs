@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Linq;
 using Gentings.Extensions.OpenServices;
 using Gentings.Extensions.OpenServices.ApiDocuments;
@@ -7,25 +7,25 @@ using Microsoft.AspNetCore.Mvc;
 namespace Yd.AspNetCore.OpenServices.Areas.OpenServices.Pages.Admin.Services
 {
     /// <summary>
-    /// µ÷ÊÔ´°¿Ú¡£
+    /// è°ƒè¯•çª—å£ã€‚
     /// </summary>
     public class TestModel : AdminModelBase
     {
         private readonly IServiceDocumentManager _serviceManager;
         /// <summary>
-        /// ³õÊ¼»¯Àà<see cref="TestModel"/>¡£
+        /// åˆå§‹åŒ–ç±»<see cref="TestModel"/>ã€‚
         /// </summary>
-        /// <param name="serviceManager">·şÎñÎÄµµ¹ÜÀí½Ó¿Ú¡£</param>
+        /// <param name="serviceManager">æœåŠ¡æ–‡æ¡£ç®¡ç†æ¥å£ã€‚</param>
         public TestModel(IServiceDocumentManager serviceManager)
         {
             _serviceManager = serviceManager;
         }
 
         /// <summary>
-        /// »ñÈ¡APIÊµÀı¡£
+        /// è·å–APIå®ä¾‹ã€‚
         /// </summary>
-        /// <param name="id">APIÂ·ÓÉ¡£</param>
-        /// <param name="method">·½·¨¡£</param>
+        /// <param name="id">APIè·¯ç”±ã€‚</param>
+        /// <param name="method">æ–¹æ³•ã€‚</param>
         public IActionResult OnGet(string id, string method = "GET")
         {
             Api = _serviceManager.GetApiDescriptors()
@@ -36,7 +36,7 @@ namespace Yd.AspNetCore.OpenServices.Areas.OpenServices.Pages.Admin.Services
         }
 
         /// <summary>
-        /// µ±Ç°APIÊµÀı¡£
+        /// å½“å‰APIå®ä¾‹ã€‚
         /// </summary>
         public ApiDescriptor Api { get; private set; }
     }

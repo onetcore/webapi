@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using Gentings.Extensions.OpenServices.ApiDocuments;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -6,29 +6,29 @@ using Microsoft.AspNetCore.Mvc;
 namespace Yd.AspNetCore.OpenServices.Areas.OpenServices.Pages.Admin.Services
 {
     /// <summary>
-    /// ÉèÖÃToken¡£
+    /// è®¾ç½®Tokenã€‚
     /// </summary>
     public class TokenModel : AdminModelBase
     {
         /// <summary>
-        /// ÊäÈëÄ£ĞÍ¡£
+        /// è¾“å…¥æ¨¡å‹ã€‚
         /// </summary>
         public class InputModel
         {
             /// <summary>
-            /// Token±êÊ¶¡£
+            /// Tokenæ ‡è¯†ã€‚
             /// </summary>
             public string Token { get; set; }
         }
 
         /// <summary>
-        /// Ä£ĞÍÊµÀı¡£
+        /// æ¨¡å‹å®ä¾‹ã€‚
         /// </summary>
         [BindProperty]
         public InputModel Input { get; set; }
 
         /// <summary>
-        /// »ñÈ¡TokenÒ³Ãæ¡£
+        /// è·å–Tokené¡µé¢ã€‚
         /// </summary>
         public void OnGet()
         {
@@ -37,9 +37,9 @@ namespace Yd.AspNetCore.OpenServices.Areas.OpenServices.Pages.Admin.Services
         }
 
         /// <summary>
-        /// ÉèÖÃTokenÊµÀı¡£
+        /// è®¾ç½®Tokenå®ä¾‹ã€‚
         /// </summary>
-        /// <returns>·µ»ØÉèÖÃ½á¹û¡£</returns>
+        /// <returns>è¿”å›è®¾ç½®ç»“æœã€‚</returns>
         public IActionResult OnPost()
         {
             HttpContext.Response.Cookies.Delete(ApiDescriptor.JwtToken);
@@ -47,7 +47,7 @@ namespace Yd.AspNetCore.OpenServices.Areas.OpenServices.Pages.Admin.Services
             {
                 Expires = DateTimeOffset.Now.AddDays(1)
             });
-            return Success("ÄãÒÑ¾­³É¹¦ÉèÖÃÁËToken£¡");
+            return Success("ä½ å·²ç»æˆåŠŸè®¾ç½®äº†Tokenï¼");
         }
     }
 }
