@@ -14,6 +14,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Gentings.AspNetCore" Version="2.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Yd.AspNetCore\Yd.AspNetCore.csproj" />
     <ProjectReference Include="..\Yd.Extensions\Yd.Extensions.csproj" />
   </ItemGroup>
