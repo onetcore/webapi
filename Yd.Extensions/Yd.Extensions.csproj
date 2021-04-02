@@ -9,13 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Gentings" Version="2.0.1" />
-    <PackageReference Include="Gentings.Extensions" Version="2.0.1" />
-    <PackageReference Include="Gentings.Security" Version="2.0.1" />
-    <PackageReference Include="Gentings.Storages" Version="2.0.1" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\..\gentings\Gentings.Extensions\Gentings.Extensions.csproj" />
     <ProjectReference Include="..\..\gentings\Gentings.Security\Gentings.Security.csproj" />
     <ProjectReference Include="..\..\gentings\Gentings.Storages\Gentings.Storages.csproj" />

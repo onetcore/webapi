@@ -56,7 +56,7 @@
                             <a target="_blank" href="@file.Url"><i class="fa fa-link"></i> 访问</a>
                         </div>
                     </td>
-                    <td>@Model.GetNamedString($"extensionname.{file.ExtensionName}")</td>
+                    <td>@Model.GetOrAddNamedString($"extensionname.{file.ExtensionName}")</td>
                     <td>
                         @file.CreatedDate.ToString("yyyy-MM-dd HH:mm:ss")
                     </td>

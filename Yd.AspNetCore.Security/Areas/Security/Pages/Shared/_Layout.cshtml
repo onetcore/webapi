@@ -1,6 +1,8 @@
-﻿@inject SiteSettings SiteSettings
+﻿@using Gentings.AspNetCore
+@inject SiteSettings SiteSettings
 @inject SecuritySettings SecuritySettings
 @{
+    ViewData.AddLibraries(ImportLibrary.GtCore);
     Layout = "_Global";
 }
 

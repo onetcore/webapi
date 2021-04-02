@@ -70,7 +70,7 @@
                 @foreach (var groupName in Model.Document.Keys)
                 {
                     <li .class-active="tab" class="nav-item">
-                        <a .class-active="tab" class="nav-link" data-toggle="tab" href="#@(groupName)" role="tab">@Model.GetNamedString("api." + groupName)</a>
+                        <a .class-active="tab" class="nav-link" data-toggle="tab" href="#@(groupName)" role="tab">@Model.GetOrAddNamedString("api." + groupName)</a>
                     </li>
                     tab = false;
                 }
